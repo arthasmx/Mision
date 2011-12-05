@@ -1,0 +1,173 @@
+@CHARSET "UTF-8";
+
+ .container{
+  margin: 0 auto;
+  padding:0;
+}
+
+
+#header, #content, #slider, #bible_phrase, #slogan, #logo_follow_container, span#separator, span#separator_bottom, span#separator_top{
+  width: 960px;
+  margin: 0 auto;
+ }
+  #header{
+    background:url(/skin/v1/default/light-blue/art/bks/white_gradient.png) repeat-y;
+    height: 80px;
+  }
+
+  span.separator{
+    float:left;
+    background: url(/skin/v1/default/light-blue/art/bks/separator.png) no-repeat 0 0;
+    width:960px;
+    height:15px;
+    margin-bottom: 10px;
+  }
+
+/* HEADER */
+
+  div#logo_follow_container{
+    float: left;
+    height:70px;
+    padding-top:20px;
+    margin-bottom:20px;
+    background: url(/skin/v1/default/light-blue/art/bks/separator.png) no-repeat top center;
+  }
+    h1.logo, h1.flexar {
+      width: 236px; 
+      font-size: 0; 
+      line-height: 0; 
+      float: left;     
+    }
+    h1.logo a, h1.flexar a { 
+      display: block; 
+      height: 50px; 
+      text-indent: -4000px; 
+      background: url(/skin/v1/default/light-blue/art/logos/iglesia_la_mision_logo_small.png) no-repeat center;
+    }
+    h1.flexar {
+      width: 90px;
+    }
+    h1.flexar a{
+      height: 34px;
+      background: url(/skin/v1/default/light-blue/art/logos/flexar.png) no-repeat center;
+    }
+      h1.logo span{
+        color:#00AEEF;
+        font-size:13px;
+      }
+
+        /* LANGUAGE ICON-CHANGER MENUS */
+        div#languages{
+          float: right;
+          width: 20px;
+          padding-top:13px;
+        }
+    div#languages h1{
+     float:left;
+     margin:2px;
+     text-indent:-100000px !important;
+     width:16px; height:11px;
+     cursor:pointer;
+    }
+     div#languages h1 a{
+      display:block;
+      width:16px; height:11px;
+     }
+     h1.es { background-position: -19px -38px; }
+     h1.en { background-position: -2px -38px; }
+
+
+     /* BREADCRUMS */
+
+      #breadcrumbs {
+        float:left;
+        width:980px;
+        margin-bottom:20px;
+      }
+      #breadcrumbs ul {
+        line-height:35px;
+        float:left;
+      }
+      #breadcrumbs ul li {
+        float:left;
+        /*background:url(/skin/v1/default/light-blue/art/bks/breadcrums.png) no-repeat 0 3px;*/
+        padding-left:14px;
+        margin-left:10px;
+      }
+      #breadcrumbs ul li a {
+        display:block;
+        font-weight:normal;
+        color:#388CC2;
+      }
+      #breadcrumbs .current, #breadcrumbs .current a {
+        font-weight:bold !important;
+        font-size:10pt !important;
+      }
+
+/* CONTENT */
+div.white_gradient{
+  background: url(/skin/v1/default/light-blue/art/bks/white_gradient.png) repeat-y center center;
+}
+
+  /* FACEBOOK */
+  div.social_networks{
+    width: 720px; height:30px;
+    float: left;
+  }
+  div.fb-like{
+    float: right;
+    width: 105px !important;
+  }
+
+.body { width:910px; margin:0 auto; padding:10px 25px;}
+.body h2 { font: normal 24px Arial, Helvetica, sans-serif; color:#494848; padding:15px 0; margin:0;}
+.body h2 span { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
+.body .comment { float:right; width:44px; height:46px; background:url(images/comment_bg.gif) no-repeat; font:normal 22px Arial, Helvetica, sans-serif; color:#a4a4a4; line-height:38px; text-align:center;}
+.body p { font:normal 12px Arial, Helvetica, sans-serif; color:#848484; line-height:1.8em; padding:5px 0; margin:0;}
+.body p.about { background:#e6e6e6; border-left:5px solid #cdcdcd; padding:20px; margin:15px 0; font: italic 12px Arial, Helvetica, sans-serif; color:#747474;}
+.body p span { font-size:18px; font-weight:bold; color:#888;}
+.body a { color:#f0962e; text-decoration:none;}
+.body ul.list { padding:0; margin:0; list-style:none;}
+.body ul.list li { float:left; width:50%; padding:3px 0;}
+.body img { margin:5px auto; padding:5px; background:#FFF; border:1px solid #d4d4d4;}
+.body img.noborder { border:0; padding:0; margin:10px 10px 0 0;}
+.body img.none { float:none; margin:0; padding:0; border:none; background:none;}
+.body img.f_left { float:left;}
+.right { width:286px; margin:0; padding:0; float:right;}
+.left { width:601px; margin:0; padding:0 23px 0 0; float:left;}
+.port { width:288px; margin:0; padding:0 23px 20px 0; float:left; text-align: justify;}
+.last { padding:0;}
+
+/* END content */
+
+/* FOOTER */
+.f_top { padding:0; margin:0; background:#373737; border-bottom:1px solid #333333;}
+.f_top_resize { width:910px; margin:0 auto; padding:20px 0;}
+.f_top img { float:left; margin:0; padding:0;}
+.f_top a { color:#f0962e; text-decoration:none; font-weight:bold; }
+.f_top h2 { font: normal 22px Arial, Helvetica, sans-serif; color:#bebdbd; padding:10px 0; margin:0;}
+.f_top p {font: normal 11px Arial, Helvetica, sans-serif; color:#919191; padding:5px 0; margin:0; line-height:1.8em;}
+.f_top ul { padding:0; margin:0; list-style:none;}
+.f_top li { padding:5px 0; margin:0; }
+.f_top li a { font:normal 11px Arial, Helvetica, sans-serif; color:#757575; padding:5px 0 5px 0; margin:0;text-decoration:none;}
+.f_top li a:hover { text-decoration:underline;}
+.f_top .blog { width:190px; float:left; margin:0 25px 0 0; padding:0 25px 0 0; background:url(/skin/v1/default/light-blue/art/bks/column_separator.gif) repeat-y right;}
+.f_top .blog.last { padding:0; margin:0; background:none;}
+
+.f_bottom { background:#2e2e2e url(/skin/v1/default/light-blue/art/bks/footer.png) top no-repeat; border-top:1px solid #303030;}
+.f_b_container { width:910px; padding:20px 0; margin:0 auto; height:30px; }
+.f_b_container p { font:normal 12px Arial, Helvetica, sans-serif; color:#979797;}
+.f_b_container a { font:bold 12px Arial, Helvetica, sans-serif; color:#a9a9a9; text-decoration:none; }
+.f_b_container p.right { text-align:right; width:350px; margin:0; padding:10px 0; float:right;} 
+.f_b_container p.leftt { text-align:left; width:815px; margin:0; padding:10px 0; float:left;}
+/*
+    #footer { text-transform: uppercase; padding-top: 5px; color: #9d8e8e; }
+    #footer a { color: #959a87; text-decoration: underline; }
+    #footer a:hover { color: #6d852c; text-decoration: none; }
+    #footer span { margin: 0 8px; color: #ced1c7; }
+    #footer p, #footer a { font-size: 10px !important; }
+  */  
+
+.icons { background-image: url(/skin/v1/default/light-blue/art/icons/icons.png) !important; background-repeat:no-repeat; height:18px; }
+.breadcrums_home { background-position: 0 2px; padding-left: 20px !important; }
+.breadcrum { background-position: 0 -16px; }

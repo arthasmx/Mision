@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+/* COLUMN TOPIC */
+    h2.col-topic-about { background-image: url(../art/text/bizgroup-services.gif); height: 33px; }
+
+/* COLUMNS */
+    .col { 
+        float: left; 
+        display: inline; 
+    }
+
+    .col h2 { 
+        padding-bottom: 10px; 
+        margin-left: 5px; 
+        text-transform: uppercase; 
+        font-weight: normal; 
+    }
+    .col h2.notext { height: 26px; }
+    .col .content { padding: 5px 0 0 5px; }
+    .col .content p{ text-align: justify;}
+    .two-cols, .three-cols, .four-cols{ padding: 28px 0 24px; }
+
+    /* 2 cols */
+        .two-cols .col { width: 310px;}
+        .two-cols .col-equal { width: 460px; margin: 0 10px; }
+        .two-cols .col-left { width: 620px; margin-right: 18px; }
+        .two-cols .col-right { width: 620px; padding-left:18px; }
+
+    /* 3 cols */
+        .three-cols .col { 
+            width: 300px; 
+            margin-right: 20px; 
+        }
+    /* 4 cols */
+        .four-cols .col { 
+            width: 220px; 
+            margin: 0 10px; 
+        }

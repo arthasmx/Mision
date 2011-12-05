@@ -1,0 +1,45 @@
+
+// SUBMENUS del panel principal
+	"SUBMENU_create","NUEVO"
+	"SUBMENU_listing","LISTADO"
+	"SUBMENU_reminder","RECORDATORIO"
+	"SUBMENU_draft","DRAFTS"
+	"SUBMENU_title","Submenu de menú "
+
+// FILTROS
+	"FILTER_dateformat","formato &raquo; dd/Mes/yyyy"
+
+
+// BLOQUES DE PANEL PRINCIPAL
+
+	// COMENTARIOS PARA x ITEMS DE x USER
+		"BLOCK_xCOM_title","Comentarios públicos"
+	// SOPORTE A USUARIOS
+		"BLOCK_xSUP_title","Soporte a usuarios"
+	// USUARIOS REGISTRADOS
+		"BLOCK_xUSR_title","Ultimos usuarios registrados"
+	// ARTICULOS
+		"BLOCK_xART_title","Ultimos articulos registrados"
+
+
+// USERS
+	"USERS_PRIVILEGES_users","Usuario"
+	"USERS_PRIVILEGES_business","Empresa"
+
+// BUSINESS
+
+	// REMINDER
+		"REMINDER_BUSINESS_ok","<b>Recordatorios enviados.</b> Los contactos de estas empresas han sido notificados"
+
+// COMMENTS
+	"COMMENTS_admin_winTitle","Comentarios de usuarios en área publica"
+	
+// EMAILS BY ADMINS
+
+	"REMINDER_text_1","Hola "
+	"REMINDER_text_2","Nos hemos percatado que no has ingresado a nuestro sitio en "
+	"REMINDER_text_3"," días, y nos preguntamos la razón que te llevó a esta situación."
+	"REMINDER_text_4","Le solicitamos de la manera más atenta, nos indique el fállo que pudiesemos haber cometido con usted, para buscar una solución inmediata y tenerlo de nuevo con nosotros."
+	"REMINDER_text_5","Recuerde, su opinión, actividad y presencia son vitales para nosotros."
+	"REMINDER_text_6","Gracias y te esperamos pronto de regreso!"
+	"REMINDER_text_7","Attentamente: "

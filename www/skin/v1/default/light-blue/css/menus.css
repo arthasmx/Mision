@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+
+/* MAIN MENU */
+
+  #menu{
+    float:left;
+    width: 940px;
+  }
+    #menu li{
+      float: left;
+      margin:0 25px 0 0;
+      padding:0 25px 0 0;
+      background:url(/skin/v1/default/light-blue/art/bks/link_separator.png) no-repeat right;
+    }
+    #menu li.first_link{
+      margin-left: 85px;
+    }
+    #menu li.last_link{
+      background-image: none;
+    }
+    #menu a {
+      color: #00AEEF;
+      display: block;
+      font-size: 11px;
+      line-height: 80px;
+      text-align: center;
+      text-decoration: none;
+      padding: 0 10px;
+    }
+      #menu a:hover, #menu li a.active{
+        color:#999;
+        background:url(/skin/v1/default/light-blue/art/bks/link_gradient.png) no-repeat center;
+      }
+      #menu li a.active{
+        text-decoration: none;
+      }
+  #follow_us{
+    float:right;
+  }
+    #follow_us li{
+      float: left;
+      width: 27px; height: 23px;
+      margin-right: 5px;
+      background-position: -21px 0px;
+      background-repeat: no-repeat;
+    }
+    #follow_us a {
+      display: block;
+      text-indent: -4000px;
+      width: 16px; height:19px;
+      margin-left:5px;
+    }
+      #follow_us a.facebook   { background-position: -1px -50px; }
+        #follow_us a.facebook:hover   { background-position: -17px -50px; }
+      #follow_us a.twitter    { background-position: -33px -50px; }
+        #follow_us a.twitter:hover    { background-position: -49px -50px; }
+      #follow_us a.googleplus { background-position: -65px -50px; }
+        #follow_us a.googleplus:hover { background-position: -81px -50px; }
+      #follow_us a.youtube    { background-position: -97px -50px;}
+        #follow_us a.youtube:hover    { background-position: -113px -50px; }

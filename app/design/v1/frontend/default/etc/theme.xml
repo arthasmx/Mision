@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+ <vars>
+  <global></global>
+
+  <local>
+   <head>
+    <var key='pageTitle'>
+     <value><![CDATA[Iglesia La Misi&oacute;n : Para gente con proposito]]></value>
+    </var>
+    <var key='pageKeywords'>
+     <value><![CDATA[reparación, mantenimiento, cómputo, monitores, radios, reparaciones, electronica]]></value>
+    </var>
+    <var key='pageDescription'>
+     <value><![CDATA[Venta, reparación, mantenimiento de equipo de cómputo, monitores, radios]]></value>
+    </var>
+    <var key='pageAuthor'>
+     <value><![CDATA[Roberto Mejia]]></value>
+    </var>
+    <var key='pageCopyright'>
+     <value><![CDATA[flexar.com.mx]]></value>
+    </var>
+   </head>
+   <page>
+    <breadcrumbs>
+     <var key='welcome_es'>
+      <value><![CDATA[Bienvenidos a computek de mazatlán, donde su satisfacción es nuestra prioridad]]></value>
+     </var>
+    </breadcrumbs>
+   </page>
+  </local>
+
+ </vars>
+
+</config>

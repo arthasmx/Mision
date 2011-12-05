@@ -1,0 +1,102 @@
+; SITE
+
+;HEADER
+HEADER_LOGO_ALT,"Flexar | Diseño de aplicaciones para internet"
+;FOOTER
+FOOTER_AUTHOR_BY, "Diseño de"
+FOOTER_AUTHOR_TEXT, "Flexar.com.mx"
+FOOTER_AUTHOR_URL,"http://www.flexar.com.mx"
+FOOTER_LOGO_ALT,"Flexar | Diseño de aplicaciones para internet"
+
+;CONTENT
+
+;SITE GENERAL
+HEADER_site_logo_slogan, "una iglesia para gente con propósito"
+HEADER_follow_us, "siguenos en:"
+HEADER_follow_us_facebook, "Facebook"
+HEADER_follow_us_twitter, "Twitter"
+HEADER_follow_us_gplus, "Google Plus!"
+HEADER_follow_us_youtube, "Youtube"
+
+;ARTICLES
+ARTICLE_read_more, "Leer más..."
+
+;BREADCRUMS
+BREADCRUM_home, "Inicio"
+BREADCRUM_contact_us, "Contactenos"
+BREADCRUM_bible, "Santa Biblia"
+BREADCRUM_multimedia, "Multimedia"
+BREADCRUM_events, "Eventos"
+BREADCRUM_doctrine, "Doctrina"
+BREADCRUM_about_us, "Quienes somos ?"
+BREADCRUM_announcement, "Anuncios"
+
+;PAGINATION
+PAGINATOR_no_pagination_links, "Ninguna"
+
+;MENUS
+
+; MAIN MENU
+MENU_home,"INICIO"
+MENU_doctrine, "DOCTRINA"
+MENU_events, "EVENTOS"
+MENU_bible, "SANTA BIBLIA"
+MENU_multimedia, "MULTIMEDIA"
+MENU_about,"QUIENES SOMOS ?"
+MENU_contact,"CONTACTENOS"
+
+; LINKS TAG a href
+LINK_home, ""
+LINK_doctrine, "doctrina"
+LINK_events, "eventos"
+LINK_bible, "biblia"
+LINK_multimedia, "multimedia"
+LINK_about, "nosotros"
+LINK_contact, "contactenos"
+
+  ; FOOTER MENU
+    FOOTER_menu_topic_important_links, "Acerca del sitio"
+      FOOTER_link_privacy_policy,"Políticas de privacidad"
+      FOOTER_link_terms_conditions,"Terminos y condiciones"
+      FOOTER_link_sitemap,"Mapa del sitio"
+
+    FOOTER_menu_topic_fraternities, "Fraternidades"
+      FOOTER_link_fraternities_men, "Varones"
+      FOOTER_link_fraternities_women, "Damas"
+      FOOTER_link_fraternities_young, "Jovenes"
+      FOOTER_link_fraternities_teens, "Adolescentes"
+      FOOTER_link_fraternities_kids, "Niños"
+
+    FOOTER_menu_topic_fast_contact, "Ubicación"
+    
+    FOOTER_menu_topic_fast_recomend, "Recomendaciones"
+
+
+;LINKS TAG a href
+LINK_privacy_policy, "politicas-privacidad"
+LINK_terms_conditions, "terminos-condiciones"
+LINK_sitemap, "mapa-sitio"
+LINK_fraternities_men, "fraternidad/varones"
+LINK_fraternities_women, "fraternidad/damas"
+LINK_fraternities_young, "fraternidad/jovenes"
+LINK_fraternities_teens, "fraternidad/adolescentes"
+LINK_fraternities_kids, "fraternidad/ninos"
+
+;ROUTES
+; BIBLE
+route_bible, "/biblia/"
+; ANNOUNCEMENT
+route_announcement, "/anuncios/"
+; PAGINATOR
+route_paginator_page, "pagina"
+; DATASORTER
+route_sort_field, "ordenar_por"
+route_sort_direction, "orientacion"
+
+;ERRORS
+PUBLIC_ERROR_title,   "Perdido ?"
+PUBLIC_ERROR_message, "La página que buscas no existe!"
+PUBLIC_ERROR_advice,  "Utiliza los links que tenemos en nuestro sitio, por favor."
+
+;MANUAL EXCEPTIONS
+EXC_NO_ACTION_TO_PARSE, "Se requiere una acción para ejecutar el método <strong>convert_seo_url_to_action</strong>"

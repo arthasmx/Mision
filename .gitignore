@@ -1,0 +1,14 @@
+app/var/
+app/code/Core/
+_documentacion_interna/
+files/
+_database/
+lib/
+logs/
+_todo/
+_virtualhost/
+.settings/
+app.php
+.buildpath
+.DS_Store
+.project

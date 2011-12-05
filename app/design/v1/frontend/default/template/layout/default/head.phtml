@@ -1,0 +1,65 @@
+<head>
+<meta charset="UTF-8" />
+<title><?=isset($this->pageTitle) ? $this->pageTitle:@$this->xd['pageTitle'];?></title>
+<meta name="author" content="<?=isset($this->pageAuthor) ? $this->pageAuthor:@$this->xd['pageAuthor'];?>" />
+<meta name="copyright" content="<?=isset($this->pageCopyright) ? $this->pageCopyright:@$this->xd['pageCopyright'];?>" />
+<meta name="description" content="<?=isset($this->pageDescription) ? $this->pageDescription:@$this->xd['pageDescription'];?>" />
+<meta name="keywords" content="<?=isset($this->pageKeywords) ? $this->pageKeywords:@$this->xd['pageKeywords'];?>" />
+<meta name="Locality" content="Mazatlan, Mexico" />
+<meta name="lang" content="es" />
+<meta name="revisit-after" content="7 days" />
+
+<!--Links-->
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/reset.css');?>" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/content.css');?>" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/frontend.css');?>" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/default.css');?>" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/menus.css');?>" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/columns.css');?>" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/forms.css');?>" rel="stylesheet" type="text/css" media="all" />
+
+
+	<!-- ieHacks -->
+		<!--[if lt IE 7]>
+			<link href="<?=App::getDesign()->getRelativeSkinPath('/css/ie/ie.css');?>" rel="stylesheet" type="text/css" media="all" />
+		<![endif]-->
+
+		<!--[if lt IE 6]>  <![endif]-->
+		<!--[if lt IE 7]>  <![endif]-->
+		<!--[if lt IE 8]>  <![endif]-->
+
+	<?= App::header()->getLinks();?>
+
+	<?=@$this->xd['_block']['links'];?>
+
+<!--Scripts-->
+    <script src="<?=App::getDesign()->getRelativeJsPath('/jquery-1.7.min.js','js');?>" type="text/javascript"></script>
+
+    <script type='text/javascript'>
+        var baseUrl="<?=App::base();?>";
+        var wwwUrl="<?=App::www();?>";
+        var skinUrl="<?=App::skin();?>";
+        var jsUrl="<?=App::url()->get('','js');?>";
+        var jslibUrl="<?=App::url()->get('','jslib');?>";
+        var curLang="<?=App::locale()->getLang();?>";
+        var skinRelative = "<?=App::getDesign()->getRelativeSkinPath()?>";
+        var jsRelative = "<?=App::getDesign()->getRelativeJsPath()?>";
+        var jsLibRelative = "<?=App::getDesign()->getRelativeJsPath("","jslib")?>";
+
+        <?php if( isset($this->current_main_menu) ):?>
+          jQuery(document).ready(function(){
+            jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").addClass("active");
+          });
+        <?php endif;?>
+
+    </script>
+
+	<?=App::header()->getScripts();?>
+
+	<?=@$this->xd['_block']['scripts'];?>
+
+	<?=@$this->xd['_block']['add'];?>
+
+	<?=App::header()->getCode();?>
+
+</head>

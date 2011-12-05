@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+
+input, textarea, select { font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif; font-size:10px; }
+.field { padding: 7px 5px; border: solid 1px #cdd1bd; color: #969696; height: 14px; }
+.field-focused { color: #333; }
+input.button { padding: 4px 5px; cursor: pointer; }

@@ -1,0 +1,23 @@
+
+    .fxBtnIE-small{
+        width: 80px;
+    }
+    #container{       
+       width: 100%; height:280px;
+    }
+    #content {    
+        width: auto;   
+        overflow-x: hidden !important;
+        padding: 130px 10px !important;
+        
+    } 
+    
+
+    
+.adminlog-header{
+    height: 110px;
+}
+
+div#tb-lang-list, div#tb-lang-list ul{
+    float:left;
+}

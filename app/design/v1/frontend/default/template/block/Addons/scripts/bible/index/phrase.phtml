@@ -1,0 +1,28 @@
+<?php  
+  if ( ! empty($this->phrase) ) : 
+  $url_book = App::base( App::xlat("route_bible")  . $this->phrase['seo']);
+  $url_cap  = $url_book ."/". $this->phrase['cap'];
+  $url_ver  = $url_cap  ."/". $this->phrase['ver'];
+?>
+
+		<h1> <?=$this->phrase['texto']?> </h1>
+		<a href="<?=$url_book?>"> <?=$this->phrase['book']?></a>
+		<a href="<?=$url_cap?>">  <?=$this->phrase['cap']?></a>
+		:
+		<a href="<?=$url_ver?>">  <?=$this->phrase['ver']?></a>
+<?php endif; ?>
+
+<?php
+/*
+Array
+(
+    [verse] => 31054
+    [cap] => 22
+    [ver] => 13
+    [texto] => Yo soy el Alfa y la Omega, el principio y el fin, el primero y el Ãºltimo.
+    [book_id] => 66
+    [book] => Apocalipsis
+    [seo] => apocalipsis
+)
+*/
+?>

@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+
+/* MAIN MENU */
+
+    #main-menu { 
+        height: 21px; 
+        font-family: Verdana, Arial, Sans-Serif; 
+        font-size: 11px; 
+        line-height: 21px; 
+        text-transform: uppercase;
+    }
+    #main-menu ul { 
+        float: right; 
+        display: inline; 
+        list-style-type: none;
+    }
+    #main-menu li, #main-menu li a, #main-menu li a span { 
+        float: left; 
+        display: inline; 
+        padding-left: 10px; 
+        height: 21px;
+    }
+    #main-menu li a { 
+        color: #747963; 
+        text-decoration: none !important; 
+        background-position: 0 0; 
+    }
+    #main-menu li a span { 
+        float: left; 
+        display: inline; 
+        padding: 0 10px 0 0;
+        background-position: right 0; 
+    }
+    #main-menu li a:hover, #main-menu li a.active, #main-menu li a:hover span, #main-menu li a.active span { 
+        background-image: url(../art/menu/active.gif); 
+        color: #fff; 
+        cursor:pointer;
+    }
+
+/* LANGUAGE ICON-CHANGER MENUS */
+
+    div#languages h5{
+        float:left;
+        margin-right:5px;
+        text-indent:-100000px !important;
+        width:16px; height:11px;
+        background-color:#f00;
+        cursor:pointer;        
+    }
+        div#languages h5 a{
+            display:block;
+            width:16px; height:11px;
+        }
+        h5.es{ background-image: url(/skin/v1/default/ogreen/art/flags/es.png); }
+        h5.en{ background-image: url(/skin/v1/default/ogreen/art/flags/en.png); }
+        h5.fr{ background-image: url(/skin/v1/default/ogreen/art/flags/fr.png); }
+        h5.it{ background-image: url(/skin/v1/default/ogreen/art/flags/it.png); }
+        h5.br{ background-image: url(/skin/v1/default/ogreen/art/flags/br.png); }

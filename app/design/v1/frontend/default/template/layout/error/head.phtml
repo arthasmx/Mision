@@ -1,0 +1,58 @@
+<head>
+<title><?=isset($this->pageTitle) ? $this->pageTitle:@$this->xd['pageTitle'];?></title>
+<meta charset="UTF-8" />
+<meta name="author" content="<?=isset($this->pageAuthor) ? $this->pageAuthor:@$this->xd['pageAuthor'];?>" />
+<meta name="copyright" content="<?=isset($this->pageCopyright) ? $this->pageCopyright:@$this->xd['pageCopyright'];?>" />
+<meta name="description" content="<?=isset($this->pageDescription) ? $this->pageDescription:@$this->xd['pageDescription'];?>" />
+<meta name="keywords" content="<?=isset($this->pageKeywords) ? $this->pageKeywords:@$this->xd['pageKeywords'];?>" />
+<meta name="Locality" content="Mazatlan, Mexico" />
+<meta name="lang" content="es" />
+<meta name="revisit-after" content="15 days" />
+
+<!--Links-->
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/reset.css');?>" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/errors.css');?>" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway:100">
+
+    <?= App::header()->getLinks();?>
+
+    <?=@$this->xd['_block']['links'];?>
+
+<!--Scripts-->
+    <script src="<?=App::getDesign()->getRelativeJsPath('/jquery-1.7.min.js','js');?>" type="text/javascript"></script>
+    <script src="<?=App::getDesign()->getRelativeJsPath('/swfobject.js','js');?>" type="text/javascript"></script>
+    <script type='text/javascript'>
+
+      var baseUrl="<?=App::base();?>";
+      var wwwUrl="<?=App::www();?>";
+      var skinUrl="<?=App::skin();?>";
+      var curLang="<?=App::locale()->getLang();?>";
+      var flashvars = {
+          'autostart':          'true'
+      };
+      var params = {
+          'allowfullscreen'   : 'false',
+          'allowscriptaccess' : 'always',
+          'bgcolor'           : '#000',
+          'menu'              : 'false'
+      };
+
+      function set_optional_content(e) {
+        jQuery('#error_top, #error_bottom').remove();
+        jQuery('#error_image').addClass('no_flash_error');
+      }
+
+      jQuery(document).ready(function(){
+        if ( swfobject.hasFlashPlayerVersion("9.0.18") ){
+          swfobject.embedSWF( skinUrl + '/art/error/candle_flash.swf' , 'replace_with_swfobject', '320', '290', '9', 'false', flashvars, params);
+        }else{
+          set_optional_content();
+        }
+      });
+		</script>
+
+	<?=@$this->xd['_block']['add'];?>
+
+	<?=App::header()->getCode();?>
+
+</head>

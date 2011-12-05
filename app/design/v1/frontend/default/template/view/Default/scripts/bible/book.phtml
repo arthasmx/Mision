@@ -1,0 +1,44 @@
+<?php if ( ! empty($this->book['vercicles']) &&  ! empty($this->book['details']) ): ?>
+
+  <ul>
+    <?php foreach($this->book['vercicles']  as  $versicle  ): ?>
+      <li> <?= $versicle['cap'] . ":" . $versicle['ver'] . " - " . utf8_decode($versicle['texto']) ?> </li>
+    <?php endforeach; ?>
+  </ul>
+
+<?php endif; ?>
+
+
+
+
+<?php 
+
+/*
+    [vercicles] => Array
+        (
+            [0] => Array
+                (
+                    [book_id] => 1
+                    [cap] => 1
+                    [ver] => 1
+                    [texto] => En el principio creÃ³ Dios los cielos y la tierra.
+                )
+
+
+
+[details] => Array
+        (
+            [book_id] => 1
+            [book] => GÃ©nesis
+            [seo] => genesis
+            [lang_id] => 1
+            [name] => Español
+            [prefix] => es
+            [namespace] => es_MX
+            [status] => 1
+        )
+
+
+ */
+
+?>

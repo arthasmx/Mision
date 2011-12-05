@@ -1,0 +1,20 @@
+
+<?php if($this->exito):?>
+	<p>
+		<?=App::xlat('PUBLIC_CONTACT_mensaje_enviado')?>
+	</p>
+<?php endif;?>
+
+<?php if($this->error):?>
+	<div class="error-msgbox">
+		<?=App::xlat('PUBLIC_CONTACT_error')?>
+	</div>
+<?php endif;?>
+
+
+<p>
+     <?=App::xlat('PUBLIC_CONTACTUS_title')?>
+</p>
+<p>
+	<?=$this->form?>
+</p>

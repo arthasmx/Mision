@@ -1,0 +1,66 @@
+	"ERROR_LOGIN_NOACTIVITY_NOPRIVILEGES","No has iniciado sesión o tu sesión ha expirado por inactividad"
+
+// PANEL USUARIO PAGINA PRINCIPAL
+	"USER_PANEL_MAIN_MENU_mensajes_title","Comentarios"
+	"USER_PANEL_MAIN_MENU_mensajes_description","Define una breve descripción de lo que el usuario puede hacer dentro de esta sección"
+	"USER_PANEL_MAIN_MENU_perfil_title","Perfil"
+	"USER_PANEL_MAIN_MENU_perfil_description","Define una breve descripción de lo que el usuario puede hacer dentro de esta sección"
+
+
+
+// MESSAGES PANEL
+	"USER_PANEL_TAB_TITLE_answer","Responder a este mensaje"
+	"USER_PANEL_MESSAGE_DETAIL_response_form_1","Estos mensajes son directamente para administración, por lo que te sugerimos enviarnos tus preguntas, comentarios, reporte de errores o sugerencias desde esta sección"
+	"USER_PANEL_MESSAGE_DETAIL_response_form_2","Tenga en cuenta que administración puede responder vía email, por lo que sugerimos revisar la cuenta de correo electronico proporcionado en este sitio"
+	"USER_PANEL_MESSAGE_DETAIL_original_question","Titulo de mensaje"
+	"USER_PANEL_MESSAGE_DETAIL_original_comment","Comentario"
+	"USER_PANEL_MESSAGES_active_message","Mensaje Activo"
+	"USER_PANEL_MESSAGES_delete_message","Eliminar este mensaje"
+	"USER_PANEL_MESSAGES_no_delete_message","No se puede eliminar mensajes escritos por administración"
+	"USER_PANEL_MESSAGES_no_messages","No se han encontrado mensajes en la base de datos"
+	"USER_PANEL_MESSAGES_no_results","<p>No existen respuestas para este mensaje.</p><p>Dá click en 'VER DETALLE', para responder.</p>"
+
+	"USER_PANEL_MESSAGES_select_all","Seleccionar todos los mensajes"
+	"USER_PANEL_MESSAGES_topic","Tema del mensaje"
+	"USER_PANEL_MESSAGES_created","Creado"
+	"USER_PANEL_MESSAGES_new_message","Crear nuevo mensaje"
+	"USER_PANEL_MESSAGES_delete_messages","Eliminar mensaje(s)"
+	"USER_PANEL_MESSAGES_win_title","Detalle de mensaje #"
+	"USER_PANEL_MESSAGES_action_ocultar","Ocultar mensaje(s)"
+	"USER_PANEL_MESSAGES_action_restaurar","Restaurar mensaje(s)"
+	"USER_PANEL_MESSAGES_action_eliminar","Eliminar mensaje(s)"
+	
+	
+	
+	
+	// CREATE NEW MESSAGE
+		"USER_PANEL_MESSAGES_CREATE_MESSAGE_email_subject","Mensaje privado para administración"
+		"USER_PANEL_MESSAGES_CREATE_MESSAGE_closewin","Cerrar ventana"
+		
+		
+
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_intro_text","Nota: Este mensaje ha sido enviado desde el panel de usuario; si respondes a este correo electronico, ten en cuenta que no se guardara un historial de este mensaje, esto es en la sección MENSAJES"
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_message","escribió"
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_client_data","información personal/contacto"		
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_nombre","Cliente"
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_email","Email"
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_telefono","Telefono"
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_extension","Extensión"
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_lastlogin","Ultimo acceso"
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_web","Página web"
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_ciudad","Ciudad"
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_estado","Estado"
+		"USER_PANEL_MESSAGES_SENDING_EMAIL_pais","País"
+
+		
+		
+// PERFIL PANEL
+	// MODIFICA DATOS PERSONALES
+		"USER_PANEL_FORM_ip","Conectado desde"
+		"USER_PANEL_FORM_registro","Registrado"
+		"USER_PANEL_FORM_modificado","Actualizado"
+		"USER_PANEL_FORM_",""
+		"USER_PANEL_FORM_",""
+		
+		
+		

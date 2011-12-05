@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<configdata>
+
+  <production>
+
+    <Default>
+      <active>1</active>
+      <behaviour>default</behaviour>
+      <controller>index</controller>
+      <action>index</action>
+    </Default>
+
+    <Core>
+      <active>1</active>
+      <behaviour>core</behaviour>
+      <observers>
+        <app_action_init>flashmsg/init</app_action_init>
+      </observers>
+    </Core>
+
+    <Addons>
+      <active>1</active>
+    </Addons>
+
+    <Articles>
+      <active>1</active>
+    </Articles>
+
+    <User>
+      <active>1</active>
+      <observers>
+				<!-- 
+				SABADO 09 de ENERO del 2010
+				He OMITIDO este evento porque al parecer hace DOBLE LOGIN
+				No se si sea necesario al momento de hacer LOGIN NORMAL o CONFIRMACION DE UN REGISTRO o CUANDO sea que se necesite
+				este evento, pero segun vi este dia, es un proceso DOBLE
+				 -->
+				<!-- <module_acl_login>login</module_acl_login>	 -->
+        <module_acl_logout>logout</module_acl_logout>
+        <module_acl_noprivileges>noprivileges</module_acl_noprivileges><!--Realiza las redirecciones en caso de que no se disponga de privilegios y si haya iniciado sesión, también muestra el mensaje de error -->
+        <module_acl_noprivileges_login>noprivileges/login</module_acl_noprivileges_login><!--Realiza las redirecciones en caso de que no se disponga de privilegios por no haber iniciado sesión, también muestra el mensaje de error -->
+        <app_action_renderdesign>error</app_action_renderdesign>
+        <module_user_business_entidad>business/entidad</module_user_business_entidad>
+      </observers>
+    </User>
+
+    <Acl>
+      <active>1</active>
+      <observers>
+        <app_front>front</app_front>
+        <app_action_renderdesign>error</app_action_renderdesign>
+        <app_action_init>privileges</app_action_init><!-- Comprueba si la acción requiere privilegios-->
+        <module_user_notfound>logout</module_user_notfound>
+        <module_user_register>register</module_user_register>
+        <module_user_update>update</module_user_update>
+        <module_user_business_register>business/register</module_user_business_register>
+      </observers>
+    </Acl>
+
+    <Error>
+      <active>1</active>
+      <behaviour>error</behaviour>
+    </Error>
+
+    <Debug><active>1</active></Debug>
+
+
+  </production>
+
+  <devel extends="production">
+    <Debug>
+      <active>1</active>
+      <observers>
+        <!-- JS -->
+          <app_action_renderdesign>js</app_action_renderdesign><!-- Rutinas para hacer debug de javascript -->
+        <!-- APP -->
+          <app_done>tracert</app_done><!-- Rutinas para hacer debug de javascript -->
+      </observers>
+    </Debug>
+  </devel>
+
+</configdata>

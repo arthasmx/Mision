@@ -1,0 +1,94 @@
+<div class="carousel clearfix">
+
+  <div class="panel">
+
+    <div class="details_wrapper">
+      <div class="details">
+        <div class="detail">
+          <h2 class="Lexia-Bold"><a href="#">1</a> Cum sociis natoque penatibus et magnis dis parturient montes</h2>
+          <a href="#" title="Read more" class="more">Read more</a>
+        </div>
+        <div class="detail">
+          <h2 class="Lexia-Bold"><a href="#">2</a> sit amet, consectetuer adipiscing elit. </h2>
+          <a href="#" title="Read more" class="more">Read more</a>
+        </div>
+        <div class="detail">
+          <h2 class="Lexia-Bold"><a href="#">3</a>. Cum sociis natoque penatibus et magnis dis parturient montes</h2>
+          <a href="#" title="Read more" class="more">Read more</a>
+        </div>
+        <div class="detail">
+          <h2 class="Lexia-Bold"><a href="#">4</a>. Cum sociis natoque penatibus et magnis dis parturient montes</h2>
+          <a href="#" title="Read more" class="more">Read more</a>
+        </div>
+      </div>
+    </div>
+    <div class="paging">
+      <div id="numbers"></div>
+      <a href="javascript:void(0);" class="previous" title="Previous" >Previous</a>
+      <a href="javascript:void(0);" class="next" title="Next">Next</a>
+    </div>
+    <a href="javascript:void(0);" class="play" title="Turn on autoplay">Play</a>
+    <a href="javascript:void(0);" class="pause" title="Turn off autoplay">Pause</a>
+
+  </div>
+
+  <div class="backgrounds">
+    <div class="item item_1"></div>
+    <div class="item item_2"></div>
+    <div class="item item_3"></div>
+    <div class="item item_4"></div>
+  </div>
+
+</div>
+
+<div id="bible_phrase" class="white_gradient">
+  <?=App::module('Addons')->renderBlock("bible/index","phrase")?>
+</div>
+<span class="separator"></span>
+
+<div class="body white_gradient">
+  <div class="port">
+    <h2>
+      <?=App::xlat('MAINPAGE_column_join')?>
+      <span><?=App::xlat('MAINPAGE_column_join_span')?></span>
+    </h2>
+    <img src="/media/img_1.jpg" alt="picture" class="none" height="95" width="288" />
+    <p><?=App::xlat('MAINPAGE_column_join_description')?></p>
+    <p>
+      <a href="<?=App::base('/')?>">
+        <?=App::xlat('ARTICLE_read_more')?>
+      </a>
+    </p>
+  </div>
+
+  <div class="port">
+    <h2>
+      <?=App::xlat('MAINPAGE_column_project')?>
+      <span><?=App::xlat('MAINPAGE_column_project_span')?></span>
+    </h2>
+    <img src="/media/img_1.jpg" alt="picture" class="none" height="95" width="288" />
+    <p><?=App::xlat('MAINPAGE_column_project_description')?></p>
+    <p>
+      <a href="<?=App::base('/')?>">
+        <?=App::xlat('ARTICLE_read_more')?>
+      </a>
+    </p>
+  </div>
+
+  <div class="port last">
+    <h2>
+      <?=App::xlat('MAINPAGE_column_sermon')?>
+      <span><?=App::xlat('MAINPAGE_column_sermon_span')?></span>
+    </h2>
+    <img src="/media/img_1.jpg" alt="picture" class="none" height="95" width="288" />
+    <p><?=App::xlat('MAINPAGE_column_sermon_description')?></p>
+    <p>
+      <a href="<?=App::base('/')?>">
+        <?=App::xlat('ARTICLE_read_more')?>
+      </a>
+    </p>
+  </div>
+</div>
+
+<span class="separator"></span>
+

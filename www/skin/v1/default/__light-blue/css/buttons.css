@@ -1,0 +1,407 @@
+        
+/* Boton relevante: queremos que llame la atencion */
+	.relevantButton{
+		display: block !important;
+		border: none !important;
+		cursor:pointer !important;
+		height:35px !important; width:100px !important;
+		color:#fff !important; font-size:1em !important;
+		background: url(../art/administration/bks/relevant-button.png) no-repeat !important;
+	}
+		.relevantButton:hover{
+			background: url(../art/administration/bks/relevant-button.png) 0px -35px no-repeat !important;
+			color: #fff !important;
+			text-decoration: underline;
+		}
+		
+/* Boton basico: submits */
+	.basicButton{
+		display: block !important;
+		border: none !important;
+		cursor:pointer !important;
+		height:35px !important; width:100px !important;
+		color:#fff !important; font-size:1em !important;
+		background: url(../art/administration/bks/basic-button.png) no-repeat !important;
+	}
+		.basicButton:hover{
+			background: url(../art/administration/bks/basic-button.png) 0px -34px no-repeat !important;
+		}
+
+/* Boton relevante: queremos que llame la atencion */
+	.smallActionButton{
+		display: block !important;
+		float: left;
+		border: none !important;
+		cursor:pointer !important;
+		height:12px !important; width:44px !important;
+		color:#fff !important; font-size:0.9em !important; text-align: center;
+		background: url(../art/administration/bks/small-action-button.png) no-repeat !important;
+		line-height:12px;
+	}
+		.smallActionButton:hover{
+			background: url(../art/administration/bks/small-action-button.png) 0px -12px no-repeat !important;
+			text-decoration: none;
+		}
+    .smallDarkButton1{
+        display: block !important;
+        float: left;
+        border: none !important;
+        cursor:pointer !important;
+        height:15px !important; width:44px !important;
+        padding-top: 3px;
+        color:#fff !important; font-size:0.7em !important; text-align: center;
+        font-family: verdana,arial; text-transform: capitalize;
+        background: url(../art/administration/bks/bk-btn-dgs.png) no-repeat !important;
+        line-height:12px;
+    }
+        .smallDarkButton1:hover{
+            background: url(../art/administration/bks/bk-btn-dgs.png) 0px -18px no-repeat !important;
+            text-decoration: none;
+        }
+    .smallDarkButton2{
+        display: block !important;
+        float: left;
+        border: none !important;
+        cursor:pointer !important;
+        height:15px !important; width:44px !important;
+        padding-top: 3px;
+        color:#fff !important; font-size:0.7em !important; text-align: center;
+        font-family: verdana,arial; text-transform: capitalize; 
+        background: url(../art/administration/bks/bk-btn-ds.png) no-repeat !important;
+        line-height:12px;
+    }
+        .smallDarkButton2:hover{
+            background: url(../art/administration/bks/bk-btn-ds.png) 0px -18px no-repeat !important;
+            text-decoration: none;
+        }
+    .bigDarkButton1{
+        display: block !important;
+        float: left;
+        border: none !important;
+        cursor:pointer !important;
+        height:15px !important; width:64px !important;
+        padding-top: 3px;
+        color:#fff !important; font-size:0.7em !important; text-align: center;
+        font-family: verdana,arial; text-transform: capitalize;
+        background: url(../art/administration/bks/bk-btn-dgb.png) no-repeat !important;
+        line-height:12px;
+    }
+        .bigDarkButton1:hover{
+            background: url(../art/administration/bks/bk-btn-dgb.png) 0px -18px no-repeat !important;
+            text-decoration: none;
+        }
+    .bigDarkButton2{
+        display: block !important;
+        float: left;
+        border: none !important;
+        cursor:pointer !important;
+        height:15px !important; width:64px !important;
+        padding-top: 3px;
+        color:#fff !important; font-size:0.7em !important; text-align: center;
+        font-family: verdana,arial; text-transform: capitalize;
+        background: url(../art/administration/bks/bk-btn-db.png) no-repeat !important;
+        line-height:12px;
+    }
+        .bigDarkButton2:hover{
+            background: url(../art/administration/bks/bk-btn-db.png) 0px -18px no-repeat !important;
+            text-decoration: none;
+        }
+        
+        
+/* Boton gris para LINKS :: <a class="round" href="#">View posts by tag »</a> */
+	.round {
+		padding: 3px 7px;
+		color: #888 !important;
+		font: 10px/17px Arial, Serif;
+		text-transform: uppercase;
+		background: #fff url("../art/administration/bks/round.png") repeat-x 0 1px;
+		border: 1px solid #ddd;
+	}
+		.round:hover {
+			position: relative;
+			top: 1px;
+			left: 1px;
+			color: #666;
+		}
+
+/* Botones de acciones en los filtros */
+	.filterActionButton{
+		display: block !important;
+		float: left;
+		border: none !important;
+		cursor:pointer !important;
+		height:19px !important; width:44px !important;
+		color:#000 !important; font-size:0.75em !important; text-align: center;
+		font-family: verdana,arial;
+		background: url(../art/administration/bks/filter-action-button.png) no-repeat !important;
+		line-height:12px;
+	}
+		.filterActionButton:hover{
+			background: url(../art/administration/bks/filter-action-button.png) 0px -18px no-repeat !important;
+			text-decoration: none;
+		}
+
+/* Boton QUITAR TODOS LOS FILTROS */
+	.quitAllFilters{
+		display: block !important;      
+		float: right;
+		border: none !important;
+		cursor:pointer !important;
+		height:18px !important; width:105px !important;
+		color:#f00 !important; font-size:0.8em !important; text-align: right;
+		font-family: verdana,arial;
+		background: url(../art/administration/bks/quit-filters.png) no-repeat !important;
+		margin:5px 0 0 10px;
+	}
+		.quitAllFilters:hover{
+			background: url(../art/administration/bks/quit-filters.png) 0px -18px no-repeat !important;
+			text-decoration: none;
+		}
+
+/* Botones de IDIOMA */
+	.langButtonEdit{
+		display: block !important;
+		float: left;
+		border: none !important;
+		cursor:pointer !important;
+		height:18px !important; width:27px !important;
+		color:#fff !important; font-size:0.8em !important; text-align: center;
+		font-family: verdana,arial;
+		background: url(../art/administration/bks/lang-exist.png) no-repeat !important;
+	}
+		.langButtonEdit:hover{
+			background: url(../art/administration/bks/lang-exist.png) 0px -18px no-repeat !important;
+			text-decoration: none;
+		}
+
+    .langButtonPaused{
+        display: block !important;
+        float: left;
+        border: none !important;
+        cursor:pointer !important;
+        height:18px !important; width:27px !important;
+        color:#fff !important; font-size:0.8em !important; text-align: center;
+        font-family: verdana,arial;
+        background: url(../art/administration/bks/lang-paused.png) no-repeat !important;
+    }
+        .langButtonPaused:hover{
+            background: url(../art/administration/bks/lang-paused.png) 0px -18px no-repeat !important;
+            text-decoration: none;
+        }
+
+	.langButtonCreate{
+		display: block !important;
+		float: left;
+		border: none !important;
+		cursor:pointer !important;
+		height:18px !important; width:27px !important;
+		color:#fff !important; font-size:0.8em !important; text-align: center;
+		font-family: verdana,arial;
+		background: url(../art/administration/bks/lang-missed.png) no-repeat !important;
+	}
+		.langButtonCreate:hover{
+			background: url(../art/administration/bks/lang-missed.png) 0px -18px no-repeat !important;
+			text-decoration: none;
+		}
+        
+        
+/* BOTONES CON ICONITOS :: Para administracion */
+/* 
+    RECUERDA: La idea es hacer generico el CSS para que si se desea cambiar los colores, solamente cambiamos el SKIN, desde PHP
+    Los nombres de los botones, deben ser GENERICOS, es decir, no usar COLORES, pues segun sea el SKIN, son los colores.
+    Para esto, no usamos por ejemplo: "fxBtnGreen", sino que usamos "fxBtn", y como el SKIN es GRAY-GREEN, entonces los colores para el boton
+    los definimos aqui. Si se desean otros colores, podremos crear el boton "fxBtn-2" pero NO USAR COLORES
+ */
+/* GREENs */
+    .fxBtn{
+        padding: 4px 5px 4px 0; cursor: pointer; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+        background: transparent url("../art/administration/bks/button-1.png") repeat-x 0 1px;
+        border: 0; 
+        
+        color: #fff !important;
+    }
+        button.fxBtn:hover {
+            position: relative; top: 1px; left: 1px;
+            color: #66ccff !important;
+            text-shadow: 0 0 10px #bbb !important;
+        }
+        button.fxBtn span { display: block; float: left; width: 16px; height: 16px; background-image: url(../art/administration/icons/jquery-icons-green.png); }
+        button.fxBtn span.fxTxt { display: block; width:auto; height: 13px; float: left; font-size: .8em !important; text-transform: uppercase; background-image:none; padding-top:2px; } 
+
+        button span.carat-1-n { background-position: 0 0; }
+        button span.carat-1-ne { background-position: -16px 0; }
+        button span.carat-1-e { background-position: -32px 0; }
+        button span.carat-1-se { background-position: -48px 0; }
+        button span.carat-1-s { background-position: -64px 0; }
+        button span.carat-1-sw { background-position: -80px 0; }
+        button span.carat-1-w { background-position: -96px 0; }
+        button span.carat-1-nw { background-position: -112px 0; }
+        button span.carat-2-n-s { background-position: -128px 0; }
+        button span.carat-2-e-w { background-position: -144px 0; }
+        button span.triangle-1-n { background-position: 0 -16px; }
+        button span.triangle-1-ne { background-position: -16px -16px; }
+        button span.triangle-1-e { background-position: -32px -16px; }
+        button span.triangle-1-se { background-position: -48px -16px; }
+        button span.triangle-1-s { background-position: -64px -16px; }
+        button span.triangle-1-sw { background-position: -80px -16px; }
+        button span.triangle-1-w { background-position: -96px -16px; }
+        button span.triangle-1-nw { background-position: -112px -16px; }
+        button span.triangle-2-n-s { background-position: -128px -16px; }
+        button span.triangle-2-e-w { background-position: -144px -16px; }
+        button span.arrow-1-n { background-position: 0 -32px; }
+        button span.arrow-1-ne { background-position: -16px -32px; }
+        button span.arrow-1-e { background-position: -32px -32px; }
+        button span.arrow-1-se { background-position: -48px -32px; }
+        button span.arrow-1-s { background-position: -64px -32px; }
+        button span.arrow-1-sw { background-position: -80px -32px; }
+        button span.arrow-1-w { background-position: -96px -32px; }
+        button span.arrow-1-nw { background-position: -112px -32px; }
+        button span.arrow-2-n-s { background-position: -128px -32px; }
+        button span.arrow-2-ne-sw { background-position: -144px -32px; }
+        button span.arrow-2-e-w { background-position: -160px -32px; }
+        button span.arrow-2-se-nw { background-position: -176px -32px; }
+        button span.arrowstop-1-n { background-position: -192px -32px; }
+        button span.arrowstop-1-e { background-position: -208px -32px; }
+        button span.arrowstop-1-s { background-position: -224px -32px; }
+        button span.arrowstop-1-w { background-position: -240px -32px; }
+        button span.arrowthick-1-n { background-position: 0 -48px; }
+        button span.arrowthick-1-ne { background-position: -16px -48px; }
+        button span.arrowthick-1-e { background-position: -32px -48px; }
+        button span.arrowthick-1-se { background-position: -48px -48px; }
+        button span.arrowthick-1-s { background-position: -64px -48px; }
+        button span.arrowthick-1-sw { background-position: -80px -48px; }
+        button span.arrowthick-1-w { background-position: -96px -48px; }
+        button span.arrowthick-1-nw { background-position: -112px -48px; }
+        button span.arrowthick-2-n-s { background-position: -128px -48px; }
+        button span.arrowthick-2-ne-sw { background-position: -144px -48px; }
+        button span.arrowthick-2-e-w { background-position: -160px -48px; }
+        button span.arrowthick-2-se-nw { background-position: -176px -48px; }
+        button span.arrowthickstop-1-n { background-position: -192px -48px; }
+        button span.arrowthickstop-1-e { background-position: -208px -48px; }
+        button span.arrowthickstop-1-s { background-position: -224px -48px; }
+        button span.arrowthickstop-1-w { background-position: -240px -48px; }
+        button span.arrowreturnthick-1-w { background-position: 0 -64px; }
+        button span.arrowreturnthick-1-n { background-position: -16px -64px; }
+        button span.arrowreturnthick-1-e { background-position: -32px -64px; }
+        button span.arrowreturnthick-1-s { background-position: -48px -64px; }
+        button span.arrowreturn-1-w { background-position: -64px -64px; }
+        button span.arrowreturn-1-n { background-position: -80px -64px; }
+        button span.arrowreturn-1-e { background-position: -96px -64px; }
+        button span.arrowreturn-1-s { background-position: -112px -64px; }
+        button span.arrowrefresh-1-w { background-position: -128px -64px; }
+        button span.arrowrefresh-1-n { background-position: -144px -64px; }
+        button span.arrowrefresh-1-e { background-position: -160px -64px; }
+        button span.arrowrefresh-1-s { background-position: -176px -64px; }
+        button span.arrow-4 { background-position: 0 -80px; }
+        button span.arrow-4-diag { background-position: -16px -80px; }
+        button span.extlink { background-position: -32px -80px; }
+        button span.newwin { background-position: -48px -80px; }
+        button span.refresh { background-position: -64px -80px; }
+        button span.shuffle { background-position: -80px -80px; }
+        button span.transfer-e-w { background-position: -96px -80px; }
+        button span.transferthick-e-w { background-position: -112px -80px; }
+        button span.folder-collapsed { background-position: 0 -96px; }
+        button span.folder-open { background-position: -16px -96px; }
+        button span.document { background-position: -32px -96px; }
+        button span.document-b { background-position: -48px -96px; }
+        button span.note { background-position: -64px -96px; }
+        button span.mail-closed { background-position: -80px -96px; }
+        button span.mail-open { background-position: -96px -96px; }
+        button span.suitcase { background-position: -112px -96px; }
+        button span.comment { background-position: -128px -96px; }
+        button span.person { background-position: -144px -96px; }
+        button span.print { background-position: -160px -96px; }
+        button span.trash { background-position: -176px -96px; }
+        button span.locked { background-position: -192px -96px; }
+        button span.unlocked { background-position: -208px -96px; }
+        button span.bookmark { background-position: -224px -96px; }
+        button span.tag { background-position: -240px -96px; }
+        button span.home { background-position: 0 -112px; }
+        button span.flag { background-position: -16px -112px; }
+        button span.calendar { background-position: -32px -112px; }
+        button span.cart { background-position: -48px -112px; }
+        button span.pencil { background-position: -64px -112px; }
+        button span.clock { background-position: -80px -112px; }
+        button span.disk { background-position: -96px -112px; }
+        button span.calculator { background-position: -112px -112px; }
+        button span.zoomin { background-position: -128px -112px; }
+        button span.zoomout { background-position: -144px -112px; }
+        button span.search { background-position: -160px -112px; }
+        button span.wrench { background-position: -176px -112px; }
+        button span.gear { background-position: -192px -112px; }
+        button span.heart { background-position: -208px -112px; }
+        button span.star { background-position: -224px -112px; }
+        button span.link { background-position: -240px -112px; }
+        button span.cancel { background-position: 0 -128px; }
+        button span.plus { background-position: -16px -128px; }
+        button span.plusthick { background-position: -32px -128px; }
+        button span.minus { background-position: -48px -128px; }
+        button span.minusthick { background-position: -64px -128px; }
+        button span.bclose { background-position: -80px -128px; }
+        button span.closethick { background-position: -96px -128px; }
+        button span.key { background-position: -112px -128px; }
+        button span.lightbulb { background-position: -128px -128px; }
+        button span.scissors { background-position: -144px -128px; }
+        button span.clipboard { background-position: -160px -128px; }
+        button span.copy { background-position: -176px -128px; }
+        button span.contact { background-position: -192px -128px; }
+        button span.image { background-position: -208px -128px; }
+        button span.video { background-position: -224px -128px; }
+        button span.script { background-position: -240px -128px; }
+        button span.alert { background-position: 0 -144px; }
+        button span.info { background-position: -16px -144px; }
+        button span.notice { background-position: -32px -144px; }
+        button span.help { background-position: -48px -144px; }
+        button span.check { background-position: -64px -144px; }
+        button span.bullet { background-position: -80px -144px; }
+        button span.radio-off { background-position: -96px -144px; }
+        button span.radio-on { background-position: -112px -144px; }
+        button span.pin-w { background-position: -128px -144px; }
+        button span.pin-s { background-position: -144px -144px; }
+        button span.play { background-position: 0 -160px; }
+        button span.pause { background-position: -16px -160px; }
+        button span.seek-next { background-position: -32px -160px; }
+        button span.seek-prev { background-position: -48px -160px; }
+        button span.seek-end { background-position: -64px -160px; }
+        button span.seek-first { background-position: -80px -160px; }
+        button span.stop { background-position: -96px -160px; }
+        button span.eject { background-position: -112px -160px; }
+        button span.volume-off { background-position: -128px -160px; }
+        button span.volume-on { background-position: -144px -160px; }
+        button span.power { background-position: 0 -176px; }
+        button span.signal-diag { background-position: -16px -176px; }
+        button span.signal { background-position: -32px -176px; }
+        button span.battery-0 { background-position: -48px -176px; }
+        button span.battery-1 { background-position: -64px -176px; }
+        button span.battery-2 { background-position: -80px -176px; }
+        button span.battery-3 { background-position: -96px -176px; }
+        button span.circle-plus { background-position: 0 -192px;  padding-right:2px; }
+        button span.circle-minus { background-position: -16px -192px;  padding-right:2px;}
+        button span.circle-close { background-position: -32px -192px;  padding-right:2px;}
+        button span.circle-triangle-e { background-position: -48px -192px;  padding-right:2px;}
+        button span.circle-triangle-s { background-position: -64px -192px;  padding-right:2px;}
+        button span.circle-triangle-w { background-position: -80px -192px;  padding-right:2px;}
+        button span.circle-triangle-n { background-position: -96px -192px;  padding-right:2px;}
+        button span.circle-arrow-e { background-position: -112px -192px;  padding-right:2px;}
+        button span.circle-arrow-s { background-position: -128px -192px;  padding-right:2px;}
+        button span.circle-arrow-w { background-position: -144px -192px;  padding-right:2px;}
+        button span.circle-arrow-n { background-position: -160px -192px;  padding-right:2px;}
+        button span.circle-zoomin { background-position: -176px -192px;  padding-right:2px;}
+        button span.circle-zoomout { background-position: -192px -192px;  padding-right:2px;}
+        button span.circle-check { background-position: -208px -192px;  padding-right:2px;}
+        button span.circlesmall-plus { background-position: 0 -208px;  padding-right:2px;}
+        button span.circlesmall-minus { background-position: -16px -208px;  padding-right:2px;}
+        button span.circlesmall-close { background-position: -32px -208px;  padding-right:2px;}
+        button span.squaresmall-plus { background-position: -48px -208px; }
+        button span.squaresmall-minus { background-position: -64px -208px; }
+        button span.squaresmall-close { background-position: -80px -208px; }
+        button span.grip-dotted-vertical { background-position: 0 -224px; }
+        button span.grip-dotted-horizontal { background-position: -16px -224px; }
+        button span.grip-solid-vertical { background-position: -32px -224px; }
+        button span.grip-solid-horizontal { background-position: -48px -224px; }
+        button span.gripsmall-diagonal-se { background-position: -64px -224px; }
+        button span.grip-diagonal-se { background-position: -80px -224px; }
+    
+    
+    
+    

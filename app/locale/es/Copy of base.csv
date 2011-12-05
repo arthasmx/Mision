@@ -1,0 +1,42 @@
+
+BASE_link_home,"Página de inicio"
+BASE_link_arealogin,"Login"
+BASE_link_login,"Acceso"
+BASE_link_contact,"Contáctenos"
+BASE_link_faq,"Preguntas frecuentes"
+BASE_link_privacypolicy,"Políticas de privacidad"
+
+BASE_text_allcopyrights, "Todos los derechos reservados."
+
+BASE_text_language, "Idioma"
+BASE_text_lang_es, "Español"
+BASE_text_lang_en, "English"
+BASE_text_lang_fr, "France"
+
+BASE_text_readmore,"leer más..."
+BASE_text_morefaq,"más preguntas"
+
+BASE_form_username,"Usuario"
+BASE_form_password,"Contraseña"
+BASE_form_forgot,"Olvidó su contraseña ?"
+
+ADMIN_login_form_title,"Acceso de administrador"
+ADMIN_login_title,"Área restringida"
+ADMIN_login_description,"Apresurate! Registrate en nuestro sitio para que obtengas todos los beneficios de pertenecer a una cadena de páginas web, que cubren multiples rubros del mercado, logrando llegar a muchos clientes potenciales."
+
+ADMIN_login_col1_title, "Requisitos"
+ADMIN_login_col1_txt_1, "Feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est."
+ADMIN_login_col1_txt_2, "Feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est."
+
+ADMIN_login_col2_title, "Beneficios"
+ADMIN_login_col2_txt_1, "Feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper."
+ADMIN_login_col2_txt_2, "Feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper."
+ADMIN_login_col2_txt_3, "Feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper."
+ADMIN_login_col2_txt_4, "Feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper."
+ADMIN_login_col2_txt_5, "Feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper."
+
+ADMIN_login_col3_title, "Experiencias"
+ADMIN_login_col3_txt_1, "“It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.Content here, content here', making it look like readable English.”"
+ADMIN_login_col3_txt_2, "-John Smith, photographer"
+ADMIN_login_col3_txt_3, "“It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.Content here, content here', making it look like readable English.”"
+ADMIN_login_col3_txt_4, "-John Smith, photographer"

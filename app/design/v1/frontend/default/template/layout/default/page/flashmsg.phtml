@@ -1,0 +1,14 @@
+<?php $flashmsgs = App::module('Core')->getModel('Flashmsg')->get_flash_messages(); ?>
+<?php if ($flashmsgs):?>
+
+  <?php foreach($flashmsgs as $type=>$messages):?>
+
+    <p class="message <?=$type?>">
+      <?php foreach($messages as $msg):?>
+        <?=$msg['msg']?>
+      <?php endforeach;?>
+    </p>
+
+  <?php endforeach;?>
+  
+<?php endif;?>
