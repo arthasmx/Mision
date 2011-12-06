@@ -92,6 +92,7 @@
         float:left;
         /*background:url(/skin/v1/default/light-blue/art/bks/breadcrums.png) no-repeat 0 3px;*/
         padding-left:14px;
+        padding-top:1px;
         margin-left:10px;
       }
       #breadcrumbs ul li a {
@@ -99,6 +100,10 @@
         font-weight:normal;
         color:#388CC2;
       }
+        #breadcrumbs ul li a:hover {
+          color:#333;
+          text-decoration: underline;
+        }
       #breadcrumbs .current, #breadcrumbs .current a {
         font-weight:bold !important;
         font-size:10pt !important;

@@ -8,7 +8,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   function indexAction(){
     $this->designManager()->setCurrentLayout('intro');
     $this->view->current_main_menu = null;
-    $this->view->show_facebook_like_this_button = true;
+    // $this->view->show_facebook_like_this_button = true;
   }
 
   function aboutUsAction(){
