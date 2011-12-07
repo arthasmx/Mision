@@ -11,7 +11,6 @@
 
 <!--Links-->
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/reset.css');?>" rel="stylesheet" type="text/css" media="all" />
-    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/content.css');?>" rel="stylesheet" type="text/css" media="all" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/frontend.css');?>" rel="stylesheet" type="text/css" media="all" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/default.css');?>" rel="stylesheet" type="text/css" media="all" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/menus.css');?>" rel="stylesheet" type="text/css" media="all" />
@@ -48,7 +47,7 @@
 
         <?php if( isset($this->current_main_menu) ):?>
           jQuery(document).ready(function(){
-            jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").addClass("active");
+	    jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").contents().unwrap().wrap("<span>").parent().addClass("icons active");
           });
         <?php endif;?>
 

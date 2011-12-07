@@ -9,18 +9,17 @@
     <ul id="menu">
 
   	<?php foreach($menus AS $menu): ?>
-      <li <?= (sizeof($menus)==$iterator) ? 'class="last_link"':''; ?><?= ($iterator==1) ? 'class="first_link"':'' ?>>
-        <a href="<?=App::url_translate( "LINK_$menu" )?>" <?=(App::getDesign()->getCurrentLayout()==="default") ? 'class="icons"':'';?>>
-  				<?=App::xlat("MENU_$menu")?>
-        </a>
-      </li>
+          <li <?= (sizeof($menus)==$iterator) ? 'class="last_link"':''; ?><?= ($iterator==1) ? 'class="first_link"':'' ?>>
+            <a href="<?=App::url_translate( "LINK_$menu" )?>" <?=(App::getDesign()->getCurrentLayout()==="default") ? 'class="icons"':'';?>>
+              <?=App::xlat("MENU_$menu")?>
+            </a>
+          </li>
   	<?php
-  		$iterator+=1;
-  		endforeach; ?>
-
+          $iterator+=1;
+          endforeach; ?>
     </ul>
     <div id="languages">
-  		<?=App::module('Addons')->renderBlock("languages/index","languages")?>
+      <?=App::module('Addons')->renderBlock("languages/index","languages")?>
     </div>
     <div id="logo_follow_container">
       <h1 class="logo">
