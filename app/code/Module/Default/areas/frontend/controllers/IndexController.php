@@ -8,59 +8,57 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   function indexAction(){
     $this->designManager()->setCurrentLayout('intro');
     $this->view->current_main_menu = null;
-    // $this->view->show_facebook_like_this_button = true;
   }
 
   function aboutUsAction(){
     $this->view->current_main_menu = 0;
-    
-		// Breadcrumbs
-		$this->view->pageBreadcrumbs=array(
-			array('title'=>App::xlat('BREADCRUM_about_us'))
-		);
+
+		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_about' );
   }
 
   function doctrineAction(){
     $this->view->current_main_menu = 1;
 
-		// Breadcrumbs
-		$this->view->pageBreadcrumbs=array(
-			array('title'=>App::xlat('BREADCRUM_doctrine'))
-		);
+		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_doctrine' );
   }
 
   function eventsAction(){
     $this->view->current_main_menu = 2;
     
-		// Breadcrumbs
-		$this->view->pageBreadcrumbs=array(
-			array('title'=>App::xlat('BREADCRUM_events'))
-		);
+		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_events' );
   }
 
-  function radioAction(){
+  function multimediaAction(){
     $this->view->current_main_menu = 3;
 
-		// Breadcrumbs
-		$this->view->pageBreadcrumbs=array(
-			array('title'=>App::xlat('BREADCRUM_radio'))
-		);
+		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_multimedia' );
   }
 
   function contactUsAction(){
     $this->view->current_main_menu = 4;
 
-		// Breadcrumbs
-		$this->view->pageBreadcrumbs=array(
-			array('title'=>App::xlat('BREADCRUM_contact_us'))
-		);
+		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'BREADCRUM_contact_us' );
   }
 
-  function privacyPolicyAction(){}
+  function privacyPolicyAction(){
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_privacy_policy' );
+  }
 
-  function termsConditionsAction(){}
+  function termsConditionsAction(){
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_terms_conditions' );
+  }
 
-  function siteMapAction(){}
+  function siteMapAction(){
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_sitemap' );
+  }
+
+  protected function get_breadcrumbs( $breadcrumb = null ){
+    if( empty($breadcrumb)){
+      return null;
+    }
+
+    return array( array('title'=> App::xlat($breadcrumb) ) );
+  }
 
   function __call($function, $args){
     $desired_action          = $this->getRequest()->getActionName();

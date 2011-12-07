@@ -23,15 +23,15 @@ ARTICLE_read_more, "Leer más..."
 
 ;BREADCRUMS
   BREADCRUM_home, "Inicio"
-  BREADCRUM_contact_us, "Contactenos"
+  BREADCRUM_contact_us, "Contáctenos"
   BREADCRUM_bible, "Santa Biblia"
-  BREADCRUM_multimedia, "Multimedia"
-  BREADCRUM_events, "Eventos"
-  BREADCRUM_doctrine, "Doctrina"
-  BREADCRUM_about_us, "Quienes somos ?"
+  BREADCRUM_about_us, "Quiénes somos ?"
+
   BREADCRUM_announcement, "Anuncios"
 
   BREADCRUMBS_fraternities, "Fraternidades"
+  
+  BREADCRUMBS_site_map, "Mapa del sitio"
 
 ;PAGINATION
 PAGINATOR_no_pagination_links, "Ninguna"
@@ -48,18 +48,18 @@ MENU_about,"QUIENES SOMOS ?"
 MENU_contact,"CONTACTENOS"
 
 ; LINKS TAG a href
-LINK_home, ""
-LINK_doctrine, "doctrina"
-LINK_events, "eventos"
-LINK_bible, "biblia"
-LINK_multimedia, "multimedia"
-LINK_about, "nosotros"
-LINK_contact, "contactenos"
+  LINK_home, ""
+  LINK_doctrine, "doctrina"
+  LINK_events, "eventos"
+  LINK_bible, "biblia"
+  LINK_multimedia, "multimedia"
+  LINK_about, "nosotros"
+  LINK_contact, "contactenos"
 
   ; FOOTER MENU
     FOOTER_menu_topic_important_links, "Acerca del sitio"
       FOOTER_link_privacy_policy,"Políticas de privacidad"
-      FOOTER_link_terms_conditions,"Terminos y condiciones"
+      FOOTER_link_terms_conditions,"Términos y condiciones"
       FOOTER_link_sitemap,"Mapa del sitio"
 
     FOOTER_menu_topic_fraternities, "Fraternidades"
