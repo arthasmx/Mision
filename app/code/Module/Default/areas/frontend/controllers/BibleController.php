@@ -54,6 +54,9 @@ class BibleController extends Module_Default_Controller_Action_Frontend {
 
   protected function get_breadcrumbs( $action = null, $book_name=null, $book=null, $cap=null, $ver=null ){
 
+    $route        = App::xlat('route_bible');
+    $trimed_route = rtrim($route, '/');
+
     switch ( $action ){
       case 'index':
               return array(
@@ -62,22 +65,22 @@ class BibleController extends Module_Default_Controller_Action_Frontend {
               break;
       case 'book':
               return array(
-                array('title'=> App::xlat('BREADCRUM_bible')        , 'url' => App::base( App::xlat('route_bible') ) ),
+                array('title'=> App::xlat('BREADCRUM_bible')        , 'url' => App::base( $trimed_route ) ),
                 array('title'=> $book_name )
               );
               break;
       case 'cap':
               return array(
-                array('title'=> App::xlat('BREADCRUM_bible')        , 'url' => App::base( App::xlat('route_bible') ) ),
-                array('title'=> $book_name                          , 'url' => App::base( App::xlat('route_bible') . $book ) ),
+                array('title'=> App::xlat('BREADCRUM_bible')        , 'url' => App::base( $trimed_route ) ),
+                array('title'=> $book_name                          , 'url' => App::base( $route . $book ) ),
                 array('title'=> App::xlat('BIBLE_cap') . ' ' . $cap )
               );
               break;
       case 'ver':
               return array(
-                array('title'=> App::xlat('BREADCRUM_bible')        , 'url' => App::base( App::xlat('route_bible') ) ),
-                array('title'=> $book_name                          , 'url' => App::base( App::xlat('route_bible') . $book ) ),
-                array('title'=> App::xlat('BIBLE_cap') . ' ' . $cap , 'url' => App::base( App::xlat('route_bible') . $book . '/' . $cap ) ),
+                array('title'=> App::xlat('BREADCRUM_bible')        , 'url' => App::base( $trimed_route ) ),
+                array('title'=> $book_name                          , 'url' => App::base( $route . $book ) ),
+                array('title'=> App::xlat('BIBLE_cap') . ' ' . $cap , 'url' => App::base( $route . $book . '/' . $cap ) ),
                 array('title'=> App::xlat('BIBLE_ver') . ' ' . $ver )
               );
               break;

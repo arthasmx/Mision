@@ -22,14 +22,16 @@ HEADER_follow_us_youtube, "Youtube"
 ARTICLE_read_more, "Leer más..."
 
 ;BREADCRUMS
-BREADCRUM_home, "Inicio"
-BREADCRUM_contact_us, "Contactenos"
-BREADCRUM_bible, "Santa Biblia"
-BREADCRUM_multimedia, "Multimedia"
-BREADCRUM_events, "Eventos"
-BREADCRUM_doctrine, "Doctrina"
-BREADCRUM_about_us, "Quienes somos ?"
-BREADCRUM_announcement, "Anuncios"
+  BREADCRUM_home, "Inicio"
+  BREADCRUM_contact_us, "Contactenos"
+  BREADCRUM_bible, "Santa Biblia"
+  BREADCRUM_multimedia, "Multimedia"
+  BREADCRUM_events, "Eventos"
+  BREADCRUM_doctrine, "Doctrina"
+  BREADCRUM_about_us, "Quienes somos ?"
+  BREADCRUM_announcement, "Anuncios"
+
+  BREADCRUMBS_fraternities, "Fraternidades"
 
 ;PAGINATION
 PAGINATOR_no_pagination_links, "Ninguna"
@@ -83,15 +85,17 @@ LINK_fraternities_teens, "fraternidad/adolescentes"
 LINK_fraternities_kids, "fraternidad/ninos"
 
 ;ROUTES
-; BIBLE
-route_bible, "/biblia/"
-; ANNOUNCEMENT
-route_announcement, "/anuncios/"
-; PAGINATOR
-route_paginator_page, "pagina"
-; DATASORTER
-route_sort_field, "ordenar_por"
-route_sort_direction, "orientacion"
+  ; BIBLE
+    route_bible, "/biblia/"
+  ; FRATERNITIES
+    route_fraternities, "/fraternidades/"
+  ; ANNOUNCEMENT
+    route_announcement, "/anuncios/"
+  ; PAGINATOR
+    route_paginator_page, "pagina"
+  ; DATASORTER
+    route_sort_field, "ordenar_por"
+    route_sort_direction, "orientacion"
 
 ;ERRORS
 PUBLIC_ERROR_title,   "Perdido ?"

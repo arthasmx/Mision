@@ -6,7 +6,7 @@ class FraternityController extends Module_Default_Controller_Action_Frontend {
   function preDispatch(){}
 
   function indexAction(){
-
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
   }
 
   function fraternityAction(){
@@ -18,11 +18,28 @@ class FraternityController extends Module_Default_Controller_Action_Frontend {
     }
 
     $this->view->gender = $gender;
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->gender );
+  }
 
-    // Breadcrumbs
-    $this->view->pageBreadcrumbs=array(
-      array('title'=>App::xlat('BREADCRUM_about_us'))
-    );
+  protected function get_breadcrumbs( $action = null, $gender=null ){
+
+	$trimed_route = rtrim( App::xlat('route_fraternities'), "/" );
+    switch ( $action ){
+      case 'index':
+              return array(
+                array('title'=> App::xlat('BREADCRUMBS_fraternities') )
+              );
+              break;
+      case 'fraternity':
+              return array(
+                array('title'=> App::xlat('BREADCRUMBS_fraternities')  , 'url' => App::base( $trimed_route ) ),
+                array('title'=> ($gender==="ninos")?'niños':$gender )
+              );
+              break;
+      default:
+              return null;
+              break;
+    }
 
   }
 
