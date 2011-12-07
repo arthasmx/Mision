@@ -6,12 +6,18 @@
     float:left;
     width: 940px;
   }
+
     #menu li{
       float: left;
       margin:0 25px 0 0;
       padding:0 25px 0 0;
       background:url(/skin/v1/default/light-blue/art/bks/link_separator.png) no-repeat right;
     }
+      #header_container #header #menu li{
+        background:none;
+        margin:0;
+        width: 130px;
+      }
     #menu li.first_link{
       margin-left: 85px;
     }
@@ -27,10 +33,22 @@
       text-decoration: none;
       padding: 0 10px;
     }
-      #menu a:hover, #menu li a.active{
+      #header_container #header #menu a{
+        padding-top:8px;
+        line-height: 21px;
+        background-position: center 50px;
+      }
+      #menu a:hover, #header_container #header #menu a:hover, #menu li a.active, #header_container #header #menu a.active{
         color:#999;
         background:url(/skin/v1/default/light-blue/art/bks/link_gradient.png) no-repeat center;
       }
+        #header_container #header #menu a.active, #header_container #header #menu a:hover{
+          background-position: center -103px;
+        }
+        #header_container #header #menu a:hover{
+          text-decoration: underline;
+        }
+
       #menu li a.active{
         text-decoration: none;
       }

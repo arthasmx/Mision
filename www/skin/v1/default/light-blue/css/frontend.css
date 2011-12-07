@@ -10,7 +10,10 @@
   width: 960px;
   margin: 0 auto;
  }
-  #header{
+  #header_container{
+    height: 35px;
+  }
+  #header .intro{
     background:url(/skin/v1/default/light-blue/art/bks/white_gradient.png) repeat-y;
     height: 80px;
   }
@@ -62,6 +65,9 @@
           width: 20px;
           padding-top:13px;
         }
+          div#header_container #header #languages{
+            padding-top:5px;
+          }
     div#languages h1{
      float:left;
      margin:2px;
