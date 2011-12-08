@@ -26,7 +26,7 @@
         <a href="<?=App::base("/")?>"><?=App::xlat('HEADER_LOGO_ALT')?></a>
         <span><?=App::xlat('HEADER_site_logo_slogan')?></span>
       </h1>
-  
+
       <div class="social_networks margin-top-<?= ( ! empty($this->show_facebook_like_this_button) ) ? '15':'30';?>">
     	  <ul id="follow_us">
     	    <li class="icons">
@@ -51,7 +51,7 @@
           </li>
     	  </ul>
       </div>
-  
+
   	  <?php if ( App::getDesign()->getCurrentLayout() === "intro" ) :?>
   	  <div class="social_networks">
         <div id="fb-root"></div>
@@ -65,14 +65,14 @@
         <div class="fb-like" data-href="<?=App::getConfig('website_url')?>" data-send="true" data-layout="button_count" data-width="105" data-show-faces="false"></div>
        </div>
   	  <?php endif; ?>
-  
+
     </div>
-  
+
   <?php if ( App::getDesign()->getCurrentLayout() === "default" ) :?>
     </div>
   <?php endif; ?>
-  
+
 </div>
-  
+
 <div class="clr"></div>
 <div id="content">

@@ -24,15 +24,6 @@ body{
     margin-bottom:50px; 
   }
 
-/*
-    #message #menu { 
-		  margin-top:40px;
-      height: 21px; 
-      line-height: 21px; 
-      text-transform: uppercase;
-    }
-*/    
-
 #error_image{
 	float:left;
 	width:320px;
@@ -74,33 +65,3 @@ body{
         color:#999;
         text-decoration: underline;
       }
-
-/*
-    #message ul { 
-        float: right; 
-        display: inline; 
-        list-style-type: none;
-    }
-    #message li, #message li a { 
-        float: left; 
-        display: inline; 
-        padding-left: 10px; 
-        height: 21px;
-    }
-    #message li a { 
-        color: #00aeef; 
-        text-decoration: none;
-								font-size:12px; 
-    }
-    #message li a { 
-        float: left; 
-        display: inline; 
-        padding: 0 10px 0 0;
-
-    }
-    #message #menu li a:hover, #message #menu li a.active, #message #menu li a:hover, #message #menu li a.active { 
-        color: #fff;
-								text-decoration:underline; 
-        cursor:pointer;
-    }
-*/

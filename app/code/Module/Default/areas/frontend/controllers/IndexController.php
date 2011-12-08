@@ -37,7 +37,28 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   function contactUsAction(){
     $this->view->current_main_menu = 4;
 
-		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'BREADCRUM_contact_us' );
+    $form = $this->_module->getModel('Forms/Contact')->get();
+    if ( $this->getRequest()->isPost() ){
+
+      require_once('Xplora/Captcha.php');
+      $captcha = new Xplora_Captcha();
+      if ( ! $captcha->validate(@$_POST['captcha']) ) {
+        $form->getElement('captcha')->getValidator('Custom')->addError("captchaWrongCode",App::xlat("ERROR_bad_captcha"));
+      }
+
+      if($form->isValid($_POST) ) {
+        App::events()->dispatch('module_default_contacto',array("to"=>App::module('Email')->getConfig('core','frontend_contact'), "comment"=>@$_POST['comment'], "name"=>@$_POST['name'], "email"=>@$_POST['email']));
+        App::module('Core')->getModel('Flashmsg')->success(App::xlat('CONTACT_message_sent'));
+        Header("Location: " . App::base());
+        exit;
+      }else{
+        $form->populate($_POST);
+      }
+
+    }
+    $this->view->form = $form;
+
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'BREADCRUM_contact_us' );
   }
 
   function privacyPolicyAction(){

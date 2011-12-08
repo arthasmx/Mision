@@ -1,28 +1,34 @@
 ;SITE
 
-  ;CONTENT
+  ; CONTENT
 
-    ;FRONTEND
-      MAINPAGE_column_join, "Participa!"
-      MAINPAGE_column_join_span, "Diseñadores, Traductores, Escritores, Analistas..."
-      MAINPAGE_column_join_description, "Con la ayuda de nuestro Señor Jesucristo y la de ustedes queridos hermanos, queremos hacer de esta página tu Página Cristiana Favorita; es por ello que requerimos de tu valiosa participación, ya sea enviandonos tus sugerencias, comentarios o mejor aún, que participes en el mantenimiento del sitio."
+    ; FRONTEND
+        MAINPAGE_column_join, "Participa!"
+        MAINPAGE_column_join_span, "Diseñadores, Traductores, Escritores, Analistas..."
+        MAINPAGE_column_join_description, "Con la ayuda de nuestro Señor Jesucristo y la de ustedes queridos hermanos, queremos hacer de esta página tu Página Cristiana Favorita; es por ello que requerimos de tu valiosa participación, ya sea enviandonos tus sugerencias, comentarios o mejor aún, que participes en el mantenimiento del sitio."
+  
+        MAINPAGE_column_project, "Proyectos"
+        MAINPAGE_column_project_span, "Ingenieros, Arquitectos, Varón, Joven..."
+        MAINPAGE_column_project_description, "Nos encontramos pidiendole al Señor que nos dé la fuerza y medios para edificar obras que sean para su Alabanza y Adoración. <br />Te invitamos a conocer los proyectos que queremos realizar."
+  
+        MAINPAGE_column_sermon, "Predicación"
+        MAINPAGE_column_sermon_span, "Niños, adolescentes, jóvenes, adultos"
+        MAINPAGE_column_sermon_description, "Tenemos para ti los sermones transmitidos de nuestra congregación; puedes descargarlos a cualquier dispositivo que reproduzca el formato mp3.<br />Deseamos que este audio sea para la Honra y Gloria de nuestro Señor Jesucristo."
 
-      MAINPAGE_column_project, "Proyectos"
-      MAINPAGE_column_project_span, "Ingenieros, Arquitectos, Varón, Joven..."
-      MAINPAGE_column_project_description, "Nos encontramos pidiendole al Señor que nos dé la fuerza y medios para edificar obras que sean para su Alabanza y Adoración. <br />Te invitamos a conocer los proyectos que queremos realizar."
+    ; FOOTER
+        ADDRESS_street,"Batalla del paredón # 14433"
+        ADDRESS_section,"colonia Sanchez celis"
+        ADDRESS_city_state,"Mazatlán Sinaloa, México"
+        ADDRESS_hours,"Lun-Vier 16:00-20:00 hrs"
+        ADDRESS_phone,"(52) 6691-332-199"
+        ADDRESS_mail,"contacto@iglesialamision.mx"
 
-      MAINPAGE_column_sermon, "Predicación"
-      MAINPAGE_column_sermon_span, "Niños, adolescentes, jóvenes, adultos"
-      MAINPAGE_column_sermon_description, "Tenemos para ti los sermones transmitidos de nuestra congregación; puedes descargarlos a cualquier dispositivo que reproduzca el formato mp3.<br />Deseamos que este audio sea para la Honra y Gloria de nuestro Señor Jesucristo."
+    ; BIBLE
+        BIBLE_cap, "Cap"
+        BIBLE_ver, "Ver"
 
-    ;FOOTER
-      ADDRESS_street,"Batalla del paredón # 14433"
-      ADDRESS_section,"colonia Sanchez celis"
-      ADDRESS_city_state,"Mazatlán Sinaloa, México"
-      ADDRESS_hours,"Lun-Vier 16:00-20:00 hrs"
-      ADDRESS_phone,"(52) 6691-332-199"
-      ADDRESS_mail,"contacto@iglesialamision.mx"
 
-    ;BIBLE
-      BIBLE_cap, "Cap"
-      BIBLE_ver, "Ver"
+
+; FORM MESSAGES
+
+  CONTACT_message_sent, "Su comentario ha sido enviado con exito; en breve le daremos respuesta.<br />Gracias"

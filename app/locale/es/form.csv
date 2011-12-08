@@ -4,7 +4,12 @@
 "form_required_prefix","<span class='required'>"
 "form_required_suffix"," *</span>:"
 
-"submit","Enviar"
+FORM_name, "Nombre"
+FORM_email, "Email"
+FORM_comments, "Comentarios"
+
+FORM_submit,"Enviar"
+FORM_captcha,"Ingrese el código de verificación de la imagen"
 
 "isEmpty","Campo obligatorio"
 

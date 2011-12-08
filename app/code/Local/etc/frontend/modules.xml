@@ -29,18 +29,7 @@
     <User>
       <active>1</active>
       <observers>
-				<!-- 
-				SABADO 09 de ENERO del 2010
-				He OMITIDO este evento porque al parecer hace DOBLE LOGIN
-				No se si sea necesario al momento de hacer LOGIN NORMAL o CONFIRMACION DE UN REGISTRO o CUANDO sea que se necesite
-				este evento, pero segun vi este dia, es un proceso DOBLE
-				 -->
-				<!-- <module_acl_login>login</module_acl_login>	 -->
-        <module_acl_logout>logout</module_acl_logout>
-        <module_acl_noprivileges>noprivileges</module_acl_noprivileges><!--Realiza las redirecciones en caso de que no se disponga de privilegios y si haya iniciado sesión, también muestra el mensaje de error -->
-        <module_acl_noprivileges_login>noprivileges/login</module_acl_noprivileges_login><!--Realiza las redirecciones en caso de que no se disponga de privilegios por no haber iniciado sesión, también muestra el mensaje de error -->
         <app_action_renderdesign>error</app_action_renderdesign>
-        <module_user_business_entidad>business/entidad</module_user_business_entidad>
       </observers>
     </User>
 
@@ -49,11 +38,6 @@
       <observers>
         <app_front>front</app_front>
         <app_action_renderdesign>error</app_action_renderdesign>
-        <app_action_init>privileges</app_action_init><!-- Comprueba si la acción requiere privilegios-->
-        <module_user_notfound>logout</module_user_notfound>
-        <module_user_register>register</module_user_register>
-        <module_user_update>update</module_user_update>
-        <module_user_business_register>business/register</module_user_business_register>
       </observers>
     </Acl>
 
@@ -64,6 +48,14 @@
 
     <Debug><active>1</active></Debug>
 
+    <Email>
+      <active>1</active>
+      <observers>
+        <!-- Default -->
+          <module_default_contacto>default/contact</module_default_contacto> <!-- Captura el envío de email de contacto -->
+
+      </observers>
+    </Email>
 
   </production>
 

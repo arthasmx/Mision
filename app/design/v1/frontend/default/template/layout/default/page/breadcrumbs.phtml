@@ -1,5 +1,5 @@
-
-<div id='breadcrumbs'>
+<span class="separator_up"> </span>
+<div id='breadcrumbs' class="gradient">
   <ul>
     <?php if (count((array)$this->pageBreadcrumbs) ):?>
       <li class='icons breadcrums_home'><a href='<?=App::base("/")?>'><?=App::xlat('BREADCRUM_home');?></a></li>
@@ -16,3 +16,5 @@
     <?php endif;?>
   </ul>
 </div>
+<span class="separator"> </span>
+<div id="content_data" class="gradient">

@@ -59,7 +59,18 @@
 
     ol, ul {list-style: none;}
 
-    input, textarea, select, button {font-size: 100%;font-family: inherit;}
+    input, textarea, select, button, dt.label,  dd.hint {font-size:12px; padding:2px; border:1px solid #bbb; }
+      dt.label,  dd.hint{ border: 0; }
+    dd.field .errors li { color:#f00; }
+    #content_data dl.type-submit input {width:50px; }
+    #content_data dl.type-submit input{ cursor: pointer; }
+    #content_data dl.field-captcha span.prepend{ float: left; width: 100%; }
+      #content_data dl.field-captcha span.append{ float: left; width: 100px; }
+      #content_data dl.field-captcha dd.field{ height: 125px; }
+      #content_data dd.field input.captcha { width: 40px; }
+      #content_data dl.field-captcha img.captcha { border:0; padding:0; margin: 0; }
+      #content_data dl.field-captcha dd.hint { width: 100%; text-align: center;  }
+      
     select {margin: inherit;}
 
     hr {margin: 0;padding: 0;border: 0;color: #000;background-color: #000;height: 1px}

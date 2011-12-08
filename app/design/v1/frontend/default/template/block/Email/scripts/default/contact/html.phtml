@@ -1,0 +1,11 @@
+
+<p>
+	<?=App::xlat('MAIL_public_contact_paragraph_1');?>
+	  <?=$this->from_name?>
+  <?=App::xlat('MAIL_public_contact_paragraph_2');?>
+    <?=App::getConfig('website_name');?> <small> (<?=App::getConfig('website_url');?>) </small>
+</p>
+
+<blockquote style="text-align:justify;">
+  <?=$this->msg?>
+</blockquote>

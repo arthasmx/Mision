@@ -7,24 +7,25 @@
 
 
 #header, #content, #slider, #bible_phrase, #slogan, #logo_follow_container, span#separator, span#separator_bottom, span#separator_top{
-  width: 960px;
+  width: 980px;
   margin: 0 auto;
  }
   #header_container{
     height: 35px;
   }
   #header .intro{
-    background:url(/skin/v1/default/light-blue/art/bks/white_gradient.png) repeat-y;
+    background:url(/skin/v1/default/light-blue/art/bks/gradient.png) repeat-y;
     height: 80px;
   }
 
-  span.separator{
+  span.separator, span.separator_down, span.separator_up{
     float:left;
     background: url(/skin/v1/default/light-blue/art/bks/separator.png) no-repeat 0 0;
-    width:960px;
+    width:980px;
     height:15px;
-    margin-bottom: 10px;
   }
+  span.separator_up  { background: url(/skin/v1/default/light-blue/art/bks/separator_up.png) no-repeat 0 0;  }
+  span.separator_down{ background: url(/skin/v1/default/light-blue/art/bks/separator_down.png) no-repeat 0 0; }
 
 /* HEADER */
 
@@ -33,7 +34,7 @@
     height:70px;
     padding-top:20px;
     margin-bottom:20px;
-    background: url(/skin/v1/default/light-blue/art/bks/separator.png) no-repeat top center;
+    background: url(/skin/v1/default/light-blue/art/bks/separator_down.png) no-repeat top center;
   }
     h1.logo, h1.flexar {
       width: 236px; 
@@ -85,10 +86,10 @@
 
      /* BREADCRUMS */
 
-      #breadcrumbs {
+      #breadcrumbs, #content_data {
         float:left;
         width:980px;
-        margin-bottom:20px;
+        padding:20px;
       }
       #breadcrumbs ul {
         line-height:35px;
@@ -116,9 +117,8 @@
       }
 
 /* CONTENT */
-div.white_gradient{
-  background: url(/skin/v1/default/light-blue/art/bks/white_gradient.png) repeat-y center center;
-}
+
+div.gradient{ background: url(/skin/v1/default/light-blue/art/bks/gradient.png) repeat-y center center; }
 
   /* FACEBOOK */
   div.social_networks{
@@ -130,22 +130,22 @@ div.white_gradient{
     width: 105px !important;
   }
 
-.body { width:910px; margin:0 auto; padding:10px 25px;}
-.body h2 { font: normal 24px Arial, Helvetica, sans-serif; color:#494848; padding:15px 0; margin:0;}
-.body h2 span { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
-.body .comment { float:right; width:44px; height:46px; background:url(images/comment_bg.gif) no-repeat; font:normal 22px Arial, Helvetica, sans-serif; color:#a4a4a4; line-height:38px; text-align:center;}
-.body p { font:normal 12px Arial, Helvetica, sans-serif; color:#848484; line-height:1.8em; padding:5px 0; margin:0;}
-.body p.about { background:#e6e6e6; border-left:5px solid #cdcdcd; padding:20px; margin:15px 0; font: italic 12px Arial, Helvetica, sans-serif; color:#747474;}
-.body p span { font-size:18px; font-weight:bold; color:#888;}
-.body a { color:#f0962e; text-decoration:none;}
-.body ul.list { padding:0; margin:0; list-style:none;}
-.body ul.list li { float:left; width:50%; padding:3px 0;}
-.body img { margin:5px auto; padding:5px; background:#FFF; border:1px solid #d4d4d4;}
-.body img.noborder { border:0; padding:0; margin:10px 10px 0 0;}
-.body img.none { float:none; margin:0; padding:0; border:none; background:none;}
-.body img.f_left { float:left;}
-.right { width:286px; margin:0; padding:0; float:right;}
-.left { width:601px; margin:0; padding:0 23px 0 0; float:left;}
+div#content h2 { font: normal 24px Arial, Helvetica, sans-serif; color:#494848; padding:15px 0; margin:0;}
+div#content h2 span { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
+div#content .comment { float:right; width:44px; height:46px; background:url(images/comment_bg.gif) no-repeat; font:normal 22px Arial, Helvetica, sans-serif; color:#a4a4a4; line-height:38px; text-align:center;}
+div#content p { font:normal 12px Arial, Helvetica, sans-serif; color:#848484; line-height:1.8em; padding:5px 0; margin:0;}
+div#content p.about { background:#e6e6e6; border-left:5px solid #cdcdcd; padding:20px; margin:15px 0; font: italic 12px Arial, Helvetica, sans-serif; color:#747474;}
+div#content p span { font-size:18px; font-weight:bold; color:#888;}
+div#content a { color:#f0962e; text-decoration:none;}
+div#content ul.list { padding:0; margin:0; list-style:none;}
+div#content ul.list li { float:left; width:50%; padding:3px 0;}
+div#content img { margin:5px auto; padding:5px; background:#FFF; border:1px solid #d4d4d4;}
+div#content img.noborder { border:0; padding:0; margin:10px 10px 0 0;}
+div#content img.none { float:none; margin:0; padding:0; border:none; background:none;}
+div#content img.f_left { float:left;}
+.columns { width:910px; padding:10px 25px; float:left;}
+.right-column { width:286px; margin:0; padding:0; float:right;}
+.left-column { width:601px; margin:0 0 40px; padding:0 23px 0 0; float:left;}
 .port { width:288px; margin:0; padding:0 23px 20px 0; float:left; text-align: justify;}
 .last { padding:0;}
 
@@ -171,13 +171,6 @@ div.white_gradient{
 .f_b_container a { font:bold 12px Arial, Helvetica, sans-serif; color:#a9a9a9; text-decoration:none; }
 .f_b_container p.right { text-align:right; width:350px; margin:0; padding:10px 0; float:right;} 
 .f_b_container p.leftt { text-align:left; width:815px; margin:0; padding:10px 0; float:left;}
-/*
-    #footer { text-transform: uppercase; padding-top: 5px; color: #9d8e8e; }
-    #footer a { color: #959a87; text-decoration: underline; }
-    #footer a:hover { color: #6d852c; text-decoration: none; }
-    #footer span { margin: 0 8px; color: #ced1c7; }
-    #footer p, #footer a { font-size: 10px !important; }
-  */  
 
 .icons { background-image: url(/skin/v1/default/light-blue/art/icons/icons.png) !important; background-repeat:no-repeat; height:18px; }
 .breadcrums_home { background-position: 0 2px; padding-left: 20px !important; }
