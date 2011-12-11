@@ -40,6 +40,19 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                      ->limit(1);
   }
 
+  function get_books(){
+    $select = $this->_db->select()
+                   ->from(array('bo'  => 'rv60_books'  ), array('book_id' ,'book' ,'seo', 'testament') )
+                   ->join(array('bi'  => 'rv60_bible'  ), 'bi.book_id = bo.book_id AND bi.lang_id = bo.lang_id', array('cap' => 'COUNT( DISTINCT(bi.cap) )') )
+                   ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
+                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->group( array ('bo.book_id') )
+                   ->order( array('bo.book_id ASC') );
+
+    $res = $this->_db->query( $select )->fetchAll();
+    return empty( $res ) ? false : $res;
+  }
+  
   function get_book($book_seo_name = "" ){
     $select_details = $this->_db->select()
                       ->from(array('bo'  => 'rv60_books'  ), array('book_id','book','seo','lang_id') )

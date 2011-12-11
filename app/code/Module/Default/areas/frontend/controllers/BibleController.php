@@ -8,6 +8,11 @@ class BibleController extends Module_Default_Controller_Action_Frontend {
   }
 
   function indexAction(){
+    $this->view->books = App::module('Addons')->getModel('Bible')->get_books();
+    if( empty($this->view->books) ){
+      $this->_module->exception(404);
+    }
+
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
   }
 

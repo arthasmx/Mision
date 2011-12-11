@@ -26,6 +26,8 @@
     ; BIBLE
         BIBLE_cap, "Cap"
         BIBLE_ver, "Ver"
+        BIBLE_testament_1, "Antiguo Testamento"
+        BIBLE_testament_2, "Nuevo Testamento"
 
 
 

@@ -1,2 +1,43 @@
-<br /><br /><br />
-CONTROLADOR DE LA BIBLIA
+<table class="bible">
+<?php
+  $settings = array( '1' => array('add_col_on_iteration'=> 20 , 'move_to_column_one' => 39 ),
+                     '2' => array('add_col_on_iteration'=> 53 , 'move_to_column_one' => 70 ));
+
+  $testament_type = 0;
+  $iteration = 0;
+  foreach($this->books AS $book){
+
+    if( $testament_type != $book['testament'] ){
+      $testament_type+=1;
+      echo "<tr>  <th colspan='2'><h2>".  App::xlat('BIBLE_testament_' . $book['testament']) . "</h2></th> </tr>";
+      echo "<tr>  <td><ul>";
+    }
+
+    if( $iteration == $settings[$book['testament']]['add_col_on_iteration'] ){
+      echo "</ul></td><td><ul>";
+    }
+
+    echo "<li> <a href='". App::base( App::xlat('route_bible') . $book['seo'] ) ."'>". $book['book'] . "</li>";
+    $iteration++;
+
+    if( $iteration == $settings[$book['testament']]['move_to_column_one'] ){
+      echo "</ul></td></tr>";
+    }
+
+  }
+?>
+</table>
+
+<?php 
+/*
+$book
+Array
+(
+    [book_id] => 1
+    [book] => Génesis
+    [seo] => genesis
+    [testament] => 1
+    [cap] => 50
+)
+*/
+?>

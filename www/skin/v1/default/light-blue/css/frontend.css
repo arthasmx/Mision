@@ -149,6 +149,14 @@ div#content img.f_left { float:left;}
 .port { width:288px; margin:0; padding:0 23px 20px 0; float:left; text-align: justify;}
 .last { padding:0;}
 
+  div#content_data table.bible{
+    width: 50%; height: 100%;
+  }
+    div#content_data table.bible th{
+      padding:15px;
+      text-align: center;
+    }
+
 /* END content */
 
 /* FOOTER */
