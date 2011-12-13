@@ -40,6 +40,17 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                      ->limit(1);
   }
 
+  function get_book_name($book_seo_name = "not_given"){
+      $select = $this->_db->select()
+                     ->from(array('bo'  => 'rv60_books'  ), array('book') )
+                     ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array() )
+                     ->where('la.namespace = ?', App::locale()->getName() )
+                     ->where('bo.seo = ?' , $book_seo_name)
+                     ->limit(1);
+    $name = $this->_db->query( $select )->fetch();
+    return empty( $name['book'] ) ? false : $name['book'];
+  }
+
   function get_book_chapters_and_verses_summary($book_id = 0, $lang_id = 0){
     $select = $this->_db->select()
                    ->from( array('la'  => 'languages')  , array() )
@@ -73,9 +84,9 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
 
   function get_verses($book_seo_name = "not_given", $chapter_id = 0){
     $select = $this->_db->select()
-                   ->from(array('bi'  => 'rv60_bible'  ), array('book_id' ,'cap' ,'ver' ,'texto') )
-                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('book','seo') )
-                   ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array('name', 'prefix', 'namespace'))
+                   ->from(array('bi'  => 'rv60_bible'  ), array('id' ,'texto') )
+                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array() )
+                   ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
                    ->where('la.namespace = ?', App::locale()->getName() )
                    ->where('bo.seo = ?' , $book_seo_name)
                    ->where('bi.cap = ?' , $chapter_id);
@@ -87,8 +98,8 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
   function get_verse($book_seo_name = "not_given", $cap_id = 0, $ver_id = 0){
 
     $select = $this->_db->select()
-                   ->from(array('bi'  => 'rv60_bible'  ), array('book_id' ,'cap' ,'ver' ,'texto','lang_id') )
-                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('book','seo') )
+                   ->from(array('bi'  => 'rv60_bible'  ), array('id', 'texto') )
+                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array() )
                    ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
                    ->where('la.namespace = ?', App::locale()->getName() )
                    ->where('bo.seo = ?' , $book_seo_name)
@@ -96,7 +107,7 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                    ->where('bi.ver = ?' , $ver_id);
     $verse = $this->_db->query( $select )->fetch();
 
-    return empty( $verse ) ? false : $verse; 
+    return empty( $verse ) ? false : array_merge($verse, array('verse'=>$ver_id)); 
   }
 
   function get_books(){

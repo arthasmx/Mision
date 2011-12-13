@@ -1,29 +1,31 @@
 
-<?php if ( ! empty($this->chapter) ): ?>
+  <div class="left-column">
+    <h2>Send a Message<span>Sed congue, dui vel tristique mollis...</span></h2>
 
-  <ol style="list-style: decimal;">
-    <?php foreach($this->chapter AS $chapter): ?>
-      <li> <?= $chapter['texto'] ; ?> </li>
-    <?php endforeach; ?>
-  </ol>
+    <?php if ( ! empty($this->verses) ): ?>
 
-<?php endif; ?>
+      <ol style="list-style: decimal;">
+        <?php foreach($this->verses AS $verse): ?>
+          <li> <?= $verse['texto'] ; ?> </li>
+        <?php endforeach; ?>
+      </ol>
+
+    <?php endif; ?>
+  </div>
+
+  <div class="right-column">
+    <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array('seo'=>$this->book))?>
+  </div>
 
 <?php 
 /*
+id para identificar al versiculo exacto y poderle dar otros usos
 Array
 (
     [0] => Array
         (
-            [book_id] => 1
-            [cap] => 1
-            [ver] => 1
+            [id] => 1212
             [texto] => En el principio creÃ³ Dios los cielos y la tierra.
-            [book] => GÃ©nesis
-            [seo] => genesis
-            [name] => Español
-            [prefix] => es
-            [namespace] => es_MX
         )
 */
 

@@ -1,20 +1,32 @@
 
-<?php if ( ! empty($this->book_details) ): ?>
+  <div class="left-column">
+    <h2>Send a Message<span>Sed congue, dui vel tristique mollis...</span></h2>
 
-  <ul>
-    <?php for($chapter = 1; $chapter <= $this->book_details['chapter']; $chapter++): ?>
-      <li> 
-        <a href="<?=App::base( App::xlat('route_bible') . $this->book_details['seo'] . "/$chapter" )?>">
-          <?= App::xlat('BIBLE_chapter') . " " . $chapter; ?>
-        </a> 
-      </li>
-    <?php endfor; ?>
-  </ul>
+    <?php if ( ! empty($this->book_details) ): ?>
 
-<?php endif; ?>
+      <ul>
+        <?php for($chapter = 1; $chapter <= $this->book_details['chapter']; $chapter++): ?>
+          <li> 
+            <a href="<?=App::base( App::xlat('route_bible') . $this->book_details['seo'] . "/$chapter" )?>">
+              <?= App::xlat('BIBLE_chapter') . " " . $chapter; ?>
+            </a> 
+          </li>
+        <?php endfor; ?>
+      </ul>
+
+    <?php endif; ?>
+
+  </div>
+
+  <div class="right-column">
+    <?php 
+      echo '<pre>'; print_r( $this->book_details ); echo '</pre>';
+    ?>
+  </div>
 
 <?php 
 /*
+$book_details
 Array
 (
     [book_id] => 1
