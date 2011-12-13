@@ -40,6 +40,65 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                      ->limit(1);
   }
 
+  function get_book_chapters_and_verses_summary($book_id = 0, $lang_id = 0){
+    $select = $this->_db->select()
+                   ->from( array('la'  => 'languages')  , array() )
+                   ->join( array('bi'  => 'rv60_bible') , 
+                                 'bi.lang_id = la.id',
+                           array('verses' => 'COUNT(bi.ver)', 'chapter' => 'COUNT( DISTINCT(bi.cap) )') )
+                   ->where('bi.book_id = ?' , $book_id)
+                   ->where('la.id= ?', $lang_id );
+    $sumary = $this->_db->query( $select )->fetch();
+
+    return empty( $sumary) ? false : $sumary;
+  }
+
+  function get_book_details($book_seo_name = "not_given"){
+      $select = $this->_db->select()
+                     ->from(array('bo'  => 'rv60_books'  ), array('book_id','book','seo','lang_id') )
+                     ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array('name','prefix','namespace','status') )
+                     ->where('la.namespace = ?', App::locale()->getName() )
+                     ->where('bo.seo = ?' , $book_seo_name)
+                     ->limit(1);
+    $details = $this->_db->query( $select )->fetch();
+
+    if( empty($details) ){
+      return null;
+    }
+
+    $summary = $this->get_book_chapters_and_verses_summary($details['book_id'], $details['lang_id']);
+
+    return array_merge($details, $summary);
+  }
+
+  function get_verses($book_seo_name = "not_given", $chapter_id = 0){
+    $select = $this->_db->select()
+                   ->from(array('bi'  => 'rv60_bible'  ), array('book_id' ,'cap' ,'ver' ,'texto') )
+                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('book','seo') )
+                   ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array('name', 'prefix', 'namespace'))
+                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->where('bo.seo = ?' , $book_seo_name)
+                   ->where('bi.cap = ?' , $chapter_id);
+    $verses = $this->_db->query( $select )->fetchAll();
+
+    return empty( $verses ) ? false : $verses;
+  }
+
+  function get_verse($book_seo_name = "not_given", $cap_id = 0, $ver_id = 0){
+
+    $select = $this->_db->select()
+                   ->from(array('bi'  => 'rv60_bible'  ), array('book_id' ,'cap' ,'ver' ,'texto','lang_id') )
+                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('book','seo') )
+                   ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
+                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->where('bo.seo = ?' , $book_seo_name)
+                   ->where('bi.cap = ?' , $cap_id)
+                   ->where('bi.ver = ?' , $ver_id);
+    $verse = $this->_db->query( $select )->fetch();
+
+    return empty( $verse ) ? false : $verse; 
+  }
+
   function get_books(){
     $select = $this->_db->select()
                    ->from(array('bo'  => 'rv60_books'  ), array('book_id' ,'book' ,'seo', 'testament') )
@@ -50,71 +109,6 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
 
     $res = $this->_db->query( $select )->fetchAll();
     return empty( $res ) ? false : $res;
-  }
-
-  function get_book($book_seo_name = "" ){
-    $select_details = $this->_db->select()
-                      ->from(array('bo'  => 'rv60_books'  ), array('book_id','book','seo','lang_id') )
-                      ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array('name','prefix','namespace','status') )
-                      ->where('la.namespace = ?', App::locale()->getName() )
-                      ->where('bo.seo = ?' , $book_seo_name)
-                      ->limit(1);
-    $book_details = $this->_db->query( $select_details )->fetch();
-
-    if( empty($book_details) ){
-      return null;
-    }
-    $book = null;
-
-    $select_sumary = $this->_db->select()
-                      ->from( array('la'  => 'languages')  , array() )
-                      ->join( array('bi'  => 'rv60_bible') , 
-                              'bi.lang_id = la.id',
-                              array('ver_total' => 'COUNT(bi.ver)', 'cap_total' => 'COUNT( DISTINCT(bi.cap) )') )
-                      ->where('bi.book_id = ?' , $book_details['book_id'])
-                      ->where('la.id= ?', $book_details['lang_id'] );
-    $book_sumary = $this->_db->query( $select_sumary )->fetch();
-    $book['details'] = array_merge( $book_details, $book_sumary );
-
-
-    $select_vercicles = $this->_db->select()
-                      ->from(array('bi'  => 'rv60_bible'  ), array('book_id' ,'cap' ,'ver' ,'texto') )
-                      ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
-                      ->where('la.namespace = ?', App::locale()->getName() )
-                      ->where('bi.book_id = ?' , $book_details['book_id'])
-                      ->where('bi.cap = 1');
-    $book['vercicles'] = $this->_db->query( $select_vercicles )->fetchAll();
-
-    return $book;
-  }
-
-  function get_cap($book_seo_name = "", $cap_id = 0){
-
-    $select = $this->_db->select()
-                   ->from(array('bi'  => 'rv60_bible'  ), array('book_id' ,'cap' ,'ver' ,'texto') )
-                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('book','seo') )
-                   ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array('name', 'prefix', 'namespace'))
-                   ->where('la.namespace = ?', App::locale()->getName() )
-                   ->where('bo.seo = ?' , $book_seo_name)
-                   ->where('bi.cap = ?' , $cap_id);
-    $cap = $this->_db->query( $select )->fetchAll();
-
-    return empty( $cap ) ? false : $cap; 
-  }
-
-  function get_ver($book_seo_name = "", $cap_id = 0, $ver_id = 0){
-
-    $select = $this->_db->select()
-                   ->from(array('bi'  => 'rv60_bible'  ), array('book_id' ,'cap' ,'ver' ,'texto','lang_id') )
-                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('book','seo') )
-                   ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
-                   ->where('la.namespace = ?', App::locale()->getName() )
-                   ->where('bo.seo = ?' , $book_seo_name)
-                   ->where('bi.cap = ?' , $cap_id)
-                   ->where('bi.ver = ?' , $ver_id);
-    $ver = $this->_db->query( $select )->fetch();
-
-    return empty( $ver) ? false : $ver; 
   }
 
 }

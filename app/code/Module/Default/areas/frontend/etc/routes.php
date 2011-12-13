@@ -13,15 +13,15 @@ $bible_params = array(  'module'     => 'Default',
 $bible_langs = array('en'=> "bible", 'es'=> 'biblia');
 
 foreach($bible_langs AS $lang=>$value){
-  $base = new Zend_Controller_Router_Route($value, array_push_assoc($bible_params, "action","index"));
-  $book = new Zend_Controller_Router_Route($value . '/:book', array_push_assoc($bible_params, "action","book"));
-  $cap  = new Zend_Controller_Router_Route($value . '/:book/:cap', array_push_assoc($bible_params, "action","cap"));
-  $ver  = new Zend_Controller_Router_Route($value . '/:book/:cap/:ver/*', array_push_assoc($bible_params, "action","ver"));
+  $base     = new Zend_Controller_Router_Route($value, array_push_assoc($bible_params, "action","index"));
+  $book     = new Zend_Controller_Router_Route($value . '/:book', array_push_assoc($bible_params, "action","book"));
+  $chapter  = new Zend_Controller_Router_Route($value . '/:book/:chapter', array_push_assoc($bible_params, "action","chapter"));
+  $verse    = new Zend_Controller_Router_Route($value . '/:book/:chapter/:verse/*', array_push_assoc($bible_params, "action","verse"));
 
   $router->addRoute('bible_base_'.$lang, $base);
   $router->addRoute('bible_book_'.$lang, $book);
-  $router->addRoute('bible_cap_'.$lang,  $cap);
-  $router->addRoute('bible_ver_'.$lang,  $ver);
+  $router->addRoute('bible_chapter_'.$lang,  $chapter);
+  $router->addRoute('bible_verse_'.$lang,  $verse);
 }
 
 // Fraternidades

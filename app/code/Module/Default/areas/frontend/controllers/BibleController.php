@@ -17,47 +17,40 @@ class BibleController extends Module_Default_Controller_Action_Frontend {
   }
 
   function bookAction(){
-    $this->view->book = App::module('Addons')->getModel('Bible')->get_book( $this->getRequest()->getParam('book') );
-    if( empty($this->view->book) ){
+    $this->view->book_details = App::module('Addons')->getModel('Bible')->get_book_details( $this->getRequest()->getParam('book') );
+    if( empty($this->view->book_details) ){
       $this->_module->exception(404);
     }
 
-
-    /*
-     x total de capitulos
-     x total de versiculos
-     - listado de los capitulos para con 1 click llevarnos ahi
-     */
-
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->book['details']['book'] );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->book_details['book'] );
   }
 
-  function capAction(){
-    $book = $this->getRequest()->getParam('book');
-    $cap  = $this->getRequest()->getParam('cap');
+  function chapterAction(){
+    $book     = $this->getRequest()->getParam('book');
+    $chapter  = $this->getRequest()->getParam('chapter');
 
-    $this->view->cap = App::module('Addons')->getModel('Bible')->get_cap( $book, $cap );
-    if( empty($this->view->cap) ){
+    $this->view->chapter = App::module('Addons')->getModel('Bible')->get_verses( $book, $chapter );
+    if( empty($this->view->chapter) ){
       $this->_module->exception(404);
     }    
 
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->cap[0]['book'], $book, $cap );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->chapter[0]['book'], $book, $chapter );
   }
 
-  function verAction(){
+  function verseAction(){
     $book = $this->getRequest()->getParam('book');
-    $cap  = $this->getRequest()->getParam('cap');
-    $ver  = $this->getRequest()->getParam('ver');
+    $chapter  = $this->getRequest()->getParam('chapter');
+    $verse  = $this->getRequest()->getParam('verse');
 
-    $this->view->ver = App::module('Addons')->getModel('Bible')->get_ver( $book, $cap, $ver );
-    if( empty($this->view->ver) ){
+    $this->view->verse = App::module('Addons')->getModel('Bible')->get_verse( $book, $chapter, $verse );
+    if( empty($this->view->verse) ){
       $this->_module->exception(404);
     }
 
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->ver['book'], $book, $cap, $ver );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->verse['book'], $book, $chapter, $verse );
   }
 
-  protected function get_breadcrumbs( $action = null, $book_name=null, $book=null, $cap=null, $ver=null ){
+  protected function get_breadcrumbs( $action = null, $book_name=null, $book=null, $chapter=null, $verse=null ){
 
     $route        = App::xlat('route_bible');
     $trimed_route = rtrim($route, '/');
@@ -74,19 +67,19 @@ class BibleController extends Module_Default_Controller_Action_Frontend {
                 array('title'=> $book_name )
               );
               break;
-      case 'cap':
+      case 'chapter':
               return array(
                 array('title'=> App::xlat('BREADCRUM_bible')        , 'url' => App::base( $trimed_route ) ),
                 array('title'=> $book_name                          , 'url' => App::base( $route . $book ) ),
-                array('title'=> App::xlat('BIBLE_cap') . ' ' . $cap )
+                array('title'=> App::xlat('BIBLE_chapter') . ' ' . $chapter )
               );
               break;
-      case 'ver':
+      case 'verse':
               return array(
                 array('title'=> App::xlat('BREADCRUM_bible')        , 'url' => App::base( $trimed_route ) ),
                 array('title'=> $book_name                          , 'url' => App::base( $route . $book ) ),
-                array('title'=> App::xlat('BIBLE_cap') . ' ' . $cap , 'url' => App::base( $route . $book . '/' . $cap ) ),
-                array('title'=> App::xlat('BIBLE_ver') . ' ' . $ver )
+                array('title'=> App::xlat('BIBLE_chapter') . ' ' . $chapter , 'url' => App::base( $route . $book . '/' . $chapter ) ),
+                array('title'=> App::xlat('BIBLE_verse') . ' ' . $verse )
               );
               break;
       default:
