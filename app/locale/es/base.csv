@@ -110,6 +110,7 @@
     route_bible, "/biblia/"
   ; FRATERNITIES
     route_fraternities, "/fraternidades/"
+
   ; ANNOUNCEMENT
     route_announcement, "/anuncios/"
   ; PAGINATOR

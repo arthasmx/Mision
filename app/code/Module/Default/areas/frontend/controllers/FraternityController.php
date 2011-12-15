@@ -5,20 +5,26 @@ class FraternityController extends Module_Default_Controller_Action_Frontend {
 
   function preDispatch(){}
 
+  /*
+   * @todo: Estoy sacando el articulo hardcoded, lo cual no es correcto.
+   */
   function indexAction(){
+    $this->view->fraternities = App::module('Articles')->getModel('Article')->get_article( 'fraternidades' );
+    if( empty($this->view->fraternities) ){
+      $this->_module->exception(404);
+    }
+
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
   }
 
   function fraternityAction(){
-
-    $fraternities = explode( ",", App::getConfig('fraternities') );
-    $gender       = $this->getRequest()->getParam('gender');
-    if ( ! in_array( $gender, $fraternities ) ){
+    $gender = $this->getRequest()->getParam('gender');
+    $this->view->fraternity = App::module('Articles')->getModel('Article')->get_article( $gender );
+    if( empty($this->view->fraternity) ){
       $this->_module->exception(404);
     }
 
-    $this->view->gender = $gender;
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->gender );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $gender );
   }
 
   protected function get_breadcrumbs( $action = null, $gender=null ){

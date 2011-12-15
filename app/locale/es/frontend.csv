@@ -4,7 +4,9 @@
 
     ; FRONTEND
         CONTENT_title_doctrine, "Puntos doctrinales de la iglesia"
+        
         CONTENT_subtitle_doctrine, "Creencias basicas de nuestra religion"
+        CONTENT_subtitle_fraternities, "Selecciona tu fraternidad y descubre lo que tenemos para ti"
 
         CONTENT_doctrine_god, "Dios",
         CONTENT_doctrine_jesuschrist, "Jesucristo",
