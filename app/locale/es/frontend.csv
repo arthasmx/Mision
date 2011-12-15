@@ -3,6 +3,28 @@
   ; CONTENT
 
     ; FRONTEND
+        CONTENT_title_doctrine, "Puntos doctrinales de la iglesia"
+        CONTENT_subtitle_doctrine, "Creencias basicas de nuestra religion"
+
+        CONTENT_doctrine_god, "Dios",
+        CONTENT_doctrine_jesuschrist, "Jesucristo",
+        CONTENT_doctrine_holy_spirit, "Espiritu Santo",
+        CONTENT_doctrine_resurrection, "Resurrección de Jesucristo",
+        CONTENT_doctrine_church, "Iglesia",
+        CONTENT_doctrine_church_state, "La Iglesia y el Estado",
+        CONTENT_doctrine_marine, "Servicio Militar",
+        CONTENT_doctrine_economy_system, "Sistema Economico de la Iglesia",
+        CONTENT_doctrine_ministerial_body, "Cuerpo Ministerial",
+        CONTENT_doctrine_baptism, "Bautismo",
+        CONTENT_doctrine_communion, "Comunión",
+        CONTENT_doctrine_marriage, "Matrimonio",
+        CONTENT_doctrine_divine_healing, "Sanidad Divina",
+        CONTENT_doctrine_holiness, "Santidad",
+        CONTENT_doctrine_death_sin, "Pecado de Muerte",
+        CONTENT_doctrine_resurrection, "Resurrección de Justos e Injustos",
+        CONTENT_doctrine_recollection, "Recogimiento de la Iglesia y el Milenio",
+        CONTENT_doctrine_judgement, "Juicio Final"
+
         MAINPAGE_column_join, "Participa!"
         MAINPAGE_column_join_span, "Diseñadores, Traductores, Escritores, Analistas..."
         MAINPAGE_column_join_description, "Con la ayuda de nuestro Señor Jesucristo y la de ustedes queridos hermanos, queremos hacer de esta página tu Página Cristiana Favorita; es por ello que requerimos de tu valiosa participación, ya sea enviandonos tus sugerencias, comentarios o mejor aún, que participes en el mantenimiento del sitio."
@@ -29,6 +51,72 @@
         BIBLE_testament_1, "Antiguo Testamento"
         BIBLE_testament_2, "Nuevo Testamento"
 
+          BIBLE_seo_book_genesis,"genesis"
+          BIBLE_seo_book_exodus,"exodo"
+          BIBLE_seo_book_leviticus,"levitico"
+          BIBLE_seo_book_numbers,"numeros"
+          BIBLE_seo_book_deuteronomy,"deuteronomio"
+          BIBLE_seo_book_joshua,"josue"
+          BIBLE_seo_book_judges,"jueces"
+          BIBLE_seo_book_ruth,"rut"
+          BIBLE_seo_book_1_samuel,"1ra_de_samuel"
+          BIBLE_seo_book_2_samuel,"2da_de_samuel"
+          BIBLE_seo_book_1_kings,"1ra_de_reyes"
+          BIBLE_seo_book_2_kings,"2da_de_reyes"
+          BIBLE_seo_book_1_chronicles,"1ra_de_cronicas"
+          BIBLE_seo_book_2_chronicles,"2da_de_cronicas"
+          BIBLE_seo_book_ezra,"esdras"
+          BIBLE_seo_book_nehemiah,"nehemias"
+          BIBLE_seo_book_esther,"ester"
+          BIBLE_seo_book_job,"job"
+          BIBLE_seo_book_psalms,"salmos"
+          BIBLE_seo_book_proverbs,"proverbios"
+          BIBLE_seo_book_ecclesiastes,"eclesiastes"
+          BIBLE_seo_book_song_of_songs,"cantares"
+          BIBLE_seo_book_isaiah,"isaias"
+          BIBLE_seo_book_jeremiah,"jeremias"
+          BIBLE_seo_book_lamentation,"lamentaciones"
+          BIBLE_seo_book_ezekiel,"ezequiel"
+          BIBLE_seo_book_daniel,"daniel"
+          BIBLE_seo_book_hosea,"oseas"
+          BIBLE_seo_book_joel,"joel"
+          BIBLE_seo_book_amos,"amos"
+          BIBLE_seo_book_obadiah,"abdias"
+          BIBLE_seo_book_jonah,"jonas"
+          BIBLE_seo_book_micah,"miqueas"
+          BIBLE_seo_book_nahum,"nahum"
+          BIBLE_seo_book_habakkuk,"habacuc"
+          BIBLE_seo_book_zephaniah,"sofonias"
+          BIBLE_seo_book_haggai,"hageo"
+          BIBLE_seo_book_zechariah,"zacarias"
+          BIBLE_seo_book_malachi,"malaquias"
+          BIBLE_seo_book_matthew,"mateo"
+          BIBLE_seo_book_mark,"marcos"
+          BIBLE_seo_book_luke,"lucas"
+          BIBLE_seo_book_john,"juan"
+          BIBLE_seo_book_acts,"hechos"
+          BIBLE_seo_book_romans,"romanos"
+          BIBLE_seo_book_1_corinthians,"1ra_de_corintios"
+          BIBLE_seo_book_2_corinthians,"2da_de_corintios"
+          BIBLE_seo_book_galatians,"galatas"
+          BIBLE_seo_book_ephesians,"efesios"
+          BIBLE_seo_book_philippians,"filipenses"
+          BIBLE_seo_book_colossians,"colosenses"
+          BIBLE_seo_book_1_thessalonians,"1ra_de_tesalonicenses"
+          BIBLE_seo_book_2_thessalonians,"2da_de_tesalonicenses"
+          BIBLE_seo_book_1_timothy,"1ra_de_timoteo"
+          BIBLE_seo_book_2_timothy,"2da_de_timoteo"
+          BIBLE_seo_book_titus,"tito"
+          BIBLE_seo_book_philemon,"filemon"
+          BIBLE_seo_book_hebrews,"hebreos"
+          BIBLE_seo_book_james,"santiago"
+          BIBLE_seo_book_1_peter,"1ra_de_pedro"
+          BIBLE_seo_book_2_peter,"2da_de_pedro"
+          BIBLE_seo_book_1_john,"1ra_de_juan"
+          BIBLE_seo_book_2_john,"2da_de_juan"
+          BIBLE_seo_book_3_john,"3ra_de_juan"
+          BIBLE_seo_book_jude,"judas"
+          BIBLE_seo_book_revelation,"apocalipsis"
 
 
 

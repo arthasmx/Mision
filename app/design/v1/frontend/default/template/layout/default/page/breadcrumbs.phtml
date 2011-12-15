@@ -9,7 +9,7 @@
           <?php if ( empty($breadcrumb['url']) ): ?>
             <?=ucfirst($breadcrumb['title'])?>
           <?php else:?>
-            <a href='<?=$breadcrumb['url']?>' ><?=$breadcrumb['title']?></a>
+            <a href='<?=$breadcrumb['url']?>' ><?=ucfirst($breadcrumb['title'])?></a>
           <?php endif;?>
         </li>
       <?php endforeach;?>

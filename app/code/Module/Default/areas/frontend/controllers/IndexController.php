@@ -15,13 +15,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
 
 		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_about' );
   }
-
-  function doctrineAction(){
-    $this->view->current_main_menu = 1;
-
-		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_doctrine' );
-  }
-
+ 
   function eventsAction(){
     $this->view->current_main_menu = 2;
     
@@ -90,8 +84,9 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
       $view   = $actions_for_this_locale[$desired_action]['view'];
       call_user_func("self::{$action}Action");
       $this->_helper->getHelper('ViewRenderer')->setScriptAction($view);
+    }else{
+      $this->_module->exception("Action Given Does Not Exist");
     }
-
   }
 
 }

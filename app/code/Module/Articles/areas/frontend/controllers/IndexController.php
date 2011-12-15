@@ -58,7 +58,7 @@ echo "<pre>"; print_r( $where ); echo "</pre>";
  */
   function readAction() {
     $article_seo = $this->getRequest()->getParam('seo');
-    $this->view->article = $this->_module->getModel('Article')->read_article_by_seo_id( $article_seo );
+    $this->view->article = $this->_module->getModel('Article')->get_article_basic_data( $article_seo );
     if( empty($this->view->article) ){
       $this->_module->exception(404);
     }

@@ -50,6 +50,25 @@
 ; LINKS TAG a href
   LINK_home, ""
   LINK_doctrine, "doctrina"
+    LINK_doctrine_god, "dios",
+    LINK_doctrine_jesuschrist, "jesucristo",
+    LINK_doctrine_holy_spirit, "espiritu-santo",
+    LINK_doctrine_resurrection, "resurreccion-de-jesucristo",
+    LINK_doctrine_church, "iglesia",
+    LINK_doctrine_church_state, "la-iglesia-y-el-estado",
+    LINK_doctrine_marine, "servicio-militar",
+    LINK_doctrine_economy_system, "sistema-economico-de-la-iglesia",
+    LINK_doctrine_ministerial_body, "cuerpo-ministerial",
+    LINK_doctrine_baptism, "bautismo",
+    LINK_doctrine_communion, "comunion",
+    LINK_doctrine_marriage, "matrimonio",
+    LINK_doctrine_divine_healing, "sanidad-divina",
+    LINK_doctrine_holiness, "santidad",
+    LINK_doctrine_death_sin, "pecado-de-muerte",
+    LINK_doctrine_resurrection, "resurreccion-de-justos-e-injustos",
+    LINK_doctrine_recollection, "recogimiento-de-la-iglesia-y-el-milenio",
+    LINK_doctrine_judgement, "juicio-final"
+
   LINK_events, "eventos"
   LINK_bible, "biblia"
   LINK_multimedia, "multimedia"
@@ -85,6 +104,8 @@
   LINK_fraternities_kids, "fraternidad/ninos"
 
 ;ROUTES
+  ; DOCTRINE
+    route_doctrine, "/doctrina/"
   ; BIBLE
     route_bible, "/biblia/"
   ; FRATERNITIES

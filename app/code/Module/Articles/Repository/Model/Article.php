@@ -29,7 +29,7 @@ class Module_Articles_Repository_Model_Article extends Module_Core_Repository_Mo
                               ->paginate_render( $articles );
   }
 
-  function read_article_by_seo_id( $article_seo = 'this_seo_was_intentionally_left_to_return_null_values_so_leave_it_as_is_ok?!' ){
+  function get_article_basic_data( $article_seo = 'not_given!' ){
     $article = $this->_db->select()
                     ->from(array('va' => 'vista_articles' ) )
                     ->where( 'va.lang_status = 1' )
@@ -38,11 +38,22 @@ class Module_Articles_Repository_Model_Article extends Module_Core_Repository_Mo
                     ->where( 'va.status = 1' )
                     ->where( 'va.written = 1' )
                     ->limit(1);
-    return $this->_db->query( $article )->fetch();
+    $article = $this->_db->query( $article )->fetch();
+    return empty( $article ) ? false : $article;
   }
 
-  function get_article_main_content( $article_id = null ){
-    
+  function get_article( $article_seo = "not_given!" ){
+    $basic_data = $this->get_article_basic_data( $article_seo );
+
+    if( empty($basic_data) ){
+      return null;
+    }
+
+    $select = $this->_db->select()
+                   ->from(array('a'  => 'articles_details' ), array('article') )
+                   ->where('a.seo = ?' , $article_seo);
+    $article = $this->_db->query( $select )->fetch();
+    return array_merge($basic_data , $article);
   }
 
 }

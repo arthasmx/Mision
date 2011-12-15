@@ -5,8 +5,8 @@
         font-weight: inherit; font-style: inherit; font-size: 12px; font-family: inherit;
         vertical-align: baseline; line-height:20px;
         background: transparent;
-        font-family: "Lucida Sans Unicode","Lucida Grande", verdana, arial;
-        font-size:0.97em;
+        color:#333;
+        font:normal 12px Arial, Helvetica, sans-serif; line-height:1.8em;
    }
     h1,h2,h3,h4,h5{
       font-family: 'Raleway', "Lucida Sans Unicode","Lucida Grande", verdana, arial;
@@ -92,7 +92,7 @@
     .ar { text-align: right; }
     .ac { text-align: center; }
 
-    p { padding-bottom: 4px; }
+    p { padding-bottom: 4px; text-align: justify; }
 
     .transparent{
       zoom: 1;

@@ -1,5 +1,5 @@
 <?php
-
+// Basic
 $route = new Zend_Controller_Router_Route(
 		':action/*',
     array(	'module'     => 'Default',
@@ -7,7 +7,7 @@ $route = new Zend_Controller_Router_Route(
           	'action'     => 'index'));
 $router->addRoute('public-section', $route);
 
-
+// Biblia
 $bible_params = array(  'module'     => 'Default',
                         'controller' => 'bible');
 $bible_langs = array('en'=> "bible", 'es'=> 'biblia');
@@ -24,14 +24,22 @@ foreach($bible_langs AS $lang=>$value){
   $router->addRoute('bible_verse_'.$lang,  $verse);
 }
 
-// Fraternidades
+// Detalle de doctrina
   $route = new Zend_Controller_Router_Route(
-  		'fraternities',
+  		'doctrina',
       array(	'module'     => 'Default',
-            	'controller' => 'fraternity',
-            	'action'     => 'index'));
-  $router->addRoute('fraternity-all', $route);
-  
+            	'controller' => 'doctrine',
+            	'action'     => 'doctrine'));
+  $router->addRoute('doctrine', $route);
+
+    $route = new Zend_Controller_Router_Route(
+    		'doctrina/:seo',
+        array(	'module'     => 'Default',
+              	'controller' => 'doctrine',
+              	'action'     => 'detail'));
+    $router->addRoute('doctrine-detail', $route);
+
+// Fraternidades
   $route = new Zend_Controller_Router_Route(
   		'fraternidades',
       array(	'module'     => 'Default',
