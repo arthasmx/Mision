@@ -120,14 +120,10 @@
 
 div.gradient{ background: url(/skin/v1/default/light-blue/art/bks/gradient.png) repeat-y center center; }
 
-  /* FACEBOOK */
   div.social_networks{
-    width: 720px; height:30px;
     float: left;
-  }
-  div.fb-like{
-    float: right;
-    width: 105px !important;
+    margin-top: 30px;
+    width: 720px; height:30px;
   }
 
 div#content h2 { font: normal 24px Arial, Helvetica, sans-serif; color:#494848; padding:15px 0; margin:0 0 10px; border-bottom:1px solid #D4D4D4;}
