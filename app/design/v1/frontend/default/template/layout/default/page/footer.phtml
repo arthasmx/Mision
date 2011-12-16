@@ -51,8 +51,8 @@
 <?=App::xlat('ADDRESS_city_state')?><br />
 <?=App::xlat('ADDRESS_hours')?><br />
 <?=App::xlat('ADDRESS_phone')?><br />
-<a href="mailto:contacto@iglesialamision.mx">
-<?=App::xlat('ADDRESS_mail')?>
+<a href="<?=App::base( "/" . App::xlat('LINK_contact') )?>">
+  <img src="<?=App::skin('/art/icons/mail.png') ?>" alt="" title="" />
 </a>
 </p>
 </div>
