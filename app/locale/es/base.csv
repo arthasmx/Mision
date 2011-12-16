@@ -80,6 +80,7 @@
       FOOTER_link_privacy_policy,"Políticas de privacidad"
       FOOTER_link_terms_conditions,"Términos y condiciones"
       FOOTER_link_sitemap,"Mapa del sitio"
+      FOOTER_link_site_requirements,"Requisitos del sitio"
 
     FOOTER_menu_topic_fraternities, "Fraternidades"
       FOOTER_link_fraternities_men, "Varones"
@@ -94,9 +95,10 @@
 
 
 ;LINKS TAG a href
-  LINK_privacy_policy, "politicas-privacidad"
-  LINK_terms_conditions, "terminos-condiciones"
-  LINK_sitemap, "mapa-sitio"
+  LINK_privacy_policy, "politicas-de-privacidad"
+  LINK_terms_conditions, "terminos-y-condiciones"
+  LINK_sitemap, "mapa-del-sitio"
+  LINK_site_requirements, "requisitos-del-sitio"
   LINK_fraternities_men, "fraternidad/varones"
   LINK_fraternities_women, "fraternidad/damas"
   LINK_fraternities_young, "fraternidad/jovenes"
@@ -131,4 +133,5 @@ MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario p
 
 
 ;MANUAL EXCEPTIONS
-EXC_NO_ACTION_TO_PARSE, "Se requiere una acción para ejecutar el método <strong>convert_seo_url_to_action</strong>"
+  EXC_NO_ACTION_TO_PARSE, "Se requiere una acción para ejecutar el método <strong>convert_seo_url_to_action</strong>"
+  EXC_article_wasnt_found, "El articulo que buscas no ha sido encontrado"

@@ -46,7 +46,7 @@ class Module_Articles_Repository_Model_Article extends Module_Core_Repository_Mo
     $basic_data = $this->get_article_basic_data( $article_seo );
 
     if( empty($basic_data) ){
-      return null;
+      App::module('Core')->exception( App::xlat('EXC_article_wasnt_found') . '<br />Launched at method get_article, file Repository/Model/Article' );
     }
 
     $select = $this->_db->select()

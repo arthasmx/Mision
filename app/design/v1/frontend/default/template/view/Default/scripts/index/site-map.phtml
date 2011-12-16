@@ -1,3 +1,17 @@
-<br /><br /><br />
-<h1>Site Map</h1>
-<br /><br /><br />
+  <div class="left-column">
+    <h2>
+      <?=$this->sitemap['title']?>
+      <span><?=App::xlat('CONTENT_subtitle_sitemap')?></span>
+    </h2>
+    <p>
+      <?= eval('?>' . $this->sitemap['article'] . '<?php ');?>
+    </p>
+  </div>
+
+  <div class="right-column">
+    <h2>A ver que ponemos aqui<span>Sed congue, dui vel tristique mollis...</span></h2>
+    <p><strong>Address Info</strong><br />123 Pine Street<br />Mycity, ST 19000</p>
+    <p><strong>Email:</strong><a href="mailto:contact@mycompany.com"> contact@mycompany.com</a><br />
+      <strong>Website:</strong> <a href="#">www.mycompany.com</a><br />
+      <strong>Phone:</strong> 0800-123456 </p>
+  </div>

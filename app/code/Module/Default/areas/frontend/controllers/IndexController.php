@@ -55,16 +55,24 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'BREADCRUM_contact_us' );
   }
 
+  function siteRequirementsAction(){
+    $this->view->requirements    = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( App::xlat('FOOTER_link_site_requirements') );
+  }
+
+  function siteMapAction(){
+    $this->view->sitemap         = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_sitemap' );
+  }
+
   function privacyPolicyAction(){
+    $this->view->privacy         = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_privacy_policy' );
   }
 
   function termsConditionsAction(){
+    $this->view->conditions      = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_terms_conditions' );
-  }
-
-  function siteMapAction(){
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_sitemap' );
   }
 
   protected function get_breadcrumbs( $breadcrumb = null ){
