@@ -72,7 +72,7 @@
   LINK_events, "eventos"
   LINK_bible, "biblia"
   LINK_multimedia, "multimedia"
-  LINK_about, "nosotros"
+  LINK_about, "quienes-somos"
   LINK_contact, "contactenos"
 
   ; FOOTER MENU

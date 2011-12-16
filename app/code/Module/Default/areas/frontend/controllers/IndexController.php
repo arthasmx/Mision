@@ -13,6 +13,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   function aboutUsAction(){
     $this->view->current_main_menu = 0;
 
+    $this->view->aboutus         = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
 		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_about' );
   }
  
