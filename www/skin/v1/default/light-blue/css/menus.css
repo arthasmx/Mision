@@ -2,10 +2,7 @@
 
 /* MAIN MENU */
 
-  #menu{
-    float:left;
-    width: 940px;
-  }
+  #menu{ float:left; width: 980px; }
 
     #menu li{
       float: left;
@@ -18,9 +15,7 @@
         margin:0;
         width: 130px;
       }
-    #menu li.first_link{
-      margin-left: 85px;
-    }
+    #menu li.first_link{ margin-left: 95px; }
     #menu li.last_link{
       background-image: none;
     }
