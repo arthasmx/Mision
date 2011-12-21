@@ -1,24 +1,33 @@
 @CHARSET "UTF-8";
 
-/* COLUMN TOPIC */
-    h2.col-topic-about { background-image: url(../art/text/bizgroup-services.gif); height: 33px; }
-
 /* COLUMNS */
+.right-panel { width:300px; margin:0; padding:0; float:left;}
+.left-panel { width:655px; margin:0 0 40px; padding:0 23px 0 0; float:left;}
+.port { width:311px; margin:0; padding:0 23px 20px 0; float:left; text-align: justify;}
+
+  div#content_data div.left-panel table{
+    width: 100%; height: 100%;
+    border-spacing:20px 10px;
+  }
+    div#content_data div.left-panel table th, div#content_data div.left-panel table td{
+      text-align: justify;
+      vertical-align: top;
+    }
+    div#content_data div.left-panel table th{
+      font-size:1.5em;
+    }
+
     .col { 
         float: left; 
         display: inline; 
     }
 
-    .col h2 { 
-        padding-bottom: 10px; 
-        margin-left: 5px; 
-        text-transform: uppercase; 
-        font-weight: normal; 
-    }
     .col h2.notext { height: 26px; }
     .col .content { padding: 5px 0 0 5px; }
     .col .content p{ text-align: justify;}
-    .two-cols, .three-cols, .four-cols{ padding: 28px 0 24px; }
+    .two-cols, .three-cols, .four-cols{ padding: 28px 0 24px; float: left; }
+      .two-cols .last, div#content .three-cols .last, div#content .four-cols .last { padding:0; margin:0;}
+      .col_description { height: 135px; border-bottom: 1px solid #D4D4D4; }
 
     /* 2 cols */
         .two-cols .col { width: 310px;}
@@ -29,7 +38,7 @@
     /* 3 cols */
         .three-cols .col { 
             width: 300px; 
-            margin-right: 20px; 
+            margin-right: 40px; 
         }
     /* 4 cols */
         .four-cols .col { 

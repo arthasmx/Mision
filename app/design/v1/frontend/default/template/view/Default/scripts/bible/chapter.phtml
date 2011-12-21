@@ -1,5 +1,5 @@
 
-  <div class="left-column">
+  <div class="left-panel">
     <h2>Send a Message<span>Sed congue, dui vel tristique mollis...</span></h2>
 
     <?php if ( ! empty($this->verses) ): ?>
@@ -13,7 +13,7 @@
     <?php endif; ?>
   </div>
 
-  <div class="right-column">
+  <div class="right-panel">
     <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array('seo'=>$this->book))?>
   </div>
 
