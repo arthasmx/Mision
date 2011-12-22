@@ -1,0 +1,168 @@
+
+	#ddSlider, #ddSlider li {
+		height: 340px;
+		width: 980px;
+	  background-color: #000;
+	}
+
+	/* images container - This is the most important container - Don't change important properties */
+	#ddSlider {
+		
+		list-style: none !important;
+		float: left;
+		margin: 0 !important;
+		padding: 0 !important;
+		overflow: hidden !important;
+		position: relative !important;
+		
+	}
+
+		/* each slider item - Nothing to change here */
+		#ddSlider li {
+			
+			display: none;
+			float: left;
+			margin: 0;
+			position: absolute;
+			width: 100%;
+			
+		}
+		
+		/* Don't edit this part */
+		#ddSlider li.current {
+			
+			display: block;
+			z-index: 2 !important;
+			
+		}
+		
+		/* Don't edit this part */
+		#ddSlider li.next {
+			
+			display: block;
+			z-index: 1 !important;
+			
+		}
+		
+		/* Don't edit this part - prevents inline lists from being hidden */
+		#ddSlider li ul li {
+			
+			display: block !important;
+			position: relative !important;
+			
+		}
+
+		
+		
+/*------------------------
+  ---------------- NAVS
+  ------------------------*/
+
+  .slider_nav {
+    background-color: #000000;
+    float: left;
+    height: 35px;
+    margin-top: 15px;
+    position: absolute;
+    top: 325px;
+    width: 980px;
+    z-index: 15;
+  }
+  
+  
+
+    /*------------------------
+    --------------- LEFT ARROW
+    ------------------------*/
+    
+    /* Sets position and main configs */
+    .slider_arrow_left {
+      top:7px;
+      bottom: 10px;
+      cursor: pointer !important;
+      float: left;
+      height: 22px;
+      left: 10px;
+      position: absolute;
+      width: 22px;
+      z-index: 5;
+      
+    }
+    
+    /* left arrow image */
+    .slider_arrow_left {
+      
+      background: url(/skin/v1/default/light-blue/art/icons/left_arrow.png) no-repeat top left;
+      
+    }
+
+
+    /*------------------------
+    -------------- RIGHT ARROW
+    ------------------------*/
+    
+    /* Sets position and main configs */
+    .slider_arrow_right {
+      top:7px;
+      bottom: 10px;
+      cursor: pointer;
+      float: left;
+      height: 22px;
+      left: 37px;
+      position: absolute;
+      width: 22px;
+      z-index: 5;
+      
+    }
+    
+    /* Right arrow Background */
+    .slider_arrow_right {
+      
+      background: url(/skin/v1/default/light-blue/art/icons/right_arrow.png) no-repeat top left;
+      
+    }
+
+  /*------------------------
+  ---------------- SELECTORS
+  ------------------------*/
+  
+  /* Sets configs for selectors containers : absolute positioned in relation to #slider */
+  .slider_selector, .slider_selector_dis {
+    
+    bottom: 10px;
+    list-style: none;
+    margin: 0 0 0 5px;
+    position: absolute;
+    right: 10px;
+    z-index: 5;
+    
+  }
+  
+    /* Sets image of selectors */
+    .slider_selector li, .slider_selector_dis li {
+      
+      display: block !important;
+      background: url(/skin/v1/default/light-blue/art/icons/slider_selector.png) no-repeat top left;
+      cursor: pointer;
+      float: left;
+      margin: 0 3px !important;
+      height: 10px !important;
+      position: relative !important;
+      width: 10px !important;
+      
+    }
+    
+    /* Sets the current selector */
+    .slider_selector li.current, .slider_selector_dis li.current {
+      
+      background: url(/skin/v1/default/light-blue/art/icons/slider_selector_current.png) no-repeat top left;
+      
+    }
+  
+  /* Disables the selectors */
+  .slider_selector_dis li {
+    
+    cursor: default !important;
+    z-index: 5;
+    
+  }
