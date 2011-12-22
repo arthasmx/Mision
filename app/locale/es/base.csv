@@ -79,6 +79,9 @@
     LINK_fraternities_kids, "fraternidad/ninos"
   LINK_about, "quienes-somos"
   LINK_contact, "contactenos"
+  LINK_join_us, "participa"
+  LINK_projects, "proyectos"
+  LINK_preaching, "predicaciones"
 
   ; FOOTER MENU
     FOOTER_menu_topic_important_links, "Acerca del sitio"

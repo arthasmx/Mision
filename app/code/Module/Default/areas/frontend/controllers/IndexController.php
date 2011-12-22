@@ -74,6 +74,23 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_terms_conditions' );
   }
 
+  function joinUsAction(){
+    $this->view->joinus          = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_join_us' );
+  }
+
+  function projectsAction(){
+    $this->view->projects        = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_projects' );
+  }
+
+  function preachingAction(){
+    $this->view->preaching       = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_preaching' );
+  }
+
+
+
   protected function get_breadcrumbs( $breadcrumb = null ){
     if( empty($breadcrumb)){
       return null;
