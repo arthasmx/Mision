@@ -24,9 +24,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   }
 
   function multimediaAction(){
-    $this->view->current_main_menu = 3;
-
-		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_multimedia' );
+		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_menu_topic_multimedia' );
   }
 
   function contactUsAction(){

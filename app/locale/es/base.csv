@@ -29,8 +29,8 @@
 
   BREADCRUM_announcement, "Anuncios"
 
+  BREADCRUMBS_multimedia, "Multimedia"
   BREADCRUMBS_fraternities, "Fraternidades"
-  
   BREADCRUMBS_site_map, "Mapa del sitio"
 
 ;PAGINATION
@@ -43,7 +43,7 @@
   MENU_doctrine, "DOCTRINA"
   MENU_events, "EVENTOS"
   MENU_bible, "SANTA BIBLIA"
-  MENU_multimedia, "MULTIMEDIA"
+  MENU_fraternities, "FRATERNIDADES"
   MENU_about,"QUIENES SOMOS ?"
   MENU_contact,"CONTACTENOS"
 
@@ -71,7 +71,12 @@
 
   LINK_events, "eventos"
   LINK_bible, "biblia"
-  LINK_multimedia, "multimedia"
+  LINK_fraternities, "fraternidades"
+    LINK_fraternities_men, "fraternidad/varones"
+    LINK_fraternities_women, "fraternidad/damas"
+    LINK_fraternities_young, "fraternidad/jovenes"
+    LINK_fraternities_teens, "fraternidad/adolescentes"
+    LINK_fraternities_kids, "fraternidad/ninos"
   LINK_about, "quienes-somos"
   LINK_contact, "contactenos"
 
@@ -82,12 +87,16 @@
       FOOTER_link_sitemap,"Mapa del sitio"
       FOOTER_link_site_requirements,"Requisitos del sitio"
 
-    FOOTER_menu_topic_fraternities, "Fraternidades"
-      FOOTER_link_fraternities_men, "Varones"
-      FOOTER_link_fraternities_women, "Damas"
-      FOOTER_link_fraternities_young, "Jovenes"
-      FOOTER_link_fraternities_teens, "Adolescentes"
-      FOOTER_link_fraternities_kids, "Niños"
+    FOOTER_menu_topic_multimedia, "Multimedia"
+        LINK_multimedia, "multimedia"
+      FOOTER_link_multimedia_music, "Musica"
+        LINK_multimedia_music, "multimedia/musica-cristiana"
+      FOOTER_link_multimedia_wallpaper, "Fondos de pantalla"
+        LINK_multimedia_wallpaper, "multimedia/fondos-de-pantalla-cristianos"
+      FOOTER_link_multimedia_video, "Videos"
+        LINK_multimedia_video, "multimedia/videos-cristianos"
+      FOOTER_link_multimedia_testimony, "Testimonios"
+        LINK_multimedia_testimony, "multimedia/testimonios-cristianos"
 
     FOOTER_menu_topic_fast_contact, "Ubicación"
     
@@ -99,11 +108,6 @@
   LINK_terms_conditions, "terminos-y-condiciones"
   LINK_sitemap, "mapa-del-sitio"
   LINK_site_requirements, "requisitos-del-sitio"
-  LINK_fraternities_men, "fraternidad/varones"
-  LINK_fraternities_women, "fraternidad/damas"
-  LINK_fraternities_young, "fraternidad/jovenes"
-  LINK_fraternities_teens, "fraternidad/adolescentes"
-  LINK_fraternities_kids, "fraternidad/ninos"
 
 ;ROUTES
   ; DOCTRINE
@@ -112,7 +116,8 @@
     route_bible, "/biblia/"
   ; FRATERNITIES
     route_fraternities, "/fraternidades/"
-
+  ; MULTIMEDIA
+    route_multimedia, "/multimedia/"
   ; ANNOUNCEMENT
     route_announcement, "/anuncios/"
   ; PAGINATOR

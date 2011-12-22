@@ -3,13 +3,12 @@ require_once 'Module/Default/Controller/Action/Frontend.php';
 
 class FraternityController extends Module_Default_Controller_Action_Frontend {
 
-  function preDispatch(){}
+  function preDispatch(){
+    $this->view->current_main_menu = 3;
+  }
 
-  /*
-   * @todo: Estoy sacando el articulo hardcoded, lo cual no es correcto.
-   */
   function indexAction(){
-    $this->view->fraternities = App::module('Articles')->getModel('Article')->get_article( 'fraternidades' );
+    $this->view->fraternities = App::module('Articles')->getModel('Article')->get_article( App::xlat('LINK_fraternities') );
     if( empty($this->view->fraternities) ){
       $this->_module->exception(404);
     }

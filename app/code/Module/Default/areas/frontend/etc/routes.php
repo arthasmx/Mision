@@ -54,6 +54,21 @@ foreach($bible_langs AS $lang=>$value){
             	'action'     => 'fraternity'));
   $router->addRoute('fraternidad-section', $route);
 
+// Multimedia
+  $route = new Zend_Controller_Router_Route(
+  		'multimedia',
+      array(	'module'     => 'Default',
+            	'controller' => 'multimedia',
+            	'action'     => 'index'));
+  $router->addRoute('multimedia-all', $route);
+
+  $route = new Zend_Controller_Router_Route(
+ 			'multimedia/:media',
+      array(	'module'     => 'Default',
+            	'controller' => 'multimedia',
+            	'action'     => 'media'));
+  $router->addRoute('multimedia-section', $route);
+
 function array_push_assoc($array, $key, $value){
  $array[$key] = $value;
  return $array;
