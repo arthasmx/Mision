@@ -15,14 +15,14 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
     $article_seo    = $this->getRequest()->getParam('seo');
     $paginator_page = $this->getRequest()->getParam( App::xlat('route_paginator_page') );
 
-    $datasorter = $this->_module->getModel('Datasorter')->sort_get_articles_listing_by_article_type();
+    $datasorter = $this->_module->getModel('Datasorter')->sort_get_articles_list_by_type();
     $this->view->datasorter = App::module('Core')->getModel('Abstract')
                                                  ->setDatasorter($datasorter)
                                                  ->datasorter_prepare();
 
     $this->view->datafilter = $this->_module->getModel('Datafilter')
                                    ->setDatafilter_render_style( App::getConfig('datafilter_uses_render_style') )
-                                   ->filter_get_articles_listing_by_article_type();
+                                   ->filter_get_articles_list_by_type();
 
 $where = array();
   			if ( $this->view->datafilter->isActive() ) {
@@ -41,7 +41,7 @@ echo "<pre>"; print_r( $where ); echo "</pre>";
                                             ->setPaginator_page($paginator_page)
                                             ->setDatasorter( $datasorter )
                                             ->setDatafilter( $this->view->datafilter )
-                                            ->get_articles_listing_by_article_type( $this->_module->getConfig('core','article_type_announcement_id') );
+                                            ->get_articles_list_by_type( $this->_module->getConfig('core','article_type_announcement_id') );
 
     if( empty($this->view->articles) ){
       $this->_module->exception(404);

@@ -165,12 +165,3 @@ div#content img.f_left { float:left;}
 .icons { background-image: url(/skin/v1/default/light-blue/art/icons/icons.png) !important; background-repeat:no-repeat; height:18px; }
 .breadcrums_home { background-position: 0 2px; padding-left: 20px !important; }
 .breadcrum { background-position: 0 -16px; }
-
-
-.carousel{
-  position:relative;
-  height: 418px;
-  width: 100%;
-  overflow:hidden;
-  background: transparent url(/skin/v1/default/light-blue/art/bks/slider_bottom.png) no-repeat 0 bottom;
-}

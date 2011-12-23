@@ -7,7 +7,7 @@ class Module_Articles_Repository_Model_Article extends Module_Core_Repository_Mo
   const MOREBREAK_TAG = '<!-- pagebreak -->';
   const MOREBREAK_SUBSTR = 500;
 
-  function get_articles_listing_by_article_type( $article_type = null ){
+  function get_articles_list_by_type( $article_type = null, $paginate = true ){
 
     $articles = $this->_db->select()
                     ->from(array('va' => 'vista_articles' ) )
@@ -20,6 +20,10 @@ class Module_Articles_Repository_Model_Article extends Module_Core_Repository_Mo
 
     if( ! empty( $article_type ) ){
       $articles->where( 'va.article_type_id = ?', $article_type );
+    }
+
+    if ( empty($paginate) ){
+      return $this->_db->query( $articles )->fetchAll();
     }
 
     $articles = $this->setPaginator_query( $articles->__toString() )->paginate_query();
