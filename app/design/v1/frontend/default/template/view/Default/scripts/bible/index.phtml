@@ -1,32 +1,48 @@
-<table class="bible">
-<?php
-  $settings = array( '1' => array('add_col_on_iteration'=> 20 , 'move_to_column_one' => 39 ),
-                     '2' => array('add_col_on_iteration'=> 53 , 'move_to_column_one' => 70 ));
+  <div class="left-panel">
+    <h2>
+      <?=App::xlat('BIBLE_topic')?>
+      <span><?=App::xlat('CONTENT_subtitle_bible')?></span>
+    </h2>
 
-  $testament_type = 0;
-  $iteration = 0;
-  foreach($this->books AS $book){
+    <table class="bible">
+    <?php
+      $settings = array( '1' => array('add_col_on_iteration'=> 20 , 'move_to_column_one' => 39 ),
+                         '2' => array('add_col_on_iteration'=> 53 , 'move_to_column_one' => 70 ));
+    
+      $testament_type = 0;
+      $iteration = 0;
+      foreach($this->books AS $book){
+    
+        if( $testament_type != $book['testament'] ){
+          $testament_type+=1;
+          echo "<tr>  <th colspan='2' class='bible_books'>".  App::xlat('BIBLE_testament_' . $book['testament']) . "</th> </tr>";
+          echo "<tr>  <td><ul>";
+        }
+    
+        if( $iteration == $settings[$book['testament']]['add_col_on_iteration'] ){
+          echo "</ul></td><td><ul>";
+        }
+    
+        echo "<li> <a href='". App::base( App::xlat('route_bible') . $book['seo'] ) ."'>". $book['book'] . "</li>";
+        $iteration++;
+    
+        if( $iteration == $settings[$book['testament']]['move_to_column_one'] ){
+          echo "</ul></td></tr>";
+        }
+    
+      }
+    ?>
+    </table>
 
-    if( $testament_type != $book['testament'] ){
-      $testament_type+=1;
-      echo "<tr>  <th colspan='2'><h2>".  App::xlat('BIBLE_testament_' . $book['testament']) . "</h2></th> </tr>";
-      echo "<tr>  <td><ul>";
-    }
+  </div>
 
-    if( $iteration == $settings[$book['testament']]['add_col_on_iteration'] ){
-      echo "</ul></td><td><ul>";
-    }
-
-    echo "<li> <a href='". App::base( App::xlat('route_bible') . $book['seo'] ) ."'>". $book['book'] . "</li>";
-    $iteration++;
-
-    if( $iteration == $settings[$book['testament']]['move_to_column_one'] ){
-      echo "</ul></td></tr>";
-    }
-
-  }
-?>
-</table>
+  <div class="right-panel">
+    <h2>A ver que ponemos aqui<span>Sed congue, dui vel tristique mollis...</span></h2>
+    <p><strong>Address Info</strong><br />123 Pine Street<br />Mycity, ST 19000</p>
+    <p><strong>Email:</strong><a href="mailto:contact@mycompany.com"> contact@mycompany.com</a><br />
+      <strong>Website:</strong> <a href="#">www.mycompany.com</a><br />
+      <strong>Phone:</strong> 0800-123456 </p>
+  </div>
 
 <?php 
 /*

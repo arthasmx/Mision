@@ -6,7 +6,7 @@
 
   <div id="header" <?=(App::getDesign()->getCurrentLayout()==="intro") ? 'class="intro"':'';?> >
 
-    <ul id="menu">
+    <ul id="menu" <?=(App::getDesign()->getCurrentLayout()==="intro") ? '' : 'class="main_menu"';?>>
 
   	<?php foreach($menus AS $menu): ?>
           <li <?= (sizeof($menus)==$iterator) ? 'class="last_link"':''; ?><?= ($iterator==1) ? 'class="first_link"':'' ?>>

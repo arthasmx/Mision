@@ -15,7 +15,11 @@
     }
     div#content_data div.left-panel table th{
       font-size:1.5em;
+      letter-spacing: 2px;
     }
+     div#content_data  div.left-panel table th.bible_books{
+        border-bottom: 1px solid #d4d4d4;
+      }
 
     .col { 
         float: left; 

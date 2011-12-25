@@ -11,6 +11,7 @@
         CONTENT_subtitle_conditions, "Todo usuario del sitio automaticamente acepta nuestros terminos de uso"
         CONTENT_subtitle_sitemap, "Nuestro sitio link por link"
         CONTENT_subtitle_privacy, "Toda información proporcionada es celosamente protegida"
+        CONTENT_subtitle_bible, "Antigua versión de Casiodoro de reina (1569). Revisada por Cipriano de Valera(1602)"
         
 
         CONTENT_doctrine_god, "Dios",
@@ -52,6 +53,7 @@
         ADDRESS_phone,"(52) 6691-332-199"
 
     ; BIBLE
+        BIBLE_topic, "Tabla de los libros del Antiguo y Nuevo Testamento"
         BIBLE_chapter, "Capítulo"
         BIBLE_verse, "Versículo"
         BIBLE_testament_1, "Antiguo Testamento"

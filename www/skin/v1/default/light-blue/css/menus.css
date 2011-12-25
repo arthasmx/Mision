@@ -3,7 +3,7 @@
 /* MAIN MENU */
 
   #menu{ float:left; width: 980px; }
-
+    .main_menu{ height: 35px;}
     #menu li{
       float: left;
       margin:0 25px 0 0;
