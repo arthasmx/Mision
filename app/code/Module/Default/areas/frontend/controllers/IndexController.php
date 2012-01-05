@@ -108,7 +108,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     if ( $actions_for_this_locale && array_key_exists($desired_action, $actions_for_this_locale) ){
       $action = $actions_for_this_locale[$desired_action]['action'];
       $view   = $actions_for_this_locale[$desired_action]['view'];
-      call_user_func("self::{$action}Action");
+      call_user_func( array($this, "{$action}Action") );
       $this->_helper->getHelper('ViewRenderer')->setScriptAction($view);
     }else{
       $this->_module->exception("Action Given Does Not Exist");

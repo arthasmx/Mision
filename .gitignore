@@ -12,3 +12,5 @@ app.php
 .buildpath
 .DS_Store
 .project
+app/etc/db.ini
+.gitignore
