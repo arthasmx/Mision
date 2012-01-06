@@ -143,3 +143,6 @@ MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario p
 ;MANUAL EXCEPTIONS
   EXC_NO_ACTION_TO_PARSE, "Se requiere una acción para ejecutar el método <strong>convert_seo_url_to_action</strong>"
   EXC_article_wasnt_found, "El articulo que buscas no ha sido encontrado"
+  EXC_books_werent_found, "No se encontraron los libros de la Biblia"
+  EXC_book_wasnt_found, "El libro no existe"
+  EXC_verse_wasnt_found, "El versículo no existe"

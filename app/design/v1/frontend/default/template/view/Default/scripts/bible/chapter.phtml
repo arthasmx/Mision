@@ -1,10 +1,13 @@
 
   <div class="left-panel">
-    <h2>Send a Message<span>Sed congue, dui vel tristique mollis...</span></h2>
+    <h2>
+      <?=str_replace("%cap%", $this->chapter, App::xlat('BIBLE_verses_topic') ) . $this->book_name?>
+      <span><?=App::xlat('CONTENT_subtitle_bible')?></span>
+    </h2>
 
     <?php if ( ! empty($this->verses) ): ?>
 
-      <ol style="list-style: decimal;">
+      <ol>
         <?php foreach($this->verses AS $verse): ?>
           <li> <?= $verse['texto'] ; ?> </li>
         <?php endforeach; ?>

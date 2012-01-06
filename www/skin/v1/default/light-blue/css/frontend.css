@@ -132,7 +132,8 @@ div#content p.about { background:#e6e6e6; border-left:5px solid #cdcdcd; padding
 div#content p span { font-size:18px; font-weight:bold; color:#888;}
 div#content a { color:#00AAFF; text-decoration:none;}
   div#content a:hover { text-decoration:underline; color:#388CC2;}
-div#content ul.list { padding:0; margin:0; list-style:none;}
+div#content ul, div#content ol {text-align:justify;}
+  div#content ol{list-style: decimal;}
 div#content ul.list li { float:left; width:50%; padding:3px 0;}
 /* div#content img { margin:5px auto; background:#FFF;} */
 div#content img.noborder { border:0; padding:0; margin:10px 10px 0 0;}

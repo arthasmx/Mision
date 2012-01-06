@@ -54,6 +54,8 @@
 
     ; BIBLE
         BIBLE_topic, "Tabla de los libros del Antiguo y Nuevo Testamento"
+        BIBLE_chapters_topic, "Capítulos del libro de "
+        BIBLE_verses_topic, "Versículos del capítulo %cap% del libro de "
         BIBLE_chapter, "Capítulo"
         BIBLE_verse, "Versículo"
         BIBLE_testament_1, "Antiguo Testamento"

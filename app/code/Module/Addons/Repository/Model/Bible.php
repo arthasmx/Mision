@@ -74,7 +74,7 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
     $details = $this->_db->query( $select )->fetch();
 
     if( empty($details) ){
-      return null;
+      App::module('Core')->exception( App::xlat('EXC_book_wasnt_found') . '<br />Launched at method get_book_details, file Repository/Model/Bible' );
     }
 
     $summary = $this->get_book_chapters_and_verses_summary($details['book_id'], $details['lang_id']);
@@ -92,7 +92,11 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                    ->where('bi.cap = ?' , $chapter_id);
     $verses = $this->_db->query( $select )->fetchAll();
 
-    return empty( $verses ) ? false : $verses;
+    if( empty($verses) ){
+      App::module('Core')->exception( App::xlat('EXC_verse_wasnt_found') . '<br />Launched at method get_verses, file Repository/Model/Bible' );
+    }
+
+    return $verses;
   }
 
   function get_verse($book_seo_name = "not_given", $cap_id = 0, $ver_id = 0){
@@ -111,15 +115,20 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
   }
 
   function get_books(){
+
     $select = $this->_db->select()
                    ->from(array('bo'  => 'rv60_books'  ), array('book_id' ,'book' ,'seo', 'testament') )
                    ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array())
                    ->where('la.namespace = ?', App::locale()->getName() )
                    ->group( array ('bo.book_id') )
                    ->order( array('bo.book_id ASC') );
-
     $res = $this->_db->query( $select )->fetchAll();
-    return empty( $res ) ? false : $res;
+
+    if( empty($res) ){
+      App::module('Core')->exception( App::xlat('EXC_books_werent_found') . '<br />Launched at method get_verses, file Repository/Model/Bible' );
+    }
+
+    return $res;
   }
 
 }
