@@ -19,7 +19,13 @@ class Module_Articles_Repository_Model_Article extends Module_Core_Repository_Mo
                     ->order( $this->add_datasorter() );
 
     if( ! empty( $article_type ) ){
-      $articles->where( 'va.article_type_id = ?', $article_type );
+      if( is_array($article_type) ){
+        foreach($article_type AS $type){
+          $articles->orWhere( 'va.article_type_id = ?', $type );
+        }
+      }else{
+        $articles->where( 'va.article_type_id = ?', $article_type );
+      }
     }
 
     if ( empty($paginate) ){

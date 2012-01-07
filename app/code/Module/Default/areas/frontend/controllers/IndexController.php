@@ -8,8 +8,11 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   function indexAction(){
     $this->designManager()->setCurrentLayout('intro');
     $this->view->current_main_menu = null;
+    $articles      = App::module('Articles');
+    $article_types = array( $articles->getConfig('core','article_type_announcement_id'),
+                         $articles->getConfig('core','article_type_event_id')        );
 
-    $this->view->announcements = App::module('Articles')->getModel('Article')->get_articles_list_by_type( App::module('Articles')->getConfig('core','article_type_announcement_id'), false );
+    $this->view->announcements = App::module('Articles')->getModel('Article')->get_articles_list_by_type( $article_types, false );
   }
 
   function aboutUsAction(){
