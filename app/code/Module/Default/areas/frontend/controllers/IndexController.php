@@ -12,7 +12,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     $article_types = array( $articles->getConfig('core','article_type_announcement_id'),
                          $articles->getConfig('core','article_type_event_id')        );
 
-    $this->view->announcements = App::module('Articles')->getModel('Article')->get_articles_list_by_type( $article_types, false );
+    $this->view->announcements = App::module('Articles')->getModel('Article')->get_list( $article_types, "id", false );
   }
 
   function aboutUsAction(){
@@ -20,12 +20,6 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
 
     $this->view->aboutus         = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
 		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_about' );
-  }
- 
-  function eventsAction(){
-    $this->view->current_main_menu = 2;
-    
-		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_events' );
   }
 
   function multimediaAction(){

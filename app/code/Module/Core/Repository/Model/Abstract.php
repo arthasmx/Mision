@@ -100,6 +100,18 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
     return array_merge($data, array('pagination_html' => $pagination));
   }
 
+  public function grouped_where($field = null, $grouped_field_values = array()){
+    if( ! is_array($grouped_field_values) || empty($field) ){
+      return null;
+    }
+
+    $grouped_where = array();
+    foreach($grouped_field_values AS $field_value){
+      $grouped_where[] = $this->_db->quoteInto( $field . ' = ?', $field_value );
+    }
+
+    return empty($grouped_where) ? null : implode(" OR ", $grouped_where);
+  }
 
   // Datasorter
 

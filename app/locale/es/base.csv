@@ -28,6 +28,8 @@
   BREADCRUM_about_us, "Quiénes somos ?"
 
   BREADCRUM_announcement, "Anuncios"
+    BREADCRUM_anuncios, "Anuncios"
+  BREADCRUM_events, "Eventos"
 
   BREADCRUMBS_multimedia, "Multimedia"
   BREADCRUMBS_fraternities, "Fraternidades"
@@ -121,8 +123,9 @@
     route_fraternities, "/fraternidades/"
   ; MULTIMEDIA
     route_multimedia, "/multimedia/"
-  ; ANNOUNCEMENT
-    route_announcement, "/anuncios/"
+  ; ARTICLES
+    route_anuncios, "/anuncios/"
+    route_events, "/eventos/"
   ; PAGINATOR
     route_paginator_page, "pagina"
   ; DATASORTER
@@ -146,3 +149,4 @@ MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario p
   EXC_books_werent_found, "No se encontraron los libros de la Biblia"
   EXC_book_wasnt_found, "El libro no existe"
   EXC_verse_wasnt_found, "El versículo no existe"
+  EXC_article_wrong_type, "El tipo de busqueda a realizar en los articulos no es correcto!"

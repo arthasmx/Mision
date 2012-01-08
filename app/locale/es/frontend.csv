@@ -12,7 +12,7 @@
         CONTENT_subtitle_sitemap, "Nuestro sitio link por link"
         CONTENT_subtitle_privacy, "Toda información proporcionada es celosamente protegida"
         CONTENT_subtitle_bible, "Antigua versión de Casiodoro de reina (1569). Revisada por Cipriano de Valera(1602)"
-        
+        CONTENT_subtitle_article_written_by, "Escrito el %written-date%, por "
 
         CONTENT_doctrine_god, "Dios",
         CONTENT_doctrine_jesuschrist, "Jesucristo",

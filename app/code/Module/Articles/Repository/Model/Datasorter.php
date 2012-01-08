@@ -6,7 +6,7 @@ class Module_Articles_Repository_Model_Datasorter extends Module_Core_Repository
     $this->init_datasorter();
   }
 
-  function sort_get_articles_list_by_type(){
+  function sort_get_list(){
     $this->datasorter->createField( "id", Xplora_Datasorter::SORT_DESC );
     $this->datasorter->createField( "autor" );
     $this->datasorter->createField( "created" , Xplora_Datasorter::SORT_DESC );
