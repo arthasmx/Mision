@@ -27,9 +27,8 @@
   BREADCRUM_bible, "Santa Biblia"
   BREADCRUM_about_us, "Quiénes somos ?"
 
-  BREADCRUM_announcement, "Anuncios"
-    BREADCRUM_anuncios, "Anuncios"
-  BREADCRUM_events, "Eventos"
+  BREADCRUM_announcement, "Listado de anuncios"
+  BREADCRUM_events, "Listado de eventos"
 
   BREADCRUMBS_multimedia, "Multimedia"
   BREADCRUMBS_fraternities, "Fraternidades"
@@ -104,7 +103,7 @@
         LINK_multimedia_testimony, "multimedia/testimonios-cristianos"
 
     FOOTER_menu_topic_fast_contact, "Ubicación"
-    
+
     FOOTER_menu_topic_fast_recomend, "Recomendaciones"
 
 
@@ -124,7 +123,7 @@
   ; MULTIMEDIA
     route_multimedia, "/multimedia/"
   ; ARTICLES
-    route_anuncios, "/anuncios/"
+    route_announcement, "/anuncios/"
     route_events, "/eventos/"
   ; PAGINATOR
     route_paginator_page, "pagina"
@@ -150,3 +149,5 @@ MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario p
   EXC_book_wasnt_found, "El libro no existe"
   EXC_verse_wasnt_found, "El versículo no existe"
   EXC_article_wrong_type, "El tipo de busqueda a realizar en los articulos no es correcto!"
+  EXC_article_datasorter, "No se ha instanciado el método de ordenamiento"
+  EXC_db_instance_not_found, "No existe una instancia de BD y se intenta ejecutar un query"

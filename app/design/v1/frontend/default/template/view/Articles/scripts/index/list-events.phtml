@@ -1,0 +1,78 @@
+
+  <?php 
+
+  ?>
+  <div class="left-panel">
+
+Probando el DATAFILTER
+<form name="datafilter" method="#">
+ <table border="1" width="100%">
+	<tr class='datafilter <?=$this->datafilter->isActive() ? "datafilter-active":null?>'>
+	<td class='actions datafilter-buttons'>
+		<?=$this->datafilter->render("Filtrar","cargaProductos('dialogo-productos-limitados',url);return false;");?>
+	</td>
+	<td>
+		<?=$this->datafilter->field('id')->render();?>
+	</td>
+	<td>
+		<?=$this->datafilter->field('seo')->render();?>
+	</td>
+	<td class='hide'>&nbsp;</td>    
+   </tr>
+   <tr>
+    <td class='actions datafilter-buttons'>
+	<?php if($this->datafilter->isActive()):?>
+		<td class='actions datafilter-options'>
+			<a class='datafilter-cancel' href='<?=$this->datafilter->getBaseurl()?>' title='<?=App::xlat('Quitar filtro')?>'>
+			  Quitar filtro!
+			</a>
+		</td>
+	<?php else:?>
+		<td class='hide'>&nbsp;</td>
+	<?php endif;?>
+    </td>
+    </tr>
+
+    
+
+
+
+    
+    
+ </table>
+
+</form>
+  
+
+
+
+Probando el DATASORTER
+<table border="1" width="100%">
+<tr>
+<th width="10"><?=$this->datasorter->renderField('id');?><?=App::xlat("id field")?></th>
+<th width="60"><?=$this->datasorter->renderField('autor');?><?=App::xlat("autor field")?></th>
+<th width="60"><?=$this->datasorter->renderField('created');?><?=App::xlat("created field")?></th>
+</tr>
+</table>
+
+<?= empty($this->articles['pagination_html']) ? '' : $this->articles['pagination_html'] ?>
+<?php echo "<pre>"; print_r( $this->articles ); echo "</pre>"; ?>
+<?= empty($this->articles['pagination_html']) ? '' : $this->articles['pagination_html'] ?>
+
+    
+    
+  </div>
+
+  <div class="right-panel">
+    <h2>A ver que ponemos aqui<span>Sed congue, dui vel tristique mollis...</span></h2>
+    <p><strong>Address Info</strong><br />123 Pine Street<br />Mycity, ST 19000</p>
+    <p><strong>Email:</strong><a href="mailto:contact@mycompany.com"> contact@mycompany.com</a><br />
+      <strong>Website:</strong> <a href="#">www.mycompany.com</a><br />
+      <strong>Phone:</strong> 0800-123456 </p>
+  </div>
+
+<?php
+/*
+
+*/
+?>

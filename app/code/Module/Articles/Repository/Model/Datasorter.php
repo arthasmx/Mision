@@ -6,7 +6,7 @@ class Module_Articles_Repository_Model_Datasorter extends Module_Core_Repository
     $this->init_datasorter();
   }
 
-  function sort_get_list(){
+  function sort_list_articles_method(){
     $this->datasorter->createField( "id", Xplora_Datasorter::SORT_DESC );
     $this->datasorter->createField( "autor" );
     $this->datasorter->createField( "created" , Xplora_Datasorter::SORT_DESC );
@@ -14,7 +14,7 @@ class Module_Articles_Repository_Model_Datasorter extends Module_Core_Repository
     $this->datasorter->setDefault( "id" )->setSort($this->sort_f,$this->sort_t);
 
     if ( empty($this->datasorter) ){
-      return null;
+      App::module('Core')->exception( App::xlat('EXC_article_datasorter') . '<br />Launched at method sort_list_articles_method, file Repository/Model/Datasorter' );
     }
     return $this->datasorter;
   } 
