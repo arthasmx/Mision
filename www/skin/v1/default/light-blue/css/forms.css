@@ -5,5 +5,5 @@
   padding-left:10px;
 }
 
-#content_data input{ width: 48em; color:#555; }
+#content_data dd input{ width: 48em; color:#555; }
 #content_data dl.type-submit input{ background-color: #ccc; }

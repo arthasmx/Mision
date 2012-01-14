@@ -125,8 +125,11 @@ div.gradient{ background: url(/skin/v1/default/light-blue/art/bks/gradient.png) 
     width: 720px; height:30px;
   }
 
-div#content h2 { font: normal 24px Arial, Helvetica, sans-serif; color:#494848; padding:15px 0; margin:0 0 10px; border-bottom:1px solid #D4D4D4;}
-div#content h2 span { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
+div#content h1, div#content h2, div#content h3 { font: normal 20px 'Quattrocento Sans', Arial, Helvetica, sans-serif; color:#494848; margin:0 0 10px; }
+    div#content h2 { font-size: 19px;}
+    div#content h3 { font-size: 17px;}
+div#content h1 span, div#content h2 span, div#content h3 span { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
+
 div#content .comment { float:right; width:44px; height:46px; background:url(images/comment_bg.gif) no-repeat; font:normal 22px Arial, Helvetica, sans-serif; color:#a4a4a4; line-height:38px; text-align:center;}
 div#content p.about { background:#e6e6e6; border-left:5px solid #cdcdcd; padding:20px; margin:15px 0; font: italic 12px Arial, Helvetica, sans-serif; color:#747474;}
 div#content p span { font-size:18px; font-weight:bold; color:#888;}
@@ -139,6 +142,63 @@ div#content ul.list li { float:left; width:50%; padding:3px 0;}
 div#content img.noborder { border:0; padding:0; margin:10px 10px 0 0;}
 div#content img.none { float:none; margin:0; padding:0; border:none; background:none;}
 div#content img.f_left { float:left;}
+
+div.pagination {
+    display:block;
+    text-align:left;
+    height:22px;
+    line-height:21px;
+    clear:both;
+    padding-top:3px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    font-weight:normal;
+}
+
+div.pagination a:link, div.pagination a:visited{
+    padding:7px;
+    padding-top:2px;
+    padding-bottom:2px;
+    border:1px solid #EBEBEB;
+    margin-left:10px;
+    text-decoration:none;
+    background-color:#F5F5F5;
+    color:#0072bc;
+    width:22px;
+    font-weight:normal;
+}
+
+div.pagination a:hover {
+    background-color:#DDEEFF;
+    border:1px solid #BBDDFF;
+    color:#0072BC;  
+}
+
+div.pagination .current a {
+    padding:7px;
+    padding-top:2px;
+    padding-bottom:2px;
+    border:1px solid #BBDDFF;
+    margin-left:10px;
+    text-decoration:none;
+    background-color:#DDEEFF;
+    color:#0072BC;
+    cursor:default;
+}
+
+div.pagination .disabled_tnt_pagination {
+    padding:7px;
+    padding-top:2px;
+    padding-bottom:2px;
+    border:1px solid #EBEBEB;
+    margin-left:10px;
+    text-decoration:none;
+    background-color:#F5F5F5;
+    color:#D7D7D7;
+    cursor:default;
+}
+
+div#content_data .bible ol.verse li:hover{color:#000;}
 
 /* END content */
 

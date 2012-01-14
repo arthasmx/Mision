@@ -6,29 +6,22 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
   function preDispatch() {}
 
   function listAnnouncementAction(){
-    $core_abstract = $this->_module->getModel('Sorterfilter')
-                                   ->announcement_sort_rules()
-                                   ->announcement_filter_rules();
-
-    $this->view->datasorter = $core_abstract->datasorter_to_render();
-    $this->view->datafilter = $core_abstract->datafilter_to_render();
-
-    $this->view->articles   = $this->_module->getModel('Article')
-                                            ->get_announcement_list( $core_abstract );
+    $this->view->articles        = $this->_module->getModel('Article')
+                                                 ->get_article_list_by_type( 
+                                                   $this->_module->getConfig('core','article_type_announcement_id'),
+                                                   $this->getRequest()->getParam( App::xlat('route_paginator_page') ) 
+                                                 );
 
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
   }
 
   function listEventsAction(){
-    $core_abstract = $this->_module->getModel('Sorterfilter')
-                                   ->events_sort_rules()
-                                   ->events_filter_rules();
-
-    $this->view->datasorter = $core_abstract->datasorter_to_render();
-    $this->view->datafilter = $core_abstract->datafilter_to_render();
-
-    $this->view->articles   = $this->_module->getModel('Article')
-                                            ->get_events_list( $core_abstract );
+    $this->view->current_main_menu = 2;
+    $this->view->events          = $this->_module->getModel('Article')
+                                                 ->get_article_list_by_type( 
+                                                   $this->_module->getConfig('core','article_type_event_id'),
+                                                   $this->getRequest()->getParam( App::xlat('route_paginator_page') ) 
+                                                 );
 
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
   }

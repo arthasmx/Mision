@@ -77,7 +77,7 @@ class Local_View_Helper_Paginate {
 
     $this->page_param_tpl = $this->paginator_page_name . "/:page";
     $pages=$this->getPages();
-    $pages_to_render = '';
+    $pages_to_render = '<div class="pagination">';
 
     foreach ($pages as $key=>$page) {
       if ('pages'===$key) {
@@ -104,7 +104,7 @@ class Local_View_Helper_Paginate {
       }
     }
 
-    return $pages_to_render;
+    return $pages_to_render . "</div>";
   }
 
     /**

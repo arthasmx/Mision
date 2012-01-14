@@ -6,6 +6,7 @@
         vertical-align: baseline; line-height:20px;
         background: transparent;
         font:normal 12px Arial, Helvetica, sans-serif; line-height:1.8em;
+        color: #777;
    }
     h1,h2,h3,h4,h5{
       font-family: 'Raleway', "Lucida Sans Unicode","Lucida Grande", verdana, arial;
@@ -101,3 +102,6 @@
     
     .margin-top-15{ margin-top:15px; }
     .margin-top-30{ margin-top:30px; }
+
+    .bottom-line {border-bottom:1px solid #D4D4D4;}
+    div.blog h1 { font: normal 22px 'Quattrocento Sans', Arial, Helvetica, sans-serif; margin:0 0 10px; }

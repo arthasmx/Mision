@@ -45,6 +45,11 @@
         MAINPAGE_column_sermon_span, "Niños, adolescentes, jóvenes, adultos"
         MAINPAGE_column_sermon_description, "Tenemos para ti los sermones transmitidos de nuestra congregación; puedes descargarlos a cualquier dispositivo que reproduzca el formato mp3.<br />Deseamos que este audio sea para la Honra y Gloria de nuestro Señor Jesucristo."
 
+        page_first, "Inicio"
+        page_previous, "Anterior"
+        page_next, "Siguiente"
+        page_last, "Última"
+
     ; FOOTER
         ADDRESS_street,"Batalla del paredón # 14433"
         ADDRESS_section,"colonia Sanchez celis"

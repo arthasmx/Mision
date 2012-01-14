@@ -14,4 +14,4 @@
 .slider_selector li, .slider_selector_dis li { display: block !important; background: url(/skin/v1/default/light-blue/art/icons/slider_selector.png) no-repeat top left; cursor: pointer; float: left; margin: 0 3px !important; height: 10px !important; position: relative !important; width: 10px !important; }
 .slider_selector li.current, .slider_selector_dis li.current { background: url(/skin/v1/default/light-blue/art/icons/slider_selector_current.png) no-repeat top left; }
 .slider_selector_dis li { cursor: default !important; z-index: 5; }
- ul#ddSlider .description{ background-color: #000000; color: #FFFFFF; float: left; height: 20px; left: 0; opacity: 0.6; padding: 10px; position: absolute; text-align: right; top: 300px; width: 959px; z-index: 1000; }
+ ul#ddSlider .description{ background-color: #000000; color: #FFFFFF; float: left; height: 20px; left: 0; opacity: 0.6; padding: 10px; position: absolute; text-align: right; top: 300px; width: 959px; z-index: 1000; font-size:11px; line-height: 12px; }

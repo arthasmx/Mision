@@ -5,9 +5,8 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
   public $strip               = true;
   public $paginator_page      = false;
   public $paginator_page_name = false;
-  public $paginator_query     = false;
 
-  protected $items_per_page  = 2;
+  protected $items_per_page  = 15;
   protected $datafilter      = false;
   protected $datasorter	     = false;
   protected $datafilter_render_style = false;
@@ -15,13 +14,12 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
   protected $sort_f          = null;
   protected $sort_t          = null;
   protected $_namespace      = null;
-  protected $_db             = null;
+  public    $_db             = null;
   protected $_query          = null;
 
 
-
   public function __construct($id) {
-    $this->_db = App::module('Core')->getResource('Db')->get();
+    $this->_db = App::module('Core')->getModel('Db')->get();
   }
 
   public function asArray() {
@@ -82,18 +80,26 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
                 ->paginate_render( $select );
   }
 
-  public function paginate_query(){
-    if ( empty($this->paginator_query) ){
-      return false;
+  public function paginate_query($select = null){
+    if( empty($select) || ! is_object($select) ){
+      App::module('Core')->exception( App::xlat('EXC_db_instance_not_found') . '<br />Launched at method query, file Repository/Model/Abstract' );
+    }
+
+    $sql = $select->__toString();
+    if( empty($sql) ){
+      App::module('Core')->exception( App::xlat('EXC_db_instance_not_found') . '<br />Launched at method query, file Repository/Model/Abstract' );
     }
 
     require_once('Xplora/Paginate/Sql.php');
     $paginator=new Xplora_Paginate_Sql();
-    return $paginator->setItems_per_page((int)$this->items_per_page)
-                     ->setPage_current((int)$this->paginator_page)
-                     ->setDb_adapter($this->_db)
-                     ->setQuery($this->paginator_query)
-                     ->paginate();
+    $select = $paginator->setItems_per_page((int)$this->items_per_page)
+                        ->setPage_current((int)$this->paginator_page)
+                        ->setDb_adapter( $this->_db )
+                        ->setQuery( $sql )
+                        ->paginate();
+
+    return $this->setPaginator_page_name(App::xlat('route_paginator_page'))
+                ->paginate_render( $select );
   }
 
   public function paginate_render($data = null){
@@ -198,6 +204,10 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
     }
     $this->datafilter->populate( Core_Controller_Front::getInstance()->getRequest()->getParams() );
     return $this->datafilter;
+  }
+
+  public function get_db(){
+    return $this->_db;
   }
 
 }

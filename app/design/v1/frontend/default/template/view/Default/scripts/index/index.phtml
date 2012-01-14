@@ -6,7 +6,7 @@
     <a href="<?=App::base( "/{$announcement['article_type_seo']}/{$announcement['seo']}" )?>">
       <img src="<?=App::media( '/articles/' . $announcement['picture'] )?>" alt="" width="100%" height="340" />
     </a>
-    <div class="description" ><?=$announcement['title']?></div>
+    <div class="description" ><?=$announcement['description']?></div>
   </li>
 <?php endforeach;?>
   </ul>
@@ -26,10 +26,10 @@
 
 <div class="three-cols gradient">
   <div class="col">
-    <h2>
+    <h1>
       <?=App::xlat('MAINPAGE_column_join')?>
       <span><?=App::xlat('MAINPAGE_column_join_span')?></span>
-    </h2>
+    </h1>
     <img src="/media/img_1.jpg" alt="picture" class="none" height="95" width="300" />
     <p class="col_description"><?=App::xlat('MAINPAGE_column_join_description')?></p>
     <p class="right">
@@ -40,10 +40,10 @@
   </div>
 
   <div class="col">
-    <h2>
+    <h1>
       <?=App::xlat('MAINPAGE_column_project')?>
       <span><?=App::xlat('MAINPAGE_column_project_span')?></span>
-    </h2>
+    </h1>
     <img src="/media/img_1.jpg" alt="picture" class="none" height="95" width="300" />
     <p class="col_description"><?=App::xlat('MAINPAGE_column_project_description')?></p>
     <p class="right">
@@ -54,10 +54,10 @@
   </div>
 
   <div class="col last">
-    <h2>
+    <h1>
       <?=App::xlat('MAINPAGE_column_sermon')?>
       <span><?=App::xlat('MAINPAGE_column_sermon_span')?></span>
-    </h2>
+    </h1>
     <img src="/media/img_1.jpg" alt="picture" class="none" height="95" width="300" />
     <p class="col_description"><?=App::xlat('MAINPAGE_column_sermon_description')?></p>
     <p class="right">
@@ -97,6 +97,7 @@ Array
             [language] => es
             [lang_namespace] => es_MX
             [lang_status] => 1
+            [description] => El cometa Lovejoy , descubierto el pasado 2 de diciembre, se dirige hacia el Sol y se espera que se encuentre con su destino el 15 de diciembre. Su órbita lo acercará a sólo 140.000 kilómetros por encima de la superficie solar. A esa distanciaasd as
         )
  */
 ?>
