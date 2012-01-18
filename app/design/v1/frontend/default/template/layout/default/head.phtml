@@ -47,7 +47,12 @@
 
         <?php if( isset($this->current_main_menu) ):?>
           jQuery(document).ready(function(){
-	    jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").contents().unwrap().wrap("<span>").parent().addClass("icons active");
+            jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").contents().unwrap().wrap("<span>").parent().addClass("icons active");
+
+            // book selector required at> http://demo.iglesialamision.mx/biblia/BOOK_SEO
+            jQuery('form#book-selection select').change(function(){
+              window.location = baseUrl + <?=App::xlat('route_bible')?> + $(this).val();
+            });
           });
         <?php endif;?>
 

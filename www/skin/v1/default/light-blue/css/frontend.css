@@ -199,6 +199,8 @@ div.pagination .disabled_tnt_pagination {
 }
 
 div#content_data .bible ol.verse li:hover{color:#000;}
+  form#book-selection select{ width:260px; height:255px;  }
+  form#book-selection option.testament{font-size:16px; margin:10px 0; font-weight: bold;  }
 
 /* END content */
 

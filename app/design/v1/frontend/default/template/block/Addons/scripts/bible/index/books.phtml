@@ -1,0 +1,31 @@
+<?php 
+  $testament = 1;
+?>
+  <h1>
+    <?=App::xlat('BIBLE_books_block_topic')?>
+    <span><?=App::xlat('BIBLE_books_block_subtitle')?></span>
+  </h1>
+  <form id="book-selection" name="book-selection" method="post" action="">
+    <select multiple >
+      <option class="testament" value=""><?=App::xlat('BIBLE_testament_1')?></option>
+      <?php foreach($this->books AS $book): ?>
+        <?php if($book['testament'] <> $testament):?>
+          <option class="testament" value=""><?=App::xlat('BIBLE_testament_2')?></option>
+          <?php $testament=2;?>
+        <?php endif;?>
+        <option value="<?=$book['seo']?>" <?=($this->current_book_id==$book['book_id']) ? "selected" : false;?> ><?=$book['book']?></option>
+      <?php endforeach;?>
+    </select>
+  </form>
+
+<?php
+/*
+ [0] => Array
+        (
+            [book_id] => 1
+            [book] => Génesis
+            [seo] => genesis
+            [testament] => 1
+        )
+*/
+?>

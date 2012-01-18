@@ -5,7 +5,12 @@ class Addons_Bible_IndexBlockController extends Core_Controller_Block {
   function init() {}
 
   function phraseAction(){
-    $this->view->phrase = $this->_module->getModel("bible")->get_phrase();
+    $this->view->phrase = $this->_module->getModel("Bible")->get_phrase();
+  }
+
+  function booksAction(){
+    $this->view->current_book_id = $this->getParam('book_id');
+    $this->view->books           = $this->_module->getModel("Bible")->get_books();
   }
 
   function bookDetailAction(){

@@ -59,6 +59,8 @@
 
     ; BIBLE
         BIBLE_topic, "Tabla de los libros del Antiguo y Nuevo Testamento"
+          BIBLE_books_block_topic, "Libros de la Santa Biblia RV60"
+          BIBLE_books_block_subtitle, "Dá click sobre el libro para ver sus capitulos"
         BIBLE_chapters_topic, "Capítulos del libro de "
         BIBLE_verses_topic, "Versículos del capítulo %cap% del libro de "
         BIBLE_chapter, "Capítulo"

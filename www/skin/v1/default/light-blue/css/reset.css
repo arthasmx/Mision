@@ -70,7 +70,7 @@
       #content_data dd.field input.captcha { width: 40px; }
       #content_data dl.field-captcha img.captcha { border:0; padding:0; margin: 0; }
       #content_data dl.field-captcha dd.hint { width: 100%; text-align: center;  }
-      
+
     select {margin: inherit;}
 
     hr {margin: 0;padding: 0;border: 0;color: #000;background-color: #000;height: 1px}
@@ -99,7 +99,7 @@
       filter: alpha(opacity=50);
       opacity: 0.5;
     }
-    
+
     .margin-top-15{ margin-top:15px; }
     .margin-top-30{ margin-top:30px; }
 
