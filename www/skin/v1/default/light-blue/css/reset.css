@@ -103,5 +103,7 @@
     .margin-top-15{ margin-top:15px; }
     .margin-top-30{ margin-top:30px; }
 
-    .bottom-line {border-bottom:1px solid #D4D4D4;}
+    div#content h1.no-line, div#content h2.no-line, div#content h3.no-line, div#content h4.no-line, div#content h5.no-line{
+      border:0; padding:0;
+    }
     div.blog h1 { font: normal 22px 'Quattrocento Sans', Arial, Helvetica, sans-serif; margin:0 0 10px; }

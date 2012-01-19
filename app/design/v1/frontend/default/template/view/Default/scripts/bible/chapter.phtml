@@ -1,11 +1,12 @@
 
   <div class="bible left-panel">
     <h1>
-      <?=str_replace("%cap%", $this->chapter, App::xlat('BIBLE_verses_topic') ) . $this->book_name?>
+      <?=str_replace("%cap%", $this->chapter, App::xlat('BIBLE_verses_topic') ) . $this->details['book']?>
       <span><?=App::xlat('CONTENT_subtitle_bible')?></span>
     </h1>
 
-    <?php if ( ! empty($this->verses) ): ?>
+    <?php $chapter_paginator = App::module('Addons')->renderBlock("bible/index","chapters", array("seo" => $this->details['seo'], "chapters_total"=> $this->details['chapter'], "chapter" => $this->chapter )); ?>
+    <?=$chapter_paginator;?>
 
       <ol class="verse">
         <?php foreach($this->verses AS $verse): ?>
@@ -13,23 +14,18 @@
         <?php endforeach; ?>
       </ol>
 
-    <?php endif; ?>
+    <?=$chapter_paginator;?>
+
   </div>
 
   <div class="right-panel">
-    <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array('seo'=>$this->book))?>
+
+    <div class="block bible_book_detail">
+      <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details))?>
+    </div>
+    
+    <div class="block bible_books">
+      <?=App::module('Addons')->renderBlock("bible/index","books", array("book_id" => $this->details['book_id']))?>
+    </div>
+
   </div>
-
-<?php 
-/*
-id para identificar al versiculo exacto y poderle dar otros usos
-Array
-(
-    [0] => Array
-        (
-            [id] => 1212
-            [texto] => En el principio creÃ³ Dios los cielos y la tierra.
-        )
-*/
-
-?>

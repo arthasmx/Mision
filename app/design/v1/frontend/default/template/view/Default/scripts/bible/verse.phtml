@@ -7,7 +7,7 @@
   </div>
 
   <div class="right-panel">
-    <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array('seo'=>$this->book))?>
+    <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details))?>
   </div>
 
 <?php

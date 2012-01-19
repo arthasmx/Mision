@@ -14,7 +14,14 @@ class Addons_Bible_IndexBlockController extends Core_Controller_Block {
   }
 
   function bookDetailAction(){
-    $this->view->book_details = App::module('Addons')->getModel('Bible')->get_book_details( $this->getParam('seo') );
+    $this->view->details = $this->getParam('details');
+  }
+
+  function chaptersAction(){
+    $this->view->chapters        = $this->_module->getModel('Bible')->get_chapters_block( $this->getParam('seo'), $this->getParam('chapter') );
+    $this->view->book_seo        = $this->getParam('seo');
+    $this->view->current_chapter = $this->getParam('chapter');
+    $this->view->chapters_total  = $this->getParam('chapters_total');
   }
 
 }

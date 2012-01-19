@@ -6,7 +6,7 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
   public $paginator_page      = false;
   public $paginator_page_name = false;
 
-  protected $items_per_page  = 15;
+  protected $items_per_page  = 2;
   protected $datafilter      = false;
   protected $datasorter	     = false;
   protected $datafilter_render_style = false;

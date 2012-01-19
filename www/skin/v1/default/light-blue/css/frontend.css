@@ -125,7 +125,7 @@ div.gradient{ background: url(/skin/v1/default/light-blue/art/bks/gradient.png) 
     width: 720px; height:30px;
   }
 
-div#content h1, div#content h2, div#content h3 { font: normal 20px 'Quattrocento Sans', Arial, Helvetica, sans-serif; color:#494848; margin:0 0 10px; }
+div#content h1, div#content h2, div#content h3 { font: normal 20px 'Quattrocento Sans', Arial, Helvetica, sans-serif; color:#777; margin:0 0 10px; border-bottom:1px solid #D4D4D4; padding-bottom:10px; }
     div#content h2 { font-size: 19px;}
     div#content h3 { font-size: 17px;}
 div#content h1 span, div#content h2 span, div#content h3 span { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
@@ -143,17 +143,7 @@ div#content img.noborder { border:0; padding:0; margin:10px 10px 0 0;}
 div#content img.none { float:none; margin:0; padding:0; border:none; background:none;}
 div#content img.f_left { float:left;}
 
-div.pagination {
-    display:block;
-    text-align:left;
-    height:22px;
-    line-height:21px;
-    clear:both;
-    padding-top:3px;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:12px;
-    font-weight:normal;
-}
+div.pagination { display:block; text-align:center; height:22px; clear:both; padding:20px; }
 
 div.pagination a:link, div.pagination a:visited{
     padding:7px;
@@ -171,18 +161,19 @@ div.pagination a:link, div.pagination a:visited{
 div.pagination a:hover {
     background-color:#DDEEFF;
     border:1px solid #BBDDFF;
-    color:#0072BC;  
+    color:#0072BC;
+    text-decoration:none !important;  
 }
 
-div.pagination .current a {
+div.pagination a.current, div.pagination .current a {
     padding:7px;
     padding-top:2px;
     padding-bottom:2px;
-    border:1px solid #BBDDFF;
+    border:1px solid #DBDBDB;
     margin-left:10px;
     text-decoration:none;
-    background-color:#DDEEFF;
-    color:#0072BC;
+    background-color:#777;
+    color:#fff !important;
     cursor:default;
 }
 

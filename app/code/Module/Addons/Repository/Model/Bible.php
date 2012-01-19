@@ -40,15 +40,22 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                      ->limit(1);
   }
 
-  function get_book_name($book_seo_name = "not_given"){
-      $select = $this->_db->select()
-                     ->from(array('bo'  => 'rv60_books'  ), array('book') )
-                     ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array() )
-                     ->where('la.namespace = ?', App::locale()->getName() )
-                     ->where('bo.seo = ?' , $book_seo_name)
-                     ->limit(1);
-    $name = $this->_db->query( $select )->fetch();
-    return empty( $name['book'] ) ? false : $name['book'];
+  function get_book_details($book_seo_name = "not_given"){
+    $select = $this->_db->select()
+    ->from(array('bo'  => 'rv60_books'  ), array('book_id','book','seo','lang_id', 'testament') )
+    ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array('name','prefix','namespace','status') )
+    ->where('la.namespace = ?', App::locale()->getName() )
+    ->where('bo.seo = ?' , $book_seo_name)
+    ->limit(1);
+    $details = $this->_db->query( $select )->fetch();
+  
+    if( empty($details) ){
+      App::module('Core')->exception( App::xlat('EXC_book_wasnt_found') . '<br />Launched at method get_book_details, file Repository/Model/Bible' );
+    }
+  
+    $summary = $this->get_book_chapters_and_verses_summary($details['book_id'], $details['lang_id']);
+  
+    return array_merge($details, $summary);
   }
 
   function get_book_chapters_and_verses_summary($book_id = 0, $lang_id = 0){
@@ -62,24 +69,6 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
     $sumary = $this->_db->query( $select )->fetch();
 
     return empty( $sumary) ? false : $sumary;
-  }
-
-  function get_book_details($book_seo_name = "not_given"){
-      $select = $this->_db->select()
-                     ->from(array('bo'  => 'rv60_books'  ), array('book_id','book','seo','lang_id') )
-                     ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array('name','prefix','namespace','status') )
-                     ->where('la.namespace = ?', App::locale()->getName() )
-                     ->where('bo.seo = ?' , $book_seo_name)
-                     ->limit(1);
-    $details = $this->_db->query( $select )->fetch();
-
-    if( empty($details) ){
-      App::module('Core')->exception( App::xlat('EXC_book_wasnt_found') . '<br />Launched at method get_book_details, file Repository/Model/Bible' );
-    }
-
-    $summary = $this->get_book_chapters_and_verses_summary($details['book_id'], $details['lang_id']);
-
-    return array_merge($details, $summary);
   }
 
   function get_verses($book_seo_name = "not_given", $chapter_id = 0){
@@ -111,7 +100,11 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                    ->where('bi.ver = ?' , $ver_id);
     $verse = $this->_db->query( $select )->fetch();
 
-    return empty( $verse ) ? false : array_merge($verse, array('verse'=>$ver_id)); 
+    if( empty($verse) ){
+      App::module('Core')->exception( App::xlat('EXC_verse_wasnt_found') . '<br />Launched at method get_verse, file Repository/Model/Bible' );
+    }
+
+    return array_merge($verse, array('verse'=>$ver_id)); 
   }
 
   function get_books(){
@@ -126,6 +119,24 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
 
     if( empty($res) ){
       App::module('Core')->exception( App::xlat('EXC_books_werent_found') . '<br />Launched at method get_verses, file Repository/Model/Bible' );
+    }
+
+    return $res;
+  }
+
+  function get_chapters_block($book_seo = null, $current_chapter = 1){
+    $select = $this->_db->select()
+                   ->distinct()
+                   ->from(array('bi'  => 'rv60_bible'  ), array('cap') )
+                   ->join(array('bo'  => 'rv60_books'   ), 'bo.book_id = bi.book_id', array())
+                   ->where('bo.seo = ?', $book_seo)
+                   ->where('bi.cap >= ?', $current_chapter-3)
+                   ->where('bi.cap <= ?', $current_chapter+3);
+
+    $res = $this->_db->query( $select )->fetchAll();
+
+    if( empty($res) ){
+      App::module('Core')->exception( App::xlat('EXC_books_werent_found') . '<br />Launched at method get_chapters_block, file Repository/Model/Bible' );
     }
 
     return $res;

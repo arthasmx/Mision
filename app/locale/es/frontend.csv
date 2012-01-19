@@ -68,6 +68,13 @@
         BIBLE_testament_1, "Antiguo Testamento"
         BIBLE_testament_2, "Nuevo Testamento"
 
+        BIBLE_BLOCK_book_details_topic, "Detalle del libro actual"
+        BIBLE_BLOCK_book_details_subtitle, "Caracteristicas generales del libro"
+        BIBLE_BLOCK_book_details_name, "Libro:"
+        BIBLE_BLOCK_book_details_chapters, "Total de capítulos:"
+        BIBLE_BLOCK_book_details_verses, "Total de versículos:"
+        BIBLE_BLOCK_book_details_testament, "Testamento:"
+
           BIBLE_seo_book_genesis,"genesis"
           BIBLE_seo_book_exodus,"exodo"
           BIBLE_seo_book_leviticus,"levitico"

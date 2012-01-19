@@ -1,11 +1,18 @@
 
-<?php 
-echo '<pre>'; print_r( $this->book_details ); echo '</pre>'; 
-?>
+  <h1 class="bottom-line">
+    <?=App::xlat('BIBLE_BLOCK_book_details_topic')?>
+    <span><?=App::xlat('BIBLE_BLOCK_book_details_subtitle')?></span>
+  </h1>
+  <ul>
+    <li> <strong><?=App::xlat('BIBLE_BLOCK_book_details_name')?></strong>      <?=$this->details['book']?> </li>
+    <li> <strong><?=App::xlat('BIBLE_BLOCK_book_details_chapters')?></strong>  <?=$this->details['chapter']?> </li>
+    <li> <strong><?=App::xlat('BIBLE_BLOCK_book_details_verses')?></strong>    <?=$this->details['verses']?> </li>
+    <li> <strong><?=App::xlat('BIBLE_BLOCK_book_details_testament')?></strong> <?=App::xlat('BIBLE_testament_' . $this->details['testament'])?> </li>
+  </ul>
 
 <?php
 /*
-$book_detail
+$details
 Array
 (
     [book_id] => 1

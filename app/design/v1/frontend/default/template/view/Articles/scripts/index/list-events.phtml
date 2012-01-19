@@ -4,7 +4,7 @@
     <?php $core = App::module('Core')->getModel('Dates');?>
     <?php foreach( $this->events['items'] AS $event ): ?>
       <div class="block">
-        <h3>
+        <h3 class="no-line">
           <?=$event['title']?>
           <span><?=App::locale()->toDate($event['publicated'],'long')?></span>
         </h3>

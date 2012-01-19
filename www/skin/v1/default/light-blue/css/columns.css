@@ -3,7 +3,11 @@
 /* COLUMNS */
 .all-panel   { width:955px; margin:0 0 40px; padding:0 23px 0 0; float:left;}
 .right-panel { width:300px; margin:0; padding:0; float:left;}
-.left-panel  { width:655px; margin:0 0 40px; padding:0 23px 0 0; float:left;}
+    .right-panel .block{
+      margin-bottom: 20px;
+    }
+
+.left-panel  { width:645px; margin:0 0 40px; padding:0 35px 0 0; float:left;}
     div#content .announcement h1 {padding:0;}
     div#content .left-panel p.description {padding:10px 0 30px;}
 div.events .block{ width:295px; margin:0; padding:0 23px 20px 0; float:left; text-align: justify;}
@@ -22,9 +26,6 @@ div.events .block{ width:295px; margin:0; padding:0 23px 20px 0; float:left; tex
       font-size:1.5em;
       letter-spacing: 2px;
     }
-     div#content_data  div.left-panel table th.bible_books{
-        border-bottom: 1px solid #d4d4d4;
-      }
 
     .col { 
         float: left; 
