@@ -1,25 +1,14 @@
-<div class="bible_chapters">
 
-  <div class="pagination">
-
-    <?php if($this->current_chapter > 1):?>
-      <a class="paginate-link" href="<?=App::base( App::xlat('route_bible') . $this->book_seo ."/1" )?>">
-        <?=App::xlat('page_first')?>
-      </a>
-    <?php endif;?>
-
-    <?php foreach($this->chapters AS $chapter): ?>
-      <a class="paginate-link<?=($chapter['cap']==$this->current_chapter)? ' current':''?>" href="<?=App::base( App::xlat('route_bible') . $this->book_seo ."/". $chapter['cap'] )?>" title="<?=App::xlat('BIBLE_chapter') . ' ' . $chapter['cap']; ?>">
-        <?=$chapter['cap']?>
-      </a>
-    <?php endforeach;?>
-
-    <?php if($this->current_chapter < $this->chapters_total):?>
-      <a class="paginate-link" href="<?=App::base( App::xlat('route_bible') . $this->book_seo ."/" . $this->chapters_total )?>">
-        <?=App::xlat('page_last')?>
-      </a>
-    <?php endif;?>
-
-  </div>
-
+<div class="block bible_chapters_listing">
+  <h1 class="no-line">
+    <?=App::xlat('BIBLE_chapters_block_topic')?>
+    <span><?=App::xlat('BIBLE_chapters_block_subtitle')?></span>
+  </h1>
+  <form id="chapter-selection" name="chapter-selection" method="post" action="">
+    <select multiple >
+      <?php foreach($this->chapters AS $chapter): ?>
+        <option value="<?=$this->current_book.'/'.$chapter['cap']?>" <?=($this->current_chapter==$chapter['cap']) ? "selected" : false;?> ><?=App::xlat('BIBLE_chapter').' '.$chapter['cap']?></option>
+      <?php endforeach;?>
+    </select>
+  </form>
 </div>

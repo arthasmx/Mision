@@ -5,7 +5,7 @@
       <span><?=App::xlat('CONTENT_subtitle_bible')?></span>
     </h1>
 
-    <?php $chapter_paginator = App::module('Addons')->renderBlock("bible/index","chapters", array("seo" => $this->details['seo'], "chapters_total"=> $this->details['chapter'], "chapter" => $this->chapter )); ?>
+    <?php $chapter_paginator = App::module('Addons')->renderBlock("bible/index","chaptersPaginator", array("seo" => $this->details['seo'], "chapters_total"=> $this->details['chapter'], "chapter" => $this->chapter )); ?>
     <?=$chapter_paginator;?>
 
       <ol class="verse">
@@ -19,13 +19,6 @@
   </div>
 
   <div class="right-panel">
-
-    <div class="block bible_book_detail">
-      <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details))?>
-    </div>
-    
-    <div class="block bible_books">
-      <?=App::module('Addons')->renderBlock("bible/index","books", array("book_id" => $this->details['book_id']))?>
-    </div>
-
+    <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details))?>
+    <?=App::module('Addons')->renderBlock("bible/index","books", array("book_id" => $this->details['book_id']))?>
   </div>

@@ -124,7 +124,23 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
     return $res;
   }
 
-  function get_chapters_block($book_seo = null, $current_chapter = 1){
+  function get_chapters($book_seo = null){
+    $select = $this->_db->select()
+                        ->distinct()
+                        ->from(array('bi'  => 'rv60_bible'  ), array('cap') )
+                        ->join(array('bo'  => 'rv60_books'   ), 'bo.book_id = bi.book_id', array())
+                        ->where('bo.seo = ?', $book_seo);
+
+    $res = $this->_db->query( $select )->fetchAll();
+
+    if( empty($res) ){
+      App::module('Core')->exception( App::xlat('EXC_chapters_werent_found') .$book_seo. '<br />Launched at method get_chapters, file Repository/Model/Bible' );
+    }
+
+    return $res;
+  }
+
+  function get_chapters_for_pagination($book_seo = null, $current_chapter = 1){
     $select = $this->_db->select()
                    ->distinct()
                    ->from(array('bi'  => 'rv60_bible'  ), array('cap') )
@@ -136,7 +152,7 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
     $res = $this->_db->query( $select )->fetchAll();
 
     if( empty($res) ){
-      App::module('Core')->exception( App::xlat('EXC_books_werent_found') . '<br />Launched at method get_chapters_block, file Repository/Model/Bible' );
+      App::module('Core')->exception( App::xlat('EXC_books_werent_found') . '<br />Launched at method get_chapters_for_pagination, file Repository/Model/Bible' );
     }
 
     return $res;
