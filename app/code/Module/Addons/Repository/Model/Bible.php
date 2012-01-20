@@ -73,7 +73,7 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
 
   function get_verses($book_seo_name = "not_given", $chapter_id = 0){
     $select = $this->_db->select()
-                   ->from(array('bi'  => 'rv60_bible'  ), array('id' ,'texto') )
+                   ->from(array('bi'  => 'rv60_bible'  ), array('id', 'ver', 'texto') )
                    ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array() )
                    ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
                    ->where('la.namespace = ?', App::locale()->getName() )

@@ -1,6 +1,6 @@
   <div class="left-panel">
     <h1>
-    <?=str_replace("%cap%", $this->chapter, App::xlat('BIBLE_verses_topic') ) . $this->details['book']?>
+    <?=str_replace(array("%ver%","%cap%","%book%"), array($this->verse['verse'], $this->chapter, $this->details['book']), App::xlat('BIBLE_verse_topic') )?>
     <span><?=App::xlat('CONTENT_subtitle_bible')?></span></h1>
     <?=$this->verse['texto']; ?>
   </div>

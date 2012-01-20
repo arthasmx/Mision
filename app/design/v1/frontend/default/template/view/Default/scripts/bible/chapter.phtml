@@ -5,12 +5,19 @@
       <span><?=App::xlat('CONTENT_subtitle_bible')?></span>
     </h1>
 
-    <?php $chapter_paginator = App::module('Addons')->renderBlock("bible/index","chaptersPaginator", array("seo" => $this->details['seo'], "chapters_total"=> $this->details['chapter'], "chapter" => $this->chapter )); ?>
+    <?php 
+      $chapter_paginator = App::module('Addons')->renderBlock("bible/index","chaptersPaginator", array("seo" => $this->details['seo'], "chapters_total"=> $this->details['chapter'], "chapter" => $this->chapter ));
+      $ds = "/"; 
+    ?>
     <?=$chapter_paginator;?>
 
       <ol class="verse">
         <?php foreach($this->verses AS $verse): ?>
-          <li> <?= $verse['texto'] ; ?> </li>
+          <li>
+            <a href="<?=App::base( App::xlat('route_bible') . $this->details['seo'] .$ds. $this->chapter .$ds. $verse['ver'] )?>">
+              <?= $verse['texto'] ; ?>
+            </a>
+          </li>
         <?php endforeach; ?>
       </ol>
 

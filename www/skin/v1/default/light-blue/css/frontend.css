@@ -137,8 +137,11 @@ div#content a { color:#00AAFF; text-decoration:none;}
   div#content a:hover { text-decoration:underline; color:#388CC2;}
 div#content ul, div#content ol {text-align:justify;}
   div#content ol{list-style: decimal;}
+  div#content ol.verse li{ padding:10px 0; font: 12px/1.2em Arial,Helvetica,sans-serif; }
+    div#content ol.verse li a { font:12px/1.2em Arial,Helvetica,sans-serif; color:#777;}
+    div#content ol.verse li a:hover { color:#B7B7B7;}
+
 div#content ul.list li { float:left; width:50%; padding:3px 0;}
-/* div#content img { margin:5px auto; background:#FFF;} */
 div#content img.noborder { border:0; padding:0; margin:10px 10px 0 0;}
 div#content img.none { float:none; margin:0; padding:0; border:none; background:none;}
 div#content img.f_left { float:left;}
@@ -189,7 +192,6 @@ div.pagination .disabled_tnt_pagination {
     cursor:default;
 }
 
-div#content_data .bible ol.verse li:hover{color:#000;}
   form#book-selection select, form#chapter-selection select{ width:260px; height:255px;  }
   form#book-selection option.testament{font-size:16px; margin:10px 0; font-weight: bold;  }
 

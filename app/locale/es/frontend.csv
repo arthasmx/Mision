@@ -65,6 +65,8 @@
           BIBLE_chapters_block_topic, "Capítulos del libro actual"
           BIBLE_chapters_block_subtitle, "Dá click sobre el capítulo para ver sus versículos"
         BIBLE_verses_topic, "Versículos del capítulo %cap% del libro de "
+        BIBLE_verse_topic, "Versículo %ver% del capítulo %cap% de %book%"
+
         BIBLE_chapter, "Capítulo"
         BIBLE_verse, "Versículo"
         BIBLE_testament_1, "Antiguo Testamento"
