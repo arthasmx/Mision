@@ -114,6 +114,11 @@
         font-weight:bold !important;
         font-size:10pt !important;
       }
+      
+      div#content table.doctrine img{
+        border: none;
+        width: 200px; height: 80px;
+      }
 
 /* CONTENT */
 

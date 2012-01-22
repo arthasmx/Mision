@@ -28,12 +28,12 @@ class BibleController extends Module_Default_Controller_Action_Frontend {
 
   function verseAction(){
     $book_seo             = $this->getRequest()->getParam('book');
-    $this->view->chapter  = $this->getRequest()->getParam('chapter');
+    $chapter              = $this->getRequest()->getParam('chapter');
     $verse                = $this->getRequest()->getParam('verse');
-    $this->view->verse    = App::module('Addons')->getModel('Bible')->get_verse( $book_seo, $this->view->chapter, $verse );
+    $this->view->verse    = App::module('Addons')->getModel('Bible')->get_verse( $book_seo, $chapter, $verse );
     $this->view->details  = App::module('Addons')->getModel('Bible')->get_book_details( $book_seo );
 
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->details['book'], $book_seo, $this->view->chapter, $verse );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->details['book'], $book_seo, $chapter, $verse );
   }
 
 

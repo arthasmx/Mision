@@ -88,23 +88,23 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
     return $verses;
   }
 
-  function get_verse($book_seo_name = "not_given", $cap_id = 0, $ver_id = 0){
+  function get_verse($book_seo_name = "not_given", $chapter = 0, $verse = 0){
 
     $select = $this->_db->select()
                    ->from(array('bi'  => 'rv60_bible'  ), array('id', 'texto') )
                    ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array() )
-                   ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
-                   ->where('la.namespace = ?', App::locale()->getName() )
                    ->where('bo.seo = ?' , $book_seo_name)
-                   ->where('bi.cap = ?' , $cap_id)
-                   ->where('bi.ver = ?' , $ver_id);
-    $verse = $this->_db->query( $select )->fetch();
+                   ->where('bi.cap = ?' , $chapter)
+                   ->where('bi.ver = ?' , $verse);
+    $res = $this->_db->query( $select )->fetch();
 
-    if( empty($verse) ){
+    if( empty($res) ){
       App::module('Core')->exception( App::xlat('EXC_verse_wasnt_found') . '<br />Launched at method get_verse, file Repository/Model/Bible' );
     }
 
-    return array_merge($verse, array('verse'=>$ver_id)); 
+    $total_verses_in_chapter = $this->get_verses_in_chapter($book_seo_name, $chapter);
+
+    return array_merge($res, array('verse'=>$verse, 'chapter'=>$chapter, 'verses_in_chapter' => $total_verses_in_chapter['total'])); 
   }
 
   function get_books(){
@@ -152,10 +152,44 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
     $res = $this->_db->query( $select )->fetchAll();
 
     if( empty($res) ){
-      App::module('Core')->exception( App::xlat('EXC_books_werent_found') . '<br />Launched at method get_chapters_for_pagination, file Repository/Model/Bible' );
+      App::module('Core')->exception( App::xlat('EXC_chapters_werent_found') . '<br />Launched at method get_chapters_for_pagination, file Repository/Model/Bible' );
     }
 
     return $res;
+  }
+
+  function get_verses_for_pagination($book_seo = null, $current_chapter = null, $current_verse = null ){
+    $select = $this->_db->select()
+                   ->from(array('bi'  => 'rv60_bible'  ), array('ver') )
+                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array())
+                   ->where('bo.seo = ?', $book_seo)
+                   ->where('bi.cap = ?', $current_chapter)
+                   ->where('bi.ver >= ?', $current_verse-5)
+                   ->where('bi.ver <= ?', $current_verse+5);
+
+    $res = $this->_db->query( $select )->fetchAll();
+
+    if( empty($res) ){
+      App::module('Core')->exception( App::xlat('EXC_verse_wasnt_found') . '<br />Launched at method get_verses_for_pagination, file Repository/Model/Bible' );
+    }
+
+    return $res;
+  }
+
+  function get_verses_in_chapter($book=null, $chapter=0){
+    $select = $this->_db->select()
+                   ->from(array('bi'  => 'rv60_bible'  ), array('total' => 'COUNT(bi.ver)') )
+                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array() )
+                   ->where('bo.seo = ?' , $book)
+                   ->where('bi.cap = ?' , $chapter);
+
+    $verses = $this->_db->query( $select )->fetch();
+    
+    if( empty($verses) ){
+      App::module('Core')->exception( App::xlat('EXC_verse_wasnt_found') . '<br />Launched at method get_verses_in_chapter, file Repository/Model/Bible' );
+    }
+
+    return array_merge($verses, array('chapter'=>$chapter) );
   }
 
 }

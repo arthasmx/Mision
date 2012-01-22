@@ -14,25 +14,6 @@
         CONTENT_subtitle_bible, "Antigua versión de Casiodoro de reina (1569). Revisada por Cipriano de Valera(1602)"
         CONTENT_subtitle_article_written_by, "Escrito el %written-date%, por "
 
-        CONTENT_doctrine_god, "Dios",
-        CONTENT_doctrine_jesuschrist, "Jesucristo",
-        CONTENT_doctrine_holy_spirit, "Espiritu Santo",
-        CONTENT_doctrine_resurrection, "Resurrección de Jesucristo",
-        CONTENT_doctrine_church, "Iglesia",
-        CONTENT_doctrine_church_state, "La Iglesia y el Estado",
-        CONTENT_doctrine_marine, "Servicio Militar",
-        CONTENT_doctrine_economy_system, "Sistema Economico de la Iglesia",
-        CONTENT_doctrine_ministerial_body, "Cuerpo Ministerial",
-        CONTENT_doctrine_baptism, "Bautismo",
-        CONTENT_doctrine_communion, "Comunión",
-        CONTENT_doctrine_marriage, "Matrimonio",
-        CONTENT_doctrine_divine_healing, "Sanidad Divina",
-        CONTENT_doctrine_holiness, "Santidad",
-        CONTENT_doctrine_death_sin, "Pecado de Muerte",
-        CONTENT_doctrine_resurrection, "Resurrección de Justos e Injustos",
-        CONTENT_doctrine_recollection, "Recogimiento de la Iglesia y el Milenio",
-        CONTENT_doctrine_judgement, "Juicio Final"
-
         MAINPAGE_column_join, "Participa!"
         MAINPAGE_column_join_span, "Diseñadores, Traductores, Escritores, Analistas..."
         MAINPAGE_column_join_description, "Con la ayuda de nuestro Señor Jesucristo y la de ustedes queridos hermanos, queremos hacer de esta página tu Página Cristiana Favorita; es por ello que requerimos de tu valiosa participación, ya sea enviandonos tus sugerencias, comentarios o mejor aún, que participes en el mantenimiento del sitio."
@@ -65,7 +46,6 @@
           BIBLE_chapters_block_topic, "Capítulos del libro actual"
           BIBLE_chapters_block_subtitle, "Dá click sobre el capítulo para ver sus versículos"
         BIBLE_verses_topic, "Versículos del capítulo %cap% del libro de "
-        BIBLE_verse_topic, "Versículo %ver% del capítulo %cap% de %book%"
 
         BIBLE_chapter, "Capítulo"
         BIBLE_verse, "Versículo"
@@ -78,6 +58,8 @@
         BIBLE_BLOCK_book_details_chapters, "Total de capítulos:"
         BIBLE_BLOCK_book_details_verses, "Total de versículos:"
         BIBLE_BLOCK_book_details_testament, "Testamento:"
+        BIBLE_BLOCK_book_details_chapter_id, "Capítulo actual:"
+        BIBLE_BLOCK_book_details_chapter_verses, "Versículos en capítulo:"
 
           BIBLE_seo_book_genesis,"genesis"
           BIBLE_seo_book_exodus,"exodo"

@@ -54,7 +54,7 @@
     LINK_doctrine_god, "dios",
     LINK_doctrine_jesuschrist, "jesucristo",
     LINK_doctrine_holy_spirit, "espiritu-santo",
-    LINK_doctrine_resurrection, "resurreccion-de-jesucristo",
+    LINK_doctrine_resurrection, "resurrecion-de-jesucristo",
     LINK_doctrine_church, "iglesia",
     LINK_doctrine_church_state, "la-iglesia-y-el-estado",
     LINK_doctrine_marine, "servicio-militar",
@@ -66,7 +66,7 @@
     LINK_doctrine_divine_healing, "sanidad-divina",
     LINK_doctrine_holiness, "santidad",
     LINK_doctrine_death_sin, "pecado-de-muerte",
-    LINK_doctrine_resurrection, "resurreccion-de-justos-e-injustos",
+    LINK_doctrine_just_and_unjust_resurrection, "resurrecion-de-justos-e-injustos",
     LINK_doctrine_recollection, "recogimiento-de-la-iglesia-y-el-milenio",
     LINK_doctrine_judgement, "juicio-final"
 

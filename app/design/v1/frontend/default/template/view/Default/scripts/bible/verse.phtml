@@ -1,25 +1,47 @@
-  <div class="left-panel">
-    <h1>
-    <?=str_replace(array("%ver%","%cap%","%book%"), array($this->verse['verse'], $this->chapter, $this->details['book']), App::xlat('BIBLE_verse_topic') )?>
-    <span><?=App::xlat('CONTENT_subtitle_bible')?></span></h1>
-    <?=$this->verse['texto']; ?>
-  </div>
+<div class="left-panel">
+  <h1>
+  <?="{$this->details['book']} {$this->verse['chapter']} : {$this->verse['verse']}"?>
+  <span><?=App::xlat('CONTENT_subtitle_bible')?></span></h1>
+  <?=App::module('Addons')->renderBlock("bible/index", "versesPaginator", array("book"    => $this->details['seo'], 
+                                                                                "chapter" => $this->verse['chapter'], 
+                                                                                "verse"   => $this->verse['verse'],
+                                                                                "verses_total" => $this->verse['verses_in_chapter'] ));?>
+  <?=$this->verse['texto']; ?>
+</div>
 
-  <div class="right-panel">
-    <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details))?>
-    <?=App::module('Addons')->renderBlock("bible/index","chapters", array("book" => $this->details['book'], "book_seo" => $this->details['seo'], "chapter" => $this->chapter ))?>
-  </div>
+<div class="right-panel">
+  <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details, "chapter"=>$this->verse['chapter']))?>
+  <?=App::module('Addons')->renderBlock("bible/index","chapters", array("book" =>  $this->details['book'], "book_seo" => $this->details['seo'], "chapter" => $this->verse['chapter'] ))?>
+
+</div>
 
 <?php
 
 /*
- * El VERSE lo utilizare para hacer una paginacion
- * El id identifica al versiculo exacto, para otros usos
+$this->verse
 Array
 (
-    [texto] => Luego dijo Dios: Haya expansiÃ³n en medio de las aguas, y separe las aguas de las aguas.
-    [verse] => 1
-    [id] => 1222
+    [id] => 1465
+    [texto] => Porque cuando yo venía de Padan-aram, se me murió Raquel en la tierra de Canaán, en el camino, como media legua de tierra viniendo a Efrata; y la sepulté allí en el camino de Efrata, que es Belén.
+    [verse] => 7
+    [chapter] => 48
+    [verses_in_chapter] => 22
 )
+$this->details
+Array
+(
+    [book_id] => 1
+    [book] => Génesis
+    [seo] => genesis
+    [lang_id] => 1
+    [testament] => 1
+    [name] => Español
+    [prefix] => es
+    [namespace] => es_MX
+    [status] => 1
+    [verses] => 1533
+    [chapter] => 50
+)
+
 */
 ?>

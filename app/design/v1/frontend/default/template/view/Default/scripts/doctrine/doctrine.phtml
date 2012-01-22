@@ -3,7 +3,7 @@
       <?=$this->doctrine_article['title']?>
       <span><?=App::xlat('CONTENT_subtitle_doctrine')?></span>
     </h1>
-    <table>
+    <table class="doctrine">
       <?= eval('?>' . $this->doctrine_article['article'] . '<?php ');?>
     </table>
   </div>

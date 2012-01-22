@@ -14,12 +14,14 @@ class Addons_Bible_IndexBlockController extends Core_Controller_Block {
   }
 
   function bookDetailAction(){
-    $this->view->details = $this->getParam('details');
+    $this->view->details         = $this->getParam('details');
+    $chapter                     = $this->getParam('chapter');
+    $this->view->chapter_details = empty($chapter) ? false : $this->_module->getModel('Bible')->get_verses_in_chapter( $this->view->details['seo'], $this->getParam('chapter')  );
   }
 
   function chaptersAction(){
-    $book_seo = $this->getParam('book_seo');
-    $this->view->chapters = $this->_module->getModel('Bible')->get_chapters( $book_seo );
+    $book_seo                    = $this->getParam('book_seo');
+    $this->view->chapters        = $this->_module->getModel('Bible')->get_chapters( $book_seo );
     $this->view->current_chapter = $this->getParam('chapter');
     $this->view->current_book    = $book_seo;
   }
@@ -29,6 +31,14 @@ class Addons_Bible_IndexBlockController extends Core_Controller_Block {
     $this->view->book_seo        = $this->getParam('seo');
     $this->view->current_chapter = $this->getParam('chapter');
     $this->view->chapters_total  = $this->getParam('chapters_total');
+  }
+
+  function versesPaginatorAction(){
+    $this->view->verses        = $this->_module->getModel('Bible')->get_verses_for_pagination( $this->getParam('book'), $this->getParam('chapter'), $this->getParam('verse') );
+    $this->view->book            = $this->getParam('book');
+    $this->view->current_chapter = $this->getParam('chapter');
+    $this->view->current_verse   = $this->getParam('verse');
+    $this->view->verses_total  = $this->getParam('verses_total');
   }
 
 }
