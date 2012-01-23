@@ -1,0 +1,11 @@
+
+<div class="block bible_search">
+  <h1>
+    <?=App::xlat('BIBLE_block_search')?>
+    <span><?=App::xlat('BIBLE_block_search_subtitle')?></span>
+  </h1>
+  <form id="bible-search" name="bible-search" method="post" action="<?=App::base( App::xlat('route_bible') )?>buscar">
+    <input name="search" type="text" maxlength="30" size="27" />
+    <input type="submit" value="buscar" />
+  </form>
+</div>

@@ -10,9 +10,9 @@
 </div>
 
 <div class="right-panel">
-  <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details, "chapter"=>$this->verse['chapter']))?>
+  <?=App::module('Addons')->renderBlock("bible/index","search")?>
   <?=App::module('Addons')->renderBlock("bible/index","chapters", array("book" =>  $this->details['book'], "book_seo" => $this->details['seo'], "chapter" => $this->verse['chapter'] ))?>
-
+  <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details, "chapter"=>$this->verse['chapter']))?>
 </div>
 
 <?php

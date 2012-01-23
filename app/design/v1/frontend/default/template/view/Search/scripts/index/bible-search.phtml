@@ -1,0 +1,54 @@
+<?php
+  $ds = "/";
+?>
+  <div class="left-panel">
+    <h1>
+      <?=App::xlat('BIBLE_search_result_topic') . " <i>$this->searched_string</i>"?>
+      <span><?=App::xlat('CONTENT_subtitle_bible')?></span>
+    </h1>
+    <?php if( ! empty($this->search['items']) ): ?>
+      <table class="bible_search_result">
+        <?= empty($this->search['pagination_html']) ? '' : "<tr><td>" . $this->search['pagination_html'] . "</td></tr>" ?>
+
+        <?php foreach($this->search['items'] AS $search):?>
+          <tr>
+            <td>
+              <a href="<?=App::base( App::xlat('route_bible') . $search['seo'] . $ds . $search['cap'] )?>">
+                <?="{$search['book']} {$search['cap']}:{$search['ver']}"?>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td><?=$search['texto']?></td>
+          </tr>
+        <?php endforeach;?>
+
+        <?= empty($this->search['pagination_html']) ? '' : "<tr><td>" . $this->search['pagination_html'] . "</td></tr>" ?>
+      </table>
+    <?php else: ?>
+      <p>
+        <?=App::xlat('BIBLE_search_nothing_found')?>
+      </p>
+    <?php endif; ?>
+  </div>
+
+  <div class="right-panel">
+    <?=App::module('Addons')->renderBlock("bible/index","search", array() )?>
+  </div>
+
+<?php
+/*
+$search
+[0] => Array
+    (
+        [id] => 23168
+        [book_id] => 40
+        [cap] => 1
+        [ver] => 16
+        [lang_id] => 1
+        [texto] => y Jacob engendró a José, marido de María, de la cual nació Jesús, llamado el Cristo.
+        [book] => Mateo
+        [seo] => mateo
+    )
+*/
+?>

@@ -118,6 +118,7 @@
     route_doctrine, "/doctrina/"
   ; BIBLE
     route_bible, "/biblia/"
+      route_search, "buscar/"
   ; FRATERNITIES
     route_fraternities, "/fraternidades/"
   ; MULTIMEDIA
@@ -152,3 +153,4 @@ MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario p
   EXC_article_wrong_type, "El tipo de busqueda a realizar en los articulos no es correcto!"
   EXC_article_datasorter, "No se ha instanciado el método de ordenamiento"
   EXC_db_instance_not_found, "No existe una instancia de BD y se intenta ejecutar un query"
+  EXC_you_are_not_allowed_to_access_this_section, "No se puede tener acceso a esta parte del sitio"

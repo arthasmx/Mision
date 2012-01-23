@@ -2,6 +2,27 @@
 require_once 'Module/Core/Repository/Model/Abstract.php';
 class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_Abstract {
 
+  function search($string_to_search_for=null, $current_page = null){
+    if( empty($string_to_search_for) ){
+      return null;
+    }
+
+    $select = $this->_db->select()
+                   ->from(array('bi'  => 'rv60_bible'  ) )
+                   ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('book','seo') )
+                   ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
+                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->order('bi.book_id ASC');
+
+    if( strlen($string_to_search_for) > 5 ){
+      $select->where( "MATCH(texto) AGAINST(?)", $string_to_search_for );
+    }else{
+      $select->where( "bi.texto LIKE ?", "%" .$string_to_search_for . "%" );
+    }
+
+    return $this->setPaginator_page($current_page)->paginate_query( $select );
+  }
+
   function get_phrase(){
     $session = App::module('Core')->getModel('Namespace')->get( 'array_random' );
     $select = $this->prepare_phrase_query();

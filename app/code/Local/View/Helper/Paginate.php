@@ -3,7 +3,7 @@
 class Local_View_Helper_Paginate {
   public $paginator_page_name = false;
   
-	protected $page_render		= 14; // Número de páginas a mostrar
+	protected $page_render		= 9; // Número de páginas a mostrar
 	protected $url				= false; // Url base para los links
 	protected $page_param_tpl	= null;
 

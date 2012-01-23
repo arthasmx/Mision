@@ -39,6 +39,7 @@
         ADDRESS_phone,"(52) 6691-332-199"
 
     ; BIBLE
+        BIBLE_search_result_topic, "Resultados de la búsqueda"
         BIBLE_topic, "Tabla de los libros del Antiguo y Nuevo Testamento"
           BIBLE_books_block_topic, "Libros de la Santa Biblia RV60"
           BIBLE_books_block_subtitle, "Dá click sobre el libro para ver sus capitulos"
@@ -60,6 +61,10 @@
         BIBLE_BLOCK_book_details_testament, "Testamento:"
         BIBLE_BLOCK_book_details_chapter_id, "Capítulo actual:"
         BIBLE_BLOCK_book_details_chapter_verses, "Versículos en capítulo:"
+
+        BIBLE_block_search, "Buscar en la Biblia"
+        BIBLE_block_search_subtitle, "Escribe la palabra o frase que necesitas"
+        BIBLE_search_nothing_found, "0 Resultados para tu búsqueda"
 
           BIBLE_seo_book_genesis,"genesis"
           BIBLE_seo_book_exodus,"exodo"
