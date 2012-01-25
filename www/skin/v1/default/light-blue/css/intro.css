@@ -9,3 +9,5 @@
     font: normal 12px Helvetica, sans-serif;
     color:#777;
   }
+
+.gradient{ background: url(/skin/v1/default/light-blue/art/bks/gradient.png) repeat-y center center; }

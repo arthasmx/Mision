@@ -1,12 +1,12 @@
 <?php $menus = array('about','doctrine','events','fraternities','contact','bible'); $iterator=1; ?>
 
 <?php if ( App::getDesign()->getCurrentLayout() === "default" ) :?>
-  <div id="header_container">
+  <div id="header_container" class="gradient">
 <?php endif; ?>
 
-  <div id="header" <?=(App::getDesign()->getCurrentLayout()==="intro") ? 'class="intro"':'';?> >
+  <div id="header" <?=(App::getDesign()->getCurrentLayout()==="intro") ? 'class="intro gradient"':'';?> >
 
-    <ul id="menu" <?=(App::getDesign()->getCurrentLayout()==="intro") ? '' : 'class="main_menu"';?>>
+    <ul id="menu" <?=(App::getDesign()->getCurrentLayout()==="intro") ? 'class="gradient"' : 'class="main_menu"';?>>
 
   	<?php foreach($menus AS $menu): ?>
           <li <?= (sizeof($menus)==$iterator) ? 'class="last_link"':''; ?><?= ($iterator==1) ? 'class="first_link"':'' ?>>
