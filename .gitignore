@@ -13,4 +13,4 @@ app.php
 .DS_Store
 .project
 app/etc/db.ini
-.gitignore
+www/media/images/gallery/

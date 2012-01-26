@@ -12,9 +12,10 @@ class Search_IndexController extends Module_Search_Controller_Action_Frontend {
   }
 
   function bibleSearchAction(){
-    $this->view->searched_string = $this->getRequest()->getParam('keyword');
-    $this->view->search          = App::module('Addons')->getModel("Bible")
-                                                        ->search( $this->view->searched_string , $this->getRequest()->getParam( App::xlat('route_paginator_page') ) );
+    $this->view->current_main_menu = 5;
+    $this->view->searched_string   = $this->getRequest()->getParam('keyword');
+    $this->view->search            = App::module('Addons')->getModel("Bible")
+                                                          ->search( $this->view->searched_string , $this->getRequest()->getParam( App::xlat('route_paginator_page') ) );
 
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), App::xlat('BIBLE_search_result_topic')  );
   }

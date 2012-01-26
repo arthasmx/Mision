@@ -137,6 +137,7 @@
   PUBLIC_ERROR_message, "La página que buscas no existe!"
   PUBLIC_ERROR_advice,  "Utiliza los links que tenemos en nuestro sitio, por favor."
   ERROR_bad_captcha, "El código de verificación es incorrecto"
+  ADDON_GALLERY_no_files_found_to_show_image_gallery, "No existen imagenes para mostrar en esta galeria"
 
 ;MAIL
 MAIL_public_contact_paragraph_1, "Paz de Cristo!<br /><br /><br />Te informo que <strong>"

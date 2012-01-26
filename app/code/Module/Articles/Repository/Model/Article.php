@@ -33,7 +33,8 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
                       ->where( 'va.lang_namespace = ?', App::locale()->getName() )
                       ->where( 'va.status = 1' )
                       ->where( 'va.publicated <= ?', date("Y-m-d h:i:s") )
-                      ->where( 'va.written = 1' );
+                      ->where( 'va.written = 1' )
+                      ->order( 'va.article_id DESC' );
 
     $add_n_event_ids = array( $this->_module->getConfig('core','article_type_announcement_id'),
                               $this->_module->getConfig('core','article_type_event_id') );
@@ -67,6 +68,19 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
                    ->where('a.seo = ?' , $article_seo);
     $article = $this->core->_db->query( $select )->fetch();
     return array_merge($basic_data , $article);
+  }
+
+  function get_article_addons($article_id = 0, $lang_id = 1){
+    $select = $this->core->_db->select()
+                         ->from(array('aa'  => 'articles_addons' ) )
+                         ->join(array('a'  => 'addons' ), 'a.id =  aa.addon_id',array('author','edited','created','updated'))
+                         ->join(array('al'  => 'addon_lang' ), 'al.addon_id =  aa.addon_id', array('name'))
+                         ->where('al.lang_id = ?' , $lang_id)
+                         ->where( 'aa.status = 1' )
+                         ->where( 'aa.article_id = ?', $article_id );
+
+    $addons = $this->core->_db->query( $select )->fetchAll();
+    return empty( $addons ) ? false : $addons;
   }
 
 }

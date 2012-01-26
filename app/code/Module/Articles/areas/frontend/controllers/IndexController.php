@@ -3,7 +3,9 @@ require_once 'Module/Articles/Controller/Action/Frontend.php';
 
 class Articles_IndexController extends Module_Articles_Controller_Action_Frontend{
 
-  function preDispatch() {}
+  function preDispatch() {
+    $this->view->gallery_path      = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
+  }
 
   function listAnnouncementAction(){
     $this->view->articles        = $this->_module->getModel('Article')
@@ -20,7 +22,7 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
     $this->view->events          = $this->_module->getModel('Article')
                                                  ->get_article_list_by_type( 
                                                    $this->_module->getConfig('core','article_type_event_id'),
-                                                   $this->getRequest()->getParam( App::xlat('route_paginator_page') ) 
+                                                   $this->getRequest()->getParam( App::xlat('route_paginator_page') )
                                                  );
 
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
@@ -39,20 +41,9 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
   private function read_article() {
     $article_seo         = $this->getRequest()->getParam('seo');
     $this->view->article = $this->_module->getModel('Article')->get_article( $article_seo );
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs(  $this->getRequest()->getParam('action') , $this->view->article['title']  );
+    $this->view->addons  = $this->_module->getModel('Article')->get_article_addons( $this->view->article['article_id'], $this->view->article['lang_id'] );
 
-    /*
-     * request params
-Array
-(
-    [seo] => cena-navidena
-    [module] => Articles
-    [controller] => index
-    [section] => announcement
-    [action] => read-announcement
-    [controller_prefix] => 
-)
-     */
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs(  $this->getRequest()->getParam('action') , $this->view->article['title']  );
   }
 
 

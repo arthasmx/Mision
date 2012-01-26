@@ -1,30 +1,54 @@
-  <div class="left-panel">
-    <h1>
-      <?=$this->article['title']?>
-      <span><?=str_replace("%written-date%", App::locale()->toDate($this->article['publicated'],'long'), App::xlat('CONTENT_subtitle_article_written_by'))?> <?=$this->article['autor']?></span>
-    </h1>
-    <p>
-      <?= eval('?>' . $this->article['article'] . '<?php ');?>
-    </p>
-  </div>
 
-  <div class="right-panel">
-    <h1>A ver que ponemos aqui<span>Sed congue, dui vel tristique mollis...</span></h1>
-    <p><strong>Address Info</strong><br />123 Pine Street<br />Mycity, ST 19000</p>
-    <p><strong>Email:</strong><a href="mailto:contact@mycompany.com"> contact@mycompany.com</a><br />
-      <strong>Website:</strong> <a href="#">www.mycompany.com</a><br />
-      <strong>Phone:</strong> 0800-123456 </p>
-  </div>
+<div class="left-panel">
+  <h1>
+    <?=$this->article['title']?>
+    <span><?=str_replace("%written-date%", App::locale()->toDate($this->article['publicated'],'long'), App::xlat('CONTENT_subtitle_article_written_by'))?> <?=$this->article['autor']?></span>
+  </h1>
+  <p>
+    <?= eval('?>' . $this->article['article'] . '<?php ');?>
+  </p>
+  <?php foreach($this->addons AS $addon):?>
+    <?=App::module('Addons')->renderBlock("gallery/index","loadAddon", array("addon"    => $addon
+                                                                            , "id"      =>$this->article['article_id']
+                                                                            , "created" =>$this->article['created'] ));?>
+  <?php endforeach; ?>
+</div>
+
+<div class="right-panel">
+  <h1>A ver que ponemos aqui<span>Sed congue, dui vel tristique mollis...</span></h1>
+  <p><strong>Address Info</strong><br />123 Pine Street<br />Mycity, ST 19000</p>
+  <p><strong>Email:</strong><a href="mailto:contact@mycompany.com"> contact@mycompany.com</a><br />
+    <strong>Website:</strong> <a href="#">www.mycompany.com</a><br />
+    <strong>Phone:</strong> 0800-123456 </p>
+</div>
 
 <?php
+
 /*
+$this->addons
+[0] => Array
+        (
+            [id] => 3
+            [article_id] => 150
+            [addon_id] => 3
+            [type] => 0
+            [status] => 1
+            [reference] =>
+            [author] => robe@gmail.com
+            [edited] => robe@gmail.com
+            [created] => 2010-02-23 12:30:09
+            [updated] => 2010-02-23 12:30:09
+            [name] => Galeria de fotos
+        )
+
+article
 Array
 (
     [id] => 136
-    [article_id] => 149
+[article_id] => 149
     [title] => Cena NavideÃ±a
-    [seo] => cena-navidena
-    [created] => 2010-02-01 09:39:31
+[seo] => cena-navidena
+[created] => 2010-02-01 09:39:31
     [publicated] => 2010-02-01 09:39:31
     [username] => robe@gmail.com
     [autor] => Roberto Mejia
@@ -38,10 +62,11 @@ Array
     [category_seo] => articulos
     [status] => 1
     [status_name] => Active
-    [lang_id] => 1
+[lang_id] => 1
     [language] => es
     [lang_namespace] => es_MX
     [lang_status] => 1
+    [addon] => 1
     [article] => lovejoy
     El  cometa Lovejoy , descubierto el pasado 2 de diciembre, se dirige hacia el Sol y se espera que se encuentre con su destino el
     15 de diciembre. Su órbita lo acercará a sólo 140.000 kilómetros por encima de la superficie solar. A esa distancia,
