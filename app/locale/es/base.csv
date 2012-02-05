@@ -155,3 +155,6 @@ MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario p
   EXC_article_datasorter, "No se ha instanciado el método de ordenamiento"
   EXC_db_instance_not_found, "No existe una instancia de BD y se intenta ejecutar un query"
   EXC_you_are_not_allowed_to_access_this_section, "No se puede tener acceso a esta parte del sitio"
+  EXC_table_name_missing, "No se ha especificado el nombre de la tabla a la cual se le van a aplicar las acciones pertinentes.(insert, update, delete)"
+  EXC_table_field_name_missing, "No se ha especificado el campo por el cual se ejecutara el filtro en la condicion WHERE"
+  EXC_multiple_database_modifications, "Espera un momento para poder reenviar tu petición"

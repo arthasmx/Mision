@@ -1,0 +1,234 @@
+﻿/* Blog */
+	.points					{ height:100%; padding-bottom: 5px; margin-bottom:10px; }
+	div#listing-titles 		{ margin:5px 0 0 160px; }
+	.blog-h1   				{ font-family: arial,san-serif,verdana; font-size: 16px; font-weight: normal; padding-bottom:5px; color:#CAF99B }
+
+
+/* styles for the star rater */
+	.star-rating-small{
+		list-style:none;
+		margin: 0px;
+		padding:0px;
+		width: 60px;
+		height: 20px;
+		position: absolute;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating_small.gif) top left repeat-x;
+	}
+
+	.star-rating-small li{
+		padding:0px;
+		margin:0px;
+		/*\*/
+		float: left;
+		/* */
+	}
+
+	.star-rating-small li a{
+		display:block;
+		width:20px;
+		height: 20px;
+		text-decoration: none;
+		text-indent: -9000px;
+		z-index: 20;
+		position: absolute;
+		padding: 0px;
+	}
+
+	.star-rating-small li a:hover{
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating_small.gif) left bottom;
+		z-index: 1;
+		left: 0px;
+	}
+
+	.star-rating-small a.star-1{
+		left: 0px;
+	}
+
+	.star-rating-small a.star-1:hover{
+		width:20px;
+	}
+
+	.star-rating-small a.star-2{
+		left:20px;
+	}
+
+	.star-rating-small a.star-2:hover{
+		width: 40px;
+	}
+
+	.star-rating-small a.star-3:hover{
+		width: 60px;
+	}
+
+	.star-rating-small a.star-3{
+		left: 40px;
+	}
+
+	.star-rating-small a.star-4{
+		left: 60px;
+	}
+
+	.star-rating-small a.star-4:hover{
+		width: 80px;
+	}
+
+	.star-rating-small a.star-5{
+		left: 80px;
+	}
+
+	.star-rating-small a.star-5:hover{
+		width: 100px;
+	}
+
+/* Resultados */
+
+	.star-rating-small li.stars-1, li.stars-2 , li.stars-3 , li.stars-4 , li.stars-5
+	{height:19px; z-index: 1; left: 0px;}
+
+	.star-rating-small li.stars-0{
+		width:12px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating_small.gif) left bottom;
+	}
+
+	.star-rating-small li.stars-1{
+		width:12px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating_small.gif) left bottom;
+	}
+
+	.star-rating-small li.stars-2{
+		width: 25px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating_small.gif) left bottom;
+	}
+
+	.star-rating-small li.stars-3{
+		width: 36px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating_small.gif) left bottom;
+	}
+
+	.star-rating-small li.stars-4{
+		width: 49px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating_small.gif) left bottom;
+	}
+
+	.star-rating-small li.stars-5{
+		width: 60px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating_small.gif) left bottom;
+	}
+
+
+
+
+
+
+/* styles for the star rater */
+	.star-rating{
+		list-style:none;
+		margin: 0px;
+		padding:0px;
+		width: 100px;
+		height: 20px;
+		position: relative;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating.gif) top left repeat-x;
+	}
+
+	.star-rating li{
+		padding:0px;
+		margin:0px;
+		/*\*/
+		float: left;
+		/* */
+	}
+
+	.star-rating li a{
+		display:block;
+		width:20px;
+		height: 20px;
+		text-decoration: none;
+		text-indent: -9000px;
+		z-index: 20;
+		position: absolute;
+		padding: 0px;
+	}
+
+	.star-rating li a:hover{
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating.gif) left bottom;
+		z-index: 1;
+		left: 0px;
+	}
+
+	.star-rating a.star-1{
+		left: 0px;
+	}
+
+	.star-rating a.star-1:hover{
+		width:20px;
+	}
+
+	.star-rating a.star-2{
+		left:20px;
+	}
+
+	.star-rating a.star-2:hover{
+		width: 40px;
+	}
+
+	.star-rating a.star-3:hover{
+		width: 60px;
+	}
+
+	.star-rating a.star-3{
+		left: 40px;
+	}
+
+	.star-rating a.star-4{
+		left: 60px;
+	}
+
+	.star-rating a.star-4:hover{
+		width: 80px;
+	}
+
+	.star-rating a.star-5{
+		left: 80px;
+	}
+
+	.star-rating a.star-5:hover{
+		width: 100px;
+	}
+
+/* Resultados */
+
+	.star-rating li.stars-1{
+		width:20px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating.gif) left bottom;
+		z-index: 1;
+		left: 0px;
+	}
+
+	.star-rating li.stars-2{
+		width: 40px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating.gif) left bottom;
+		z-index: 1;
+		left: 0px;
+	}
+
+	.star-rating li.stars-3{
+		width: 60px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating.gif) left bottom;
+		z-index: 1;
+		left: 0px;
+	}
+
+	.star-rating li.stars-4{
+		width: 80px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating.gif) left bottom;
+		z-index: 1;
+		left: 0px;
+	}
+
+	.star-rating li.stars-5{
+		width: 100px;
+		background: url(/skin/v1/default/light-blue/art/icons/star_rating.gif) left bottom;
+		z-index: 1;
+		left: 0px;
+	}

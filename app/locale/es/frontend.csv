@@ -134,6 +134,16 @@
           BIBLE_seo_book_revelation,"apocalipsis"
 
 
+; RATING
+  RATING_block_rate, "Que te parece este articulo ?"
+  RATING_block_rating_subtitle, "Posiciona el mouse sobre el icono y haz click para calificar"
+  RATING_1, "Terrible"
+  RATING_2, "Malo(a)"
+  RATING_3, "Regular"
+  RATING_4, "Bueno(a)"
+  RATING_5, "Excelente"
+  RATING_on_error, "Espera un momento para enviar calificación."
+
 
 ; FORM MESSAGES
 

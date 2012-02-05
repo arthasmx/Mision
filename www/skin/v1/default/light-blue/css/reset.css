@@ -104,7 +104,9 @@
     .margin-top-30{ margin-top:30px; }
     .margin-bottom-20{ margin-bottom:20px; }
     
-.mama{
+    .hide{ visibility: hidden; display: none; }
+    
+.separator-fix{
   margin:0 auto; width:980px; height:20px;
 }
 

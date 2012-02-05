@@ -77,4 +77,12 @@ class Module_Core_Repository_Model_Dates extends Core_Model_Repository_Model {
     return $fecha;
   }
 
+  function rest_hours_to_date($date = null){
+    if( empty($date) ){
+      $date = 'Y-m-d H:i:s';
+    }
+    $hour_to_rest = App::getConfig('allow_modification_after_this_hours');
+    return date("$date",strtotime("-$hour_to_rest hour"));
+  }
+
 }

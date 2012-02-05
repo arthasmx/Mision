@@ -43,6 +43,14 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
     $this->view->article = $this->_module->getModel('Article')->get_article( $article_seo );
     $this->view->addons  = $this->_module->getModel('Article')->get_article_addons( $this->view->article['article_id'], $this->view->article['lang_id'] );
 
+    App::header()->addLink(App::skin('/css/rate.css'),array("rel"=>"stylesheet", "type"=>"text/css", "media"=>"all"));
+    App::header()->addCode("
+        <script type='text/javascript'>
+          var rate_id         = '". $this->view->article['article_id'] ."';
+          var rating_on_error = '". App::xlat('RATING_on_error') ."';
+        </script>");
+    App::header()->addScript( App::url()->get('/rate.js','js') );
+
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs(  $this->getRequest()->getParam('action') , $this->view->article['title']  );
   }
 

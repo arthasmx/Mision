@@ -44,16 +44,18 @@
         var jsRelative = "<?=App::getDesign()->getRelativeJsPath()?>";
         var jsLibRelative = "<?=App::getDesign()->getRelativeJsPath("","jslib")?>";
 
-        <?php if( isset($this->current_main_menu) ):?>
-          jQuery(document).ready(function(){
-            jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").contents().unwrap().wrap("<span>").parent().addClass("icons active");
+        jQuery(document).ready(function(){
 
-            // book selector required at> http://demo.iglesialamision.mx/biblia/BOOK_SEO
-            jQuery('form#book-selection select, form#chapter-selection select').change(function(){
-              window.location = baseUrl + <?=App::xlat('route_bible')?> + $(this).val();
-            });
+          <?php if( isset($this->current_main_menu) ):?>
+              jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").contents().unwrap().wrap("<span>").parent().addClass("icons active");
+
+              // book selector required at> http://demo.iglesialamision.mx/biblia/BOOK_SEO
+              jQuery('form#book-selection select, form#chapter-selection select').change(function(){
+                window.location = baseUrl + <?=App::xlat('route_bible')?> + $(this).val();
+              });
+          <?php endif;?>
+
           });
-        <?php endif;?>
     </script>
 
 	<?=App::header()->getScripts();?>
