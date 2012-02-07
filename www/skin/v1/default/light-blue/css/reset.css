@@ -61,7 +61,7 @@
 
     input, textarea, select, button, dt.label,  dd.hint {font-size:12px; padding:2px; border:1px solid #bbb; }
       dt.label,  dd.hint{ border: 0; }
-    dd.field .errors li { color:#f00; }
+    dd.field .errors li, .error { color:#f00; }
     #content_data dl.type-submit input {width:50px; }
     #content_data dl.type-submit input{ cursor: pointer; }
     #content_data dl.field-captcha span.prepend{ float: left; width: 100%; }
@@ -103,9 +103,10 @@
     .margin-top-15{ margin-top:15px; }
     .margin-top-30{ margin-top:30px; }
     .margin-bottom-20{ margin-bottom:20px; }
-    
+
     .hide{ visibility: hidden; display: none; }
-    
+    .empty-listing{ margin-top:50px !important; text-align:center; }
+
 .separator-fix{
   margin:0 auto; width:980px; height:20px;
 }

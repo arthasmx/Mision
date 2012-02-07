@@ -133,16 +133,18 @@
           BIBLE_seo_book_jude,"judas"
           BIBLE_seo_book_revelation,"apocalipsis"
 
+    ; EVENTS & ANNOUNCEMENT
+        LISTING_no_data_found, "No se han encontrado registros para esta sección"
 
 ; RATING
   RATING_block_rate, "Que te parece este articulo ?"
   RATING_block_rating_subtitle, "Posiciona el mouse sobre el icono y haz click para calificar"
-  RATING_1, "Terrible"
-  RATING_2, "Malo(a)"
+  RATING_1, "Malo(a)"
+  RATING_2, "Suficiente"
   RATING_3, "Regular"
   RATING_4, "Bueno(a)"
   RATING_5, "Excelente"
-  RATING_on_error, "Espera un momento para enviar calificación."
+  RATING_on_error, "Ya hemos recibido tu calificación anterior, gracias!"
 
 
 ; FORM MESSAGES

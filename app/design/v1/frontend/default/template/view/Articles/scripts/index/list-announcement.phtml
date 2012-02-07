@@ -1,17 +1,23 @@
   <div class="announcement left-panel">
-    <?= empty($this->articles['pagination_html']) ? '' : $this->articles['pagination_html'] ?>
 
-    <?php $core = App::module('Core')->getModel('Dates');?>
-    <?php foreach( $this->articles['items'] AS $article ): ?>
-      <h1> <?=$article['title']?> </h1>
-      <a href="<?=App::base( App::xlat('route_announcement').$article['seo'] )?>">
-        <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $article['publicated']) ."/". $article['article_id'] ."/". $article['seo']. "_listing.jpg" ) ?>" width="645" height="220" alt="<?=$article['title']?>" title="<?=$article['title']?>" />
-      </a>
-      <p class="bottom-line"><?=App::locale()->toDate($article['publicated'],'long')?></p>
-      <p class="description"><?=$article['description']?></p>
-    <?php endforeach; ?>
+    <?php if( ! empty($this->events['items']) ):?>
+      <?= empty($this->articles['pagination_html']) ? '' : $this->articles['pagination_html'] ?>
 
-    <?= empty($this->articles['pagination_html']) ? '' : $this->articles['pagination_html'] ?>
+      <?php $core = App::module('Core')->getModel('Dates');?>
+      <?php foreach( $this->articles['items'] AS $article ): ?>
+        <h1> <?=$article['title']?> </h1>
+        <a href="<?=App::base( App::xlat('route_announcement').$article['seo'] )?>">
+          <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $article['publicated']) ."/". $article['article_id'] ."/". $article['seo']. "_listing.jpg" ) ?>" width="645" height="220" alt="<?=$article['title']?>" title="<?=$article['title']?>" />
+        </a>
+        <p class="bottom-line"><?=App::locale()->toDate($article['publicated'],'long')?></p>
+        <p class="description"><?=$article['description']?></p>
+      <?php endforeach; ?>
+      <?= empty($this->articles['pagination_html']) ? '' : $this->articles['pagination_html'] ?>
+
+    <?php else:?>
+      <h3 class="no-line empty-listing"> <?=App::xlat('LISTING_no_data_found')?> </h3>
+    <?php endif;?>
+
   </div>
 
   <div class="right-panel">

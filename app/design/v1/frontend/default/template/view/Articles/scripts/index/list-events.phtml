@@ -1,21 +1,27 @@
   <div class="events all-panel">
-    <?= empty($this->events['pagination_html']) ? '' : $this->events['pagination_html'] ?>
 
-    <?php $core = App::module('Core')->getModel('Dates');?>
-    <?php foreach( $this->events['items'] AS $event ): ?>
-      <div class="block">
-        <h3 class="no-line">
-          <?=$event['title']?>
-          <span><?=App::locale()->toDate($event['publicated'],'long')?></span>
-        </h3>
-        <a href="<?=App::base( App::xlat('route_events').$event['seo'] )?>">
-          <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $event['publicated']) ."/". $event['article_id'] ."/". $event['seo']. "_listing.jpg" ) ?>" width="295" height="95" alt="<?=$event['title']?>" title="<?=$event['title']?>" />
-        </a>
-        <p><?=$event['description']?></p>
-      </div>
-    <?php endforeach; ?>
+    <?php if( ! empty($this->events['items']) ):?>
+      <?= empty($this->events['pagination_html']) ? '' : $this->events['pagination_html'] ?>
 
-    <?= empty($this->events['pagination_html']) ? '' : $this->events['pagination_html'] ?>
+      <?php $core = App::module('Core')->getModel('Dates');?>
+      <?php foreach( $this->events['items'] AS $event ): ?>
+        <div class="block">
+          <h3 class="no-line">
+            <?=$event['title']?>
+            <span><?=App::locale()->toDate($event['publicated'],'long')?></span>
+          </h3>
+          <a href="<?=App::base( App::xlat('route_events').$event['seo'] )?>">
+            <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $event['publicated']) ."/". $event['article_id'] ."/". $event['seo']. "_listing.jpg" ) ?>" width="295" height="95" alt="<?=$event['title']?>" title="<?=$event['title']?>" />
+          </a>
+          <p><?=$event['description']?></p>
+        </div>
+      <?php endforeach; ?>
+      <?= empty($this->events['pagination_html']) ? '' : $this->events['pagination_html'] ?>
+
+    <?php else:?>
+      <h3 class="no-line empty-listing"> <?=App::xlat('LISTING_no_data_found')?> </h3>
+    <?php endif;?>
+
   </div>
 
 <?php

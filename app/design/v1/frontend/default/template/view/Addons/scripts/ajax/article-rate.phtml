@@ -1,8 +1,13 @@
 
   <ul class="star-rating">
     <?php for($star = 1; $star <= 5; $star++): ?>
-      <li <?=($this->rating['rating']==$star)? 'class="stars-'.$star.'"' : ''?>><a href="#" title=" <?=App::xlat('RATING_' . $star)?> " class="star-<?=$star?>"></a></li>
+      <li <?=($this->rating['rating']==$star)? 'class="stars-'.$star.'"' : ''?>>
+        <a href="#" class="star-<?=$star?>">
+          <?=App::xlat('RATING_' . $star)?>
+        </a>
+      </li>
     <?php endfor;?>
+      <li class="rate-description"></li>
   </ul>
 
 <?php 

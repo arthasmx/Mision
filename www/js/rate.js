@@ -5,6 +5,13 @@
       rate( jQuery( jQuery(this).parent() ).index() + 1 );
     });
 
+    jQuery(document).on("mouseenter", "ul.star-rating li a", function(){
+      jQuery('ul.star-rating li.rate-description').removeClass('error').text( jQuery(this).text() );
+    });
+    jQuery(document).on("mouseleave", "ul.star-rating li a", function(){
+      jQuery('ul.star-rating li.rate-description').text('');
+    });
+
   });
 
   function rate(rate){
@@ -17,7 +24,7 @@
         jQuery('div.rate').html(response);
       },
       error: function(request, status, error){
-        jQuery('div.rate').html(rating_on_error);
+        jQuery('ul.star-rating li.rate-description').addClass('error').text(rating_on_error);
       }
     });
 
