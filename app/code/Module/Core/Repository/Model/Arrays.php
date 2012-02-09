@@ -25,4 +25,12 @@ class Module_Core_Repository_Model_Arrays extends Module_Core_Repository_Model_A
     return $array;
   }
 
+  function params_key_exists($given_params, $expected_params=array()){
+    foreach ($expected_params as $key){
+      if ( ! array_key_exists( $key, $given_params) || empty($given_params[$key]) ){
+        return false;
+      }
+    }
+    return true;
+  }
 }

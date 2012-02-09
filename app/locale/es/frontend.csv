@@ -146,6 +146,10 @@
   RATING_5, "Excelente"
   RATING_on_error, "Ya hemos recibido tu calificación anterior, gracias!"
 
+; POLL
+  POLL_block_poll, "Participa en nuestra encuesta"
+  POLL_block_poll_subtitle, "Tu opinión es muy importante; solo toma 1 click participar!"
+  POLL_on_error, "Ya hemos recibido tu voto anterior, gracias!"
 
 ; FORM MESSAGES
 

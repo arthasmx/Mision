@@ -3,7 +3,7 @@ require_once 'Module/Core/Repository/Model/Db/Actions.php';
 class Module_Addons_Repository_Model_Cud_Rating extends Module_Core_Repository_Model_Db_Actions{
 
   function rate_article($id = 0, $rate = 0){
-    $this->prevent_multiple_database_modifications('rate_votes');
+    $this->is_multiple_database_modification_attempt('rate_votes');
 
     $valid_rate = $this->get_valid_rate($rate);
 

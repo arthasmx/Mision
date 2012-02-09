@@ -198,6 +198,10 @@ div.pagination .disabled_tnt_pagination {
   form#book-selection select, form#chapter-selection select{ width:260px; height:255px;  }
   form#book-selection option.testament{font-size:16px; margin:10px 0; font-weight: bold;  }
 
+  div.poll-options p{color:#55C3FF; font-weight: bold;}
+  ol.poll-options li{ margin-left:20px; cursor:pointer;}
+    li.voting {list-style: none;}
+
 /* END content */
 
 /* FOOTER */

@@ -16,6 +16,7 @@
 
 <div class="right-panel">
   <?=App::module('Addons')->renderBlock("rating/index","get-rating", array('id' => $this->article['article_id']))?>
+  <?=App::module('Addons')->renderBlock("poll/index","get-poll")?>
 </div>
 
 <?php

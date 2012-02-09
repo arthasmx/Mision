@@ -11,4 +11,12 @@ class Addons_AjaxController extends Module_Addons_Controller_Action_Frontend   {
     $this->view->rating = $this->_module->getModel('Rating')->get_rate( $this->getRequest()->getParam('id') );
   }
 
+  function pollVoteAction(){
+    $id = $this->getRequest()->getParam('id');
+
+    $poll = $this->_module->getModel('Cud/Poll')->poll( $id, $this->getRequest()->getParam('vote'));
+    echo empty($poll)? 'false' : $this->_module->getModel('Poll')->get_results_chart($id);
+    exit;
+  }
+
 }
