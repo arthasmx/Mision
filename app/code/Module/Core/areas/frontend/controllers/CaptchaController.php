@@ -7,16 +7,17 @@ class Core_CaptchaController extends Local_Controller_Action   {
   function getAction() {
   require_once('Xplora/Captcha.php');
 
+  $font_size = 20;
   $captcha=new Xplora_Captcha(
   array(
 		"chars"    => 5,
-		"width"    => 210,
-		"height" 	 => 70,
-		"font"     => array("avenir"       => 30,      // Geométrica
-												"bluehighway"  => 30,
-                        "continuum"    => 30,
-                        "intrepid"     => 30,
-                        "micro"        => 30 ),
+		"width"    => 140,
+		"height" 	 => 45,
+		"font"     => array("avenir"   => $font_size,
+                        "bluehighway"  => $font_size,
+                        "continuum"    => $font_size,
+                        "intrepid"     => $font_size,
+                        "micro"        => $font_size ),
 		"chamaleon"  => false,
 		"color"      => array( array(140,158,195) ),
 		"bgimage"    => array( $this->getSkinPath("/art/bks/captcha.gif") ),
@@ -24,7 +25,7 @@ class Core_CaptchaController extends Local_Controller_Action   {
 		"size_jitter"    => array(0,30),    // Rango de tamaño array min,max (en porcentaje)
 		"word"        => true,
 		"shuffle"      => true,
-  	"rotation_jitter"  => array(-5,5)   // Rango de rotación de las letras array min,max (en grados)
+	"rotation_jitter"  => array(-5,5)   // Rango de rotación de las letras array min,max (en grados)
   ));
 $captcha->render();
 exit;

@@ -1,5 +1,5 @@
-
 "form_optional_prefix","<span class='no-required'>"
+
 "form_optional_suffix","</span>:"
 "form_required_prefix","<span class='required'>"
 "form_required_suffix"," *</span>:"
@@ -9,7 +9,8 @@ FORM_email, "Email"
 FORM_comments, "Comentarios"
 
 FORM_submit,"Enviar"
-FORM_captcha,"Ingrese el código de verificación de la imagen"
+FORM_button_send_comment, "Enviar comentario"
+FORM_captcha,"Ingrese el código de la imagen"
 
 "isEmpty","Campo obligatorio"
 
@@ -17,8 +18,8 @@ FORM_captcha,"Ingrese el código de verificación de la imagen"
 "stringLengthTooLong","Máximo %min% caracteres"
 
 
-
-"emailAddressInvalid","Email invalido"
+"emailAddressInvalidFormat","Email inválido"
+"emailAddressInvalid","Email inválido"
 "emailAddressInvalidHostname","'%hostname%' no es un hostname válido para el email '%value%'"
 "emailAddressInvalidMxRecord","'%hostname%' no parece tener servicio de correo disponible para el email '%value%'"
 "emailAddressDotAtom","'%localPart%' no corresponde con el formato dot-atom"

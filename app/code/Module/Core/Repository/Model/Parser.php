@@ -19,4 +19,13 @@ class Module_Core_Repository_Model_Parser extends Core_Model_Repository_Model{
     return substr($string,0,$tamano);
   }
 
+  public function check_function_params($params=array()){
+    foreach ($params AS $param){
+      if( empty($param) ){
+        $this->_module->exception( App::xlat('EXC_missing_arguments_at_adding_comments') );
+      }
+    }
+    return true;
+  }
+
 }

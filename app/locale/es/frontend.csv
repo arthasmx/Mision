@@ -151,6 +151,24 @@
   POLL_block_poll_subtitle, "Tu opinión es muy importante; solo toma 1 click participar!"
   POLL_on_error, "Ya hemos recibido tu voto anterior, gracias!"
 
+; COMMENTS
+  ADD_COMMENTS_title, "Agregar comentario"
+  ADD_COMMENTS_subtitle, "Tu opinión es importante para nosotros; solo llena todos los campos y déjanos tus comentarios."
+  COMMENTS_title, "Comentarios"
+  COMMENTS_subtitle, "Listado de comentarios recibidos y aprobados por nuestro administrador"
+  COMMENTS_on, "Escrito el "
+  COMMENTS_at, " a las "
+  COMMENTS_reply, "Responder"
+  COMMENTS_no_comments_found, "No hay comentarios; sé el primero en dejarnos tu opinión."
+  COMMENTS_pending, "* Tu comentario deberá ser revisado; en breve será publicado, gracias"
+
 ; FORM MESSAGES
+  ;ALL SITE FORM ELEMENT´S NAME, IDs or so on, required when rendering their errors
+  ; CONTACT, COMMENT, REPLY
+    form_element_name, "Nombre: "
+    form_element_email, "Correo Electrónico: "
+    form_element_comment, "Comentarios: "
+    form_element_captcha, "Código de verificación: "
+    invalid_field, " Es inválido"
 
   CONTACT_message_sent, "Su comentario ha sido enviado con exito; en breve le daremos respuesta.<br />Gracias"

@@ -16,11 +16,12 @@
 
 <div class="right-panel">
   <?=App::module('Addons')->renderBlock("rating/index","get-rating", array('id' => $this->article['article_id']))?>
-  <?=App::module('Addons')->renderBlock("poll/index","get-poll")?>
+  <?=App::module('Addons')->renderBlock("poll/index","get-poll");?>
 </div>
 
-<?php
+  <?=App::module('Addons')->renderBlock("comments/index","get-comments", array('id' => $this->article['article_id'], 'type' => 'article' ))?>
 
+<?php
 /*
 $this->addons
 [0] => Array
@@ -42,10 +43,10 @@ article
 Array
 (
     [id] => 136
-[article_id] => 149
+    [article_id] => 149
     [title] => Cena NavideÃ±a
-[seo] => cena-navidena
-[created] => 2010-02-01 09:39:31
+    [seo] => cena-navidena
+    [created] => 2010-02-01 09:39:31
     [publicated] => 2010-02-01 09:39:31
     [username] => robe@gmail.com
     [autor] => Roberto Mejia
@@ -59,14 +60,12 @@ Array
     [category_seo] => articulos
     [status] => 1
     [status_name] => Active
-[lang_id] => 1
+    [lang_id] => 1
     [language] => es
     [lang_namespace] => es_MX
     [lang_status] => 1
     [addon] => 1
     [article] => lovejoy
     El  cometa Lovejoy , descubierto el pasado 2 de diciembre, se dirige hacia el Sol y se espera que se encuentre con su destino el
-    15 de diciembre. Su órbita lo acercará a sólo 140.000 kilómetros por encima de la superficie solar. A esa distancia,
-    el helado cometa no sobrevivirá al calor de la estrella. Es más, los cometas son masas de hielo y roca tan poco cohesionadas que Lovejoy podría desintegrarse en cualquier momento.
 */
 ?>

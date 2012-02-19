@@ -128,16 +128,16 @@
     width: 720px; height:30px;
   }
 
-div#content h1, div#content h2, div#content h3 { font: normal 20px 'Quattrocento Sans', Arial, Helvetica, sans-serif; color:#777; margin:0 0 10px; border-bottom:1px solid #D4D4D4; padding-bottom:10px; }
+div#content h1, div#content h2, div#content h3 { /*font: normal 20px 'Quattrocento Sans', Arial, Helvetica, sans-serif;*/ color:#777; margin:0 0 10px; border-bottom:1px solid #D4D4D4; padding-bottom:10px; }
     div#content h2 { font-size: 19px;}
     div#content h3 { font-size: 17px;}
-div#content h1 span, div#content h2 span, div#content h3 span { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
+div#content h1 span, div#content h2 span, div#content h3 span, span.written { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
 
 div#content .comment { float:right; width:44px; height:46px; background:url(images/comment_bg.gif) no-repeat; font:normal 22px Arial, Helvetica, sans-serif; color:#a4a4a4; line-height:38px; text-align:center;}
 div#content p.about { background:#e6e6e6; border-left:5px solid #cdcdcd; padding:20px; margin:15px 0; font: italic 12px Arial, Helvetica, sans-serif; color:#747474;}
 div#content p span { font-size:18px; font-weight:bold; color:#888;}
 div#content a { color:#00AAFF; text-decoration:none;}
-  div#content a:hover { text-decoration:underline; color:#388CC2;}
+  div#content a:hover { text-decoration:underline; color:#388CC2; cursor:pointer;}
 div#content ul, div#content ol {text-align:justify;}
   div#content ol{list-style: decimal;}
   div#content ol.verse li{ padding:10px 0; font: 12px/1.2em Arial,Helvetica,sans-serif; }
@@ -201,6 +201,81 @@ div.pagination .disabled_tnt_pagination {
   div.poll-options p{color:#55C3FF; font-weight: bold;}
   ol.poll-options li{ margin-left:20px; cursor:pointer;}
     li.voting {list-style: none;}
+
+  div#comments, div.comments{
+    width:980px;
+    float:left;
+  }
+    div#content div#content_data div#comments h1{
+      margin:15px 0;
+    }
+    div#comments div#comments-form div.pending{
+      float: left;
+      margin: 0 auto;
+      padding: 10px;
+      width: 100%;
+    }
+    #content #content_data #comments div.comments div{ float: left; width:100%; padding-bottom:30px;}
+
+    div#comments div.comments div.level_1{padding-left:20px; width:960px !important;}
+    div#comments div.comments div.level_2{padding-left:40px; width:940px !important;}
+    div#comments div.comments div.level_3{padding-left:60px; width:920px !important;}
+    div#comments div.comments div.level_4{padding-left:80px; width:900px !important;}
+    div#comments div.comments div.level_5{padding-left:100px; width:880px !important;}
+    div#comments div.comments div.level_6{padding-left:120px; width:860px !important;}
+    div#comments div.comments div.level_7{padding-left:140px; width:840px !important;}
+    div#comments div.comments div.level_8{padding-left:160px; width:820px !important;}
+    div#comments div.comments div.level_9{padding-left:180px; width:800px !important;}
+    div#comments div.comments div.level_10{padding-left:200px; width:780px !important;}
+      div#comments div.comments{ margin-top:20px; }
+      div#comments div.comments span.separator{ margin-bottom:10px; }
+      div#comments div.comments p.no-comments{text-align: center;}
+      div#comments div.pending{
+        background: transparent url(/skin/v1/default/light-blue/art/bks/pending.gif) repeat center;
+        margin-bottom: 25px;
+        padding-bottom: 10px !important;
+        padding-top: 10px;
+      }
+      span.pending-msg{
+        float: left;
+        width: 100%;
+        color: #FF0000;
+        padding-left: 20px;
+      }
+
+
+    p.reply{
+      background: transparent url(/skin/v1/default/light-blue/art/icons/enter-arrow.png) no-repeat scroll top right;
+      padding-left:20px;
+      background-position: 8px 25px;
+    }
+    span.written{ float:left; width: 100%; height: 18px; }
+
+a.button {
+  background: transparent url(/skin/v1/default/light-blue/art/buttons/button-right.png) no-repeat top right !important;
+  display: block;
+  float: left;
+  height: 25px;
+  padding-right: 11px;
+  text-decoration: none;
+  color: #444444;
+}
+  a.reply{ padding-left:20px;}
+
+a.button span.text {
+  background: transparent url(/skin/v1/default/light-blue/art/buttons/button-left.png) no-repeat top left;
+  display: block;
+  line-height: 11px !important;
+  padding: 7px 0 7px 25px !important;
+}
+  a.button span.reply{
+    float: left;
+    width: 10px; height: 10px;
+    display: block;
+    margin: 7px;
+    background-image: url("/skin/v1/default/light-blue/art/icons/icons.png");
+    background-position: -26px -5px;
+  }
 
 /* END content */
 

@@ -15,3 +15,10 @@
                   'controller' => 'ajax',
                   'action'     => 'poll-vote'));
   $router->addRoute('vote', $route);
+
+  // Comments
+  $route = new Zend_Controller_Router_Route(
+      'comments/:action',
+      array( 'module'     => 'Addons',
+             'controller' => 'Comments'));
+  $router->addRoute('comment', $route);

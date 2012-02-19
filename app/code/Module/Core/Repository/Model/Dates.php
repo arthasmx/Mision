@@ -11,12 +11,15 @@ class Module_Core_Repository_Model_Dates extends Core_Model_Repository_Model {
    * 4	= Viernes 15/02/2009
    * 5	= Viernes 15/Feb/2009
    * 6	= Viernes 15 Feb 2009
+   * 7
+   * 8
+   * 9  = 11:19 PM
   */
   function toDate($formato,$date,$timezone=false){
     if(!$timezone){
       date_default_timezone_set('America/Mazatlan');
     }
-  
+
     $datetime = new DateTime($date);
     switch ($formato) {
       case 0:
@@ -46,12 +49,15 @@ class Module_Core_Repository_Model_Dates extends Core_Model_Repository_Model {
       case 8:
         $fecha=$datetime->format('Y/m');
         break;
-  
+     case 9:
+        $fecha=$datetime->format('h:i A');
+        break;
+
       default:
         $fecha=$datetime->format('M j, Y');
       break;
     }
-  
+
     // Si locale NO es INGLES, traducimos; Porque ? porque el mySQL que tengo x default esta en ingles
     if(App::locale()->getLang()!='en'){
       if($formato>6){

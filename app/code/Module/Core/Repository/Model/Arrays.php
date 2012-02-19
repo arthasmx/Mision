@@ -33,4 +33,5 @@ class Module_Core_Repository_Model_Arrays extends Module_Core_Repository_Model_A
     }
     return true;
   }
+
 }

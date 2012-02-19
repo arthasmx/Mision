@@ -6,4 +6,60 @@
 }
 
 #content_data dd input{ width: 48em; color:#555; }
-#content_data dl.type-submit input{ background-color: #ccc; }
+#content_data button{ background-color: #ccc; cursor: pointer; }
+
+/* comments */
+div#comments div#comments-form, div#comments div.comments div.reply-form{
+  background-color: #EEEEEE;
+  float: left;
+  padding:35px;
+  width: 910px;
+}
+  div#comments div.comments div.reply-form{
+    display:none;
+    clear: both;
+    width: 700px !important;
+    margin: 25px auto 0;
+  }
+
+div#comments div.comments div.reply-form ul.form-errors{
+  margin-bottom:10px;
+}
+  div#comments div#comments-form ul.form-errors li, div.reply-form ul.form-errors li{
+    color: #f00 !important;
+    font-size:11px !important;
+  }
+
+
+#content_data #comments dd input{ width: 16.5em; color:#555; }
+#content_data #comments dl.type-submit input{ background-color: #ccc; }
+  #content_data #comments fieldset.comments-left-group{
+    width: 235px;
+    float: left;
+  }
+  #content_data #comments fieldset.comments-right-group{
+    width: 675px;
+    float: left;
+  }
+
+    #content_data dd input#captcha{width: 4em; margin-top:11px;}
+
+  form#comment, form#reply{
+    /*
+    background-color: #EEEEEE;
+    height: 237px;
+    padding:35px;
+    */
+  }
+    form#comment dt#button-label, form#reply dt#button-label{
+      height: 5px;
+    }
+    form#reply{
+      /*
+      margin:20px auto 0;
+      width: 695px;
+      */
+    }
+      #comments form#reply fieldset.comments-right-group{
+        width: 460px;
+      }

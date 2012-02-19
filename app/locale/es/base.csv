@@ -18,6 +18,41 @@
   HEADER_follow_us_gplus, "Google Plus!"
   HEADER_follow_us_youtube, "Youtube"
 
+;DATES
+  dates_short_day_1, "Lun"
+  dates_short_day_2, "Mar"
+  dates_short_day_3, "Mie"
+  dates_short_day_4, "Jue"
+  dates_short_day_5, "Vie"
+  dates_short_day_6, "Sab"
+  dates_short_day_7, "Dom"
+
+  dates_long_day_1, "Lunes"
+  dates_long_day_2, "Martes"
+  dates_long_day_3, "Miercoles"
+  dates_long_day_4, "Jueves"
+  dates_long_day_5, "Viernes"
+  dates_long_day_6, "Sábado"
+  dates_long_day_7, "Domingo"
+
+  dates_short_month_1, "Ene"
+  dates_short_month_4, "Abr"
+  dates_short_month_8, "Ago"
+  dates_short_month_12, "Dic"
+
+  dates_long_month_1, "Enero"
+  dates_long_month_2, "Febrero"
+  dates_long_month_3, "Marzo"
+  dates_long_month_4, "Abril"
+  dates_long_month_5, "Mayo"
+  dates_long_month_6, "Junio"
+  dates_long_month_7, "Julio"
+  dates_long_month_8, "Agosto"
+  dates_long_month_9, "Septiembre"
+  dates_long_month_10, "Octubre"
+  dates_long_month_11, "Noviembre"
+  dates_long_month_12, "Diciembre"
+
 ;ARTICLES
   ARTICLE_read_more, "Leer más..."
 
@@ -158,3 +193,4 @@ MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario p
   EXC_table_name_missing, "No se ha especificado el nombre de la tabla a la cual se le van a aplicar las acciones pertinentes.(insert, update, delete)"
   EXC_table_field_name_missing, "No se ha especificado el campo por el cual se ejecutara el filtro en la condicion WHERE"
   EXC_multiple_database_modifications, "Usuario intentando modificar la BD aleatoriamente: EXC_multiple_database_modifications"
+  EXC_missing_arguments_at_adding_comments, "Error: No fué posible registrar tu comentario; ayudanos a mejorar la página reportando este error.<br />Por tu ayuda, muchas gracias."
