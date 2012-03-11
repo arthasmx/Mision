@@ -23,8 +23,7 @@ div.events .block{ width:295px; margin:0; padding:0 23px 20px 0; float:left; tex
       vertical-align: top;
     }
     div#content_data div.left-panel table th{
-      font-size:1.5em;
-      letter-spacing: 2px;
+      font-size:15px;
     }
 
     .col { 

@@ -57,7 +57,7 @@
     }
       h1.logo span{
         color:#164399;
-        letter-spacing:0.9px;
+        letter-spacing:0.6px;
       }
 
         /* LANGUAGE ICON-CHANGER MENUS */
@@ -89,7 +89,7 @@
       #breadcrumbs, #content_data {
         float:left;
         width:980px;
-        padding:20px;
+        padding:20px 0;
       }
       #breadcrumbs ul {
         line-height:35px;
