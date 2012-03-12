@@ -17,11 +17,11 @@
         MAINPAGE_column_join, "Participa!"
         MAINPAGE_column_join_span, "Diseñadores, Traductores, Escritores, Analistas..."
         MAINPAGE_column_join_description, "Con la ayuda de nuestro Señor Jesucristo y la de ustedes queridos hermanos, queremos hacer de esta página tu Página Cristiana Favorita; es por ello que requerimos de tu valiosa participación, ya sea enviandonos tus sugerencias, comentarios o mejor aún, que participes en el mantenimiento del sitio."
-  
+
         MAINPAGE_column_project, "Proyectos"
         MAINPAGE_column_project_span, "Ingenieros, Arquitectos, Varón, Joven..."
         MAINPAGE_column_project_description, "Nos encontramos pidiendole al Señor que nos dé la fuerza y medios para edificar obras que sean para su Alabanza y Adoración. <br />Te invitamos a conocer los proyectos que queremos realizar."
-  
+
         MAINPAGE_column_sermon, "Predicación"
         MAINPAGE_column_sermon_span, "Niños, adolescentes, jóvenes, adultos"
         MAINPAGE_column_sermon_description, "Tenemos para ti los sermones transmitidos de nuestra congregación; puedes descargarlos a cualquier dispositivo que reproduzca el formato mp3.<br />Deseamos que este audio sea para la Honra y Gloria de nuestro Señor Jesucristo."
@@ -32,11 +32,23 @@
         page_last, "Última"
 
     ; FOOTER
-        ADDRESS_street,"Batalla del paredón # 14433"
-        ADDRESS_section,"colonia Sanchez celis"
+        ADDRESS_street,"Batalla del paredón # 2010"
+        ADDRESS_section,"Colonia Francisco Villa"
         ADDRESS_city_state,"Mazatlán Sinaloa, México"
-        ADDRESS_hours,"Lun-Vier 16:00-20:00 hrs"
-        ADDRESS_phone,"(52) 6691-332-199"
+        ADDRESS_office,"Oficina"
+        ADDRESS_hours, "Lunes a Sábado de 3:00 PM a 7:00 PM"
+        ADDRESS_phone_1,"Tel: (52) 6691-332-199"
+        ADDRESS_phone_2,"Tel: (52) 6699-869-475"
+
+        OPERATION_HOURS_MONDAY_pray, "07:30 PM, Horación"
+        OPERATION_HOURS_MONDAY_leader, "06:30 PM, Reunión de líderes"
+        OPERATION_HOURS_SATURDAY_youth_meeting, "07:00 PM, Reunión de Jóvenes"
+        OPERATION_HOURS_SATURDAY_children_class, "09:00 AM, Clases de Juniors"
+        OPERATION_HOURS_SATURDAY_teens_class, "11:00 AM, Clases de Principes"
+        OPERATION_HOURS_SUNDAY_service, "Domingo"
+        OPERATION_HOURS_SUNDAY_morning, "10:00 AM, Primer culto"
+        OPERATION_HOURS_SUNDAY_afternoon, "03:00 PM, Segundo culto"
+        OPERATION_HOURS_SUNDAY_evening, "06:00 PM, Tercer culto"
 
     ; BIBLE
         BIBLE_search_result_topic, "Resultados de la búsqueda"
@@ -151,7 +163,28 @@
   POLL_block_poll_subtitle, "Tu opinión es muy importante; solo toma 1 click participar!"
   POLL_on_error, "Ya hemos recibido tu voto anterior, gracias!"
 
+; CONTACT
+
+  CONTACT_title, "Formulario de contacto"
+  CONTACT_subtitle, "Dudas, comentarios, sugerencias y críticas constructivas son ampliamente bienvenidas"
+  CONTACT_pharagraph_1, "Si usted tiene alguna duda sobre el servicio, por favor no dude en ponerse en contacto con nosotros. El envío de este formulario es la forma más rápida en obtener respuesta a su pregunta."
+  CONTACT_pharagraph_2, "Por favor, tómese el tiempo para hacernos saber de cualquier problema o sugerencia que tenga."
+  CONTACT_message_sent, "Su comentario ha sido enviado con exito; en breve le daremos respuesta.<br />Gracias"
+
+  CONTACT_EMAIL_SITE_contact, "Dudas y Comentarios en general"
+  CONTACT_EMAIL_SITE_admin, "Administrador del sitio"
+
+  CONTACT_SOCIAL_NETWORKS_title, "Redes Sociales"
+  CONTACT_SOCIAL_NETWORKS_subtitle, "Conectate con nosotros en nuestras redes sociales"
+
+  SITE_EMAIL_MANAGER_title, "Otros correos para comunicarse"
+  SITE_EMAIL_MANAGER_subtitle, "Escribe al correo que se asemeje a tu necesidad"
+
+  CONTACT_OPERATION_HOURS_title, "Horarios de servicio"
+  CONTACT_OPERATION_HOURS_subtitle, "Servicios realizados para la Honra y Gloria de Dios"
+
 ; COMMENTS
+
   ADD_COMMENTS_title, "Agregar comentario"
   ADD_COMMENTS_subtitle, "Tu opinión es importante para nosotros; solo llena todos los campos y déjanos tus comentarios."
   COMMENTS_title, "Comentarios"
@@ -162,6 +195,10 @@
   COMMENTS_no_comments_found, "No hay comentarios; sé el primero en dejarnos tu opinión."
   COMMENTS_pending, "* Tu comentario deberá ser revisado; en breve será publicado, gracias"
 
+; MAP
+    SITE_MAP_title, "Ubicación geográfica"
+    SITE_MAP_subtitle, "Puedes interactuar con el mapa por medio de los iconos"
+
 ; FORM MESSAGES
   ;ALL SITE FORM ELEMENT´S NAME, IDs or so on, required when rendering their errors
   ; CONTACT, COMMENT, REPLY
@@ -170,5 +207,3 @@
     form_element_comment, "Comentarios: "
     form_element_captcha, "Código de verificación: "
     invalid_field, " Es inválido"
-
-  CONTACT_message_sent, "Su comentario ha sido enviado con exito; en breve le daremos respuesta.<br />Gracias"

@@ -1,32 +1,30 @@
 
-<?php if($this->exito):?>
-  <p>
-    <?=App::xlat('PUBLIC_CONTACT_mensaje_enviado')?>
-  </p>
-<?php endif;?>
+<div class="left-panel">
+  <h1><?=App::xlat('CONTACT_title')?><span><?=App::xlat('CONTACT_subtitle')?></span></h1>
+  <p><?=App::xlat('CONTACT_pharagraph_1')?></p>
+  <p><?=App::xlat('CONTACT_pharagraph_2')?></p>
 
-<?php if($this->error):?>
-  <div class="error-msgbox">
-    <?=App::xlat('PUBLIC_CONTACT_error')?>
+  <div class="contact-form corner-all">
+    <?php if( empty($this->message_sent) ):?>
+
+      <?php $errors = App::module('Core')->getModel('Form')->get_error_messages($this->form); ?>
+      <?php if( ! empty($errors) ):?>
+        <ul class='form-errors'>
+        <?php foreach($errors AS $error): ?>
+          <li><?=$error?></li>
+        <?php endforeach; ?>
+        </ul>
+      <?php endif;?>
+
+      <?=$this->form?>
+    <?php else:?>
+      <?=App::xlat('CONTACT_message_sent')?>
+    <?php endif;?>
   </div>
-<?php endif;?>
+</div>
 
-
-
-  <div class="left-panel">
-    <h1>Send a Message<span>Sed congue, dui vel tristique mollis...</span></h1>
-    <p>Ut id mi sed lacus pulvinar luctus eu vitae enim. Phasellus placerat ipsum nec leo porta accumsan. Aliquam dui ante, sagittis ultrices venenatis id, scelerisque consequat lacus. Etiam vehicula, libero non ultricies volutpat, quam lacus consectetur massa, in tempus orci lorem sit amet nisl. Praesent mollis ultrices lacus non tempor. Curabitur congue, nulla non consequat rutrum, tellus tortor aliquet massa, eu tincidunt sem velit ac leo. In rhoncus diam eget nunc lobortis eget interdum augue euismod. </p>
-    <p>Proin tempus pulvinar nunc et pulvinar. Maecenas vel sem sit amet mauris porttitor suscipit non id neque. Ut vehicula dui at ante ultricies ac bibendum erat tempus. Mauris sagittis est sed orci pulvinar a lobortis orci lobortis. Aenean non velit sit amet nulla laoreet gravida.</p>
-    <h1>Contact Form<span>Sed congue, dui vel tristique mollis...</span></h1>
-    <?=$this->form?>
-  </div>
-
-  <div class="right-panel">
-    <h1>Get in touch<span>Sed congue, dui vel tristique mollis...</span></h1>
-    <p><strong>Address Info</strong><br />123 Pine Street<br />Mycity, ST 19000</p>
-    <p><strong>Email:</strong><a href="mailto:contact@mycompany.com"> contact@mycompany.com</a><br />
-      <strong>Website:</strong> <a href="#">www.mycompany.com</a><br />
-      <strong>Phone:</strong> 0800-123456 </p>
-  </div>
-
-
+<div class="right-panel">
+  <?=App::module('Addons')->renderBlock("site/index","get-site-email-manager");?>
+  <?=App::module('Addons')->renderBlock("site/index","map");?>
+  <?=App::module('Addons')->renderBlock("site/index","social-networks");?>
+</div>

@@ -34,8 +34,6 @@ class Addons_Poll_IndexBlockController extends Core_Controller_Block {
       App::header()->addScript( App::url()->get('/poll.js','js') );
       App::header()->addCode("
           <script type='text/javascript'>
-          var poll_id         = '". $this->view->poll['poll']['id'] ."';
-          var poll_on_error = '". App::xlat('POLL_on_error') ."';
           </script>");
     }
 

@@ -26,9 +26,10 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
 
   function contactUsAction(){
     $this->view->current_main_menu = 4;
+    $request = $this->getRequest();
 
     $form = $this->_module->getModel('Forms/Contact')->get();
-    if ( $this->getRequest()->isPost() ){
+    if ( $request->isPost() ){
 
       require_once('Xplora/Captcha.php');
       $captcha = new Xplora_Captcha();
@@ -37,10 +38,9 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
       }
 
       if($form->isValid($_POST) ) {
-        App::events()->dispatch('module_default_contacto',array("to"=>App::module('Email')->getConfig('core','frontend_contact'), "comment"=>@$_POST['comment'], "name"=>@$_POST['name'], "email"=>@$_POST['email']));
-        App::module('Core')->getModel('Flashmsg')->success(App::xlat('CONTACT_message_sent'));
-        Header("Location: " . App::base());
-        exit;
+        App::events()->dispatch('module_default_contacto',array("to"=>App::module('Email')->getConfig('core','frontend_contact'), "comment"=>$request->getParam('comment'), "name"=>$request->getParam('name'), "email"=>$request->getParam('email')));
+        $this->view->message_sent = true;
+        $form->reset();
       }else{
         $form->populate($_POST);
       }

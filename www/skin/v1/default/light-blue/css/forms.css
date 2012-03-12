@@ -8,6 +8,20 @@
 #content_data dd input{ width: 48em; color:#555; }
 #content_data button{ background-color: #ccc; cursor: pointer; }
 
+/* contact form */
+div.contact-form{
+  background-color: #EEE;
+  padding:25px;
+  margin-top:30px;
+}
+form#form-contact fieldset dl.field-captcha{
+  float:left;
+  width: 250px;
+}
+form#form-contact fieldset dl.field-submit dt#submit-label{
+  height: 15px;
+}
+
 /* comments */
 div#comments div#comments-form, div#comments div.comments div.reply-form{
   background-color: #EEEEEE;
@@ -25,7 +39,7 @@ div#comments div#comments-form, div#comments div.comments div.reply-form{
 div#comments div.comments div.reply-form ul.form-errors{
   margin-bottom:10px;
 }
-  div#comments div#comments-form ul.form-errors li, div.reply-form ul.form-errors li{
+  ul.form-errors li{
     color: #f00 !important;
     font-size:11px !important;
   }

@@ -6,6 +6,38 @@
     .right-panel .block{
       margin-bottom: 20px;
     }
+    .right-panel .block h2{
+      border:none !important;
+      font-size:11px !important;
+      margin:0px !important; padding:0px !important;
+    }
+      .right-panel .site_operation_hours ul{
+        margin-bottom:10px;
+      }
+
+    .right-panel .social_networks h2{
+      width: 32px;
+      font-size: 0;
+      line-height: 0;
+      float: left;
+      margin-right: 10px !important;
+    }
+      div.social_networks h2 a.facebook, div.social_networks h2 a.twitter,
+      div.social_networks h2 a.youtube, div.social_networks h2 a.gplus {
+        display: block;
+        height: 32px;
+        text-indent: -4000px;
+        background: url(/skin/v1/default/light-blue/art/icons/social-networks.png) no-repeat scroll 0 0 transparent;
+      }
+        div.social_networks h2 a.twitter{background-position: -32px 0 !important;}
+        div.social_networks h2 a.youtube{background-position: -64px 0 !important;}
+        div.social_networks h2 a.gplus{background-position: -96px 0 !important;}
+
+      .right-panel .site_email_manager h2 span{
+        background-image: url(/skin/v1/default/light-blue/art/site_emails/emails.png) !important; background-repeat:no-repeat; height:25px;
+      }
+      .right-panel .site_email_manager h2 span.email-contact{background-position: 0 -5px;}
+      .right-panel .site_email_manager h2 span.email-admin{background-position: 0 -28px;}
 
 .left-panel  { width:645px; margin:0 0 40px; padding:0 35px 0 0; float:left;}
     div#content .announcement h1 {padding:0;}

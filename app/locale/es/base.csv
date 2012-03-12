@@ -136,8 +136,10 @@
         LINK_multimedia_video, "multimedia/videos-cristianos"
       FOOTER_link_multimedia_testimony, "Testimonios"
         LINK_multimedia_testimony, "multimedia/testimonios-cristianos"
+      FOOTER_link_multimedia_templates, "Formatos a imprimir"
+        LINK_multimedia_templates, "multimedia/formatos-imprimir"
 
-    FOOTER_menu_topic_fast_contact, "Ubicación"
+    FOOTER_menu_topic_fast_contact, "Dirección"
 
     FOOTER_menu_topic_fast_recomend, "Recomendaciones"
 

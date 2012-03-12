@@ -25,28 +25,28 @@
       </h1>
 
       <div class="social_networks">
-    	  <ul id="follow_us">
-    	    <li class="icons">
-    	      <a href="http://www.facebook.com/iglesialamision" class="icons facebook" title="<?=App::xlat('HEADER_follow_us_facebook')?>">
-    	        <?=App::xlat('HEADER_follow_us_facebook')?>
-    	      </a>
-    	    </li>
+	  <ul id="follow_us">
+	    <li class="icons">
+	      <a href="<?=App::getConfig('url_facebook')?>" class="icons facebook" title="<?=App::xlat('HEADER_follow_us_facebook')?>">
+	        <?=App::xlat('HEADER_follow_us_facebook')?>
+	      </a>
+	    </li>
           <li class="icons">
-            <a href="http://www.twitter.com/iglesialamision" class="icons twitter" title="<?=App::xlat('HEADER_follow_us_twitter')?>">
+            <a href="<?=App::getConfig('url_twitter')?>" class="icons twitter" title="<?=App::xlat('HEADER_follow_us_twitter')?>">
               <?=App::xlat('HEADER_follow_us_twitter')?>
             </a>
           </li>
           <li class="icons">
-            <a href="http://plus.google.com/iglesialamision" class="icons googleplus" title="<?=App::xlat('HEADER_follow_us_gplus')?>">
-              <?=App::xlat('HEADER_follow_us_gplus')?>
-            </a>
-          </li>
-          <li class="icons">
-            <a href="http://www.youtube.com/iglesialamision" class="icons youtube" title="<?=App::xlat('HEADER_follow_us_youtube')?>">
+            <a href="<?=App::getConfig('url_youtube')?>" class="icons youtube" title="<?=App::xlat('HEADER_follow_us_youtube')?>">
               <?=App::xlat('HEADER_follow_us_youtube')?>
             </a>
           </li>
-    	  </ul>
+          <li class="icons">
+            <a href="<?=App::getConfig('url_google')?>" class="icons googleplus" title="<?=App::xlat('HEADER_follow_us_gplus')?>">
+              <?=App::xlat('HEADER_follow_us_gplus')?>
+            </a>
+          </li>
+	  </ul>
       </div>
 
     </div>

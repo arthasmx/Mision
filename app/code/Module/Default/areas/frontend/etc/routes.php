@@ -27,10 +27,10 @@ foreach($bible_langs AS $lang=>$value){
 
 // Detalle de doctrina
   $route = new Zend_Controller_Router_Route(
-		'doctrina',
-      array(	'module'     => 'Default',
-		'controller' => 'doctrine',
-		'action'     => 'doctrine'));
+      'doctrina',
+      array( 'module'     => 'Default',
+             'controller' => 'doctrine',
+             'action'     => 'doctrine'));
   $router->addRoute('doctrine', $route);
 
     $route = new Zend_Controller_Router_Route(

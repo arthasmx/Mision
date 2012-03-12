@@ -64,7 +64,6 @@
 
       dt.label,  dd.hint{ border: 0; }
     dd.field .errors li, .error { color:#f00; }
-    #content_data dl.type-submit input {width:50px; }
     #content_data dl.type-submit input{ cursor: pointer; }
     #content_data dl.field-captcha span.prepend{ float: left; width: 150px; }
       #content_data dl.field-captcha span.append{ float: left; width: 210px; }
