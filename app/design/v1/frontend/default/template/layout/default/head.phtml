@@ -53,6 +53,10 @@
               jQuery('form#book-selection select, form#chapter-selection select').change(function(){
                 window.location = baseUrl + <?=App::xlat('route_bible')?> + $(this).val();
               });
+
+              // Set LEFT property to COMMA icon, for PHRASES
+              var phrase_container = jQuery('div.bible_phrase').position();
+              jQuery('span#comment-comma').css('left', phrase_container.left + 740); 
           <?php endif;?>
 
           });

@@ -24,29 +24,35 @@
         <span><?=App::xlat('HEADER_site_logo_slogan')?></span>
       </h1>
 
-      <div class="social_networks">
-	  <ul id="follow_us">
-	    <li class="icons">
-	      <a href="<?=App::getConfig('url_facebook')?>" class="icons facebook" title="<?=App::xlat('HEADER_follow_us_facebook')?>">
-	        <?=App::xlat('HEADER_follow_us_facebook')?>
-	      </a>
-	    </li>
-          <li class="icons">
-            <a href="<?=App::getConfig('url_twitter')?>" class="icons twitter" title="<?=App::xlat('HEADER_follow_us_twitter')?>">
-              <?=App::xlat('HEADER_follow_us_twitter')?>
-            </a>
-          </li>
-          <li class="icons">
-            <a href="<?=App::getConfig('url_youtube')?>" class="icons youtube" title="<?=App::xlat('HEADER_follow_us_youtube')?>">
-              <?=App::xlat('HEADER_follow_us_youtube')?>
-            </a>
-          </li>
-          <li class="icons">
-            <a href="<?=App::getConfig('url_google')?>" class="icons googleplus" title="<?=App::xlat('HEADER_follow_us_gplus')?>">
-              <?=App::xlat('HEADER_follow_us_gplus')?>
-            </a>
-          </li>
-	  </ul>
+      <div class="<?=(App::getDesign()->getCurrentLayout()==="intro") ? 'social_networks' : 'bible_phrase default_phrase';?>">
+        <? if (App::getDesign()->getCurrentLayout()==="intro"):?>
+  
+          <ul id="follow_us">
+            <li class="icons">
+              <a href="<?=App::getConfig('url_facebook')?>" class="icons facebook" title="<?=App::xlat('HEADER_follow_us_facebook')?>">
+                <?=App::xlat('HEADER_follow_us_facebook')?>
+              </a>
+            </li>
+            <li class="icons">
+              <a href="<?=App::getConfig('url_twitter')?>" class="icons twitter" title="<?=App::xlat('HEADER_follow_us_twitter')?>">
+                <?=App::xlat('HEADER_follow_us_twitter')?>
+              </a>
+            </li>
+            <li class="icons">
+              <a href="<?=App::getConfig('url_youtube')?>" class="icons youtube" title="<?=App::xlat('HEADER_follow_us_youtube')?>">
+                <?=App::xlat('HEADER_follow_us_youtube')?>
+              </a>
+            </li>
+            <li class="icons">
+              <a href="<?=App::getConfig('url_google')?>" class="icons googleplus" title="<?=App::xlat('HEADER_follow_us_gplus')?>">
+                <?=App::xlat('HEADER_follow_us_gplus')?>
+              </a>
+            </li>
+    	  </ul>
+  
+        <?php else:?>
+          <?=App::module('Addons')->renderBlock("bible/index","phrase")?>
+        <?php endif;?>
       </div>
 
     </div>

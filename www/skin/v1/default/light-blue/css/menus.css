@@ -49,6 +49,7 @@
       }
   #follow_us{
     float:right;
+    margin-top: 25px;
   }
     #follow_us li{
       float: left;

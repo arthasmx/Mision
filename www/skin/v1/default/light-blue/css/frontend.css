@@ -4,6 +4,17 @@
   margin: 0 auto;
   padding:0;
 }
+/* INTRO */
+  div.bible_phrase{
+    float:left;
+    text-align:right;
+    padding:10px 0;
+  }
+    #content div.bible_phrase h1, .default_phrase h1{
+      font-size: 12px;
+    }
+      .intro_phrase{width: 100%;}
+      .default_phrase{width: 700px; height: 55px; margin-left:40px;}
 
 
 #header, #content, #slider, #bible_phrase, #slogan, #logo_follow_container, span#separator, span#separator_bottom, span#separator_top{
@@ -83,6 +94,12 @@
      h1.es { background-position: -19px -38px; }
      h1.en { background-position: -2px -38px; }
 
+   div.social_networks{
+    float: left;
+    height: 70px;
+    padding: 10px;
+    width: 100%;
+   }
 
      /* BREADCRUMS */
 
@@ -130,8 +147,6 @@ div#content h1 span, div#content h2 span, div#content h3 span, span.written { di
 div#content .comment { float:right; width:44px; height:46px; background:url(images/comment_bg.gif) no-repeat; font:normal 22px Arial, Helvetica, sans-serif; color:#a4a4a4; line-height:38px; text-align:center;}
 div#content p.about { background:#e6e6e6; border-left:5px solid #cdcdcd; padding:20px; margin:15px 0; font: italic 12px Arial, Helvetica, sans-serif; color:#747474;}
 div#content p span { font-size:18px; font-weight:bold; color:#888;}
-div#content a { color:#00AAFF; text-decoration:none;}
-  div#content a:hover { text-decoration:underline; color:#388CC2; cursor:pointer;}
 div#content ul, div#content ol {text-align:justify;}
   div#content ol{list-style: decimal;}
   div#content ol.verse li{ padding:10px 0; font: 12px/1.2em Arial,Helvetica,sans-serif; }
