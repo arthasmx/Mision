@@ -98,8 +98,9 @@
     float: left;
     height: 70px;
     padding: 10px;
-    width: 100%;
+    width: 720px;
    }
+     div.right-panel div.social_networks{width: 100%;}
 
      /* BREADCRUMS */
 
