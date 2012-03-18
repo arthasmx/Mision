@@ -110,9 +110,7 @@
     .hide{ visibility: hidden; display: none; }
     .empty-listing{ margin-top:50px !important; text-align:center; }
 
-.separator-fix{
-  margin:0 auto; width:980px; height:20px;
-}
+.separator-fix{ margin:0 auto; width:980px; height:20px;}
 
     div#content h1.no-line, div#content h2.no-line, div#content h3.no-line, div#content h4.no-line, div#content h5.no-line{
       border:0; padding:0;
