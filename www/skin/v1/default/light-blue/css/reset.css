@@ -1,4 +1,4 @@
-   html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+   html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
         margin: 0; padding: 0;
         border: 0;
         outline: 0;
@@ -50,7 +50,7 @@
         text-decoration: line-through;
     }
 
-    a, a:link, a:visited, a:hover, a:active{text-decoration:none; color:#00AAFF;}
+    a, a:link, a:visited, a:hover, a:active{text-decoration:none; color:#00A8EC !important;}
     a:hover { text-decoration:underline; color:#388CC2; cursor:pointer;}
 
     table { border-collapse: separate;border-spacing: 0;}
