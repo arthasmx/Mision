@@ -7,6 +7,7 @@
 FORM_name, "Nombre"
 FORM_email, "Email"
 FORM_comments, "Comentarios"
+FORM_button_cancel, "Cancelar"
 
 FORM_submit,"Enviar"
 FORM_button_send_comment, "Enviar comentario"

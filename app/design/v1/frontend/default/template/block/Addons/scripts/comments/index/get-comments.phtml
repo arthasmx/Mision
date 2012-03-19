@@ -1,3 +1,15 @@
+<style>
+div.replies{
+  display:none;
+  width: 925px !important;
+  padding:20px 50px 0 0 !important;
+  margin-bottom:30px;
+  background-color: #eee;
+}
+span.replies_hs{
+  margin-left:10px;
+}
+</style>
 <span class="separator"></span>
 <?php $level = false; ?>
 <div id="comments">
@@ -23,17 +35,22 @@
   <?php else:?>
     <?php $core = App::module('Core'); ?>
     <?php foreach ($this->comments['items'] AS $comment): ?>
+
       <div>
         <span class="written"><?=App::xlat('COMMENTS_on') . $core->getModel('Dates')->toDate(6,$comment['created']) . App::xlat('COMMENTS_at') . $core->getModel('Dates')->toDate(9,$comment['created'])?></span>
         <p><?=$comment['comment']?></p>
         <a href="" class="reply" data-parent="<?=$comment['id']?>" data-child="1">
           <span class="reply"></span>
-          <span class="text"><?=App::xlat('COMMENTS_reply')?></span>
+          <?=App::xlat('COMMENTS_reply')?>
         </a>
+        <?php if( ! empty($comment['replies']) ): ?>
+          <span class="replies_hs" id="reply_<?=$comment['id']?>">Respuestas (<?=count($comment['replies'])?>)</span>
+        <?php endif;?>
         <div class="reply-form corner-all"></div>
       </div>
 
       <?php if( ! empty($comment['replies']) ): ?>
+        <div class="replies reply_<?=$comment['id']?> corner-all">
         <?php foreach ($comment['replies'] AS $reply): ?>
           <?php $level = get_child_level( $reply['child_id'] ); ?>
             <div class="<?=$level?>">
@@ -42,12 +59,13 @@
               <?php if( $level !== "level_10" ): ?>
                 <a class="reply" data-parent="<?=$reply['parent_id']?>" data-child="<?=$reply['child_id']?>">
                   <span class="reply"></span>
-                  <span class="text"><?=App::xlat('COMMENTS_reply')?></span>
+                  <?=App::xlat('COMMENTS_reply')?>
                 </a>
                 <div class="reply-form corner-all"></div>
               <?php endif;?>
             </div>
         <?php endforeach;?>
+        </div>
       <?php endif;?>
 
     <?php endforeach;?>

@@ -4,11 +4,10 @@ var comments = {
   dom:{
    comment_container: "div#comments-form",
    comment_form:      "form#comment",
-   comment_button:    "button#button",
+   form_button:       "button#button",
 
    reply_container:   "div.reply-form",
    reply_form:        "form#reply",
-   reply_button:      "button#button",
 
    data_reply:        "data-reply",
    main_container:    "div#comments div.comments div"
@@ -47,7 +46,7 @@ var comments = {
    self.remove_previous_reply();
    var parent_id      = jQuery(button_clicked).attr('data-parent');
    var child_id       = jQuery(button_clicked).attr('data-child');
-   self.current_reply = jQuery(button_clicked).next(self.dom.reply_container);
+   self.current_reply = jQuery(button_clicked).nextAll(self.dom.reply_container);
 
    loading(self.current_reply);
 
@@ -63,6 +62,12 @@ var comments = {
      }
    });
 
+ },
+
+ remove_previous_reply:function(){
+   var self=this;
+   jQuery( self.dom.reply_container ).hide().empty();
+   jQuery(self.dom.main_container).removeClass(self.dom.data_reply);
  },
 
 	reply:function(){
@@ -92,12 +97,6 @@ var comments = {
    });
 	},
 
-	remove_previous_reply:function(){
-	  var self=this;
-	  jQuery( self.dom.reply_container ).hide().empty();
-	  jQuery(self.dom.main_container).removeClass(self.dom.data_reply);
-	},
-
 	get_reply_template:function( json ){
 	  var self=this;
 
@@ -114,17 +113,26 @@ var comments = {
 
 jQuery(document).ready(function(){
 
-  jQuery(document).on("click", comments.dom.comment_form +" "+ comments.dom.comment_button, function(){
+  jQuery(document).on("click", comments.dom.comment_form +" "+ comments.dom.form_button, function(){
     comments.comment();
   });
 
-  jQuery(document).on("click", "div.comments a.button", function(){
+  jQuery(document).on("click", "a.reply", function(){
     comments.show_form(this);
     return false;
   });
+  jQuery(document).on("click", "button#cancel", function(){
+    comments.remove_previous_reply(this);
+    return false;
+  });
 
-  jQuery(document).on("click", comments.dom.reply_form +" "+ comments.dom.reply_button, function(){
+  jQuery(document).on("click", comments.dom.reply_form +" "+ comments.dom.form_button, function(){
     comments.reply();
+  });
+
+  jQuery('span.replies_hs').click(function(){
+    var reply_id = jQuery(this).attr('id');
+    jQuery('div.' + reply_id).slideToggle();
   });
 
 });

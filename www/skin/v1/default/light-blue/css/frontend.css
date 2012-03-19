@@ -227,16 +227,16 @@ div.pagination .disabled_tnt_pagination {
     }
     #content #content_data #comments div.comments div{ float: left; width:100%; padding-bottom:30px;}
 
-    div#comments div.comments div.level_1{padding-left:20px; width:960px !important;}
-    div#comments div.comments div.level_2{padding-left:40px; width:940px !important;}
-    div#comments div.comments div.level_3{padding-left:60px; width:920px !important;}
-    div#comments div.comments div.level_4{padding-left:80px; width:900px !important;}
-    div#comments div.comments div.level_5{padding-left:100px; width:880px !important;}
-    div#comments div.comments div.level_6{padding-left:120px; width:860px !important;}
-    div#comments div.comments div.level_7{padding-left:140px; width:840px !important;}
-    div#comments div.comments div.level_8{padding-left:160px; width:820px !important;}
-    div#comments div.comments div.level_9{padding-left:180px; width:800px !important;}
-    div#comments div.comments div.level_10{padding-left:200px; width:780px !important;}
+    div#comments div.comments div.level_1{padding-left:20px; width:915px !important;}
+    div#comments div.comments div.level_2{padding-left:40px; width:895px !important;}
+    div#comments div.comments div.level_3{padding-left:60px; width:875px !important;}
+    div#comments div.comments div.level_4{padding-left:80px; width:855px !important;}
+    div#comments div.comments div.level_5{padding-left:100px; width:835px !important;}
+    div#comments div.comments div.level_6{padding-left:120px; width:815px !important;}
+    div#comments div.comments div.level_7{padding-left:140px; width:795px !important;}
+    div#comments div.comments div.level_8{padding-left:160px; width:775px !important;}
+    div#comments div.comments div.level_9{padding-left:180px; width:755px !important;}
+    div#comments div.comments div.level_10{padding-left:200px; width:735px !important;}
       div#comments div.comments{ margin-top:20px; }
       div#comments div.comments span.separator{ margin-bottom:10px; }
       div#comments div.comments p.no-comments{text-align: center;}
@@ -270,7 +270,6 @@ a.button {
   text-decoration: none;
   color: #444444;
 }
-  a.reply span.text{color:#00A8EC !important;}
   a.reply span.reply{
     float: left;
     width: 10px; height: 10px;

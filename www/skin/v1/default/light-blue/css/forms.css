@@ -58,21 +58,12 @@ div#comments div.comments div.reply-form ul.form-errors{
 
     #content_data dd input#captcha{width: 4em; margin-top:11px;}
 
-  form#comment, form#reply{
-    /*
-    background-color: #EEEEEE;
-    height: 237px;
-    padding:35px;
-    */
+  form#reply dl.field-button{
+    float: left;
+    margin-right:10px;
   }
-    form#comment dt#button-label, form#reply dt#button-label{
+    form#comment dt#button-label, form#reply dt#button-label, form#reply dt#cancel-label{
       height: 5px;
-    }
-    form#reply{
-      /*
-      margin:20px auto 0;
-      width: 695px;
-      */
     }
       #comments form#reply fieldset.comments-right-group{
         width: 460px;

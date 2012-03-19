@@ -50,8 +50,8 @@
         text-decoration: line-through;
     }
 
-    a, a:link, a:visited, a:hover, a:active{text-decoration:none; color:#00A8EC !important;}
-    a:hover { text-decoration:underline; color:#388CC2; cursor:pointer;}
+    a, a:link, a:visited, a:hover, a:active, span.replies_hs{text-decoration:none; color:#00A8EC; }
+    a:hover, span.replies_hs:hover { text-decoration:underline; color:#164399; cursor:pointer;}
 
     table { border-collapse: separate;border-spacing: 0;}
     th, td {text-align: left; font-weight: normal;}

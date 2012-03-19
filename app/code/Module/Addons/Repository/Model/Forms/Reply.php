@@ -56,10 +56,11 @@ class Module_Addons_Repository_Model_Forms_Reply extends Core_Model_Repository_M
      ));
 
      $form->addElement( 'button', 'button', array( 'label' => App::xlat('FORM_button_send_comment') ));
+     $form->addElement( 'button', 'cancel', array( 'label' => App::xlat('FORM_button_cancel') ));
 
      $form->addDisplayGroup(
          array(
-             'comment','button'
+             'comment','button','cancel'
          ),
          'text'
      );
