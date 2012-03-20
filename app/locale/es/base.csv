@@ -64,6 +64,7 @@
 
   BREADCRUM_announcement, "Listado de anuncios"
   BREADCRUM_events, "Listado de eventos"
+  BREADCRUM_guestbook, "Libro de visitas"
 
   BREADCRUMBS_multimedia, "Multimedia"
   BREADCRUMBS_fraternities, "Fraternidades"
@@ -118,6 +119,8 @@
   LINK_join_us, "participa"
   LINK_projects, "proyectos"
   LINK_preaching, "predicaciones"
+  LINK_guestbook, "libro-de-visitas"
+    form_element_gender, "Género: "
 
   ; FOOTER MENU
     FOOTER_menu_topic_important_links, "Acerca del sitio"
@@ -163,6 +166,8 @@
   ; ARTICLES
     route_announcement, "/anuncios/"
     route_events, "/eventos/"
+  ; GUESTBOOK
+    route_guestbook, "/libro-de-visitas/"
   ; PAGINATOR
     route_paginator_page, "pagina"
   ; DATASORTER

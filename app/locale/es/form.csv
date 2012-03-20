@@ -6,6 +6,11 @@
 
 FORM_name, "Nombre"
 FORM_email, "Email"
+FORM_gender, "Género"
+  FORM_gender_male, "Hombre"
+  FORM_gender_female, "Mujer"
+  form_element_gender, "Género"
+
 FORM_comments, "Comentarios"
 FORM_button_cancel, "Cancelar"
 

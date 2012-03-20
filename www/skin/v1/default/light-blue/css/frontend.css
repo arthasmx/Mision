@@ -97,7 +97,7 @@
    div.social_networks{
     float: left;
     height: 70px;
-    padding: 10px;
+    padding-bottom: 10px;
     width: 720px;
    }
      div.right-panel div.social_networks{width: 100%;}
@@ -115,7 +115,6 @@
       }
       #breadcrumbs ul li {
         float:left;
-        /*background:url(/skin/v1/default/light-blue/art/bks/breadcrums.png) no-repeat 0 3px;*/
         padding-left:14px;
         padding-top:1px;
         margin-left:10px;
@@ -278,6 +277,69 @@ a.button {
     background-image: url("/skin/v1/default/light-blue/art/icons/icons.png");
     background-position: -60px -70px;
   }
+    div.replies{
+      display:none;
+      width: 925px !important;
+      padding:20px 50px 0 0 !important;
+      margin-bottom:30px;
+      background-color: #eee;
+    }
+    span.replies_hs{
+      margin-left:10px;
+    }
+
+  /* GUESTBOOK */
+div#guestbook-form{
+  background-color: #eee;
+  padding:20px;
+}
+  form#guestbook dd input{
+    width: 16.5em;
+  }
+  form#guestbook dd input.gender{
+    width: 1.5em;
+  }
+  fieldset.comments-left-group{
+    float:left;
+    width: 235px;
+  }
+
+  div.sign{
+    float:left;
+    padding:0 15px;
+    margin-bottom:20px;
+  }
+    div.sign div.author{
+      float:left;
+      width: 155px;
+      margin-right: 10px;
+    }
+    div.sign span.male, div.sign span.female, div.sign span.flag_mx, div.sign span.created, div.sign span.name{
+      float:left;
+      display: block;
+      margin-right: 10px;
+    }
+    div.sign span.male, div.sign span.female{
+      background: transparent url(/skin/v1/default/light-blue/art/icons/gender.png) no-repeat 0 0;
+      width: 63px;
+      height: 60px;
+    }
+    div.sign span.female{
+      background-position: -57px 0px;
+    }
+    div.sign span.created{
+      width: 190px;
+    }
+    div.sign span.name{
+      width: 400px;
+      text-align: right;
+    }
+    div.sign blockquote{
+      float: left;
+      width: 100%;
+      padding:10px 0;
+      text-align: justify;
+    }
 
 /* END content */
 

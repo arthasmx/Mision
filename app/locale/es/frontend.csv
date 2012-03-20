@@ -14,9 +14,15 @@
         CONTENT_subtitle_bible, "Antigua versión de Casiodoro de reina (1569). Revisada por Cipriano de Valera(1602)"
         CONTENT_subtitle_article_written_by, "Escrito el %written-date%, por "
 
-        MAINPAGE_column_join, "Participa!"
-        MAINPAGE_column_join_span, "Diseñadores, Traductores, Escritores, Analistas..."
-        MAINPAGE_column_join_description, "Con la ayuda de nuestro Señor Jesucristo y la de ustedes queridos hermanos, queremos hacer de esta página tu Página Cristiana Favorita; es por ello que requerimos de tu valiosa participación, ya sea enviandonos tus sugerencias, comentarios o mejor aún, que participes en el mantenimiento del sitio."
+        MAINPAGE_column_guestbook, "Libro de visitas"
+            MAINPAGE_column_guestbook_main_title, "Bienvenido a nuestro libro de visitas"
+            MAINPAGE_column_guestbook_main_subtitle, "Déjanos tu firma, comentarios, sugerencias sobre nuestra página. No requieres estar registrado, solo completa el formulario y listo!"
+            MAINPAGE_column_guestbook_sign_title, "Firma el libro de visitas"
+            MAINPAGE_column_guestbook_sign_subtitle, "Completa el formulario para dejar tu firma. Todos los campos son necesarios."
+            MAINPAGE_column_guestbook_signed_up, "Tu firma ha sido recibida y será revisada para su aceptación.<br />Muchas gracias por tu tiempo!"
+
+        MAINPAGE_column_guestbook_subtitle, "Opinión de nuestros visitantes sobre nuestra página"
+        MAINPAGE_column_guestbook_description, "Tus visitantes podrán opinar, dejar sugerencias o peticiones de una manera rápida y sencilla. Hasta 500 firmas por libro de visitas"
 
         MAINPAGE_column_project, "Proyectos"
         MAINPAGE_column_project_span, "Ingenieros, Arquitectos, Varón, Joven..."

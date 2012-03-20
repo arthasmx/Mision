@@ -108,7 +108,7 @@
     .margin-bottom-20{ margin-bottom:20px; }
 
     .hide{ visibility: hidden; display: none; }
-    .empty-listing{ margin-top:50px !important; text-align:center; }
+    .empty-listing{ margin:50px !important; text-align:center; font-size: 13px !important; }
 
 .separator-fix{ margin:0 auto; width:980px; height:20px;}
 
