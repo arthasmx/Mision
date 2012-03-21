@@ -26,16 +26,16 @@
         display: block;
         height: 15px; width: 66px;
         text-indent: -4000px;
-        background: url(/skin/v1/default/light-blue/art/icons/social-networks.png) no-repeat scroll 0 0 transparent;
+        background: url(/skin/v1/default/light-blue/art/icons/social-networks.png) no-repeat scroll 0 -16px transparent;
       }
-        div.social_networks h2 a.twitter{background-position: -68px 0 !important;}
-        div.social_networks h2 a.youtube{background-position: -134px 0 !important; height: 21px; width: 49px;}
-        div.social_networks h2 a.gplus{background-position: -184px 0 !important; height: 19px; width: 54px;}
+        div.social_networks h2 a.twitter{background-position: -68px -16px !important;}
+        div.social_networks h2 a.youtube{background-position: -136px -22px !important; height: 21px; width: 49px;}
+        div.social_networks h2 a.gplus{background-position: -188px -21px !important; height: 20px; width: 54px;}
 
-        div.social_networks h2 a.facebook:hover{background-position: 0 -20px !important;}
-        div.social_networks h2 a.twitter:hover{background-position: -68px -20px !important;}
-        div.social_networks h2 a.youtube:hover{background-position: -134px -20px !important;}
-        div.social_networks h2 a.gplus:hover{background-position: -184px -20px !important;}
+        div.social_networks h2 a.facebook:hover{background-position: 0 -31px !important;}
+        div.social_networks h2 a.twitter:hover{background-position: -68px -31px !important;}
+        div.social_networks h2 a.youtube:hover{background-position: -136px -43px !important;}
+        div.social_networks h2 a.gplus:hover{background-position: -188px -41px !important;}
 
       .right-panel .site_email_manager h2 span{
         background-image: url(/skin/v1/default/light-blue/art/site_emails/emails.png) !important; background-repeat:no-repeat; height:25px;
