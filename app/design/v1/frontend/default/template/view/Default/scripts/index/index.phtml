@@ -41,17 +41,7 @@
   </div>
 
   <div class="col">
-    <h1 class="no-line">
-      <?=App::xlat('MAINPAGE_column_project')?>
-      <span><?=App::xlat('MAINPAGE_column_project_span')?></span>
-    </h1>
-    <img src="/media/img_1.jpg" alt="picture" class="none" height="95" width="300" />
-    <p class="col_description"><?=App::xlat('MAINPAGE_column_project_description')?></p>
-    <p class="right">
-      <a href="<?=App::url_translate('LINK_projects')?>">
-        <?=App::xlat('ARTICLE_read_more')?>
-      </a>
-    </p>
+    <?=App::module('Addons')->renderBlock("bible/index","search-intro")?>
   </div>
 
   <div class="col last">

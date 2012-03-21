@@ -4,9 +4,8 @@ class Addons_Bible_IndexBlockController extends Core_Controller_Block {
 
   function init() {}
 
-  function searchAction(){
-
-  }
+  function searchAction(){}
+  function searchIntroAction(){}
 
   function phraseAction(){
     $this->view->phrase = $this->_module->getModel("Bible")->get_phrase();

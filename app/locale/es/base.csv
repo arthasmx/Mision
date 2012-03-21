@@ -55,6 +55,7 @@
 
 ;ARTICLES
   ARTICLE_read_more, "Leer más..."
+  ARTICLE_go_to_section, "Ir a la sección"
 
 ;BREADCRUMS
   BREADCRUM_home, "Inicio"

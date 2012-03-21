@@ -24,10 +24,6 @@
         MAINPAGE_column_guestbook_subtitle, "Opinión de nuestros visitantes sobre nuestra página"
         MAINPAGE_column_guestbook_description, "Tus visitantes podrán opinar, dejar sugerencias o peticiones de una manera rápida y sencilla. Hasta 500 firmas por libro de visitas"
 
-        MAINPAGE_column_project, "Proyectos"
-        MAINPAGE_column_project_span, "Ingenieros, Arquitectos, Varón, Joven..."
-        MAINPAGE_column_project_description, "Nos encontramos pidiendole al Señor que nos dé la fuerza y medios para edificar obras que sean para su Alabanza y Adoración. <br />Te invitamos a conocer los proyectos que queremos realizar."
-
         MAINPAGE_column_sermon, "Predicación"
         MAINPAGE_column_sermon_span, "Niños, adolescentes, jóvenes, adultos"
         MAINPAGE_column_sermon_description, "Tenemos para ti los sermones transmitidos de nuestra congregación; puedes descargarlos a cualquier dispositivo que reproduzca el formato mp3.<br />Deseamos que este audio sea para la Honra y Gloria de nuestro Señor Jesucristo."
@@ -82,6 +78,7 @@
 
         BIBLE_block_search, "Buscar en la Biblia"
         BIBLE_block_search_subtitle, "Escribe la palabra o frase que necesitas"
+        BIBLE_block_search_description, "Realiza tu búsqueda por toda la Santa Biblia; es la version RV1960.<br />También puedes efectuar búsquedas específicas en la sección %bible_url%, donde podrás aplicar los filtros necesarios."
         BIBLE_search_nothing_found, "0 Resultados para tu búsqueda"
 
           BIBLE_seo_book_genesis,"genesis"
