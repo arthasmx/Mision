@@ -78,7 +78,7 @@
 
         BIBLE_block_search, "Buscar en la Biblia"
         BIBLE_block_search_subtitle, "Escribe la palabra o frase que necesitas"
-        BIBLE_block_search_description, "Realiza tu búsqueda por toda la Santa Biblia; es la version RV1960.<br />También puedes efectuar búsquedas específicas en la sección %bible_url%, donde podrás aplicar los filtros necesarios."
+        BIBLE_block_search_description, "Realiza tu búsqueda por toda la Santa Biblia en la version RV1960. También puedes efectuar búsquedas específicas en la sección Santa Biblia, donde podrás aplicar los filtros necesarios."
         BIBLE_search_nothing_found, "0 Resultados para tu búsqueda"
 
           BIBLE_seo_book_genesis,"genesis"

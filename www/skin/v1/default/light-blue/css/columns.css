@@ -43,6 +43,18 @@
       .right-panel .site_email_manager h2 span.email-contact{background-position: 0 -5px;}
       .right-panel .site_email_manager h2 span.email-admin{background-position: 0 -28px;}
 
+    .right-panel .bible_search{
+      padding: 0 20px;
+      height:225px;
+      background: url(/skin/v1/default/light-blue/art/bks/holy-bible.png) no-repeat center transparent;
+    }
+      .right-panel .bible_search h1, .right-panel .bible_search h1 span{
+        color: #fff !important;
+      }
+        .right-panel .bible_search h1{
+          padding-top:10px !important;
+        }
+
 .left-panel  { width:645px; margin:0 0 40px; padding:0 35px 0 0; float:left;}
     div#content .announcement h1 {padding:0;}
     div#content .left-panel p.description {padding:10px 0 30px;}

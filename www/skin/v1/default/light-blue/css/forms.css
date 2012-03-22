@@ -22,6 +22,14 @@ form#form-contact fieldset dl.field-submit dt#submit-label{
   height: 15px;
 }
 
+/* bible-search form */
+  form#bible-search input.intro{
+    width: 20em;
+  }
+    div.col p.intro{
+      height: 112px;
+    }
+
 /* comments */
 div#comments div#comments-form, div#comments div.comments div.reply-form{
   background-color: #EEEEEE;
