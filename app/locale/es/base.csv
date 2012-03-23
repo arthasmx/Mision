@@ -125,7 +125,6 @@
 
   ; FOOTER MENU
     FOOTER_menu_topic_important_links, "Acerca del sitio"
-      FOOTER_link_privacy_policy,"Políticas de privacidad"
       FOOTER_link_terms_conditions,"Términos y condiciones"
       FOOTER_link_sitemap,"Mapa del sitio"
       FOOTER_link_site_requirements,"Requisitos del sitio"
@@ -149,7 +148,6 @@
 
 
 ;LINKS TAG a href
-  LINK_privacy_policy, "politicas-de-privacidad"
   LINK_terms_conditions, "terminos-y-condiciones"
   LINK_sitemap, "mapa-del-sitio"
   LINK_site_requirements, "requisitos-del-sitio"
