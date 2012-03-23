@@ -3,7 +3,7 @@
     <?=App::xlat('MAINPAGE_column_guestbook_main_title')?>
     <span><?=App::xlat('MAINPAGE_column_guestbook_main_subtitle')?></span>
   </h1>
-
+  <img src="<?=App::media('/images/guestbook-2.jpg');?>" width="645" height="150" border="0" alt="<?=App::xlat('MAINPAGE_column_guestbook_main_title')?>" title="<?=App::xlat('MAINPAGE_column_guestbook_main_title')?>" />
   <?php if( empty($this->guestbook['items']) ):?>
     <h3 class="no-line empty-listing"> <?=App::xlat('LISTING_no_data_found')?> </h3>
   <?php else:?>
