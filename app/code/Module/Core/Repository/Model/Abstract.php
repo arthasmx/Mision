@@ -5,7 +5,10 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
   public $strip               = true;
   public $paginator_page      = false;
   public $paginator_page_name = false;
+  public $ajax_url            = false;
+  public $filter_section      = false;
 
+  protected $ajax_callback_method = null;
   protected $items_per_page  = 20;
   protected $datafilter      = false;
   protected $datasorter	     = false;
@@ -80,12 +83,17 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
                 ->paginate_render( $select );
   }
 
-  public function paginate_query($select = null){
+  public function paginate_query(&$select = null, $ajax_paginate_style = null){
     if( empty($select) || ! is_object($select) ){
       App::module('Core')->exception( App::xlat('EXC_db_instance_not_found') . '<br />Launched at method query, file Repository/Model/Abstract' );
     }
 
+    App::module('Core')->getModel('Db/Datafilter')
+                       ->setFilter_section( $this->filter_section )
+                       ->apply_filters_to_query($select);
+
     $sql = $select->__toString();
+
     if( empty($sql) ){
       App::module('Core')->exception( App::xlat('EXC_db_instance_not_found') . '<br />Launched at method query, file Repository/Model/Abstract' );
     }
@@ -99,18 +107,34 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
                         ->paginate();
 
     return $this->setPaginator_page_name(App::xlat('route_paginator_page'))
-                ->paginate_render( $select );
+                ->paginate_render( $select, $ajax_paginate_style );
   }
 
-  public function paginate_render($data = null){
+  public function ajax_paginate_query(&$select = null, $callback = null){
+    if( empty($callback) || empty($this->ajax_url) ){
+      App::module('Core')->exception( App::xlat('EXC_ajax_callback_method_is_missing') . '<br />Launched at method ajax_paginate_query, file Repository/Model/Abstract' );
+    }
+    $this->ajax_callback_method = $callback;
+    return $this->paginate_query($select,true);
+  }
+
+  public function paginate_render($data = null, $ajax_paginate_style = null){
     if ( empty($data) ){
       return null;
     }
 
     $pagination = null;
     if ( ! empty($data['pagination']['page_total']) &&  $data['pagination']['page_total']>1 ){
-      require_once "Local/View/Helper/Paginate.php";
-      $render = new Local_View_Helper_Paginate();
+
+      if( empty($ajax_paginate_style) ){
+        require_once "Local/View/Helper/Paginate.php";
+        $render = new Local_View_Helper_Paginate();
+      }else{
+        require_once "Local/View/Helper/Ajaxpaginate.php";
+        $render = new Local_View_Helper_Ajaxpaginate();
+        $render->setAjax_url($this->ajax_url)->setJscallback( $this->ajax_callback_method . "; return false;");
+      }
+
       $render->paginate()->setUrl(
             App::url()->removeParams(
               array(
@@ -118,10 +142,10 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
               )
             )
           )
+          ->setPaginator_page_name($this->paginator_page_name)
           ->setPage_current($data['pagination']['page_current'])
           ->setPage_total($data['pagination']['page_total'])
           ->setItems_per_page($data['pagination']['items_per_page'])
-          ->setPaginator_page_name($this->paginator_page_name)
           ->setItems_total($data['pagination']['items_total']);
 
       $pagination = $render->renderPages();

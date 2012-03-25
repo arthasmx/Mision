@@ -18,6 +18,11 @@
   HEADER_follow_us_gplus, "Google Plus!"
   HEADER_follow_us_youtube, "Youtube"
 
+;AJAX
+  AJAX_loading, "cargando datos..."
+  AJAX_empty_search, "El campo de búsqueda esta vacio!"
+  AJAX_choose_an_option, "Elije una opción"
+
 ;DATES
   dates_short_day_1, "Lun"
   dates_short_day_2, "Mar"
@@ -200,3 +205,5 @@ MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario p
   EXC_table_field_name_missing, "No se ha especificado el campo por el cual se ejecutara el filtro en la condicion WHERE"
   EXC_multiple_database_modifications, "Usuario intentando modificar la BD aleatoriamente: EXC_multiple_database_modifications"
   EXC_missing_arguments_at_adding_comments, "Error: No fué posible registrar tu comentario; ayudanos a mejorar la página reportando este error.<br />Por tu ayuda, muchas gracias."
+  EXC_bad_request, "Su petición no ha sido procesada correctamente por nuestro servidor, inténtelo de nuevo"
+  EXC_ajax_callback_method_is_missing, "No se ha espeficicado un metodo AJAX a ejecutar en la paginación."

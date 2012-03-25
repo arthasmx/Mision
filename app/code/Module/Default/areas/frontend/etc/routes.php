@@ -2,9 +2,9 @@
 // Basic
 $route = new Zend_Controller_Router_Route(
 		':action/*',
-    array(	'module'     => 'Default',
-          	'controller'	=> 'index',
-          	'action'     => 'index'));
+    array(	'module' => 'Default',
+		'controller' => 'index',
+		'action'     => 'index'));
 $router->addRoute('public-section', $route);
 
 // Biblia
@@ -17,13 +17,14 @@ foreach($bible_langs AS $lang=>$value){
   $book     = new Zend_Controller_Router_Route($value . '/:book', array_push_assoc($bible_params, "action","book"));
   $chapter  = new Zend_Controller_Router_Route($value . '/:book/:chapter', array_push_assoc($bible_params, "action","chapter"));
   $verse    = new Zend_Controller_Router_Route($value . '/:book/:chapter/:verse/*', array_push_assoc($bible_params, "action","verse"));
+  $load_books = new Zend_Controller_Router_Route($value . '/load-books', array_push_assoc($bible_params, "action","load-books"));
 
   $router->addRoute('bible_base_'.$lang, $base);
   $router->addRoute('bible_book_'.$lang, $book);
   $router->addRoute('bible_chapter_'.$lang,  $chapter);
   $router->addRoute('bible_verse_'.$lang,  $verse);
+  $router->addRoute('bible_load_'.$lang,  $load_books);
 }
-
 
 // Detalle de doctrina
   $route = new Zend_Controller_Router_Route(

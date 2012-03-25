@@ -2,7 +2,7 @@
 require_once 'Module/Core/Repository/Model/Abstract.php';
 class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_Abstract {
 
-  function search($string_to_search_for=null, $current_page = null){
+  function search($string_to_search_for = null, $current_page = null, $store_keyword_in_session = true){
     if( empty($string_to_search_for) ){
       return null;
     }
@@ -20,7 +20,23 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
       $select->where( "bi.texto LIKE ?", "%" .$string_to_search_for . "%" );
     }
 
-    return $this->setPaginator_page($current_page)->paginate_query( $select );
+    if( ! empty($store_keyword_in_session) ){
+      $session = App::module('Core')->getModel('Namespace')->get( 'search' );
+      $session->search['keyword'] = $string_to_search_for;
+    }
+
+    return $this->setPaginator_page($current_page)
+                ->setFilter_section( App::xlat('LINK_bible') ) // Required to identify the search section. In this case, filters will be applied to BIBLE section
+                ->setAjax_url( App::base('/') . 'bible/ajax-search' )
+                ->ajax_paginate_query( $select, "bible.paginate('search-results','url')" );
+  }
+
+  function ajax_search_paginate($params=null){
+    $session = App::module('Core')->getModel('Namespace')->get( 'search' );
+    if( empty($params[App::xlat('route_paginator_page')]) || empty($session->search['keyword'])  ){
+      return null;
+    }
+    return $this->search($session->search['keyword'], $params[App::xlat('route_paginator_page')], FALSE);
   }
 
   function get_phrase(){
@@ -125,10 +141,10 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
 
     $total_verses_in_chapter = $this->get_verses_in_chapter($book_seo_name, $chapter);
 
-    return array_merge($res, array('verse'=>$verse, 'chapter'=>$chapter, 'verses_in_chapter' => $total_verses_in_chapter['total'])); 
+    return array_merge($res, array('verse'=>$verse, 'chapter'=>$chapter, 'verses_in_chapter' => $total_verses_in_chapter['total']));
   }
 
-  function get_books(){
+  function get_books($testament = null){
 
     $select = $this->_db->select()
                    ->from(array('bo'  => 'rv60_books'  ), array('book_id' ,'book' ,'seo', 'testament') )
@@ -136,6 +152,11 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                    ->where('la.namespace = ?', App::locale()->getName() )
                    ->group( array ('bo.book_id') )
                    ->order( array('bo.book_id ASC') );
+
+    if( ($testament == "old") || ($testament == "new") ){
+      $select->where( "bo.testament = ?", $testament );
+    }
+
     $res = $this->_db->query( $select )->fetchAll();
 
     if( empty($res) ){
@@ -143,6 +164,29 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
     }
 
     return $res;
+  }
+
+  function get_books_for_dropbox($testament = null){
+    $books = $this->get_books( $testament );
+
+    if( empty($books) ){
+      return array("0" => App::xlat("EXC_books_werent_found"));
+    }
+
+    $current_testament = 'old';
+    $options   = ($testament == 'new')? array() :  array('old' => App::xlat('BIBLE_testament_old'));
+    foreach($books AS $book){
+      if($book['testament'] <> $current_testament){
+        $testament    = "new";
+        $options['new'] = App::xlat('BIBLE_testament_new');
+      }
+      $options[ $book['seo'] ] = $book['book'];
+    }
+    return $options;
+  }
+
+  function get_books_for_dropbox_in_json($testament = null){
+    return App::module('Core')->getModel('Json')->encode( $this->get_books_for_dropbox($testament) );
   }
 
   function get_chapters($book_seo = null){

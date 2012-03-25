@@ -64,8 +64,11 @@
 
         BIBLE_chapter, "Capítulo"
         BIBLE_verse, "Versículo"
-        BIBLE_testament_1, "Antiguo Testamento"
-        BIBLE_testament_2, "Nuevo Testamento"
+        BIBLE_testament_old, "Antiguo Testamento"
+        BIBLE_testament_new, "Nuevo Testamento"
+        BIBLE_testament_both, "Ambos"
+        BIBLE_book_selector, "Selecciona el libro en el cual quieres buscar"
+
 
         BIBLE_BLOCK_book_details_topic, "Detalle del libro actual"
         BIBLE_BLOCK_book_details_subtitle, "Caracteristicas generales del libro"

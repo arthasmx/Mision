@@ -3,10 +3,7 @@
   <span><?=App::xlat('BIBLE_block_search_subtitle')?></span>
 </h1>
 <img src="<?=App::media('/images/holy-bible.jpg')?>" alt=" <?=App::xlat('BIBLE_block_search_subtitle')?> " title=" <?=App::xlat('BIBLE_block_search_subtitle')?> " class="none" height="95" width="300" />
-<form id="bible-search" name="bible-search" method="post" action="<?=App::base( App::xlat('route_bible') )?>buscar">
-  <input name="search" type="text" maxlength="30" class="intro" />
-  <input type="submit" value="buscar" />
-</form>
+<?=$this->form?>
 <p class="col_description intro"><?=App::xlat('BIBLE_block_search_description')?></p>
 <p class="right">
   <a href="<?=App::url_translate('LINK_bible')?>">

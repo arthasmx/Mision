@@ -45,7 +45,7 @@
 
     .right-panel .bible_search{
       padding: 0 20px;
-      height:225px;
+      height:255px;
       background: url(/skin/v1/default/light-blue/art/bks/holy-bible.png) no-repeat center transparent;
     }
       .right-panel .bible_search h1, .right-panel .bible_search h1 span{
@@ -58,6 +58,10 @@
 .left-panel  { width:645px; margin:0 0 40px; padding:0 35px 0 0; float:left;}
     div#content .announcement h1 {padding:0;}
     div#content .left-panel p.description {padding:10px 0 30px;}
+
+    div#search-data{ width: 605px; padding-left:20px; }
+    div#search-data .data h1{ font-size: 12px; }
+
 div.events .block{ width:295px; margin:0; padding:0 23px 20px 0; float:left; text-align: justify;}
     div#content .events .block h3{padding:0;}
 

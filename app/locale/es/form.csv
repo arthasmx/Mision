@@ -15,6 +15,7 @@ FORM_comments, "Comentarios"
 FORM_button_cancel, "Cancelar"
 
 FORM_submit,"Enviar"
+FORM_search,"Buscar"
 FORM_button_send_comment, "Enviar comentario"
 FORM_captcha,"Ingrese el código de la imagen"
 

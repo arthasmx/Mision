@@ -30,12 +30,18 @@ class BibleController extends Module_Default_Controller_Action_Frontend {
     $book_seo             = $this->getRequest()->getParam('book');
     $chapter              = $this->getRequest()->getParam('chapter');
     $verse                = $this->getRequest()->getParam('verse');
+
     $this->view->verse    = App::module('Addons')->getModel('Bible')->get_verse( $book_seo, $chapter, $verse );
     $this->view->details  = App::module('Addons')->getModel('Bible')->get_book_details( $book_seo );
 
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->details['book'], $book_seo, $chapter, $verse );
   }
 
+  function loadBooksAction(){
+    $this->designManager()->setCurrentLayout('ajax');
+    echo App::module('Addons')->getModel("Bible")->get_books_for_dropbox_in_json( $this->getRequest()->getParam("testament") );
+    exit;
+  }
 
   protected function get_breadcrumbs( $action = null, $book_name=null, $book=null, $chapter=null, $verse=null ){
 

@@ -32,7 +32,7 @@
   <div class="right-panel">
 
     <div class="block bible_books">
-      <?=App::module('Addons')->renderBlock("bible/index","search")?>
+      <?=App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "advanced") )?>
       <?=App::module('Addons')->renderBlock("bible/index","books", array("book_id" => $this->book['book_id']))?>
     </div>
 

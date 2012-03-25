@@ -6,34 +6,36 @@
       <?=App::xlat('BIBLE_search_result_topic') . " <i>$this->searched_string</i>"?>
       <span><?=App::xlat('CONTENT_subtitle_bible')?></span>
     </h1>
-    <?php if( ! empty($this->search['items']) ): ?>
-      <table class="bible_search_result">
-        <?= empty($this->search['pagination_html']) ? '' : "<tr><td>" . $this->search['pagination_html'] . "</td></tr>" ?>
 
-        <?php foreach($this->search['items'] AS $search):?>
-          <tr>
-            <td>
-              <a href="<?=App::base( App::xlat('route_bible') . $search['seo'] . $ds . $search['cap'] )?>">
-                <?="{$search['book']} {$search['cap']}:{$search['ver']}"?>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td><?=$search['texto']?></td>
-          </tr>
-        <?php endforeach;?>
+    <div id='search-results'>
+      <?= empty($this->search['pagination_html']) ? '' : $this->search['pagination_html'];?>
 
-        <?= empty($this->search['pagination_html']) ? '' : "<tr><td>" . $this->search['pagination_html'] . "</td></tr>" ?>
-      </table>
-    <?php else: ?>
-      <p>
-        <?=App::xlat('BIBLE_search_nothing_found')?>
-      </p>
-    <?php endif; ?>
+        <div id='search-data'>
+          <?php if( ! empty($this->search['items']) ): ?>
+
+            <?php foreach($this->search['items'] AS $search):?>
+              <div class='data'>
+                <a href="<?=App::base( App::xlat('route_bible') . $search['seo'] . $ds . $search['cap'] )?>">
+                  <?="{$search['book']} {$search['cap']}:{$search['ver']}"?>
+                </a>
+                <h1><?=$search['texto']?></h1>
+              </div>
+            <?php endforeach;?>
+
+          <?php else: ?>
+
+            <p> <?=App::xlat('BIBLE_search_nothing_found')?> </p>
+
+          <?php endif; ?>
+        </div>
+
+      <?= empty($this->search['pagination_html']) ? '' : $this->search['pagination_html'];?>
+    </div>
+
   </div>
 
   <div class="right-panel">
-    <?=App::module('Addons')->renderBlock("bible/index","search", array() )?>
+    <?=App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "advanced", "reset"=>"yes") )?>
   </div>
 
 <?php

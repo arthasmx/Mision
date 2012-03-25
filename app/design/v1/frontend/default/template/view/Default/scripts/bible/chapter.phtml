@@ -26,7 +26,7 @@
   </div>
 
   <div class="right-panel">
-    <?=App::module('Addons')->renderBlock("bible/index","search")?>
-    <?=App::module('Addons')->renderBlock("bible/index","books", array("book_id" => $this->details['book_id']))?>
+    <?=App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "advanced") )?>
     <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details))?>
+    <?=App::module('Addons')->renderBlock("bible/index","books", array("book_id" => $this->details['book_id']))?>
   </div>

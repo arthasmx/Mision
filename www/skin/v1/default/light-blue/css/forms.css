@@ -29,6 +29,7 @@ form#form-contact fieldset dl.field-submit dt#submit-label{
     div.col p.intro{
       height: 112px;
     }
+    form#bible-search label, form#bible-search dt#button-label{ color: #fff;}
 
 /* comments */
 div#comments div#comments-form, div#comments div.comments div.reply-form{

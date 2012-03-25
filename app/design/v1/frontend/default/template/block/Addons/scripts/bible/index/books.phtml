@@ -1,6 +1,4 @@
-<?php 
-  $testament = 1;
-?>
+<?php $testament = "old"; ?>
 <div class="block bible_books">
   <h1 class="no-line">
     <?=App::xlat('BIBLE_books_block_topic')?>
@@ -8,11 +6,11 @@
   </h1>
   <form id="book-selection" name="book-selection" method="post" action="">
     <select multiple >
-      <option class="testament" value=""><?=App::xlat('BIBLE_testament_1')?></option>
+      <option class="testament" value=""><?=App::xlat('BIBLE_testament_old')?></option>
       <?php foreach($this->books AS $book): ?>
         <?php if($book['testament'] <> $testament):?>
-          <option class="testament" value=""><?=App::xlat('BIBLE_testament_2')?></option>
-          <?php $testament=2;?>
+          <option class="testament" value=""><?=App::xlat('BIBLE_testament_new')?></option>
+          <?php $testament="new";?>
         <?php endif;?>
         <option value="<?=$book['seo']?>" <?=($this->current_book_id==$book['book_id']) ? "selected" : false;?> ><?=$book['book']?></option>
       <?php endforeach;?>
