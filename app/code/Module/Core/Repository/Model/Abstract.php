@@ -1,7 +1,7 @@
 <?php
 class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model {
 
-  public $id                  = null;
+  public $id                  = false;
   public $strip               = true;
   public $paginator_page      = false;
   public $paginator_page_name = false;

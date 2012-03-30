@@ -154,6 +154,11 @@
     ; EVENTS & ANNOUNCEMENT
         LISTING_no_data_found, "No se han encontrado registros para esta sección"
 
+; YOUTUBE
+  YOUTUBE_video_about_title, "Reseña de Iglesia la Misión en video"
+  YOUTUBE_video_about_subtitle, "Pasado y presente de nuestra congregación"
+  YOUTUBE_no_video_found, "No se encontró el video "
+
 ; RATING
   RATING_block_rate, "Que te parece este articulo ?"
   RATING_block_rating_subtitle, "Posiciona el mouse sobre el icono y haz click para calificar"

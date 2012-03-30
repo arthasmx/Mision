@@ -1,0 +1,18 @@
+<div class="block youtube_video">
+  <h1>
+    <?=$this->title?>
+    <span><?=$this->subtitle?></span>
+  </h1>
+
+  <?php if( empty($this->video) ): ?>
+    <p><?=App::xlat('YOUTUBE_no_video_found')?></p>
+  <?php else:?>
+    <object width="<?=$this->video['width']?>" height="<?=$this->video['height']?>">
+      <param name="movie" value="<?=$this->video['url']?>&autoplay=<?=$this->video['autoplay']?>"></param>
+      <param name="wmode" value="transparent"></param>
+      <embed src="<?=$this->video['url']?>" type="application/x-shockwave-flash" width="<?=$this->video['width']?>" height="<?=$this->video['height']?>"></embed>
+    </object>
+    <p><?=$this->video['title']?></p>
+  <?php endif;?>
+
+</div>

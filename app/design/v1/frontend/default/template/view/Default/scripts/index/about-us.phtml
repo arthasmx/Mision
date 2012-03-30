@@ -9,9 +9,7 @@
   </div>
 
   <div class="right-panel">
-    <h1>A ver que ponemos aqui<span>Sed congue, dui vel tristique mollis...</span></h1>
-    <p><strong>Address Info</strong><br />123 Pine Street<br />Mycity, ST 19000</p>
-    <p><strong>Email:</strong><a href="mailto:contact@mycompany.com"> contact@mycompany.com</a><br />
-      <strong>Website:</strong> <a href="#">www.mycompany.com</a><br />
-      <strong>Phone:</strong> 0800-123456 </p>
+    <?=App::module('Addons')->renderBlock("youtube/index","show-video", array(  'id'       => '_YTYaB7fP-A'
+                                                                              , 'title'    => App::xlat('YOUTUBE_video_about_title')
+                                                                              , 'subtitle' => App::xlat('YOUTUBE_video_about_subtitle') ) );?>
   </div>
