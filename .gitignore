@@ -14,3 +14,4 @@ app.php
 .project
 app/etc/db.ini
 www/media/images/gallery/
+www/media/predicacion/

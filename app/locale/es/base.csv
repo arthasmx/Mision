@@ -18,6 +18,7 @@
   HEADER_follow_us_gplus, "Google Plus!"
   HEADER_follow_us_youtube, "Youtube"
 
+
 ;AJAX
   AJAX_loading, "cargando datos..."
   AJAX_empty_search, "El campo de búsqueda esta vacio!"
@@ -189,10 +190,15 @@
 MAIL_public_contact_paragraph_1, "Paz de Cristo!<br /><br /><br />Te informo que <strong>"
 MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario por medio de tu página "
 
+; NOTES
+  NOTE_topic, "Nota"
+  NOTE_popup_warning, "Para reproducir las predicaciones en audio, se requiere tener habilitado los Pop-ups"
 
 ;MANUAL EXCEPTIONS
   EXC_NO_ACTION_TO_PARSE, "Se requiere una acción para ejecutar el método <strong>convert_seo_url_to_action</strong>"
   EXC_article_wasnt_found, "El articulo que buscas no ha sido encontrado"
+  EXC_file_wasnt_found, "El archivo que has solicitado no ha sido encontrado"
+  EXC_file_is_not_set, "No se ha establecido el archivo"
   EXC_books_werent_found, "No se encontraron los libros de la Biblia"
   EXC_chapters_werent_found, "No se encontraron los capítulos del libro "
   EXC_book_wasnt_found, "El libro no existe"

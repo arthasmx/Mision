@@ -82,11 +82,33 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   }
 
   function preachingAction(){
-    $this->view->preaching       = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_preaching' );
+    App::header()->addScript(App::url()->get('/highslide.js','js'));
+    App::header()->addScript(App::url()->get('/highslide.with.html.config.js','js'));
+    App::header()->addLink(App::skin('/css/highslide.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->addCode("
+        <script type='text/javascript'>
+          hs.graphicsDir = '" . App::skin('/art/highslide/') . "';
+          hs.outlineType = 'rounded-white';
+          hs.outlineWhileAnimating = true;
+        </script>
+        ");
+
+    $this->view->preaching        = App::module('Addons')->getModel('Audio')->get_preaching( $this->getRequest()->getParam( App::xlat('route_paginator_page') ) );
+    $this->view->pageBreadcrumbs  = $this->get_breadcrumbs( 'LINK_preaching' );
   }
 
+  function preachAction(){
+    $this->designManager()->setCurrentLayout('ajax');
+    $this->view->preach = App::module('Addons')->getModel('Audio')->get_preach( $this->getRequest()->getParam('id'), TRUE, TRUE );
+  }
 
+/* DOWNLOADS */
+
+  function audioDownloadAction(){
+    $file_path = $this->getRequest()->getParam('folder').DS.$this->getRequest()->getParam('year').DS.$this->getRequest()->getParam('month').DS.$this->getRequest()->getParam('file'); 
+    App::module('Core')->getModel('Filesystem')->set_file($file_path)->force_to_download();
+    exit;
+  }
 
   protected function get_breadcrumbs( $breadcrumb = null ){
     if( empty($breadcrumb)){

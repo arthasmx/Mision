@@ -7,11 +7,13 @@
   <p>
     <?= eval('?>' . $this->article['article'] . '<?php ');?>
   </p>
-  <?php foreach($this->addons AS $addon):?>
-    <?=App::module('Addons')->renderBlock("gallery/index","loadAddon", array("addon"    => $addon
-                                                                            , "id"      =>$this->article['article_id']
-                                                                            , "created" =>$this->article['created'] ));?>
-  <?php endforeach; ?>
+  <?php if( !empty($this->addons)):?>
+    <?php foreach($this->addons AS $addon):?>
+      <?=App::module('Addons')->renderBlock("gallery/index","loadAddon", array("addon"    => $addon
+                                                                              , "id"      =>$this->article['article_id']
+                                                                              , "created" =>$this->article['created'] ));?>
+    <?php endforeach; ?>
+  <?php endif;?>
 </div>
 
 <div class="right-panel">

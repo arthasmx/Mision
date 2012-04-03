@@ -54,7 +54,9 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs(  $this->getRequest()->getParam('action') , $this->view->article['title']  );
   }
 
-
+  function readAction(){
+    $this->read_article();
+  }
 
   protected function get_breadcrumbs($action=null, $title=null ){
     switch ( $action ){
@@ -79,6 +81,11 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
                 array('title'=> $title )
               );
               break;
+      case 'read':
+        return array(
+        array('title'=> $title )
+        );
+        break;
       default:
               return null;
               break;

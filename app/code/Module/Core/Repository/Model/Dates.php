@@ -91,4 +91,15 @@ class Module_Core_Repository_Model_Dates extends Core_Model_Repository_Model {
     return date("$date",strtotime("-$hour_to_rest hour"));
   }
 
+  function is_time_between_times($time_start=null, $time_end=null, $time_to_look_for=null){
+    if ($time_to_look_for > strtotime( $time_start ) && $time_to_look_for < strtotime( $time_end )) {
+      return true;
+    }
+    return false;
+  }
+
+  function is_date_between_dates($dt_start=null, $dt_end=null, $dt_check=null){
+    return $this->is_time_between_times($dt_start, $dt_end, $dt_check);
+  }
+
 }

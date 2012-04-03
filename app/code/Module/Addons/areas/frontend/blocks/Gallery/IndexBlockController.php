@@ -8,17 +8,17 @@ class Addons_Gallery_IndexBlockController extends Core_Controller_Block {
     $addon  = $this->getParam('addon');
     $params = array( "id" => $this->getParam('id'), "created" => $this->getParam('created') );
 
-    switch( $addon['addon_id'] ){
-      case 1:
+    switch( $addon['type'] ){
+      case 'video':
              break;
 
-       case 2:
+       case 'audio':
              break;
 
-       case 3:
+       case 'gallery':
                $this->setScriptAction("gallery-addon");
 
-               App::header()->addScript(App::url()->get('/highslide-with-gallery.packed.js','js'));
+               App::header()->addScript(App::url()->get('/highslide.js','js'));
                App::header()->addCode("
                    <script type='text/javascript'>
                    hs.graphicsDir = '" . App::skin('/art/highslide/') . "';
@@ -29,6 +29,10 @@ class Addons_Gallery_IndexBlockController extends Core_Controller_Block {
 
                $this->view->gallery = $this->get_gallery( $params );
              break;
+
+       case 'file':
+             break;
+
       default:
              break;
     }

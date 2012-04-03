@@ -1,0 +1,24 @@
+  <div class="left-panel">
+    <h1>
+      <?=$this->article['title']?>
+      <span><?=str_replace("%written-date%", App::locale()->toDate($this->article['publicated'],'long'), App::xlat('CONTENT_subtitle_article_written_by'))?> <?=$this->article['autor']?></span>
+    </h1>
+    <p>
+      <?= eval('?>' . $this->article['article'] . '<?php ');?>
+    </p>
+    <?php if( !empty($this->addons)):?>
+      <?php foreach($this->addons AS $addon):?>
+        <?=App::module('Addons')->renderBlock("gallery/index","loadAddon", array("addon"    => $addon
+                                                                                , "id"      =>$this->article['article_id']
+                                                                                , "created" =>$this->article['created'] ));?>
+      <?php endforeach; ?>
+    <?php endif;?>
+  </div>
+
+<div class="right-panel">
+  <?=App::module('Addons')->renderBlock("rating/index","get-rating", array('id' => $this->article['article_id']))?>
+  <?=App::module('Addons')->renderBlock("poll/index","get-poll");?>
+  <?=App::module('Addons')->renderBlock("site/index","social-networks");?>
+</div>
+
+  <?=App::module('Addons')->renderBlock("comments/index","get-comments", array('id' => $this->article['article_id'], 'type' => 'article' ))?>

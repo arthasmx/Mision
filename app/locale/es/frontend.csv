@@ -13,6 +13,14 @@
         CONTENT_subtitle_privacy, "Toda información proporcionada es celosamente protegida"
         CONTENT_subtitle_bible, "Antigua versión de Casiodoro de reina (1569). Revisada por Cipriano de Valera(1602)"
         CONTENT_subtitle_article_written_by, "Escrito el %written-date%, por "
+        CONTENT_title_preaching, "Predicaciones"
+        CONTENT_subtitle_preaching,"Para esto yo fui constituido predicador y apóstol (verdad en Cristo), y maestro de los gentiles en fe y verdad. <a href='%url%'>1ra de Timoteo 2:7</a>"
+        CONTENT_preaching_instructions, "Tenemos para ustedes las predicaciones emitidas en nuestra congregación en formato MP3. Puedes reproducirlo en nuestra página o descargarlo a tu dispositivo electrónico. Deseamos de todo corazón que este audio sirva para edificar y fortalecer más nuestra fé en el Señor Jesucristo."
+        CONTENT_preaching_instructions_blessing, "Dios les bendiga"
+        CONTENT_preaching_empty, "No se han encontrado predicaciones"
+            CONTENT_preaching_playing, "Reproduciendo..."
+            CONTENT_preaching_playing_preach, "Predicación del dia "
+            CONTENT_preaching_not_found, "<strong>No se ha encontrado el archivo de sonido</strong><br /><br />Ayúdanos a mantener funcionando este sitio; envía un mensaje indicando el archivo al cual diste click.<p class='right'>Gracias! Dios le pague!</p>"
 
         MAINPAGE_column_guestbook, "Libro de visitas"
             MAINPAGE_column_guestbook_main_title, "Bienvenido a nuestro libro de visitas"
@@ -218,3 +226,5 @@
     form_element_comment, "Comentarios: "
     form_element_captcha, "Código de verificación: "
     invalid_field, " Es inválido"
+
+

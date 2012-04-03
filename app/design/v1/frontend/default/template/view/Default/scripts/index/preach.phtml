@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title> <?=App::xlat('CONTENT_preaching_playing')?> </title>
+  <style>
+body {
+  text-align: center;
+  background: none repeat scroll 0 0 #F4F4F4;
+  margin: 0;
+  padding: 0;
+  font: 12px/1.8em "Lucida Sans Unicode","Lucida Grande",Tahoma,verdana,arial;
+}
+h1.logo{
+    margin: 0 auto;
+    width: 236px;;
+  line-height:0;
+  font-weight: lighter;
+}
+h1.logo a {
+    background: url("/skin/v1/default/light-blue/art/logos/iglesia_la_mision_logo_small.png") no-repeat scroll center center transparent;
+    display: block;
+    height: 50px;
+    text-indent: -4000px;
+}
+h1.logo span {
+    font-size:0.5em;
+    color: #164399;
+    letter-spacing: 0.6px;
+}
+blockquote{
+  margin:30px 10px;
+  line-height:1.1;
+  text-align: justify;
+}
+</style>
+ </head>
+
+<body>
+
+    <h1 class="logo">
+      <a href="#"><?=App::getConfig('website_name')?></a>
+      <span><?=App::xlat('HEADER_site_logo_slogan')?></span>
+    </h1>
+    <?php if(empty( $this->preach ) ): ?>
+      <blockquote><?=App::xlat('CONTENT_preaching_not_found')?></blockquote>
+    <?php else:?>
+      <blockquote>
+        <?=$this->preach['description']?>
+        <br /><br />
+        <?=App::xlat('CONTENT_preaching_playing_preach') . App::module('Core')->getModel('Dates')->toDate(7,$this->preach['event_date'])?>
+      </blockquote>
+
+      <object type="application/x-shockwave-flash" data="http://flash-mp3-player.net/medias/player_mp3_maxi.swf" width="200" height="25">
+        <param name="movie" value="http://flash-mp3-player.net/medias/player_mp3_maxi.swf" />
+        <param name="bgcolor" value="#ffffff" />
+        <param name="FlashVars" value="mp3=<?=$this->preach['file']?>&amp;height=25&amp;autoplay=1&amp;showstop=1&amp;showvolume=1&amp;bgcolor1=ffffff&amp;bgcolor2=cccccc&amp;slidercolor2=999999&amp;sliderovercolor=666666&amp;buttoncolor=999999&amp;buttonovercolor=000000&amp;textcolor=000000" />
+      </object>
+    <?php endif;?>
+</body>
+</html>
+
+<?php
+/*
+$this->preach 
+Array
+(
+    [id] => 4
+    [username] => robe@gmail.com
+    [created] => 2012-03-04 08:44:46
+    [event_date] => 2012-03-18
+    [privilege] => public
+    [doctype] => audio
+    [reference] => la-familia-18-Mar-2012
+    [status] => enabled
+    [name] => Predicación: La Familia Parte 3
+    [description] => Tercero y último sermón de la trilogia La Familia, impartida por el pastor Elias Páez de la Cerda.
+    [category] => predicacion
+    [thumbnail] =>
+    [lang] => es
+    [file] => http://demo.iglesialamision.mx/media/predicacion/2012/03/la-familia-18-Mar-2012.mp3
+)
+*/
+?>

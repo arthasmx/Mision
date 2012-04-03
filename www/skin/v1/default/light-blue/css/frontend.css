@@ -341,6 +341,48 @@ div#guestbook-form{
       text-align: justify;
     }
 
+/* PREACHING */
+  div.preaching{
+    float:left;
+    width:100%;
+    margin-bottom:15px;
+  }
+  div.preaching div.actions, div.preaching div.description{
+    float:left;
+    margin-right:15px;
+  }
+    div.preaching div.date{
+      text-align: right;
+      font-weight: bolder;
+    }
+    div.preaching div.description{
+      width: 435px;
+      text-align: justify;
+      margin-right:0;
+  }
+    div.left-panel span.no-pagination{
+      float:left;
+      height: 15px; width: 100%;
+    }
+
+div.preaching span.icon { background: transparent url(/skin/v1/default/light-blue/art/icons/files.png) no-repeat 0 0; height:48px; width: 48px; float: left; }
+  div.preaching span.download { background-position: -48px -48px !important; }
+  div.preaching span.download:hover { background-position: -96px -48px !important; }
+  div.preaching span.download-off { background-position: 0 -48px !important; }
+
+  div.preaching span.sound { background-position: -48px 0 !important; }
+  div.preaching span.sound:hover { background-position: -96px 0 !important; }
+  div.preaching span.sound-off { background-position: 0 0 !important; }
+
+  div.preaching span.video { background-position: -48px -96px !important; }
+  div.preaching span.video:hover { background-position: -95px -96px !important; }
+  div.preaching span.video-off { background-position: 0 -96px !important; }
+
+  div.preaching span.article { background-position: -48px -144px !important; }
+  div.preaching span.article:hover { background-position: -96px -144px !important; }
+  div.preaching span.article-off { background-position: 0 -144px !important; }
+
+
 /* END content */
 
 /* FOOTER */

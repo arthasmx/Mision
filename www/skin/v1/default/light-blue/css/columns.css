@@ -61,6 +61,7 @@
 
     div#search-data{ width: 605px; padding-left:20px; }
     div#search-data .data h1{ font-size: 12px; }
+    div.left-panel img.head-image{height:150px; border:0; width:645px;}
 
 div.events .block{ width:295px; margin:0; padding:0 23px 20px 0; float:left; text-align: justify;}
     div#content .events .block h3{padding:0;}

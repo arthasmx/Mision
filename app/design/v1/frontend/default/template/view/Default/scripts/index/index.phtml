@@ -45,17 +45,22 @@
   </div>
 
   <div class="col last">
-    <h1 class="no-line">
-      <?=App::xlat('MAINPAGE_column_sermon')?>
-      <span><?=App::xlat('MAINPAGE_column_sermon_span')?></span>
-    </h1>
-    <img src="/media/images/prayer-1.jpg" alt="picture" class="none" height="95" width="300" />
-    <p class="col_description"><?=App::xlat('MAINPAGE_column_sermon_description')?></p>
-    <p class="right">
-      <a href="<?=App::url_translate('LINK_preaching')?>">
-        <?=App::xlat('ARTICLE_read_more')?>
-      </a>
-    </p>
+    <?php $show_live_sermon = App::module('Addons')->getModel('Video')->time_to_show_live_sermon(); ?>
+    <?php if( empty( $show_live_sermon ) ): ?>
+      <h1 class="no-line">
+        <?=App::xlat('MAINPAGE_column_sermon')?>
+        <span><?=App::xlat('MAINPAGE_column_sermon_span')?></span>
+      </h1>
+      <img src="/media/images/prayer-1.jpg" alt="picture" class="none" height="95" width="300" />
+      <p class="col_description"><?=App::xlat('MAINPAGE_column_sermon_description')?></p>
+      <p class="right">
+        <a href="<?=App::url_translate('LINK_preaching')?>">
+          <?=App::xlat('ARTICLE_read_more')?>
+        </a>
+      </p>
+    <?php else:?>
+      <?=App::module('Addons')->renderBlock("video/index","live")?>    
+    <?php endif;?>
   </div>
 </div>
 

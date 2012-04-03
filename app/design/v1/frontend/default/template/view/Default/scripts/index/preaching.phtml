@@ -1,11 +1,58 @@
   <div class="left-panel">
     <h1>
-      <?=$this->preaching['title']?>
-      <span><?=App::xlat('CONTENT_subtitle_preaching')?></span>
+      <?=App::xlat('CONTENT_title_preaching')?>
+      <span><?=str_replace('%url%', App::base( App::xlat('route_bible').App::xlat('BIBLE_seo_book_1_timothy').'/2/7' ), App::xlat('CONTENT_subtitle_preaching') )?></span>
     </h1>
-    <p>
-      <?= eval('?>' . $this->preaching['article'] . '<?php ');?>
-    </p>
+    <img class="head-image" title="<?=App::xlat('CONTENT_title_preaching')?>" alt="<?=App::xlat('CONTENT_title_preaching')?>" src="<?=App::media('/images/prayer-2.jpg')?>" />
+    <p><?=App::xlat('CONTENT_preaching_instructions')?></p>
+    <p class="right"><strong><?=App::xlat('CONTENT_preaching_instructions_blessing')?></strong></p>
+
+    <?php if ( empty( $this->preaching ) ):  ?>
+      <p><?=App::xlat('CONTENT_preaching_empty')?></p>
+    <?php else:?>
+        <div class="note">
+          <span class="topic"><?=App::xlat('NOTE_topic')?></span>
+          <p><?=App::xlat('NOTE_popup_warning')?></p>
+        </div>      
+      <?= empty($this->preaching['pagination_html']) ? "<span class='no-pagination'></span>" : $this->preaching['pagination_html'] ?>
+        <?php $dates = App::module('Core')->getModel('Dates'); ?>
+        <?php foreach($this->preaching['items'] AS $preach): ?>
+        <div class="preaching">
+          <div class="date"><?=$dates->toDate(7,$preach['event_date'])?></div>
+          <div class="actions">
+
+            <a href="<?=App::base('/descargar/audio' .DS. $preach['category'] .DS. $dates->toDate(8,$preach['event_date']) .DS. $preach['reference'] .'.mp3') ?>">
+              <span class="icon download"></span>
+            </a>
+            <a href="#" onclick="pop_up('<?=App::base('/predicacion')?>','<?=$preach['id']?>');return false;">
+              <span class="icon sound"></span>
+            </a>
+
+            <?php if( empty($preach['related_files']['video']) ):?>
+              <span class="icon video-off"></span>
+            <?php else:?>
+              <a href="http://www.youtube.com/embed/<?=$preach['related_files']['video']?>?rel=0&amp;wmode=transparent" class="highslide" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 480, height: 385, allowSizeReduction: false, wrapperClassName: 'draggable-header no-footer', preserveContent: false, objectLoadTime: 'after'})">
+                <span class="icon video"></span>
+              </a>              
+            <?php endif;?>
+
+            <?php if( empty($preach['related_files']['article']) ):?>
+              <span class="icon article-off"></span>
+            <?php else:?>
+              <a href="<?=App::base('/articulo/' . $preach['related_files']['article'])?>">
+                <span class="icon article"></span>
+              </a>              
+            <?php endif;?>
+
+          </div>
+          <div class="description">
+            <?=$preach['description']?>
+          </div>
+        </div>
+        <?php endforeach;?>
+
+    <?php endif;?>
+
   </div>
 
   <div class="right-panel">
@@ -15,3 +62,40 @@
       <strong>Website:</strong> <a href="#">www.mycompany.com</a><br />
       <strong>Phone:</strong> 0800-123456 </p>
   </div>
+
+  
+<?php 
+/*
+$preaching
+    [items] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 4
+                    [username] => robe@gmail.com
+                    [created] => 2012-03-04 08:44:46
+                    [event_date] => 2012-03-18
+                    [privilege] => public
+                    [doctype] => audio
+                    [reference] => la-familia-18-Mar-2012
+                    [status] => enabled
+                    [name] => Predicación: La Familia Parte 3
+                    [description] => Tercero y último sermón de la trilogia La Familia, impartida por el pastor Elias Páez de la Cerda.
+                    [category] => predicacion
+                    [thumbnail] => 
+                    [lang] => es
+                    [related_files] => Array
+                        (
+                            [id] => 1
+                            [audio] => la-familia-18-Mar-2012
+                            [video] => 
+                            [image] => 
+                            [article] => quienes-somos
+                            [update] => 2012-04-03 13:52:33
+                            [username] => robe@gmail.com
+                        )
+
+                )
+ */
+
+?>

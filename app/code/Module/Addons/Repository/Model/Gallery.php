@@ -23,7 +23,7 @@ class Module_Addons_Repository_Model_Gallery extends Core_Model_Repository_Model
     if( empty($this->_article_path) ){
       return false;
     }
-    return App::getConfig('media_folder'). $this->get_gallery_base_path().$this->_article_path.$this->_thumbnails_path;
+    return DS . App::getConfig('media_folder'). $this->get_gallery_base_path().$this->_article_path.$this->_thumbnails_path;
   }
 
   function set_article_base_path($article = null){

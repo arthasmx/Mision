@@ -1,24 +1,85 @@
 <?php
 class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Model{
 
-  function is_found($file=false){
-    if ( empty($file) ) return false;
+  private $file	 = null;
+  private $mimes = null;
 
-    if ( file_exists( $file ) ){
-      $this->setFile($file);
-      clearstatcache();
-      return true;
+  function init(){
+    $this->mimes = $this->_module->getConfig('core', 'mime');
+  }
+
+  // File MUST exist, otherwise it'll throw an exception
+  // The objective of this class is to handle existing files, that's why U have to set FULLPATH file name
+  // $file MUST has a relative path ( predicaciones/folder/folder/filename.extension )
+  function set_file($file = null){
+    if ( empty($file) ){
+      $this->_module->exception( App::xlat('EXC_file_is_not_set') );
     }
 
-    return false;
+    // All uploaded files MUST be located in this folder (audio, video, files)
+    $media_folder = WP .DS. App::getConfig('media_folder');
+    $this->file = $media_folder .DS. $file;
+    if( ! $this->is_found() ){
+      $this->_module->exception( App::xlat('EXC_file_wasnt_found') );
+    }
+
+    return $this;
   }
 
-  function getFileSize($size=false){
-    if( empty($size) || $size<1) return false;
-    return @$size/1024;
+  function get_file(){
+    if ( empty($this->file) ) {
+      $this->_module->exception( App::xlat('EXC_file_is_not_set') );
+    }
+    return $this->file;
   }
 
-  function get_file_details($file=null){
+  function get_file_info(){
+    $basic             = pathinfo( $this->get_file() );
+    $basic['mime']     = $this->get_mime($basic['extension']);
+    $advanced          = stat( $this->get_file() );
+    return array_merge( $basic, array( 'size'=>$advanced['size'], 'atime'=>$advanced['atime'], 'mtime'=>$advanced['mtime'] ) );
+  }
+
+  function is_found(){
+    return ( empty($this->file) || ! file_exists( $this->file ) ) ?
+      false
+    :
+      true;
+  }
+
+  function force_to_download(){
+    $file_info = $this->get_file_info();
+    $file_to_download = $file_info['dirname'] .DS. $file_info['basename'];
+
+    header("Content-Description: File Transfer");
+    header("Content-Type: {$file_info['mime']}");
+    header('Content-Length: ' . $file_info['size'] );
+    header('Content-Disposition: attachment; filename="' . $file_info['basename'] . '"');
+    header('Content-Transfer-Encoding: binary');
+
+    $stream = fopen($file_to_download, 'rb');
+    while(!feof($stream)) {
+      print fread($stream, 1024);
+      flush(); ob_flush();
+    }
+    fclose ($stream);
+    exit;
+  }
+
+
+
+
+//*******************************************************
+// GENERIC METHODS: They can be used without setting file
+
+  function get_mime($extension=null){
+    return (empty($extension) || ! array_key_exists($extension, $this->mimes) ) ?
+      "unknown/$extension"
+    :
+      $this->mimes[$extension];
+  }
+
+  function get_any_file_details($file=null){
     return empty($file)? false : pathinfo($file);
   }
 
@@ -70,5 +131,7 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
       return $files;
     }
   }
+
+
 
 }

@@ -72,12 +72,9 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
 
   function get_article_addons($article_id = 0, $lang_id = 1){
     $select = $this->core->_db->select()
-                         ->from(array('aa'  => 'articles_addons' ) )
-                         ->join(array('a'  => 'addons' ), 'a.id =  aa.addon_id',array('author','edited','created','updated'))
-                         ->join(array('al'  => 'addon_lang' ), 'al.addon_id =  aa.addon_id', array('name'))
-                         ->where('al.lang_id = ?' , $lang_id)
-                         ->where( 'aa.status = 1' )
-                         ->where( 'aa.article_id = ?', $article_id );
+                         ->from(array('af'  => 'articles_files' ) )
+                         ->where( 'af.status = "enabled"' )
+                         ->where( 'af.article_id = ?', $article_id );
 
     $addons = $this->core->_db->query( $select )->fetchAll();
     return empty( $addons ) ? false : $addons;

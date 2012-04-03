@@ -36,3 +36,8 @@ function numeric_values_only(value) {
   }
  return valid_value;
 }
+
+function pop_up(route,id){
+  nueva = window.open(route + "?id=" + escape(id) ,'',CONFIG='HEIGHT=230,WIDTH=300,TOOLBAR=no,MENUBAR=no,SCROLLBARS=no,RESIZABLE=no,LOCATION=no,DIRECTORIES=no,STATUS=no');
+  return false;
+}
