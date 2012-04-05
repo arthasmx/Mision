@@ -50,11 +50,11 @@ blockquote{
         <?=App::xlat('CONTENT_preaching_playing_preach') . App::module('Core')->getModel('Dates')->toDate(7,$this->preach['event_date'])?>
       </blockquote>
 
-      <object type="application/x-shockwave-flash" data="http://flash-mp3-player.net/medias/player_mp3_maxi.swf" width="200" height="25">
-        <param name="movie" value="http://flash-mp3-player.net/medias/player_mp3_maxi.swf" />
-        <param name="bgcolor" value="#ffffff" />
-        <param name="FlashVars" value="mp3=<?=$this->preach['file']?>&amp;height=25&amp;autoplay=1&amp;showstop=1&amp;showvolume=1&amp;bgcolor1=ffffff&amp;bgcolor2=cccccc&amp;slidercolor2=999999&amp;sliderovercolor=666666&amp;buttoncolor=999999&amp;buttonovercolor=000000&amp;textcolor=000000" />
+      <object height="25" width="200" data="<?=App::media('/mp3player/player_mp3_maxi.swf')?>" type="application/x-shockwave-flash">
+        <param value="<?=App::media('/mp3player/player_mp3_maxi.swf')?>" name="movie">
+        <param value="mp3=<?=$this->preach['file']?>&height=25&autoplay=1&showstop=1&showvolume=1&bgcolor1=ffffff&bgcolor2=cccccc&slidercolor2=999999&sliderovercolor=666666&buttoncolor=999999&buttonovercolor=000000&textcolor=000000" name="FlashVars">
       </object>
+
     <?php endif;?>
 </body>
 </html>
