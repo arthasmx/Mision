@@ -17,15 +17,25 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     $this->view->current_main_menu = 0;
 
     $this->view->aboutus         = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
-		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_about' );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_about' );
   }
 
   function multimediaAction(){
 		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_menu_topic_multimedia' );
   }
 
+  function ministeryAction(){
+    $this->view->current_main_menu = 2;
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_ministery' );
+  }
+  
+  function cellAction(){
+    $this->view->current_main_menu = 3;
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_cell' );
+  }
+
   function contactUsAction(){
-    $this->view->current_main_menu = 4;
+    $this->view->current_main_menu = 5;
     $request = $this->getRequest();
 
     $form = $this->_module->getModel('Forms/Contact')->get();
@@ -101,6 +111,8 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     $this->designManager()->setCurrentLayout('ajax');
     $this->view->preach = App::module('Addons')->getModel('Audio')->get_preach( $this->getRequest()->getParam('id'), TRUE, TRUE );
   }
+
+
 
 /* DOWNLOADS */
 

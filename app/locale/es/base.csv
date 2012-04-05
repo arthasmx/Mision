@@ -87,6 +87,8 @@
   MENU_doctrine, "DOCTRINA"
   MENU_events, "EVENTOS"
   MENU_bible, "SANTA BIBLIA"
+  MENU_ministery, "MINISTERIOS"
+  MENU_cell, "CELULAS"
   MENU_fraternities, "FRATERNIDADES"
   MENU_about,"QUIENES SOMOS ?"
   MENU_contact,"CONTACTENOS"
@@ -115,6 +117,8 @@
 
   LINK_events, "eventos"
   LINK_bible, "biblia"
+  LINK_cell, "celulas"
+  LINK_ministery, "ministerios"  
   LINK_fraternities, "fraternidades"
     LINK_fraternities_men, "fraternidad/varones"
     LINK_fraternities_women, "fraternidad/damas"
