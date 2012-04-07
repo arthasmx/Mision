@@ -15,7 +15,8 @@
         margin:0;
         width: 130px;
       }
-    #menu li.first_link{ margin-left: 45px !important; }
+    ul#menu.gradient li.first_link{ margin-left: 100px !important; }
+    ul#menu.main_menu li.first_link{ margin-left: 45px !important; }
     #menu li.last_link{
       background-image: none;
     }

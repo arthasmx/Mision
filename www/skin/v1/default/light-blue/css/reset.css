@@ -123,7 +123,7 @@
     width: 100%; height: 35px;
     line-height: 32px;
    }
-   span#comment-comma{width:15px; height:11px; position:absolute; left:inherit; z-index:1; background-position:-35px -73px;}
+   span#comment-comma{width:15px; height:11px; background-position:-35px -73px; margin-left:5px; float: right;}
 
 div.note{
   float: left;
