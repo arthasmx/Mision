@@ -18,7 +18,7 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
   }
 
   function listEventsAction(){
-    $this->view->current_main_menu = 2;
+    $this->view->current_main_menu = 4;
     $this->view->events          = $this->_module->getModel('Article')
                                                  ->get_article_list_by_type( 
                                                    $this->_module->getConfig('core','article_type_event_id'),
