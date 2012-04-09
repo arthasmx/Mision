@@ -24,7 +24,6 @@ class Search_IndexController extends Module_Search_Controller_Action_Frontend {
   }
 
   function bibleSearchAction(){
-    $this->view->current_main_menu = 5;
     $this->view->searched_string   = str_replace('-', ' ', $this->getRequest()->getParam('keyword') );
     $this->view->search            = App::module('Addons')->getModel("Bible")
                                                           ->search( $this->view->searched_string , $this->getRequest()->getParam( App::xlat('route_paginator_page') ) );

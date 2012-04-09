@@ -3,9 +3,7 @@ require_once 'Module/Default/Controller/Action/Frontend.php';
 
 class BibleController extends Module_Default_Controller_Action_Frontend {
 
-  function preDispatch(){
-    $this->view->current_main_menu = 5;
-  }
+  function preDispatch(){}
 
   function indexAction(){
     $this->view->books = App::module('Addons')->getModel('Bible')->get_books();
