@@ -20,6 +20,33 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_about' );
   }
 
+  function doctrineAction(){
+    $this->view->current_main_menu = 1;
+    $this->view->doctrine_article  = App::module('Articles')->getModel('Article')->get_article( 'doctrina' );
+    if( empty($this->view->doctrine_article) ){
+      $this->_module->exception(404);
+    }
+
+    App::header()->addLink(App::skin('/css/tabs-accordion.css'),array(
+        "rel"=>"stylesheet",
+        "type"=>"text/css",
+        "media"=>"all",
+    ));
+    App::header()->addScript( App::url()->get('/jquery.tools.min.js','js') );
+    App::header()->addCode("
+        <script type='text/javascript'>
+        jQuery(document).ready(function(){
+          $('#accordion').tabs(
+            '#accordion div.pane',
+            {tabs: 'h2', effect: 'slide', initialIndex: 0}
+          );
+        });
+        </script>
+        ");
+
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_doctrine' );
+  }
+
   function multimediaAction(){
 		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_menu_topic_multimedia' );
   }

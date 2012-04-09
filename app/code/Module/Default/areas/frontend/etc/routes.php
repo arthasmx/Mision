@@ -26,21 +26,6 @@ foreach($bible_langs AS $lang=>$value){
   $router->addRoute('bible_load_'.$lang,  $load_books);
 }
 
-// Detalle de doctrina
-  $route = new Zend_Controller_Router_Route(
-      'doctrina',
-      array( 'module'     => 'Default',
-             'controller' => 'doctrine',
-             'action'     => 'doctrine'));
-  $router->addRoute('doctrine', $route);
-
-    $route = new Zend_Controller_Router_Route(
-    		'doctrina/:seo',
-        array(	'module'     => 'Default',
-              	'controller' => 'doctrine',
-              	'action'     => 'detail'));
-    $router->addRoute('doctrine-detail', $route);
-
 // Fraternidades
   $route = new Zend_Controller_Router_Route(
   		'fraternidades',
