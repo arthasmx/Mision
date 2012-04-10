@@ -1,8 +1,12 @@
+  <?=App::module('Articles')->renderBlock("index","coming-next", array("type" => App::module("Articles")->getConfig('core','article_type_event_id'), "next"=>"true" ) )?>
+  <h1>
+    <?=App::xlat('EVENTS_past')?>
+  </h1>
+
   <div class="events all-panel">
 
     <?php if( ! empty($this->events['items']) ):?>
       <?= empty($this->events['pagination_html']) ? '' : $this->events['pagination_html'] ?>
-
       <?php $core = App::module('Core')->getModel('Dates');?>
       <?php foreach( $this->events['items'] AS $event ): ?>
         <div class="block">

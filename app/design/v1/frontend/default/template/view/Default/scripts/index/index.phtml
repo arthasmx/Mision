@@ -1,24 +1,4 @@
-<div id="ddSlider_container">
-
-  <ul id="ddSlider">
-    <?php $core = App::module('Core')->getModel('Dates');?>
-    <?php foreach ($this->announcements AS $key=>$announcement): ?>
-      <li>
-        <a href="<?=App::base( "/{$announcement['article_type_seo']}/{$announcement['seo']}" )?>">
-          <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $announcement['publicated']) ."/". $announcement['article_id'] ."/". $announcement['picture']. "_slider.jpg" )?>" alt="" width="100%" height="340" />
-        </a>
-        <div class="description" ><?=$announcement['description']?></div>
-      </li>
-    <?php endforeach;?>
-  </ul>
-
-  <div class="slider_nav">
-    <div class="slider_arrow_left"></div>
-    <div class="slider_arrow_right"></div>
-    <ul class="slider_selector"></ul>
-  </div>
-
-</div>
+<?=App::module('Articles')->renderBlock("index","coming-next")?>
 <span class="separator"></span>
 <div class="bible_phrase intro_phrase gradient">
   <?=App::module('Addons')->renderBlock("bible/index","phrase")?>

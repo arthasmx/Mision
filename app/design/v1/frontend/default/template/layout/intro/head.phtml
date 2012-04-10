@@ -12,7 +12,6 @@
 <!--Links-->
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/reset.css');?>" rel="stylesheet" type="text/css" media="all" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/frontend.css');?>" rel="stylesheet" type="text/css" media="all" />
-    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/DDSlider.css');?>" rel="stylesheet" type="text/css" media="all" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/menus.css');?>" rel="stylesheet" type="text/css" media="all" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/columns.css');?>" rel="stylesheet" type="text/css" media="all" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/forms.css');?>" rel="stylesheet" type="text/css" media="all" />
@@ -45,17 +44,6 @@
         var skinRelative = "<?=App::getDesign()->getRelativeSkinPath()?>";
         var jsRelative = "<?=App::getDesign()->getRelativeJsPath()?>";
         var jsLibRelative = "<?=App::getDesign()->getRelativeJsPath("","jslib")?>";
-
-        jQuery(document).ready(function(){
-          jQuery('#ddSlider').DDSlider({
-            trans:     'fading',
-            nextSlide : '.slider_arrow_right',
-            prevSlide : '.slider_arrow_left',
-            selector  : '.slider_selector'
-          });
-
-        });
-
     </script>
 
 	<?=App::header()->getScripts();?>

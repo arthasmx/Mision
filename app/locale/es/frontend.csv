@@ -160,6 +160,8 @@
           BIBLE_seo_book_revelation,"apocalipsis"
 
     ; EVENTS & ANNOUNCEMENT
+        EVENTS_coming_soon, "Próximos Eventos"
+        EVENTS_past, "Eventos Anteriores"
         LISTING_no_data_found, "No se han encontrado registros para esta sección"
 
 ; YOUTUBE

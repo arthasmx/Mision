@@ -9,7 +9,6 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     $this->designManager()->setCurrentLayout('intro');
     $this->view->current_main_menu = null;
     $articles                      = App::module('Articles');
-    $this->view->announcements     = App::module('Articles')->getModel('Article')->get_articles_for_content_slider();
     $this->view->gallery_path      = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
   }
 

@@ -10,48 +10,75 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     $this->core = App::module('Core')->getModel('Abstract');
   }
 
-  function get_article_list_by_type( $article_type=null, $current_page = null ){
+  function get_article_list( $current_page = null, $type=null, $publicated=false, $next_events=false, $written_only=false, $status="all"){
     $select  = $this->core->_db->select()
                           ->from(array('va' => 'vista_articles' ) )
                           ->join(array('a'  => 'articles_details' ), 'a.article_id = va.article_id', array('a.description'))
                           ->where( 'va.lang_status = 1' )
                           ->where( 'va.lang_namespace = ?', App::locale()->getName() )
-                          ->where( 'va.status = 1' )
-                          ->where( 'va.publicated <= ?', date("Y-m-d h:i:s") )
-                          ->where( 'va.written = 1' )
-                          ->where( 'va.article_type_id = ?', $article_type )
                           ->order( 'va.publicated DESC');
 
+    if( ! empty($type) ){
+      $select->where( 'va.article_type_id = ?', $type );
+    }
+    if( $status!=="all" ){
+      $select->where( 'va.status = ?', $status );
+    }
+    if( $publicated===true ){
+      $select->where( 'va.publicated <= ?', date("Y-m-d h:i:s") );
+    }
+    if( $next_events===true ){
+      $select->where( 'va.event_date >= ?', date("Y-m-d h:i:s") );
+    }else{
+      $select->where( "ISNULL(va.event_date) OR va.event_date < ?", date("Y-m-d h:i:s"));
+    }
+    if( $written_only===true ){
+      $select->where( 'va.written = 1' );
+    }
+//echo "<pre>"; print_r( $select->__toString() ); echo "</pre>"; exit;
     return $this->core->setPaginator_page($current_page)->paginate_query( $select );
   }
 
-  function get_articles_for_content_slider(){
+  function get_articles_for_content_slider($type=null, $coming_next_only=null){
     $articles  = $this->core->_db->select()
                       ->from(array('va' => 'vista_articles' ) )
                       ->join(array('a'  => 'articles_details' ), 'a.article_id = va.article_id', array('a.description'))
                       ->where( 'va.lang_status = 1' )
                       ->where( 'va.lang_namespace = ?', App::locale()->getName() )
-                      ->where( 'va.status = 1' )
+                      ->where( 'va.status = "promote"' )
                       ->where( 'va.publicated <= ?', date("Y-m-d h:i:s") )
                       ->where( 'va.written = 1' )
                       ->order( 'va.article_id DESC' );
 
-    $add_n_event_ids = array( $this->_module->getConfig('core','article_type_announcement_id'),
-                              $this->_module->getConfig('core','article_type_event_id') );
-    $articles->where( $this->core->grouped_where("va.article_type_id", $add_n_event_ids) );
+    if( ! empty($coming_next_only) ){
+      $articles->where( 'va.event_date >= ?', date("Y-m-d h:i:s") );
+    }
+
+    if( ! empty($type) ){
+      $articles->where( 'va.article_type_id = ?', $type );
+    }else{
+      $add_n_event_ids = array( $this->_module->getConfig('core','article_type_announcement_id'),
+      $this->_module->getConfig('core','article_type_event_id') );
+
+      $articles->where( $this->core->grouped_where("va.article_type_id", $add_n_event_ids) );
+    }
 
     return $this->core->_db->query( $articles )->fetchAll();
   }
 
-  function get_article_basic_data( $article_seo = 'not_given!' ){
+  function get_article_basic_data( $article_seo = 'not_given!', $status="all" ){
     $article = $this->core->_db->select()
                     ->from(array('va' => 'vista_articles' ) )
                     ->where( 'va.lang_status = 1' )
                     ->where( 'va.lang_namespace = ?', App::locale()->getName() )
                     ->where( 'va.seo = ?', $article_seo )
-                    ->where( 'va.status = 1' )
                     ->where( 'va.written = 1' )
                     ->limit(1);
+
+    if( $status!=="all" ){
+      $article->where( $this->core->grouped_where("va.status", array('enabled','promote') ) );
+    }
+
     $article = $this->core->_db->query( $article )->fetch();
     return empty( $article ) ? false : $article;
   }

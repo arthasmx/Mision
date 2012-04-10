@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 /* COLUMNS */
-.all-panel   { width:955px; margin:0 0 40px; padding:0 23px 0 0; float:left;}
+.all-panel   { width:980px; margin:0 0 40px; float:left;}
 .right-panel { width:300px; margin:0; padding:0; float:left;}
     .right-panel .block{
       margin-bottom: 20px;
@@ -63,7 +63,7 @@
     div#search-data .data h1{ font-size: 12px; }
     div.left-panel img.head-image{height:150px; border:0; width:645px;}
 
-div.events .block{ width:295px; margin:0; padding:0 23px 20px 0; float:left; text-align: justify;}
+div.events .block{ width:295px; margin:0; padding:0 15px; float:left; text-align: justify;}
     div#content .events .block h3{padding:0;}
 
 

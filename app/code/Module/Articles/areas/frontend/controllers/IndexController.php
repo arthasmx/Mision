@@ -4,25 +4,26 @@ require_once 'Module/Articles/Controller/Action/Frontend.php';
 class Articles_IndexController extends Module_Articles_Controller_Action_Frontend{
 
   function preDispatch() {
-    $this->view->gallery_path      = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
+    $this->view->current_main_menu = 4;
   }
 
   function listAnnouncementAction(){
     $this->view->articles        = $this->_module->getModel('Article')
-                                                 ->get_article_list_by_type( 
-                                                   $this->_module->getConfig('core','article_type_announcement_id'),
-                                                   $this->getRequest()->getParam( App::xlat('route_paginator_page') ) 
+                                                 ->get_article_list(
+                                                   $this->getRequest()->getParam( App::xlat('route_paginator_page') ),
+                                                   $this->_module->getConfig('core','article_type_announcement_id')
                                                  );
 
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
   }
 
   function listEventsAction(){
-    $this->view->current_main_menu = 4;
+    $this->view->gallery_path    = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
     $this->view->events          = $this->_module->getModel('Article')
-                                                 ->get_article_list_by_type( 
-                                                   $this->_module->getConfig('core','article_type_event_id'),
-                                                   $this->getRequest()->getParam( App::xlat('route_paginator_page') )
+                                                 ->get_article_list(
+                                                   $this->getRequest()->getParam( App::xlat('route_paginator_page') ),
+                                                   $this->_module->getConfig('core','article_type_event_id')
+                                                   ,true
                                                  );
 
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
@@ -34,7 +35,6 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
   }
 
   function readEventsAction(){
-    $this->view->current_main_menu = 2;
     $this->read_article();
   }
 
