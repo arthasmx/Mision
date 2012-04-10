@@ -382,6 +382,11 @@ div.preaching span.icon { background: transparent url(/skin/v1/default/light-blu
   div.preaching span.article:hover { background-position: -96px -144px !important; }
   div.preaching span.article-off { background-position: 0 -144px !important; }
 
+div#content_data  ul.conditions{
+  list-style: square;
+  margin: 20px;
+}
+  
 
 /* END content */
 
