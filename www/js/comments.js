@@ -135,4 +135,8 @@ jQuery(document).ready(function(){
     jQuery('div.' + reply_id).slideToggle();
   });
 
+  jQuery('h1.comment-title').click(function(){
+    jQuery('div#comments-form').slideToggle();
+  });
+
 });

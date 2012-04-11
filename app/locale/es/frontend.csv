@@ -220,7 +220,7 @@
 ; COMMENTS
 
   ADD_COMMENTS_title, "Agregar comentario"
-  ADD_COMMENTS_subtitle, "Tu opinión es importante para nosotros; solo llena todos los campos y déjanos tus comentarios."
+  ADD_COMMENTS_subtitle, "Tu opinión es importante para nosotros; dá click en 'Agregar Comentario', completa el formulario con tus datos y déjanos tu comentario"
   COMMENTS_title, "Comentarios"
   COMMENTS_subtitle, "Listado de comentarios recibidos y aprobados por nuestro administrador"
   COMMENTS_on, "Escrito el "

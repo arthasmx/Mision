@@ -37,9 +37,10 @@ div#comments div#comments-form, div#comments div.comments div.reply-form{
   float: left;
   padding:35px;
   width: 910px;
+  display:none;
 }
+  div#comments h1.comment-title{cursor: pointer;}
   div#comments div.comments div.reply-form{
-    display:none;
     clear: both;
     width: 700px !important;
     margin: 25px auto 0;
