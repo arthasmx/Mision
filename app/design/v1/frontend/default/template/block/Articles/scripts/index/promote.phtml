@@ -1,0 +1,60 @@
+<?php if( ! empty($this->events)): ?>
+  <?php
+    $core       = App::module('Core')->getModel('Dates');
+    $navigation = array();
+  ?>
+  <div class="block article_promote">
+    <div class="images">
+      <?php foreach($this->events AS $event): ?>
+        <?php $route_by_type = App::module('Articles')->getModel('Article')->get_route_by_type($event['article_type_id']);?>
+        <div>
+          <a href="<?=App::base($route_by_type.$event['seo'])?>">
+            <img src="<?=App::media( DS. $this->gallery_path . $core->toDate(8, $event['publicated']) .DS. $event['article_id'] .DS. $event['seo']. "_promote.jpg" ) ?>" width="<?=$this->width?>" height="<?=$this->height?>" alt="<?=$event['title']?>" title="<?=$event['title']?>" />
+          </a>
+        </div>
+      <?php $navigation[]='<a href="#"></a>'; ?>
+      <?php endforeach;?>
+    </div>
+
+    <div class="slidetabs">
+      <?=implode('',$navigation);?>
+    </div>
+  </div>
+<?php endif;?>
+
+
+<?php 
+/*
+Array
+(
+[0] => Array
+(
+  [id] => 164
+  [article_id] => 177
+  [title] => Congreso celular
+  [seo] => congreso-celular-177
+  [created] => 2011-04-28 09:39:31
+  [publicated] => 2011-04-28 09:39:31
+  [event_date] => 2012-04-14 08:46:50
+  [username] => robe@gmail.com
+  [autor] => Roberto Mejia
+  [written] => 1
+  [picture] => congreso-celular-177
+  [article_type_id] => 3
+  [article_type_name] => Eventos
+  [article_type_seo] => eventos
+  [category_id] => 2
+  [category_name] => Articulos
+  [category_seo] => articulos
+  [status] => promote
+  [status_name] => Deleted
+  [lang_id] => 1
+  [language] => es
+  [lang_namespace] => es_MX
+  [lang_status] => 1
+  [addon] => 1
+  [description] => El cometa Lovejoy, su órbita lo acercará a sólo 140.000 kilómetros por encima de la superficie solar.
+)
+ */
+
+?>

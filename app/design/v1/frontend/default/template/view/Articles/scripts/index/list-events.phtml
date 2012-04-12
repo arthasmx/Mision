@@ -1,4 +1,4 @@
-  <?=App::module('Articles')->renderBlock("index","coming-next", array("type" => App::module("Articles")->getConfig('core','article_type_event_id'), "next"=>"true" ) )?>
+  <?=App::module('Articles')->renderBlock("index","coming-next", array("category" => App::module("Articles")->getConfig('core','article_type_event_id'), "past_next"=>"next" ) )?>
   <h1>
     <?=App::xlat('EVENTS_past')?>
   </h1>

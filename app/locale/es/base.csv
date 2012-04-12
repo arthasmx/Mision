@@ -173,6 +173,7 @@
   ; MULTIMEDIA
     route_multimedia, "/multimedia/"
   ; ARTICLES
+    route_articles, "/articulos/"
     route_announcement, "/anuncios/"
     route_events, "/eventos/"
   ; GUESTBOOK

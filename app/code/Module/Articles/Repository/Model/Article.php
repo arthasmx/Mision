@@ -35,11 +35,11 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     if( $written_only===true ){
       $select->where( 'va.written = 1' );
     }
-//echo "<pre>"; print_r( $select->__toString() ); echo "</pre>"; exit;
+
     return $this->core->setPaginator_page($current_page)->paginate_query( $select );
   }
 
-  function get_articles_for_content_slider($type=null, $coming_next_only=null){
+  function get_articles_for_content_slider($category=null, $past_next=null, $limit=null){
     $articles  = $this->core->_db->select()
                       ->from(array('va' => 'vista_articles' ) )
                       ->join(array('a'  => 'articles_details' ), 'a.article_id = va.article_id', array('a.description'))
@@ -50,12 +50,15 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
                       ->where( 'va.written = 1' )
                       ->order( 'va.article_id DESC' );
 
-    if( ! empty($coming_next_only) ){
+    if( $past_next==="next" ){
       $articles->where( 'va.event_date >= ?', date("Y-m-d h:i:s") );
     }
+    if( ! empty($limit) ){
+      $articles->limit( $limit );
+    }
 
-    if( ! empty($type) ){
-      $articles->where( 'va.article_type_id = ?', $type );
+    if( ! empty($category) ){
+      $articles->where( 'va.article_type_id = ?', $category );
     }else{
       $add_n_event_ids = array( $this->_module->getConfig('core','article_type_announcement_id'),
       $this->_module->getConfig('core','article_type_event_id') );
@@ -107,4 +110,14 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     return empty( $addons ) ? false : $addons;
   }
 
+  function get_route_by_type($type_id=null){
+    $route_by_type = array( $this->_module->getConfig('core','article_type_announcement_id')  => App::xlat('route_announcement')
+                            ,$this->_module->getConfig('core','article_type_event_id')        => App::xlat('route_events')
+                            ,$this->_module->getConfig('core','article_type_article_id')      => App::xlat('route_articles') );
+
+    return empty($type_id) || !array_key_exists($type_id, $route_by_type) ?
+             null
+           :
+             $route_by_type[$type_id];
+  }
 }

@@ -1,0 +1,46 @@
+.images {
+  position:relative;
+  float:left;
+  width:300px; height:300px;
+  cursor:pointer;
+  /* CSS3 tweaks for modern browsers */
+  box-shadow: 3px 5px 10px #666666;
+  border-radius: 5px 5px 5px 5px;
+}
+
+/* single slide */
+.images div {
+  display:none; position:absolute; top:0; left:0;
+  padding:8px;
+  width: 284px; height:284px; /*256px;*/
+}
+
+/* tabs (those little circles below slides) */
+.slidetabs {
+  clear: both;
+  float: right;
+  margin-right: 10px;
+  position: relative;
+  top: -20px;
+}
+
+/* single tab */
+.slidetabs a {
+    width:8px;
+    height:8px;
+    float:left;
+    margin:3px;
+    background:url(/skin/v1/default/light-blue/art/jquerytools/navigator.png) 0 0 no-repeat;
+    display:block;
+    font-size:1px;
+}
+
+/* mouseover state */
+.slidetabs a:hover {
+    background-position:0 -8px;
+}
+
+/* active state (current page state) */
+.slidetabs a.current {
+    background-position:0 -16px;
+}
