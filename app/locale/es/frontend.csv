@@ -57,8 +57,8 @@
         OPERATION_HOURS_SATURDAY_teens_class, "11:00 AM, Clases de Principes"
         OPERATION_HOURS_SUNDAY_service, "Domingo"
         OPERATION_HOURS_SUNDAY_morning, "10:00 AM, Primer culto"
-        OPERATION_HOURS_SUNDAY_afternoon, "03:00 PM, Segundo culto"
-        OPERATION_HOURS_SUNDAY_evening, "06:00 PM, Tercer culto"
+        OPERATION_HOURS_SUNDAY_afternoon, "04:00 PM, Segundo culto"
+        OPERATION_HOURS_SUNDAY_evening, "07:00 PM, Tercer culto"
 
     ; BIBLE
         BIBLE_search_result_topic, "Resultados de la búsqueda"
