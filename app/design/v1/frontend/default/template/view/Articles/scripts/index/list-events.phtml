@@ -10,10 +10,10 @@
       <?php $core = App::module('Core')->getModel('Dates');?>
       <?php foreach( $this->events['items'] AS $event ): ?>
         <div class="block">
-          <h3 class="no-line">
+          <h2 class="no-line strong">
             <?=$event['title']?>
             <span><?=App::locale()->toDate($event['publicated'],'long')?></span>
-          </h3>
+          </h2>
           <a href="<?=App::base( App::xlat('route_events').$event['seo'] )?>">
             <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $event['publicated']) ."/". $event['article_id'] ."/". $event['seo']. "_listing.jpg" ) ?>" width="295" height="95" alt="<?=$event['title']?>" title="<?=$event['title']?>" />
           </a>

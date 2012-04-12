@@ -139,8 +139,6 @@
 /* CONTENT */
 
 div#content h1, div#content h2, div#content h3 { color:#777; margin:0 0 10px; border-bottom:1px solid #D4D4D4; padding-bottom:10px; }
-    div#content h2 { font-size: 19px;}
-    div#content h3 { font-size: 17px;}
 div#content h1 span, div#content h2 span, div#content h3 span, span.written { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
 
 div#content .comment { float:right; width:44px; height:46px; background:url(images/comment_bg.gif) no-repeat; font:normal 22px Arial, Helvetica, sans-serif; color:#a4a4a4; line-height:38px; text-align:center;}
@@ -385,7 +383,14 @@ div#content_data  ul.conditions{
   list-style: square;
   margin: 20px;
 }
-  
+
+div.sitemap-block{
+ float: left;
+ width: 200px; 
+}
+  div.sitemap-block.first{
+    margin-left:100px;
+  }
 
 /* END content */
 

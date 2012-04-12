@@ -1,26 +1,30 @@
   <?php $core = App::module('Core')->getModel('Dates');?>
   <?php if( ! empty($this->coming_next)): ?>
-    <h1>
-      <?=App::xlat('EVENTS_coming_soon')?>
-    </h1>
-  <?php endif;?>
-  <div id="ddSlider_container">
+    <?php if( App::getDesign()->getCurrentLayout()==="default"): ?>
+      <h1>
+        <?=App::xlat('EVENTS_coming_soon')?>
+      </h1>
+    <?php endif;?>
 
-    <ul id="ddSlider">
-      <?php foreach ($this->coming_next AS $key=>$next_event): ?>
-        <li>
-          <a href="<?=App::base( "/{$next_event['article_type_seo']}/{$next_event['seo']}" )?>">
-            <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $next_event['publicated']) ."/". $next_event['article_id'] ."/". $next_event['picture']. "_slider.jpg" )?>" alt="" width="100%" height="340" />
-          </a>
-          <div class="description" ><?=$next_event['description']?></div>
-        </li>
-      <?php endforeach;?>
-    </ul>
-  
-    <div class="slider_nav">
-      <div class="slider_arrow_left"></div>
-      <div class="slider_arrow_right"></div>
-      <ul class="slider_selector"></ul>
+    <div id="ddSlider_container">
+
+      <ul id="ddSlider">
+        <?php foreach ($this->coming_next AS $key=>$next_event): ?>
+          <li>
+            <a href="<?=App::base( "/{$next_event['article_type_seo']}/{$next_event['seo']}" )?>">
+              <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $next_event['publicated']) ."/". $next_event['article_id'] ."/". $next_event['picture']. "_slider.jpg" )?>" alt="" width="100%" height="340" />
+            </a>
+            <div class="description" ><?=$next_event['description']?></div>
+          </li>
+        <?php endforeach;?>
+      </ul>
+
+      <div class="slider_nav">
+        <div class="slider_arrow_left"></div>
+        <div class="slider_arrow_right"></div>
+        <ul class="slider_selector"></ul>
+      </div>
+
     </div>
-  
-  </div>
+
+  <?php endif;?>
