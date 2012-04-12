@@ -4,7 +4,7 @@ class Articles_IndexBlockController extends Core_Controller_Block {
 
   function init() {}
 
-  function comingNextAction(){
+  function sliderAction(){
     $this->view->gallery_path    = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
     $this->view->coming_next     = App::module('Articles')->getModel('Article')->get_articles_for_content_slider( $this->getParam("category"), $this->getParam('past_next') );
 
