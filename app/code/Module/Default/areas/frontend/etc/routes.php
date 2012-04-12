@@ -26,21 +26,6 @@ foreach($bible_langs AS $lang=>$value){
   $router->addRoute('bible_load_'.$lang,  $load_books);
 }
 
-// Fraternidades
-  $route = new Zend_Controller_Router_Route(
-  		'fraternidades',
-      array(	'module'     => 'Default',
-            	'controller' => 'fraternity',
-            	'action'     => 'index'));
-  $router->addRoute('fraternidad-all', $route);
-
-  $route = new Zend_Controller_Router_Route(
-  		'fraternidad/:gender',
-      array(	'module'     => 'Default',
-            	'controller' => 'fraternity',
-            	'action'     => 'fraternity'));
-  $router->addRoute('fraternidad-section', $route);
-
 // Multimedia
   $route = new Zend_Controller_Router_Route(
   		'multimedia',
