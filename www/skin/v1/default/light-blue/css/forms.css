@@ -14,11 +14,11 @@ div.contact-form{
   padding:25px;
   margin-top:30px;
 }
-form#form-contact fieldset dl.field-captcha{
+fieldset dl.field-captcha{
   float:left;
   width: 250px;
 }
-form#form-contact fieldset dl.field-submit dt#submit-label{
+fieldset dl.field-submit dt#submit-label{
   height: 15px;
 }
 
@@ -63,10 +63,9 @@ div#comments div.comments div.reply-form ul.form-errors{
   }
   #content_data #comments fieldset.comments-right-group{
     width: 675px;
-    float: left;
   }
 
-    #content_data dd input#captcha{width: 4em; margin-top:11px;}
+    dd input#captcha{width: 4em !important; margin-top:11px;}
 
   form#reply dl.field-button{
     float: left;

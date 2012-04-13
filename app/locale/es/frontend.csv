@@ -240,5 +240,6 @@
     form_element_comment, "Comentarios: "
     form_element_captcha, "Código de verificación: "
     invalid_field, " Es inválido"
-
-
+ ;FLEXAR
+    FLEXAR_pharagraph_1,"Preguntas, sugerencias o reporte de error ? pongase en contacto con nosotros para dar solución inmediata a su petición."
+    FLEXAR_slogan,"Flexar | Diseño de aplicaciones para internet"  

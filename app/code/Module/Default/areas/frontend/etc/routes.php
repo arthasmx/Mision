@@ -49,6 +49,14 @@ foreach($bible_langs AS $lang=>$value){
              'action'     => 'audio-download'));
   $router->addRoute('download', $route);
 
+  // Flexar
+  $route = new Zend_Controller_Router_Route(
+      'flexar',
+      array( 'module'     => 'Default',
+             'controller' => 'index',
+             'action'     => 'flexar'));
+  $router->addRoute('flexar', $route);
+
 function array_push_assoc($array, $key, $value){
  $array[$key] = $value;
  return $array;

@@ -2,11 +2,6 @@
 
 ;HEADER
   HEADER_LOGO_ALT,"Flexar | Diseño de aplicaciones para internet"
-;FOOTER
-  FOOTER_AUTHOR_BY, "Diseño de"
-  FOOTER_AUTHOR_TEXT, "Flexar.com.mx"
-  FOOTER_AUTHOR_URL,"http://www.flexar.com.mx"
-  FOOTER_LOGO_ALT,"Flexar | Diseño de aplicaciones para internet"
 
 ;CONTENT
 
@@ -123,6 +118,7 @@
   LINK_preaching, "predicaciones"
   LINK_guestbook, "libro-de-visitas"
     form_element_gender, "Género: "
+  LINK_flexar, "flexar"
 
   ; FOOTER MENU
     FOOTER_menu_topic_important_links, "Acerca del sitio"
@@ -181,8 +177,12 @@
   ADDON_GALLERY_no_files_found_to_show_image_gallery, "No existen imagenes para mostrar en esta galeria"
 
 ;MAIL
-MAIL_public_contact_paragraph_1, "Paz de Cristo!<br /><br /><br />Te informo que <strong>"
-MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario por medio de tu página "
+  ;CONTACT
+    MAIL_public_contact_paragraph_1, "Paz de Cristo!<br /><br /><br />Te informo que <strong>"
+    MAIL_public_contact_paragraph_2, "</strong> ha enviado el siguiente comentario por medio de tu página "
+  ;FLEXAR
+    MAIL_FLEXAR_contact_paragraph_1,"Mensaje Urgente:<br /><br /><br />Se ha recibido una solicitud de soporte, enviado por <strong>"
+    MAIL_FLEXAR_contact_paragraph_2,"</strong> en la página: "
 
 ; NOTES
   NOTE_topic, "Nota"

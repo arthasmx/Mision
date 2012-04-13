@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <config>
 
-	<template>intro.phtml</template>
+	<template>default.phtml</template>
 
 	<include as='head' template='intro/head.phtml' />
 	<include as='page' template='default/page.phtml'>

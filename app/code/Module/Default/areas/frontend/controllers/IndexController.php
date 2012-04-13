@@ -138,6 +138,30 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     $this->view->preach = App::module('Addons')->getModel('Audio')->get_preach( $this->getRequest()->getParam('id'), TRUE, TRUE );
   }
 
+  function flexarAction(){
+    $this->designManager()->setCurrentLayout('flexar');
+
+    $request = $this->getRequest();
+    $form    = $this->_module->getModel('Forms/Flexar')->get();
+    if ( $request->isPost() ){
+
+      require_once('Xplora/Captcha.php');
+      $captcha = new Xplora_Captcha();
+      if ( ! $captcha->validate(@$_POST['captcha']) ) {
+        $form->getElement('captcha')->getValidator('Custom')->addError("captchaWrongCode",App::xlat("ERROR_bad_captcha"));
+      }
+
+      if($form->isValid($_POST) ) {
+        App::events()->dispatch('module_default_flexar',array("to"=>App::module('Email')->getConfig('core','remitente_carboncopy_rcpt'), "comment"=>$request->getParam('comment'), "name"=>$request->getParam('name'), "email"=>$request->getParam('email')));
+        $this->view->message_sent = true;
+        $form->reset();
+      }else{
+        $form->populate($_POST);
+      }
+
+    }
+    $this->view->form = $form;
+  }
 
 
 /* DOWNLOADS */

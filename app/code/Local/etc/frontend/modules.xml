@@ -53,6 +53,7 @@
       <observers>
         <!-- Default -->
           <module_default_contacto>default/contact</module_default_contacto> <!-- Captura el envío de email de contacto -->
+          <module_default_flexar>default/flexar</module_default_flexar>
 
       </observers>
     </Email>
