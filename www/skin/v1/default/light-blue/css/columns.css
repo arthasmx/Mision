@@ -63,8 +63,8 @@
     div#search-data .data h1{ font-size: 12px; }
     div.left-panel img.head-image{height:150px; border:0; width:645px;}
 
-div.events .block{ width:295px; margin:0; padding:0 15px; float:left; text-align: justify;}
-    div#content .events .block h3{padding:0;}
+div.announcement .block, div.events .block{ width:295px; margin:0; padding:0 15px; float:left; text-align: justify;}
+    div#content .announcement .block h3, div#content .events .block h3{padding:0;}
 
 
   div#content_data div.left-panel table{

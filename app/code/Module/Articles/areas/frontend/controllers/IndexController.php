@@ -5,10 +5,11 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
 
   function preDispatch() {
     $this->view->current_main_menu = 4;
+    $this->view->gallery_path    = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
   }
 
   function listAnnouncementAction(){
-    $this->view->articles        = $this->_module->getModel('Article')
+    $this->view->announcement    = $this->_module->getModel('Article')
                                                  ->get_article_list(
                                                    $this->getRequest()->getParam( App::xlat('route_paginator_page') ),
                                                    $this->_module->getConfig('core','article_type_announcement_id')
@@ -18,7 +19,6 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
   }
 
   function listEventsAction(){
-    $this->view->gallery_path    = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
     $this->view->events          = $this->_module->getModel('Article')
                                                  ->get_article_list(
                                                    $this->getRequest()->getParam( App::xlat('route_paginator_page') ),

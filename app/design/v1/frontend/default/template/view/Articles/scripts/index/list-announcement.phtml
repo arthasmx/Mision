@@ -1,32 +1,27 @@
-  <div class="announcement left-panel">
+<div class="announcement all-panel">
 
-    <?php if( ! empty($this->events['items']) ):?>
-      <?= empty($this->articles['pagination_html']) ? '' : $this->articles['pagination_html'] ?>
-
-      <?php $core = App::module('Core')->getModel('Dates');?>
-      <?php foreach( $this->articles['items'] AS $article ): ?>
-        <h1> <?=$article['title']?> </h1>
-        <a href="<?=App::base( App::xlat('route_announcement').$article['seo'] )?>">
-          <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $article['publicated']) ."/". $article['article_id'] ."/". $article['seo']. "_listing.jpg" ) ?>" width="645" height="220" alt="<?=$article['title']?>" title="<?=$article['title']?>" />
+  <?php if( ! empty($this->announcement['items']) ):?>
+    <?= empty($this->announcement['pagination_html']) ? '' : $this->announcement['pagination_html'] ?>
+    <?php $core = App::module('Core')->getModel('Dates');?>
+    <?php foreach( $this->announcement['items'] AS $announcement ): ?>
+      <div class="block">
+        <h2 class="no-line strong">
+          <?=$announcement['title']?>
+          <span><?=App::locale()->toDate($announcement['publicated'],'long')?></span>
+        </h2>
+        <a href="<?=App::base( App::xlat('route_announcement').$announcement['seo'] )?>">
+          <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $announcement['publicated']) .DS. $announcement['article_id'] .DS. $announcement['seo']. "_listing.jpg" ) ?>" width="295" height="170" alt="<?=$announcement['title']?>" title="<?=$announcement['title']?>" />
         </a>
-        <p class="bottom-line"><?=App::locale()->toDate($article['publicated'],'long')?></p>
-        <p class="description"><?=$article['description']?></p>
-      <?php endforeach; ?>
-      <?= empty($this->articles['pagination_html']) ? '' : $this->articles['pagination_html'] ?>
+      </div>
+    <?php endforeach; ?>
+    <?= empty($this->announcement['pagination_html']) ? '' : $this->announcement['pagination_html'] ?>
 
-    <?php else:?>
-      <h3 class="no-line empty-listing"> <?=App::xlat('LISTING_no_data_found')?> </h3>
-    <?php endif;?>
+  <?php else:?>
+    <h3 class="no-line empty-listing"> <?=App::xlat('LISTING_no_data_found')?> </h3>
+  <?php endif;?>
 
-  </div>
+</div>
 
-  <div class="right-panel">
-    <h1>A ver que ponemos aqui<span>Sed congue, dui vel tristique mollis...</span></h1>
-    <p><strong>Address Info</strong><br />123 Pine Street<br />Mycity, ST 19000</p>
-    <p><strong>Email:</strong><a href="mailto:contact@mycompany.com"> contact@mycompany.com</a><br />
-      <strong>Website:</strong> <a href="#">www.mycompany.com</a><br />
-      <strong>Phone:</strong> 0800-123456 </p>
-  </div>
 
 <?php
 /*
