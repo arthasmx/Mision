@@ -22,9 +22,6 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   function doctrineAction(){
     $this->view->current_main_menu = 1;
     $this->view->doctrine_article  = App::module('Articles')->getModel('Article')->get_article( 'doctrina' );
-    if( empty($this->view->doctrine_article) ){
-      $this->_module->exception(404);
-    }
 
     App::header()->addLink(App::skin('/css/tabs-accordion.css'),array(
         "rel"=>"stylesheet",
@@ -52,9 +49,10 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
 
   function ministeryAction(){
     $this->view->current_main_menu = 2;
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_ministery' );
+    $this->view->article           = App::module('Articles')->getModel('Article')->get_article( 'ministerios' );
+    $this->view->pageBreadcrumbs   = $this->get_breadcrumbs( 'LINK_ministery' );
   }
-  
+
   function cellAction(){
     $this->view->current_main_menu = 3;
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_cell' );
