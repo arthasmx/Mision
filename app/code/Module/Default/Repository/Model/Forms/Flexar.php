@@ -13,7 +13,7 @@ class Module_Default_Repository_Model_Forms_Flexar extends Core_Model_Repository
                         'required'    => true,
                         'validators'  => array( array( 'stringLength', true, array(6))),
                         'class'       => 'required',
-                        'size'        => 35
+                        'size'        => 30
      ));
 
     $form->addElement(  'text', 'email', array(
@@ -21,7 +21,7 @@ class Module_Default_Repository_Model_Forms_Flexar extends Core_Model_Repository
                         'required'    => true,
                         'validators'  => array( 'EmailAddress', array( 'stringLength', true, array(6))),
                         'class'       => 'required',
-                        'size'        => 35
+                        'size'        => 30
      ));
 
     $form->addDisplayGroup(
@@ -36,7 +36,7 @@ class Module_Default_Repository_Model_Forms_Flexar extends Core_Model_Repository
                         'required'    => true,
                         'validators'  => array( array( 'stringLength', true, array(10))),
                         'class'       => 'required',
-                        'cols'        => 65,
+                        'cols'        => 64,
                         'rows'        => 8
      ));
 

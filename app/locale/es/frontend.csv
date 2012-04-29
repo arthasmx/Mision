@@ -241,5 +241,5 @@
     form_element_captcha, "Código de verificación: "
     invalid_field, " Es inválido"
  ;FLEXAR
-    FLEXAR_pharagraph_1,"Preguntas, sugerencias o reporte de error ? pongase en contacto con nosotros para dar solución inmediata a su petición."
+    FLEXAR_pharagraph_1,"Preguntas, sugerencias o reporte de error ? póngase en contacto con nosotros."
     FLEXAR_slogan,"Flexar | Diseño de aplicaciones para internet"  

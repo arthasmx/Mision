@@ -393,18 +393,17 @@ div.sitemap-block{
   }
 
     /* FLEXAR SECTION */
-      body.flexar{background: transparent url(/skin/v1/default/light-blue/art/bks/flexar-bk.gif) repeat; }
-      div.flexar{
-        margin: 0 auto;
-        width: 980px;
-      }
+      body.flexar{background: transparent url(/skin/v1/default/light-blue/art/bks/flexar-bk-pattern.gif) repeat; }
+      div.flexar { padding:0; margin:0 auto; background:url(/skin/v1/default/light-blue/art/bks/flexar-bk-top.gif) top center repeat-x; height: 562px; width: 100%; }
         div.flexar-form{
-          box-shadow: 0px 0px 5px 10px #D2D2D2;
-          border-radius: 5px;
-          background-color: #D2D2D2;
-          margin: 30px auto;
+          margin: 10px auto;
           width: 535px;
         }
+          form#flexar input, form#flexar textarea {
+            background-color: #555 !important;
+            color:#bbb !important;
+          }
+          form#flexar label{color:#bbb !important;}
           form#flexar fieldset, form#flexar dl.field-comment{
             padding: 10px 20px 0;
           }
@@ -415,11 +414,12 @@ div.sitemap-block{
 
         div.flexar p{
           margin: 0 auto;
-          width: 750px;
+          width: 500px;
           color:#bbb; text-align: center;
         }
       h1.flexar-big {
-        margin: 80px auto;
+        margin: 0 auto;
+        padding: 80px 0 40px;
         width: 140px;
       }
       h1.flexar-big span{

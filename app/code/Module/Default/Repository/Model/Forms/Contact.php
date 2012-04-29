@@ -27,7 +27,7 @@ class Module_Default_Repository_Model_Forms_Contact extends Core_Model_Repositor
                         'required'    => true,
                         'validators'  => array( array( 'stringLength', true, array(10))),
                         'class'       => 'required',
-                        'cols'        => 80,
+                        'cols'        => 78,
                         'rows'        => 8
      ));
 
