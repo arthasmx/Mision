@@ -8,7 +8,6 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   function indexAction(){
     $this->designManager()->setCurrentLayout('intro');
     $this->view->current_main_menu = null;
-    $articles                      = App::module('Articles');
     $this->view->gallery_path      = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
   }
 
@@ -55,7 +54,12 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
 
   function cellAction(){
     $this->view->current_main_menu = 3;
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_cell' );
+    $this->view->cells             = App::module('Addons')->getModel('Cells')->get_cells(false);
+    $libraries                     = App::module('Core')->getModel('Libraries');
+    $libraries->jquery_tools_no_image_tabs();
+    $libraries->highslide_html();
+
+    $this->view->pageBreadcrumbs   = $this->get_breadcrumbs( 'LINK_cell' );
   }
 
   function contactUsAction(){
@@ -116,16 +120,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   }
 
   function preachingAction(){
-    App::header()->addScript(App::url()->get('/highslide.js','js'));
-    App::header()->addScript(App::url()->get('/highslide.with.html.config.js','js'));
-    App::header()->addLink(App::skin('/css/highslide.css'),array('rel'=>'stylesheet','type'=>'text/css'));
-    App::header()->addCode("
-        <script type='text/javascript'>
-          hs.graphicsDir = '" . App::skin('/art/highslide/') . "';
-          hs.outlineType = 'rounded-white';
-          hs.outlineWhileAnimating = true;
-        </script>
-        ");
+    App::module('Core')->getModel('Libraries')->highslide_html();
 
     $this->view->preaching        = App::module('Addons')->getModel('Audio')->get_preaching( $this->getRequest()->getParam( App::xlat('route_paginator_page') ) );
     $this->view->pageBreadcrumbs  = $this->get_breadcrumbs( 'LINK_preaching' );
