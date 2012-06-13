@@ -70,4 +70,8 @@ jQuery(document).ready(function(){
 
   });
 
+  jQuery('form#book-selection select, form#chapter-selection select').change(function(){
+    window.location = baseUrl + route_bible + $(this).val();
+  });
+
 });
