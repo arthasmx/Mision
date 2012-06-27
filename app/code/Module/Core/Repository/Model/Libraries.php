@@ -51,12 +51,12 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     $this->bible();
     App::header()->addCode("
         <script type='text/javascript'>
-        var bad_request  = '". App::xlat('EXC_bad_request') ."';
-        var ajax_loading = '". App::xlat('AJAX_loading') ."';
-        var empty_search = '". App::xlat('AJAX_empty_search') ."';
-        var route_bible  = '". App::xlat('route_bible') ."';
-        var load_books_url   = '". App::base() . App::xlat('route_bible') ."load-books';
-        var choose_an_option = '". App::xlat('AJAX_choose_an_option') ."';
+          var bad_request  = '". App::xlat('EXC_bad_request') ."';
+          var ajax_loading = '". App::xlat('AJAX_loading') ."';
+          var empty_search = '". App::xlat('AJAX_empty_search') ."';
+          var route_bible  = '". App::xlat('route_bible') ."';
+          var load_books_url   = '". App::base() . App::xlat('route_bible') ."load-books';
+          var choose_an_option = '". App::xlat('AJAX_choose_an_option') ."';
         </script>
         ");
   }

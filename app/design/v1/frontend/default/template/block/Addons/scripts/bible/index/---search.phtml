@@ -1,0 +1,22 @@
+<div id="bible-options">
+  <ul class="options">
+    <li class="search"></li>
+    <li class="info"></li>
+  </ul>
+</div>
+
+<div class="bible_search hide">
+  <h1 class="no-line">
+    <?=App::xlat('BIBLE_search')?>
+    <span><?=App::xlat('BIBLE_search_subtitle')?></span>
+  </h1>
+  <?=$this->form?>
+</div>
+
+<div class="bible_info hide">
+  <h1 class="no-line">
+    <?=App::xlat('BIBLE_info_title')?>
+  </h1>
+  <p><?=App::xlat('BIBLE_info_description')?></p>
+  <button id="close"><?=App::xlat('FORM_close')?></button>
+</div>

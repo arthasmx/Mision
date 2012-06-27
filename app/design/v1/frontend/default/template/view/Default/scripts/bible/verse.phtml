@@ -1,49 +1,77 @@
-<div class="left-panel">
-  <h1>
-    <?="{$this->details['book']} {$this->verse['chapter']} : {$this->verse['verse']}"?>
-    <span><?=App::xlat('CONTENT_subtitle_bible')?></span>
-  </h1>
-  <img height="150" width="645" title="<?=App::xlat('CONTENT_subtitle_bible')?>" alt="<?=App::xlat('CONTENT_subtitle_bible')?>" src="<?=App::media('/images/holy-bible-2.jpg') ?>" />
-  <?=App::module('Addons')->renderBlock("bible/index", "versesPaginator", array("book"    => $this->details['seo'], 
-                                                                                "chapter" => $this->verse['chapter'], 
-                                                                                "verse"   => $this->verse['verse'],
-                                                                                "verses_total" => $this->verse['verses_in_chapter'] ));?>
-  <?=$this->verse['texto']; ?>
-</div>
+<?php
+  $book_details = array('book'=>$this->book['book'], 'seo'=>$this->book['seo'], 'chapter'=>$this->book['chapter'], 'current_chapter'=>$this->verse['chapter'], 'current_verse'=>$this->verse['verse'], 'verses_in_chapter'=>$this->verse['verses_in_chapter'], 'verses'=>$this->book['verses'], 'testament'=>$this->book['testament'] );
+?>
 
-<div class="right-panel">
-  <?=App::module('Addons')->renderBlock("bible/index","search")?>
-  <?=App::module('Addons')->renderBlock("bible/index","chapters", array("book" =>  $this->details['book'], "book_seo" => $this->details['seo'], "chapter" => $this->verse['chapter'] ))?>
-  <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details, "chapter"=>$this->verse['chapter']))?>
+<div class="all-panel">
+  <div id="bible-book">
+
+    <div class="opened">
+
+      <?=App::module('Addons')->renderBlock("bible/index","options", array("section" => "verse", "book_id" => $this->book['book_id'], "details" => $book_details) )?>
+
+      <div class="top">
+        <div class="t-left"></div> <div class="t-right"></div>
+      </div>
+
+      <div class="mid">
+        <div class="current-book">
+          <?php foreach($this->book['separated'] AS $key=>$char): ?>
+            <?=$char."<br />"?>
+          <?php endforeach; ?>
+        </div>
+        <div class="verse">
+          <?=App::module('Addons')->renderBlock("bible/index", "versesPaginator", array("book"         => $this->book['seo'],
+                                                                                        "chapter"      => $this->verse['chapter'],
+                                                                                        "verse"        => $this->verse['verse'],
+                                                                                        "verses_total" => $this->verse['verses_in_chapter'] ));?>
+          <p><?=$this->verse['texto']; ?></p>
+        </div>
+
+      </div>
+
+      <div class="bot">
+        <div class="b-left"></div> <div class="b-right"></div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <?php
-
 /*
 $this->verse
 Array
 (
-    [id] => 1465
-    [texto] => Porque cuando yo venía de Padan-aram, se me murió Raquel en la tierra de Canaán, en el camino, como media legua de tierra viniendo a Efrata; y la sepulté allí en el camino de Efrata, que es Belén.
-    [verse] => 7
-    [chapter] => 48
-    [verses_in_chapter] => 22
+    [id] => 9
+    [texto] => Y dijo Dios: Sea la luz;  y fue la luz.
+    [verse] => 3
+    [chapter] => 1
+    [verses_in_chapter] => 31
 )
-$this->details
+$this->book
 Array
 (
     [book_id] => 1
     [book] => Génesis
     [seo] => genesis
     [lang_id] => 1
-    [testament] => 1
+    [testament] => old
     [name] => Español
     [prefix] => es
     [namespace] => es_MX
     [status] => 1
     [verses] => 1533
     [chapter] => 50
+    [separated] => Array
+        (
+            [0] => G
+            [1] => e
+            [2] => n
+            [3] => e
+            [4] => s
+            [5] => i
+            [6] => s
+        )
 )
-
 */
 ?>

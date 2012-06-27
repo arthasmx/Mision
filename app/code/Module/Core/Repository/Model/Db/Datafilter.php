@@ -14,7 +14,7 @@ class Module_Core_Repository_Model_Db_Datafilter extends Module_Core_Repository_
 
     foreach($params AS $key=>$value){
       $filter_found = stristr($key, self::FILTER_PREFIX );
-      if( ! empty($filter_found) && ! $this->is_default_value($key,$value,$params['type']) ){
+      if( ! empty($filter_found) && $this->is_default_value($key,$value,$params['type'])===FALSE ){
         $filters[$key] = $value;
       }
     }

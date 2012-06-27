@@ -41,3 +41,21 @@ function pop_up(route,id){
   nueva = window.open(route + "?id=" + escape(id) ,'',CONFIG='HEIGHT=230,WIDTH=300,TOOLBAR=no,MENUBAR=no,SCROLLBARS=no,RESIZABLE=no,LOCATION=no,DIRECTORIES=no,STATUS=no');
   return false;
 }
+
+function show_div(target){
+  if(typeof(target)=='undefined'){
+    return false;
+  }
+  jQuery(target).removeClass('hide').addClass('shown').hide().fadeIn('slow');
+}
+
+function hide_div(target){
+  if(typeof(target)=='undefined'){
+    return false;
+  }
+  jQuery(target).removeClass('shown').fadeOut('slow').addClass('hide');
+}
+
+function add_hidden_element(name, value, target){
+  jQuery('<input />').attr('type', 'hidden').attr('name', name).attr('value', value).appendTo(target);
+}

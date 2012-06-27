@@ -130,6 +130,10 @@
         font-weight:bold !important;
         font-size:10pt !important;
       }
+      #breadcrumbs li em{
+        float: none;
+        font-style: italic; color: #000;
+      }
       
       div#content table.doctrine img{
         border: none;
@@ -146,7 +150,7 @@ div#content p.about { background:#e6e6e6; border-left:5px solid #cdcdcd; padding
 div#content p span { font-size:18px; font-weight:bold; color:#888;}
 div#content ul, div#content ol {text-align:justify;}
   div#content ol{list-style: decimal;}
-  div#content ol.verse li{ padding:10px 0; font: 12px/1.2em Arial,Helvetica,sans-serif; }
+  div#content ol.verse li{ padding:2px 0; font: 12px/1.2em Georgia,Times,serif; color:#000; }
     div#content ol.verse li a { font:12px/1.2em Arial,Helvetica,sans-serif; color:#777;}
     div#content ol.verse li a:hover { color:#B7B7B7;}
 
@@ -154,6 +158,134 @@ div#content ul.list li { float:left; width:50%; padding:3px 0;}
 div#content img.noborder { border:0; padding:0; margin:10px 10px 0 0;}
 div#content img.none { float:none; margin:0; padding:0; border:none; background:none;}
 div#content img.f_left { float:left;}
+
+  div#bible{
+    background: transparent url(/skin/v1/default/light-blue/art/bks/bible.png) no-repeat center;
+    margin: 0 auto;
+    width: 935px; height: 675px;
+  }
+    div#bible-left, div#bible-right{
+      float: left;
+      width: 350px; height: 400px;
+      padding: 80px 0 0 80px;
+    }
+    div#bible ul{
+      float: left;
+      width: 175px;
+    }
+    div#bible-options{
+      -moz-border-bottom-colors: none;
+      -moz-border-image: none;
+      -moz-border-left-colors: none;
+      -moz-border-right-colors: none;
+      -moz-border-top-colors: none;
+      background-color: #383733;
+      border-color: #383733;
+      border-radius: 3px 0 0 3px;
+      border-style: solid none solid solid;
+      border-width: 1px 0 1px 1px;
+      box-shadow: -5px 0 10px -8px rgba(0, 0, 0, 0.25) inset, 0 1px 0 #555 inset;
+      position: absolute;
+      top: 330px;
+      margin-left: 4px;
+      padding: 5px 0 0 10px;
+      width: 35px; height: 70px;
+    }
+    div#bible-options ul.options li, div#book-options ul.options li, div#chapter-options ul.options li, div#search-options ul.options li, div#verse-options ul.options li { background: transparent url(/skin/v1/default/light-blue/art/icons/bible-icons.png) no-repeat 0 0; height:24px; width: 24px; float: left; cursor: pointer; margin:5px 0 0 2px; }
+      li.info { background-position: -1px -1px !important; }
+      li.info:hover { background-position: -1px -26px !important; }
+      li.search { background-position: -25px 0px !important; }
+      li.search:hover { background-position: -25px -27px !important; }
+      li.books{ background-position: -94px 0 !important; }
+      li.books:hover { background-position: -94px -25px !important; }
+      li.chapter{ background-position: -48px 0 !important; }
+      li.chapter:hover { background-position: -48px -25px !important; }
+      li.summary{ background-position: -117px 0 !important; }
+      li.summary:hover { background-position: -117px -25px !important; }
+      li.verse{ background-position: -71px 0 !important; }
+      li.verse:hover { background-position: -71px -25px !important; }
+
+    div.option.search, div.option.info, div.option.books, div.option.chapter, div.option.summary, div.option.verse{
+      position: absolute;
+      width: 600px; height: 245px;
+      background-color: #F2F2F2;
+      top: 330px;
+      margin-left: 50px;
+      padding: 15px 20px;
+      background: transparent url(/skin/v1/default/light-blue/art/bks/bible-search.jpg) no-repeat 0 0;
+      border-radius: 5px;
+    }
+      div.option.info p {line-height:1;}
+      div.option.info li{height: 13px; color: #F5E164;}
+      div.option.info li.instruction, div.option.info li strong{color: #b7b7b7;}
+      
+
+  div#bible-book div.opened{
+    width:980px; height:242px;
+  }
+    div#bible-book div.opened div.top, div#bible-book div.opened div.mid, div#bible-book div.opened div.bot div.mid,  div#bible-book div.opened div.bot{
+      float:left;
+      width: 980px; height: 21px;
+    }
+    div#bible-book div.opened div.top{ background: #fff url(/skin/v1/default/light-blue/art/bks/book-top-mid.jpg) repeat-x 0 0; }
+    div#bible-book div.opened div.mid{ background: #fff url(/skin/v1/default/light-blue/art/bks/book-mid.jpg) repeat-y 0 0; height: auto; }
+    div#bible-book div.opened div.bot{ background: #fff url(/skin/v1/default/light-blue/art/bks/book-bot-mid.jpg) repeat-x 0 0; }
+      div#bible-book div.opened div.top div.t-left, div#bible-book div.opened div.bot div.b-left{
+        float: left;
+        width: 205px; height: 21px;
+        background: transparent url(/skin/v1/default/light-blue/art/bks/book-top-left.jpg) no-repeat 0 0;
+      }
+      div#bible-book div.opened div.bot div.b-left{
+        background: transparent url(/skin/v1/default/light-blue/art/bks/book-bot-left.jpg) no-repeat 0 0;
+      }
+      div#bible-book div.opened div.top div.t-right, div#bible-book div.opened div.bot div.b-right{
+        float: right;
+        width: 19px; height: 21px;
+        background: transparent url(/skin/v1/default/light-blue/art/bks/book-top-right.jpg) no-repeat 0 0;
+      }
+      div#bible-book div.opened div.bot div.b-right{
+        background: transparent url(/skin/v1/default/light-blue/art/bks/book-bot-right.jpg) no-repeat 0 0;
+      }
+    div#bible-book div.opened div.mid div.current-book{
+      float: left;
+      width: 25px;
+      margin:0 110px 0 60px;
+      font-size:1.5em; text-align: center; font-weight: lighter; line-height:1;
+    }
+    div#bible-book div.opened div.mid ul{
+      float: left;
+      width: 150px;
+    }
+    div.opened div.mid div.verses, div.opened div.mid div.verse{
+      float: left;
+      width: 700px;
+      margin-left: 20px;
+    }
+      div.opened div.mid div.verse p{font: 16px/1.2em Georgia,Times,serif; margin:20px 0 50px; }
+    div.opened div.mid div.search-data{ width: 765px; margin-left: 175px; }
+    div.search-data .data h1{ font-size: 12px; }
+
+  div#book-options, div#chapter-options, div#search-options, div#verse-options{
+    width: 113px; height: 35px;
+    margin-left: 150px;
+    padding: 5px 0 0 10px;
+    background-color: #535353;
+    border-radius: 3px 3px 0 0;
+  }
+    div#chapter-options{width: 145px;}
+    div#search-options{width: 108px;}
+    div#verse-options{width: 182px;}
+    div#bible-book div.opened div.option.search, div#bible-book div.opened div.option.info, div#bible-book div.opened div.option.books, div#bible-book div.opened div.option.chapter, div#bible-book div.opened div.option.search, div#bible-book div.opened div.option.summary, div#bible-book div.opened div.option.verse{
+      top: 295px;
+      margin-left: 150px;
+      border-radius: 0 0 5px 5px;
+    }
+    div#book-options ul.options li, div#chapter-options ul.options li, div#search-options ul.options li, div#verse-options ul.options li{
+      margin-right: 10px;
+    }
+
+
+
 
 div.pagination { display:block; text-align:center; height:22px; clear:both; padding:20px; }
 
@@ -201,7 +333,14 @@ div.pagination .disabled_tnt_pagination {
     cursor:default;
 }
 
-  form#book-selection select, form#chapter-selection select{ width:260px; height:255px;  }
+  form#book-selection select, form#chapter-selection selec, form#summary-selection select, form#chapter-selection select, form#verse-selection select{ width:235px; height:170px;  }
+    form#summary-selection select option.remove-attr{ 
+      border-bottom: 1px solid;
+      color: #0000FF;
+      font-weight: bold;
+      height: 1.5em;
+      margin-bottom: 5px;
+  }
   form#book-selection option.testament{font-size:16px; margin:10px 0; font-weight: bold;  }
 
   div.poll-options p{color:#55C3FF; font-weight: bold;}

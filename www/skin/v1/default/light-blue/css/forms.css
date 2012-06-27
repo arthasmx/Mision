@@ -23,13 +23,21 @@ fieldset dl.field-submit dt#submit-label{
 }
 
 /* bible-search form */
-  form#bible-search input.intro{
+  div.col form#bible-search input#search{
     width: 20em;
+    margin: 0 !important;
   }
+  div.option.search form#bible-search input#search{
+    width: 20em;
+    margin-right:300px;
+  }
+  form#bible-search fieldset#buttons{
+    margin-top:10px;
+  }
+    form#bible-search label, form#bible-search dt#button-label, div.option.search h1, div.option.info h1, div.option.info p, div.option.books h1, div.option.chapter h1, div.option.summary h1, div.option.verse h1{ color: #fff !important;}
     div.col p.intro{
       height: 112px;
     }
-    form#bible-search label, form#bible-search dt#button-label{ color: #fff;}
 
 /* comments */
 div#comments div#comments-form, div#comments div.comments div.reply-form{

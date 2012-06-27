@@ -51,6 +51,11 @@ class Module_Addons_Repository_Model_Forms_Bible extends Core_Model_Repository_M
       }
 
       $form->addElement( 'button', 'button', array( 'label' => App::xlat('FORM_search') ));
+      $form->addElement( 'button', 'close', array( 'label' => App::xlat('FORM_close') ));
+      $form->addDisplayGroup( array('button','close'), 'buttons' );
+
+      $form->getElement("button")->setDecorators(array('ViewHelper'));
+      $form->getElement("close")->setDecorators(array('ViewHelper'));
     }else{
       $form->addElement( 'submit', 'button', array( 'label' => App::xlat('FORM_search') ));
       $form->getElement("button")->setDecorators(array('ViewHelper'));

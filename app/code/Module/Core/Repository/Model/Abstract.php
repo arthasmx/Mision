@@ -106,6 +106,7 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
                         ->setQuery( $sql )
                         ->paginate();
 
+
     return $this->setPaginator_page_name(App::xlat('route_paginator_page'))
                 ->paginate_render( $select, $ajax_paginate_style );
   }

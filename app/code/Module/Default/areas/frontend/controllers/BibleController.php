@@ -6,7 +6,7 @@ class BibleController extends Module_Default_Controller_Action_Frontend {
   function preDispatch(){}
 
   function indexAction(){
-    $this->view->books = App::module('Addons')->getModel('Bible')->get_books();
+    $this->view->books           = App::module('Addons')->getModel('Bible')->get_books();
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
   }
 
@@ -19,20 +19,20 @@ class BibleController extends Module_Default_Controller_Action_Frontend {
     $book_seo              = $this->getRequest()->getParam('book');
     $this->view->chapter   = $this->getRequest()->getParam('chapter');
     $this->view->verses    = App::module('Addons')->getModel('Bible')->get_verses( $book_seo, $this->view->chapter );
-    $this->view->details   = App::module('Addons')->getModel('Bible')->get_book_details( $book_seo );
+    $this->view->book      = App::module('Addons')->getModel('Bible')->get_book_details( $book_seo );
 
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->details['book'], $book_seo, $this->view->chapter );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->book['book'], $book_seo, $this->view->chapter );
   }
 
   function verseAction(){
-    $book_seo             = $this->getRequest()->getParam('book');
-    $chapter              = $this->getRequest()->getParam('chapter');
-    $verse                = $this->getRequest()->getParam('verse');
+    $book_seo          = $this->getRequest()->getParam('book');
+    $chapter           = $this->getRequest()->getParam('chapter');
+    $verse             = $this->getRequest()->getParam('verse');
 
-    $this->view->verse    = App::module('Addons')->getModel('Bible')->get_verse( $book_seo, $chapter, $verse );
-    $this->view->details  = App::module('Addons')->getModel('Bible')->get_book_details( $book_seo );
+    $this->view->verse = App::module('Addons')->getModel('Bible')->get_verse( $book_seo, $chapter, $verse );
+    $this->view->book  = App::module('Addons')->getModel('Bible')->get_book_details( $book_seo );
 
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->details['book'], $book_seo, $chapter, $verse );
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), $this->view->book['book'], $book_seo, $chapter, $verse );
   }
 
   function loadBooksAction(){

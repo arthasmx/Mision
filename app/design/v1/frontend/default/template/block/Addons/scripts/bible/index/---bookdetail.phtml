@@ -1,0 +1,42 @@
+<div class="block bible_book_detail">
+  <h1 class="bottom-line">
+    <?=App::xlat('BIBLE_BLOCK_book_details_topic')?>
+    <span><?=App::xlat('BIBLE_BLOCK_book_details_subtitle')?></span>
+  </h1>
+  <ul>
+    <li> <strong><?=App::xlat('BIBLE_BLOCK_book_details_name')?></strong>      <?=$this->details['book']?> </li>
+    <li> <strong><?=App::xlat('BIBLE_BLOCK_book_details_chapters')?></strong>  <?=$this->details['chapter']?> </li>
+    <li> <strong><?=App::xlat('BIBLE_BLOCK_book_details_verses')?></strong>    <?=$this->details['verses']?> </li>
+    <li> <strong><?=App::xlat('BIBLE_BLOCK_book_details_testament')?></strong> <?=App::xlat('BIBLE_testament_' . $this->details['testament'])?> </li>
+    <?php if( ! empty($this->chapter_details) ) :?>
+      <li> <strong><?=App::xlat('BIBLE_BLOCK_book_details_chapter_id')?></strong>     <?=$this->chapter_details['chapter']?> </li>
+      <li> <strong><?=App::xlat('BIBLE_BLOCK_book_details_chapter_verses')?></strong> <?=$this->chapter_details['total']?> </li>
+    <?php endif;?>
+  </ul>
+</div>
+<?php
+/*
+$details
+Array
+(
+    [book_id] => 1
+    [book] => Génesis
+    [seo] => genesis
+    [lang_id] => 1
+    [name] => Español
+    [prefix] => es
+    [namespace] => es_MX
+    [status] => 1
+    [verses] => 1533
+    [chapter] => 50
+)
+
+chapter_details (verse view only)
+Array
+(
+    [total] => 22
+    [chapter] => 48
+)
+
+*/
+?>

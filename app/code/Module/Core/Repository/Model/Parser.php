@@ -30,4 +30,36 @@ class Module_Core_Repository_Model_Parser extends Core_Model_Repository_Model{
     return true;
   }
 
+  /**
+   * Debido a problemas con el Multibyte de caracteres especiales (como los acentuados), se optó temporalmente
+   * por quitarlos.
+   * @todo: Hacer este metodo MULTIBYTE
+   */
+  public function string_to_array($string=null, $allowed_string=array()){
+    if(empty($string)){
+      return null;
+    }
+    $noAllowed = array("á", "é", "í", "ó", "ú", "Á","É","Í","Ó","Ú");
+    $Allowed   = array("a", "e", "i", "o", "u","A","E","I","O","U" );
+    $string    = str_replace($noAllowed, $Allowed, $string);
+
+    return array('separated'=> $this->parse_allowed_string($string, $allowed_string) );
+  }
+    private function parse_allowed_string($str=null,$allowed_string=array()){
+      $strings = explode(" ", $str);
+      if( count($strings) <=1 ){
+        return str_split( $str );
+      }
+
+      $parsed_string = array();
+      foreach($strings AS $string){
+        if( array_search($string,$allowed_string)===false ){
+          $parsed_string = array_merge($parsed_string, array('space'=>''), str_split( $string ) );
+        }else{
+          $parsed_string[] = $string;
+        }
+      }
+      return $parsed_string;
+    }
+
 }

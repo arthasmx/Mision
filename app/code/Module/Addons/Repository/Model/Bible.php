@@ -14,21 +14,25 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                    ->where('la.namespace = ?', App::locale()->getName() )
                    ->order('bi.book_id ASC');
 
+    $where = null;
     if( strlen($string_to_search_for) > 5 ){
       $select->where( "MATCH(texto) AGAINST(?)", $string_to_search_for );
+      $where = "MATCH(texto) AGAINST(". $this->_db->quote($string_to_search_for) .")";
     }else{
       $select->where( "bi.texto LIKE ?", "%" .$string_to_search_for . "%" );
+      $where = "bi.texto LIKE ". $this->_db->quote("%". $string_to_search_for ."%");
     }
 
     if( ! empty($store_keyword_in_session) ){
       $session = App::module('Core')->getModel('Namespace')->get( 'search' );
       $session->search['keyword'] = $string_to_search_for;
+      $session->search['summary'] = $this->get_search_resume($where);
     }
 
     return $this->setPaginator_page($current_page)
                 ->setFilter_section( App::xlat('LINK_bible') ) // Required to identify the search section. In this case, filters will be applied to BIBLE section
                 ->setAjax_url( App::base('/') . 'bible/ajax-search' )
-                ->ajax_paginate_query( $select, "bible.paginate('search-results','url')" );
+                ->ajax_paginate_query( $select, "bible.paginate('search-data','url')" );
   }
 
   function ajax_search_paginate($params=null){
@@ -37,6 +41,22 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
       return null;
     }
     return $this->search($session->search['keyword'], $params[App::xlat('route_paginator_page')], FALSE);
+  }
+
+  function get_search_resume($search_style=null){
+    if( empty($search_style) ){return null;}
+
+    $select = $this->_db->select()
+                   ->from(array('bi' => 'rv60_bible' ) , array() )
+                   ->join(array('bo' => 'rv60_books' ) , 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('verses' => 'COUNT(bo.seo)', 'bo.book', 'bo.seo', 'bo.testament') )
+                   ->join(array('la' => 'languages'  ) , 'la.id = bi.lang_id', array() )
+                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->where($search_style)
+                   ->group('bo.book')
+                   ->order('bi.book_id');
+
+    $resume = $this->_db->query( $select )->fetchAll();
+    return empty($resume) ? null : $resume;
   }
 
   function get_phrase(){
@@ -79,20 +99,20 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
 
   function get_book_details($book_seo_name = "not_given"){
     $select = $this->_db->select()
-    ->from(array('bo'  => 'rv60_books'  ), array('book_id','book','seo','lang_id', 'testament') )
-    ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array('name','prefix','namespace','status') )
-    ->where('la.namespace = ?', App::locale()->getName() )
-    ->where('bo.seo = ?' , $book_seo_name)
-    ->limit(1);
+                   ->from(array('bo'  => 'rv60_books'  ), array('book_id','book','seo','lang_id', 'testament') )
+                   ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array('name','prefix','namespace','status') )
+                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->where('bo.seo = ?' , $book_seo_name)
+                   ->limit(1);
     $details = $this->_db->query( $select )->fetch();
-  
+
     if( empty($details) ){
       App::module('Core')->exception( App::xlat('EXC_book_wasnt_found') . '<br />Launched at method get_book_details, file Repository/Model/Bible' );
     }
-  
-    $summary = $this->get_book_chapters_and_verses_summary($details['book_id'], $details['lang_id']);
-  
-    return array_merge($details, $summary);
+
+    $summary         = $this->get_book_chapters_and_verses_summary($details['book_id'], $details['lang_id']);
+    $string_to_array = App::module('Core')->getModel('Parser')->string_to_array( $details['book'], array("1ra", "2da", "3ra", "de") );
+    return array_merge($details, $summary, $string_to_array);
   }
 
   function get_book_chapters_and_verses_summary($book_id = 0, $lang_id = 0){
@@ -174,11 +194,11 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
     }
 
     $current_testament = 'old';
-    $options   = ($testament == 'new')? array() :  array('old' => App::xlat('BIBLE_testament_old'));
+    $options   = ($testament == 'new')? array() :  array('old' => App::xlat('BIBLE_book_choose'));
     foreach($books AS $book){
       if($book['testament'] <> $current_testament){
         $testament    = "new";
-        $options['new'] = App::xlat('BIBLE_testament_new');
+        $options['new'] = App::xlat('BIBLE_book_choose');
       }
       $options[ $book['seo'] ] = $book['book'];
     }

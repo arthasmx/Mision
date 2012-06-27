@@ -1,32 +1,82 @@
+<?php
+  $ds                = "/";
+  $book_details      = array('book'=>$this->book['book'], 'seo'=>$this->book['seo'], 'chapter'=>$this->book['chapter'], 'current_chapter'=>$this->chapter, 'verses'=>$this->book['verses'], 'testament'=>$this->book['testament'] );
+  $chapter_paginator = App::module('Addons')->renderBlock("bible/index","chaptersPaginator", array("seo" => $this->book['seo'], "chapters_total"=> $this->book['chapter'], "chapter" => $this->chapter ));
+?>
+<div class="all-panel">
+  <div id="bible-book">
+    <div class="opened">
 
-  <div class="bible left-panel">
-    <h1>
-      <?=str_replace("%cap%", $this->chapter, App::xlat('BIBLE_verses_topic') ) . $this->details['book']?>
-      <span><?=App::xlat('CONTENT_subtitle_bible')?></span>
-    </h1>
-    <img height="150" width="645" title="<?=App::xlat('CONTENT_subtitle_bible')?>" alt="<?=App::xlat('CONTENT_subtitle_bible')?>" src="<?=App::media('/images/holy-bible-2.jpg') ?>" />
-    <?php 
-      $chapter_paginator = App::module('Addons')->renderBlock("bible/index","chaptersPaginator", array("seo" => $this->details['seo'], "chapters_total"=> $this->details['chapter'], "chapter" => $this->chapter ));
-      $ds = "/"; 
-    ?>
-    <?=$chapter_paginator;?>
+      <?=App::module('Addons')->renderBlock("bible/index","options", array("section" => "chapter", "book_id" => $this->book['book_id'], "details" => $book_details) )?>
 
-      <ol class="verse">
-        <?php foreach($this->verses AS $verse): ?>
-          <li>
-            <a href="<?=App::base( App::xlat('route_bible') . $this->details['seo'] .$ds. $this->chapter .$ds. $verse['ver'] )?>">
-              <?= $verse['texto'] ; ?>
-            </a>
-          </li>
-        <?php endforeach; ?>
-      </ol>
+      <div class="top">
+        <div class="t-left"></div> <div class="t-right"></div>
+      </div>
 
-    <?=$chapter_paginator;?>
+      <div class="mid">
+        <div class="current-book">
+          <?php foreach($this->book['separated'] AS $key=>$char): ?>
+            <?=$char."<br />"?>
+          <?php endforeach; ?>
+        </div>
 
+        <div class="verses">
+          <?=$chapter_paginator;?>
+
+            <ol class="verse">
+              <?php foreach($this->verses AS $verse): ?>
+                <li>
+                  <a href="<?=App::base( App::xlat('route_bible') . $this->book['seo'] .$ds. $this->chapter .$ds. $verse['ver'] )?>">
+                    <?= $verse['texto'] ; ?>
+                  </a>
+                </li>
+              <?php endforeach; ?>
+            </ol>
+
+          <?=$chapter_paginator;?>
+        </div>
+
+      </div>
+
+      <div class="bot">
+        <div class="b-left"></div> <div class="b-right"></div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="right-panel">
-    <?=App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "advanced") )?>
-    <?=App::module('Addons')->renderBlock("bible/index","bookDetail", array("details" => $this->details))?>
-    <?=App::module('Addons')->renderBlock("bible/index","books", array("book_id" => $this->details['book_id']))?>
-  </div>
+<?php 
+/*
+
+$this->verses
+Array(
+    [0] => Array
+        (
+            [id] => 1540
+            [ver] => 1
+            [texto] => Estos son los nombres de los hijos de Israel que entraron en Egipto con Jacob; cada uno entró con su familia:
+        )
+
+$this->book
+Array(
+    [book_id] => 2
+    [book] => Éxodo
+    [seo] => exodo
+    [lang_id] => 1
+    [testament] => old
+    [name] => Español
+    [prefix] => es
+    [namespace] => es_MX
+    [status] => 1
+    [verses] => 1213
+    [chapter] => 40
+    [separated] => Array
+        (
+            [0] => E
+            [1] => x
+            [2] => o
+            [3] => d
+            [4] => o
+        ))
+ */
+?>

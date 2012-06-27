@@ -1,55 +1,56 @@
-  <div class="left-panel">
-    <h1>
-      <?=App::xlat('BIBLE_topic')?>
-      <span><?=App::xlat('CONTENT_subtitle_bible')?></span>
-    </h1>
-    <img height="150" width="645" title="<?=App::xlat('CONTENT_subtitle_bible')?>" alt="<?=App::xlat('CONTENT_subtitle_bible')?>" src="<?=App::media('/images/holy-bible-2.jpg') ?>" />
-    <table class="bible">
-    <?php
-      $settings = array( 'old' => array('add_col_on_iteration'=> 20 , 'move_to_column_one' => 39 ),
-                         'new' => array('add_col_on_iteration'=> 53 , 'move_to_column_one' => 70 ));
+<?php
+  $iteration = 0;
+  $testaments = array(
+                      'old' => array('left',  20  ),
+                      'new' => array('right', 53 )
+                      );
+?>
 
-      $testament = "";
-      $iteration = 0;
-      foreach($this->books AS $book){
+  <div class="all-panel">
+    <div id="bible">
 
-        if( $testament != $book['testament'] ){
-          $testament = $book['testament'];
-          echo "<tr>  <th colspan='2' class='bible_books'>".  App::xlat('BIBLE_testament_' . $book['testament']) . "</th> </tr>";
-          echo "<tr>  <td><ul>";
-        }
+      <?php foreach($testaments AS $key => $testament): ?>
 
-        if( $iteration == $settings[$book['testament']]['add_col_on_iteration'] ){
-          echo "</ul></td><td><ul>";
-        }
+        <div id="bible-<?=$testament['0']?>">
+          <h1><?=App::xlat('BIBLE_testament_' . $key )?></h1>
+          <ul>
 
-        echo "<li> <a href='". App::base( App::xlat('route_bible') . $book['seo'] ) ."'>". $book['book'] . "</li>";
-        $iteration++;
+            <?php foreach($this->books AS $book): ?>
+              <?php if( $key != $book['testament'] ): ?>
+                </ul>
+                <?php break; ?>
+              <?php endif; ?>
+              <?php if( $iteration == $testament['1'] ): ?>
+                </ul><ul>
+              <?php endif; ?>
 
-        if( $iteration == $settings[$book['testament']]['move_to_column_one'] ){
-          echo "</ul></td></tr>";
-        }
+              <li> <a href="<?=App::base( App::xlat('route_bible') . $book['seo'] ) ?>"> <?=$book['book']?> </a> </li>
 
-      }
-    ?>
-    </table>
+              <?php array_shift($this->books); ?>
+              <?php $iteration++; ?>
+            <?php endforeach; ?>
 
-  </div>
+          </ul>
+        </div>
 
-  <div class="right-panel">
-    <?=App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "advanced") )?>
+      <?php endforeach; ?>
+
+    </div>
+    <?=App::module('Addons')->renderBlock("bible/index","options", array("section" => "bible") )?>
+    <?//App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "advanced") )?>
   </div>
 
 <?php
 /*
-$book
+$this->books
 Array
 (
-    [book_id] => 1
-    [book] => Génesis
-    [seo] => genesis
-    [testament] => 1
-    [cap] => 50
-)
+    [0] => Array
+        (
+            [book_id] => 1
+            [book] => Génesis
+            [seo] => genesis
+            [testament] => old
+        )
 */
 ?>
