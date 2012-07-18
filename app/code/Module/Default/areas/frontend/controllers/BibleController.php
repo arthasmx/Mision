@@ -3,7 +3,12 @@ require_once 'Module/Default/Controller/Action/Frontend.php';
 
 class BibleController extends Module_Default_Controller_Action_Frontend {
 
-  function preDispatch(){}
+  function preDispatch(){
+    if( $this->getRequest()->getParam('action') !=='index' ){
+      App::module('Core')->getModel('Libraries')->bible_on_resize();
+      $this->view->set_bible_options_position = true;
+    }
+  }
 
   function indexAction(){
     $this->view->books           = App::module('Addons')->getModel('Bible')->get_books();

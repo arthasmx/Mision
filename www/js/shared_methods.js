@@ -59,3 +59,17 @@ function hide_div(target){
 function add_hidden_element(name, value, target){
   jQuery('<input />').attr('type', 'hidden').attr('name', name).attr('value', value).appendTo(target);
 }
+
+function set_element_position(from_this_element, to_this_element, left_value, top_value){
+  var base_position = jQuery(from_this_element).position();
+
+  if( base_position ){
+    if( is_number(left_value) ) { jQuery(to_this_element).css('left', base_position.left + left_value) }
+    if( is_number(top_value) )  { jQuery(to_this_element).css('top' , base_position.top  + top_value) }
+  }
+  return true;
+}
+
+function is_number(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}

@@ -32,7 +32,7 @@
 
         MAINPAGE_column_sermon, "Predicación"
         MAINPAGE_column_sermon_span, "Niños, adolescentes, jóvenes, adultos"
-        MAINPAGE_column_sermon_description, "Tenemos para ti los sermones transmitidos de nuestra congregación; puedes descargarlos a cualquier dispositivo que reproduzca el formato mp3.<br />Deseamos que este audio sea para la Honra y Gloria de nuestro Señor Jesucristo."
+        MAINPAGE_column_sermon_description, "Tenemos para ti los sermones transmitidos de nuestra congregación; puedes descargarlos a cualquier dispositivo que reproduzca el formato mp3."
 
         page_first, "Inicio"
         page_previous, "Anterior"
@@ -59,6 +59,8 @@
         OPERATION_HOURS_SUNDAY_evening, "07:00 PM, Tercer culto"
 
     ; BIBLE
+        BIBLE_search_intro_subtitle, "Escribe la palabra o frase que necesitas"
+        BIBLE_search_intro_description, "Tu búsqueda será realizada en todos los libros de la Biblia versión Reina Valera 1960."
         BIBLE_search_result_topic, "Resultados de la búsqueda "
         BIBLE_topic, "Tabla de los libros del Antiguo y Nuevo Testamento"
         BIBLE_chapters_topic, "Capítulos del libro de "

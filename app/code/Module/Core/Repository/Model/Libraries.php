@@ -61,4 +61,14 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
         ");
   }
 
+  function bible_on_resize(){
+    App::header()->addCode("
+      <script type='text/javascript'>
+        jQuery(window).resize(function() {
+          set_element_position('div.opened','div.option',1);
+        });
+      </script>
+    ");
+  }
+
 }

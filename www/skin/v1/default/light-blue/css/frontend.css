@@ -205,7 +205,8 @@ div#content img.f_left { float:left;}
       li.verse{ background-position: -71px 0 !important; }
       li.verse:hover { background-position: -71px -25px !important; }
 
-    div.option.search, div.option.info, div.option.books, div.option.chapter, div.option.summary, div.option.verse{
+
+    div.option{
       position: absolute;
       width: 600px; height: 245px;
       background-color: #F2F2F2;
@@ -213,12 +214,16 @@ div#content img.f_left { float:left;}
       margin-left: 50px;
       padding: 15px 20px;
       background: transparent url(/skin/v1/default/light-blue/art/bks/bible-search.jpg) no-repeat 0 0;
-      border-radius: 5px;
+      border-radius: 0 0 5px 5px;
     }
+      div#bible-book div.option{
+      top: 295px;
+      margin-left: 150px;
+    } 
+
       div.option.info p {line-height:1;}
       div.option.info li{height: 13px; color: #F5E164;}
       div.option.info li.instruction, div.option.info li strong{color: #b7b7b7;}
-      
 
   div#bible-book div.opened{
     width:980px; height:242px;
@@ -275,11 +280,7 @@ div#content img.f_left { float:left;}
     div#chapter-options{width: 145px;}
     div#search-options{width: 108px;}
     div#verse-options{width: 182px;}
-    div#bible-book div.opened div.option.search, div#bible-book div.opened div.option.info, div#bible-book div.opened div.option.books, div#bible-book div.opened div.option.chapter, div#bible-book div.opened div.option.search, div#bible-book div.opened div.option.summary, div#bible-book div.opened div.option.verse{
-      top: 295px;
-      margin-left: 150px;
-      border-radius: 0 0 5px 5px;
-    }
+
     div#book-options ul.options li, div#chapter-options ul.options li, div#search-options ul.options li, div#verse-options ul.options li{
       margin-right: 10px;
     }

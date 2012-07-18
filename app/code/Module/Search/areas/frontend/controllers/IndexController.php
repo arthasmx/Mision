@@ -28,7 +28,9 @@ class Search_IndexController extends Module_Search_Controller_Action_Frontend {
     $this->view->search            = App::module('Addons')->getModel("Bible")
                                                           ->search( $this->view->searched_string , $this->getRequest()->getParam( App::xlat('route_paginator_page') ) );
 
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), App::xlat('BIBLE_search_result_topic') . '"<em>' . $this->view->searched_string . '</em>"'  );
+    App::module('Core')->getModel('Libraries')->bible_on_resize();
+    $this->view->set_bible_options_position = true;
+    $this->view->pageBreadcrumbs            = $this->get_breadcrumbs( $this->getRequest()->getParam('action'), App::xlat('BIBLE_search_result_topic') . '"<em>' . $this->view->searched_string . '</em>"'  );
   }
 
   function ajaxBibleSearchAction(){

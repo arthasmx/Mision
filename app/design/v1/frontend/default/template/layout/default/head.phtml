@@ -47,9 +47,12 @@
         jQuery(document).ready(function(){
 
           <?php if( isset($this->current_main_menu) ):?>
-              jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").contents().unwrap().wrap("<span>").parent().addClass("icons active");
+            jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").contents().unwrap().wrap("<span>").parent().addClass("icons active");
           <?php endif;?>
 
+          <?php if( ! empty($this->set_bible_options_position) ):?>
+            set_element_position('div.opened', bible.dom.opt_options,1);
+          <?php endif;?>
           });
     </script>
 

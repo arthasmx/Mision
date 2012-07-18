@@ -86,7 +86,7 @@ div.announcement .block, div.events .block{ width:295px; margin:0; padding:0 15p
     .col .content p{ text-align: justify;}
     .two-cols, .three-cols, .four-cols{ padding: 28px 0 24px; float: left; }
       .two-cols .last, div#content .three-cols .last, div#content .four-cols .last { padding:0; margin:0;}
-      .col_description { height: 135px; border-bottom: 1px solid #D4D4D4; }
+      .col_description { height: 90px; border-bottom: 1px solid #D4D4D4; }
 
     /* 2 cols */
         .two-cols .col { width: 310px;}

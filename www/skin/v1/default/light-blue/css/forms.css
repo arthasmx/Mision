@@ -36,7 +36,7 @@ fieldset dl.field-submit dt#submit-label{
   }
     form#bible-search label, form#bible-search dt#button-label, div.option.search h1, div.option.info h1, div.option.info p, div.option.books h1, div.option.chapter h1, div.option.summary h1, div.option.verse h1{ color: #fff !important;}
     div.col p.intro{
-      height: 112px;
+      height: 65px;
     }
 
 /* comments */
