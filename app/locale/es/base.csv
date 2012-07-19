@@ -175,6 +175,19 @@
   PUBLIC_ERROR_advice,  "Utiliza los links que tenemos en nuestro sitio, por favor."
   ERROR_bad_captcha, "El código de verificación es incorrecto"
   ADDON_GALLERY_no_files_found_to_show_image_gallery, "No existen imagenes para mostrar en esta galeria"
+  LOGIN_bad_credentials, "Su nombre de usuario/contraseña son incorrectos; inténtelo de nuevo por favor."
+
+  ERROR_LOGIN_NOACTIVITY_NOPRIVILEGES, "No ha iniciado sesión o su sesión ha expirado por inactividad"
+  ERROR_REPORTED,"El usuario <b>%email%</b> esta bloqueado. Contacta a nuestro administrador para más detalles"
+  ERROR_BANNED,"Tu cuenta <b>%email%</b> ha sido suspendida. Contacta a nuestro administrador para más detalles"
+  ERROR_DISABLED,"El usuario <b>%email%</b> ha sido cancelado. Contacta a nuestro administrador para más detalles"
+  ERROR_MUSTVALIDATE,"Es necesario que confirmes tu cuenta desde el correo electronico que proporcionaste al momento de tu registro >> <b>%email%</b>; por favor, vaya a su cuenta de correo y dé click sobre el link que le enviamos."
+
+  ERROR_ACTIVE,"El usuario <b>%user%</b> no puede acceder al sitio porque necesita ser activado por nuestro administrador, por favor espere o comuniquese con nosotros para resolver este problema de inmediato"
+  WARNING_TIMEOUT,"Su sesión ha expirado por inactividad en el panel de usuario"
+
+// LOGOUT
+  "PUBLIC_LOGOUT_MSG_logout","Ha salido correctamente de su sesión!"
 
 ;MAIL
   ;CONTACT

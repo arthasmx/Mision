@@ -20,6 +20,8 @@ FORM_cancel,"Cancelar"
 FORM_close,"Cerrar"
 FORM_button_send_comment, "Enviar comentario"
 FORM_captcha,"Ingrese el código de la imagen"
+FORM_login_user, "Escriba su nombre de usuario"
+FORM_login_pass, "Escriba su contraseña"
 
 "isEmpty","Campo obligatorio"
 

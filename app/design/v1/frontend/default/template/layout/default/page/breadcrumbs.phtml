@@ -1,20 +1,22 @@
 <span class="separator_up"> </span>
-<div id='breadcrumbs' class="gradient">
-  <ul>
-    <?php if (count((array)$this->pageBreadcrumbs) ):?>
-      <li class='icons breadcrums_home'><a href='<?=App::base("/")?>'><?=App::xlat('BREADCRUM_home');?></a></li>
-
-      <?php foreach ((array)$this->pageBreadcrumbs as $breadcrumb):?>
-        <li class='icons breadcrum'>
-          <?php if ( empty($breadcrumb['url']) ): ?>
-            <?=ucfirst($breadcrumb['title'])?>
-          <?php else:?>
-            <a href='<?=$breadcrumb['url']?>' ><?=ucfirst($breadcrumb['title'])?></a>
-          <?php endif;?>
-        </li>
-      <?php endforeach;?>
-    <?php endif;?>
-  </ul>
-</div>
-<span class="separator"> </span>
+<?php if( empty($this->login) ):?>
+  <div id='breadcrumbs' class="gradient">
+    <ul>
+      <?php if (count((array)$this->pageBreadcrumbs) ):?>
+        <li class='icons breadcrums_home'><a href='<?=App::base("/")?>'><?=App::xlat('BREADCRUM_home');?></a></li>
+  
+        <?php foreach ((array)$this->pageBreadcrumbs as $breadcrumb):?>
+          <li class='icons breadcrum'>
+            <?php if ( empty($breadcrumb['url']) ): ?>
+              <?=ucfirst($breadcrumb['title'])?>
+            <?php else:?>
+              <a href='<?=$breadcrumb['url']?>' ><?=ucfirst($breadcrumb['title'])?></a>
+            <?php endif;?>
+          </li>
+        <?php endforeach;?>
+      <?php endif;?>
+    </ul>
+  </div>
+  <span class="separator"> </span>
+<?php endif; ?>
 <div id="content_data" class="gradient">

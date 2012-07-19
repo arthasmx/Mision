@@ -16,7 +16,7 @@ function loading(target) {
 }
 
 function show_error(msg,target_id,seconds_delay) {
-  jQuery(target_id).show().html(msg);
+  jQuery(target_id).html(msg).show();
   if( validate_param(seconds_delay) ){
     jQuery(target_id).delay(seconds_delay).fadeOut(seconds_delay);
   }
@@ -72,4 +72,11 @@ function set_element_position(from_this_element, to_this_element, left_value, to
 
 function is_number(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function validate_param(param){
+  if( typeof(param) == "undefined" ){
+    return false;
+  }
+  return ( param != false );
 }

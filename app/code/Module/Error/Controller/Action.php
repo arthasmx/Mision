@@ -1,7 +1,5 @@
 <?php
-
 require_once 'Local/Controller/Action.php';
-
 
 class Module_Error_Controller_Action extends Local_Controller_Action  {
 

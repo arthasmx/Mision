@@ -1,0 +1,32 @@
+﻿<?php $logo_alternate_text = App::getConfig('website_name') .' | '. ucfirst(App::xlat('HEADER_site_logo_slogan')); ?>
+
+<div id="error_image">
+  <div id="error_top">
+    <div id="replace_with_swfobject"></div>
+  </div>
+  <div id="error_bottom"></div>
+</div>
+<div id="message">
+	<h1><?=App::xlat('PUBLIC_ERROR_title')?></h1>
+	<p>
+	  <?=App::xlat('PUBLIC_ERROR_message')?>
+	  <?=App::xlat('PUBLIC_ERROR_advice')?>
+	</p>
+
+  <?php $menus = explode(",", App::getConfig('main_menu')); $iterator=1; ?>
+  <ul id="error_menu">
+	<?php foreach($menus AS $menu): ?>
+    <li <?= (sizeof($menus)==$iterator) ? 'class="last_link"':''; ?>>
+      <a href="<?=App::url_translate( "LINK_$menu" )?>">
+				<?=App::xlat("MENU_$menu")?>
+      </a>
+    </li>
+	<?php
+		$iterator+=1;
+		endforeach; ?>
+
+  </ul>
+  <a href="<?=App::base()?>">
+    <img src="<?=App::skin('/art/logos/mision-white.png')?>" width="234" height="43" alt="<?=$logo_alternate_text?>" title="<?=$logo_alternate_text?>" />
+  </a>
+</div>

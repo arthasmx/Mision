@@ -252,3 +252,7 @@
  ;FLEXAR
     FLEXAR_pharagraph_1,"Preguntas, sugerencias o reporte de error ? póngase en contacto con nosotros."
     FLEXAR_slogan,"Flexar | Diseño de aplicaciones para internet"  
+
+; LOGIN
+  FORM_login_title, "Acceso a usuarios"
+  FORM_login_subtitle, "Si aún no has recibido tus datos de ingreso, comunícate con nosotros indicando tus datos personales básicos"

@@ -30,6 +30,15 @@ class Module_Core_Repository_Model_Parser extends Core_Model_Repository_Model{
     return true;
   }
 
+  public function get_ip() {
+    if (@$_SERVER['HTTP_X_FORWARDED_FOR']) {
+      $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+      $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+  }
+
   /**
    * Debido a problemas con el Multibyte de caracteres especiales (como los acentuados), se optó temporalmente
    * por quitarlos.

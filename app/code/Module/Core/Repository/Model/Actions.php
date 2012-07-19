@@ -2,8 +2,7 @@
 require_once 'Module/Core/Repository/Model/Abstract.php';
 class Module_Core_Repository_Model_Actions extends Module_Core_Repository_Model_Abstract {
 
-  const ACTION_SESSION_NAME           = "Actions";
-  const ACTION_LANGUAGE_ACTIVE_STATUS = 1;
+  const ACTION_SESSION_NAME = "Actions";
 
   function get_translated_actions( $desired_action_url ){
     $locale = App::locale();
@@ -34,7 +33,7 @@ class Module_Core_Repository_Model_Actions extends Module_Core_Repository_Model_
                         ->join(array('m'	=> 'actions'            ), 'm.id = mt.action_id'            , array('real' => 'description'))
                         ->join(array('lang' => 'languages'       ), 'lang.namespace = mt.namespace', array())
                         ->where('mt.namespace = ?', $current_locale)
-                        ->where('lang.status = ?' , self::ACTION_LANGUAGE_ACTIVE_STATUS);
+                        ->where('lang.status = ?' , 'enabled');
 
     return $this->_db->query( $select )->fetchAll();
   }

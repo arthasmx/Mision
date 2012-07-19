@@ -8,8 +8,8 @@ class Addons_Poll_IndexBlockController extends Core_Controller_Block {
     $this->view->poll = $this->_module->getModel('Poll')->get_poll();
 
     if ( ! empty($this->view->poll) ){
-      App::header()->addCode('<script type="text/javascript" src="https://www.google.com/jsapi"></script>');
-      App::header()->addCode('<script type="text/javascript">
+      App::header()->addCode('<script  src="https://www.google.com/jsapi"></script>');
+      App::header()->addCode('<script>
         google.load("visualization", "1", {packages:["corechart"]});
 
         function drawChart(chart_title, chart_values) {
@@ -33,7 +33,7 @@ class Addons_Poll_IndexBlockController extends Core_Controller_Block {
 
       App::header()->addScript( App::url()->get('/poll.js','js') );
       App::header()->addCode("
-          <script type='text/javascript'>
+          <script>
           </script>");
     }
 

@@ -8,8 +8,8 @@ class Addons_Site_IndexBlockController extends Core_Controller_Block {
 
   function mapAction(){
     App::header()->addCode("
-        <script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?key=AIzaSyAIGddV3Qu8VuUNBJQ4oyjtU7SbR1On98Q&sensor=false'></script>
-        <script type='text/javascript'>
+        <script  src='http://maps.googleapis.com/maps/api/js?key=AIzaSyAIGddV3Qu8VuUNBJQ4oyjtU7SbR1On98Q&sensor=false'></script>
+        <script>
         function initialize() {
           var myOptions = {
               zoom: 16,

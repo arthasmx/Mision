@@ -268,7 +268,7 @@ class Articles_Ajax_Admin_ArticleController extends Module_Articles_Controller_A
 				if ( $lastInsertedId ) {
 					// Actualizamos variable de javascript jijii
 					// Es una cochinada, pero es para no cargar de nuevo el formulario...					
-					echo "	<script type='text/javascript'>
+					echo "	<script>
 								jQuery(document).ready(function(){
 										articles.translateParams='true';".PHP_EOL
 										."articles.article=".$lastInsertedId.";".PHP_EOL

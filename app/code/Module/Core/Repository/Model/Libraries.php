@@ -14,7 +14,7 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     $this->highslide_css();
     App::header()->addScript(App::url()->get('/highslide.with.html.config.js','js'));
     App::header()->addCode("
-        <script type='text/javascript'>
+        <script>
           hs.graphicsDir = '" . App::skin('/art/highslide/') . "';
           hs.outlineType = 'rounded-white';
           hs.outlineWhileAnimating = true;
@@ -35,7 +35,7 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     ));
 
     App::header()->addCode("
-        <script type='text/javascript'>
+        <script>
           jQuery(document).ready(function(){
             jQuery('ul.tabs').tabs('div.panes > div');
           });
@@ -50,7 +50,7 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
   function bible_search(){
     $this->bible();
     App::header()->addCode("
-        <script type='text/javascript'>
+        <script>
           var bad_request  = '". App::xlat('EXC_bad_request') ."';
           var ajax_loading = '". App::xlat('AJAX_loading') ."';
           var empty_search = '". App::xlat('AJAX_empty_search') ."';
@@ -63,12 +63,25 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
 
   function bible_on_resize(){
     App::header()->addCode("
-      <script type='text/javascript'>
+      <script>
         jQuery(window).resize(function() {
           set_element_position('div.opened','div.option',1);
         });
       </script>
     ");
+  }
+
+  function delayed_error($msg=null, $target=null, $seconds=500){
+    if( empty($msg) || empty($target) ){
+      return null;
+    }
+
+    App::header()->addCode("
+      <script>
+        jQuery(document).ready(function(){
+          show_error('".$msg."','".$target."','".$seconds."');
+        });
+      </script>");
   }
 
 }

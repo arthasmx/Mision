@@ -34,4 +34,14 @@ class Module_Core_Repository_Model_Arrays extends Module_Core_Repository_Model_A
     return true;
   }
 
+  function multidimensional_array_to_mysql_IN($array=array(), $desired_key = null ){
+    if ( empty($array) || empty($desired_key) ) return false;
+
+    $mysql_in_format = '';
+    foreach($array as $value){
+      $mysql_in_format .= "'" . $value[$desired_key] . "',";
+    }
+    return rtrim($mysql_in_format , ',');
+  }
+
 }

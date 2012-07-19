@@ -10,7 +10,7 @@ class Addons_GuestbookController extends Module_Addons_Controller_Action_Fronten
 
     App::header()->addScript(App::url()->get('/guestbook.js','js'));
     App::header()->addCode("
-        <script type='text/javascript'>
+        <script>
           var guestbook_add_url = '". App::url_translate('LINK_guestbook') ."/add';
           var guestbook_error   = '". App::xlat('EXC_missing_arguments_at_adding_comments') ."';
         </script>

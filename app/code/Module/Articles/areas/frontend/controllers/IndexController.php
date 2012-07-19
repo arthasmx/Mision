@@ -45,7 +45,7 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
 
     App::header()->addLink(App::skin('/css/rate.css'),array("rel"=>"stylesheet", "type"=>"text/css", "media"=>"all"));
     App::header()->addCode("
-        <script type='text/javascript'>
+        <script>
           var rate_id         = '". $this->view->article['article_id'] ."';
           var rating_on_error = '". App::xlat('RATING_on_error') ."';
         </script>");

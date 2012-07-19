@@ -14,7 +14,7 @@ class Module_User_Controller_Action_Admin extends Module_User_Controller_Action 
 	}
 
 	function init() {
-		//$this->designManager()->setCurrentLayout('account/main');
+    App::module("Acl")->getModel('acl')->is_user_logged();
 	}
 
 }

@@ -150,3 +150,38 @@ div.note{
     moz-border-radius-topright:4px; -webkit-border-top-right-radius: 4px; border-top-right-radius:4px;
     moz-border-radius-bottomright:4px; -webkit-border-bottom-right-radius: 4px; border-bottom-right-radius:4px;
   }
+
+div.message {
+  padding: 5px !important;
+  border-top: 1px solid #ddd;
+  border-bottom:1px solid #ddd;
+}
+  div.message.error {
+    border-color: #dfb2b2;
+    background-color: #f5e8e8;
+  }
+  div.message.success {
+    border-color: #b2e1b7;
+    background-color: #e8f6e9;
+  }
+  div.message.info {
+    border-color: #b8c3e4;
+    background-color: #eaedf7;
+  }
+  div.message.warning {
+    border-color: #ebe7b3;
+    background-color: #f9f8e8;
+  }
+    div.message div{
+      margin: 0 auto;
+      width: 980px;
+    }
+    div.message div ul.error li, div.message div ul.success li, div.message div ul.info li, div.message div ul.warning li{
+      list-style: disc outside url("/skin/v1/default/light-blue/art/icons/error.png");
+      padding-bottom: 5px;
+      text-align: justify;
+      color: #9e1111;
+    }
+      div.message div ul.success li{ list-style: disc outside url("/skin/v1/default/light-blue/art/icons/success.png"); color: #11a322; }
+      div.message div ul.info li{ list-style: disc outside url("/skin/v1/default/light-blue/art/icons/info.png"); color: #2446ad; }
+      div.message div ul.warning li{ list-style: disc outside url("/skin/v1/default/light-blue/art/icons/warning.png"); color: #c2b515; }

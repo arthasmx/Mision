@@ -18,7 +18,7 @@ class Articles_IndexBlockController extends Core_Controller_Block {
     App::header()->addScript( App::url()->get('/jquery.DDSlider.min.js','js') );
 
     App::header()->addCode("
-        <script type='text/javascript'>
+        <script>
           jQuery(document).ready(function(){
             jQuery('#ddSlider').DDSlider({
               trans:     'fading',
@@ -51,7 +51,7 @@ class Articles_IndexBlockController extends Core_Controller_Block {
 
     App::header()->addScript( App::url()->get('/jquery.tools.min.js','js') );
     App::header()->addCode("
-        <script type='text/javascript'>
+        <script>
           jQuery(document).ready(function(){
             jQuery('.slidetabs').tabs('.images > div', {
               effect: 'fade',

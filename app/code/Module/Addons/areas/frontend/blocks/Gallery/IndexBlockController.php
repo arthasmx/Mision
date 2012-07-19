@@ -20,7 +20,7 @@ class Addons_Gallery_IndexBlockController extends Core_Controller_Block {
 
                App::header()->addScript(App::url()->get('/highslide.js','js'));
                App::header()->addCode("
-                   <script type='text/javascript'>
+                   <script>
                    hs.graphicsDir = '" . App::skin('/art/highslide/') . "';
                    </script>
                ");

@@ -16,10 +16,11 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
 
   protected $sort_f          = null;
   protected $sort_t          = null;
-  protected $_namespace      = null;
   public    $_db             = null;
   protected $_query          = null;
 
+  public $_namespace      = false;
+  public $session         = false;
 
   public function __construct($id) {
     $this->_db = App::module('Core')->getModel('Db')->get();

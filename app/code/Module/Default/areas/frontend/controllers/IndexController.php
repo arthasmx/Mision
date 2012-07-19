@@ -29,7 +29,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     ));
     App::header()->addScript( App::url()->get('/jquery.tools.min.js','js') );
     App::header()->addCode("
-        <script type='text/javascript'>
+        <script>
         jQuery(document).ready(function(){
           $('#accordion').tabs(
             '#accordion div.pane',

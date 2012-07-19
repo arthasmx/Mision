@@ -7,7 +7,7 @@ class Addons_Comments_IndexBlockController extends Core_Controller_Block {
   function getCommentsAction(){
     App::header()->addScript(App::url()->get('/comments.js','js'));
     App::header()->addCode("
-        <script type='text/javascript'>
+        <script>
           var comment_error = '". App::xlat('EXC_missing_arguments_at_adding_comments') ."';
           var reply_error = '". App::xlat('EXC_missing_arguments_at_adding_comments') ."';
         </script>

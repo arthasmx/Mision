@@ -3,66 +3,49 @@
 
     <production>
 
-        <Core>
-			<active>1</active>
-			<behaviour>core</behaviour>
-			<observers>
-				<app_action_init>flashmsg/init</app_action_init><!-- Inicializa el sistema de mensajes en la sesión -->
-			</observers>
-		</Core>
+    <Core>
+      <active>1</active>
+      <behaviour>core</behaviour>
+      <observers>
+        <app_action_init>flashmsg/init</app_action_init>
+      </observers>
+    </Core>
 
-		<Document>
-			<active>1</active>
-		</Document>
+    <Addons>
+      <active>1</active>
+    </Addons>
 
-		<Categories>
-			<active>1</active>
-		</Categories>
+    <Articles>
+      <active>1</active>
+    </Articles>
 
-		<User>
-			<active>1</active>
-			<behaviour>default</behaviour>
-			<controller>index</controller>
-			<action>index</action>
-  
-			<observers>
-				<!--  <app_front>acl/front</app_front> -->
-				<!-- <app_action_renderdesign>acl/error</app_action_renderdesign> -->
-				<!-- <app_action_predispatch>privileges</app_action_predispatch> -->
-				<module_acl_noprivileges_login>noprivileges/login</module_acl_noprivileges_login>
-				<module_acl_noprivileges>noprivileges</module_acl_noprivileges>
-				<module_acl_timeout>timeout</module_acl_timeout>
-			</observers>
-			
-		</User>
 
-		<Acl>
-			<active>1</active>
-			<observers>
-				<app_front>front</app_front>
-				<app_action_renderdesign>error</app_action_renderdesign>
-				<app_action_init>privileges</app_action_init><!-- Comprueba si la acción requiere privilegios con $aclRequirePrivileges-->
-				<module_user_notfound>logout</module_user_notfound>
-				<!--  <module_user_create>create</module_user_create>  -->
-				<module_user_update>update</module_user_update>
-			</observers>
-		</Acl>
+    <User>
+      <active>1</active>
+      <behaviour>default</behaviour>
+      <controller>index</controller>
+      <action>index</action>
+      <observers>
+        <!--  <app_front>acl/front</app_front> -->
+        <!-- <app_action_renderdesign>acl/error</app_action_renderdesign> -->
+        <!-- <app_action_predispatch>privileges</app_action_predispatch> -->
+        <module_acl_noprivileges_login>noprivileges/login</module_acl_noprivileges_login>
+        <module_acl_noprivileges>noprivileges</module_acl_noprivileges>
+        <module_acl_timeout>timeout</module_acl_timeout>
+      </observers>
+    </User>
 
-		<Comment>
-			<active>1</active>
-		</Comment>
-		<Articles>
-			<active>1</active>
-		</Articles>		
-
-		<Email>
-			<active>1</active>
-			<observers>
-				<module_user_notify_newpass>user/admin/passwordchanged</module_user_notify_newpass>
-				<module_user_business_reminder>user/admin/businessreminder</module_user_business_reminder>
-				<module_user_users_reminder>user/admin/usersreminder</module_user_users_reminder>
-			</observers>
-		</Email>
+    <Acl>
+      <active>1</active>
+      <observers>
+        <app_front>front</app_front>
+        <app_action_renderdesign>error</app_action_renderdesign>
+        <app_action_init>privileges</app_action_init><!-- Comprueba si la acción requiere privilegios con $aclRequirePrivileges-->
+        <module_user_notfound>logout</module_user_notfound>
+        <!--  <module_user_create>create</module_user_create>  -->
+        <module_user_update>update</module_user_update>
+      </observers>
+    </Acl>
 
 		<Error>
 			<active>1</active>
@@ -83,10 +66,6 @@
 					<app_done>tracert</app_done> <!-- Rutinas para hacer debug de javascript -->
 			</observers>
 		</Debug>
-		
-		<Devel>
-			<active>0</active>
-		</Devel>
 		
     </devel>
 
