@@ -69,12 +69,13 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     return $this->core->_db->query( $articles )->fetchAll();
   }
 
-  function get_article_basic_data( $article_seo = 'not_given!', $status="all" ){
+  function get_article_basic_data( $article_seo_OR_id = 'not_given!', $status="all" ){
     $article = $this->core->_db->select()
                     ->from(array('va' => 'vista_articles' ) )
-                    ->where( 'va.lang_status = 1' )
+                    ->where( 'va.lang_status = ?', 'enabled' )
                     ->where( 'va.lang_namespace = ?', App::locale()->getName() )
-                    ->where( 'va.seo = ?', $article_seo )
+                    ->where( 'va.seo = ?', $article_seo_OR_id )
+                    ->orWhere('va.article_id = ?' , $article_seo_OR_id)
                     ->where( 'va.written = 1' )
                     ->limit(1);
 
@@ -86,8 +87,8 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     return empty( $article ) ? false : $article;
   }
 
-  function get_article( $article_seo = "not_given!" ){
-    $basic_data = $this->get_article_basic_data( $article_seo );
+  function get_article( $article_seo_OR_id = "not_given!" ){
+    $basic_data = $this->get_article_basic_data( $article_seo_OR_id );
 
     if( empty($basic_data) ){
       App::module('Core')->exception( App::xlat('EXC_article_wasnt_found') . '<br />Launched at method get_article, file Repository/Model/Article' );
@@ -95,7 +96,9 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
 
     $select = $this->core->_db->select()
                    ->from(array('a'  => 'articles_details' ), array('article') )
-                   ->where('a.seo = ?' , $article_seo);
+                   ->where('a.seo = ?' , $article_seo_OR_id)
+                   ->orWhere('a.article_id = ?' , $article_seo_OR_id);
+
     $article = $this->core->_db->query( $select )->fetch();
     return array_merge($basic_data , $article);
   }

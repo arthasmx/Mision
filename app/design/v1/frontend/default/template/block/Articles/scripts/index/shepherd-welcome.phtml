@@ -1,0 +1,46 @@
+
+<?php if( ! empty($this->article) ): ?>
+
+  <div class="all-panel gradient shepherd-welcome">
+    <h1 class="no-line">
+      <?=$this->article['title']?>
+    </h1>
+    <img class="right" src="<?=App::media( $this->article['picture'] )?>" title="<?=App::xlat('shepherd_image_title')?>" alt="<?=App::xlat('shepherd_image_title')?>" height="240" width="240" />
+    <p><?=$this->article['article']?></p>
+  </div>
+  <span class="separator"></span>
+
+<?php endif; ?>
+
+<?php
+/*
+ $this->article
+Array
+(
+    [id] => 175
+    [article_id] => 188
+    [title] => Bienvenida
+    [seo] => bienvenida
+    [created] => 2012-08-01 13:23:52
+    [publicated] => 2012-08-01 13:23:52
+    [event_date] => 
+    [username] => robe@gmail.com
+    [autor] => Roberto
+    [written] => 1
+    [picture] => /ministerios/elias-heidi-paez.jpg
+    [article_type_id] => 5
+    [article_type_name] => Seccion de pagina
+    [article_type_seo] => seccion-de-pagina
+    [category_id] => 2
+    [category_name] => Articulos
+    [category_seo] => articulos
+    [status] => enabled
+    [status_name] => Active
+    [language] => es
+    [lang_namespace] => es_MX
+    [lang_status] => enabled
+    [addon] => 0
+    [article] => 
+)
+ */
+?>

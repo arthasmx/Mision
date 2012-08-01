@@ -63,6 +63,9 @@ class Articles_IndexBlockController extends Core_Controller_Block {
     ");
   }
 
+  function shepherdWelcomeAction(){
+    $this->view->article = $this->_module->getModel('Article')->get_article( App::xlat('shepherd_welcome_article_details_id') );
+  }
 
 	/**
 	 * Bloque que muestra los últimos casos de éxito

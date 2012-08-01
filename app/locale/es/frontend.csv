@@ -220,6 +220,9 @@
 
   
 ; MINISTERY
+  shepherd_welcome_article_details_id, "188"
+  shepherd_image_title, "Elías y Heidi Páez. Pastores Principales"
+  shepherd_
   MINISTERY_title, "Ministerios"
   MINISTERY_subtitle, "Los apóstoles entendieron también que el trabajo del reino de Dios no era para hacerlo solos: <a href='%ref%'>Hechos 6:3</a>"
   MINISTERY_pharagraph_1, "Si usted tiene alguna duda sobre el servicio, por favor no dude en ponerse en contacto con nosotros. El envío de este formulario es la forma más rápida en obtener respuesta a su pregunta."
