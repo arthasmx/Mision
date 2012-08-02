@@ -14,8 +14,8 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     $select  = $this->core->_db->select()
                           ->from(array('va' => 'vista_articles' ) )
                           ->join(array('a'  => 'articles_details' ), 'a.article_id = va.article_id', array('a.description'))
-                          ->where( 'va.lang_status = 1' )
-                          ->where( 'va.lang_namespace = ?', App::locale()->getName() )
+                          ->where( 'va.lang_status = ?', 'enabled' )
+                          ->where( 'va.language = ?', App::locale()->getLang() )
                           ->order( 'va.publicated DESC');
 
     if( ! empty($type) ){
@@ -74,7 +74,7 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     $article = $this->core->_db->select()
                     ->from(array('va' => 'vista_articles' ) )
                     ->where( 'va.lang_status = ?', 'enabled' )
-                    ->where( 'va.lang_namespace = ?', App::locale()->getName() )
+                    ->where( 'va.language = ?', App::locale()->getLang() )
                     ->where( 'va.seo = ?', $article_seo_OR_id )
                     ->orWhere('va.article_id = ?' , $article_seo_OR_id)
                     ->where( 'va.written = 1' )

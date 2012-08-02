@@ -11,7 +11,7 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                    ->from(array('bi'  => 'rv60_bible'  ) )
                    ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('book','seo') )
                    ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
-                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->where('la.prefix = ?', App::locale()->getLang() )
                    ->order('bi.book_id ASC');
 
     $where = null;
@@ -50,7 +50,7 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                    ->from(array('bi' => 'rv60_bible' ) , array() )
                    ->join(array('bo' => 'rv60_books' ) , 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('verses' => 'COUNT(bo.seo)', 'bo.book', 'bo.seo', 'bo.testament') )
                    ->join(array('la' => 'languages'  ) , 'la.id = bi.lang_id', array() )
-                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->where('la.prefix = ?', App::locale()->getLang() )
                    ->where($search_style)
                    ->group('bo.book')
                    ->order('bi.book_id');
@@ -93,7 +93,7 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                      ->join(array('ph'  => 'rv60_phrase' ), 'ph.book_id = bi.book_id AND ph.cap_id = bi.cap AND ph.ver_id = bi.ver', array())
                      ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array('book','seo') )
                      ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id')
-                     ->where('la.namespace = ?', App::locale()->getName() )
+                     ->where('la.prefix = ?', App::locale()->getLang() )
                      ->limit(1);
   }
 
@@ -101,7 +101,7 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
     $select = $this->_db->select()
                    ->from(array('bo'  => 'rv60_books'  ), array('book_id','book','seo','lang_id', 'testament') )
                    ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array('name','prefix','namespace','status') )
-                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->where('la.prefix = ?', App::locale()->getLang() )
                    ->where('bo.seo = ?' , $book_seo_name)
                    ->limit(1);
     $details = $this->_db->query( $select )->fetch();
@@ -133,7 +133,7 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
                    ->from(array('bi'  => 'rv60_bible'  ), array('id', 'ver', 'texto') )
                    ->join(array('bo'  => 'rv60_books'  ), 'bo.book_id = bi.book_id AND bo.lang_id = bi.lang_id', array() )
                    ->join(array('la'  => 'languages'   ), 'la.id = bi.lang_id', array())
-                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->where('la.prefix = ?', App::locale()->getLang() )
                    ->where('bo.seo = ?' , $book_seo_name)
                    ->where('bi.cap = ?' , $chapter_id);
     $verses = $this->_db->query( $select )->fetchAll();
@@ -169,7 +169,7 @@ class Module_Addons_Repository_Model_Bible extends Module_Core_Repository_Model_
     $select = $this->_db->select()
                    ->from(array('bo'  => 'rv60_books'  ), array('book_id' ,'book' ,'seo', 'testament') )
                    ->join(array('la'  => 'languages'   ), 'la.id = bo.lang_id', array())
-                   ->where('la.namespace = ?', App::locale()->getName() )
+                   ->where('la.prefix = ?', App::locale()->getLang() )
                    ->group( array ('bo.book_id') )
                    ->order( array('bo.book_id ASC') );
 
