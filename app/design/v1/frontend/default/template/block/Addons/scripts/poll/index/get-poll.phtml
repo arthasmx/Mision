@@ -1,70 +1,23 @@
-
-<div class="block poll">
-  <h1>
-    <?=App::xlat('POLL_block_poll')?>
-    <span><?=App::xlat('POLL_block_poll_subtitle')?></span>
-  </h1>
-  <div class="poll" id="poll">
-
-    <?php if( empty($this->poll) ): ?>
-      <?=App::xlat('POLL_empty')?>
-    <?php else: ?>
-      <?php
-        $poll    = $this->poll['poll'];
-        $options = $this->poll['options'];
-        $votes   = $this->poll['votes'];
-      ?>
+<?php if( ! empty($this->poll) ): ?>
+  <?php
+    $poll    = $this->poll['poll'];
+    $options = $this->poll['options'];
+    $votes   = $this->poll['votes'];
+  ?>
+  <div class="block poll">
+    <h1>
+      <?=App::xlat('POLL_block_poll')?>
+      <span><?=App::xlat('POLL_block_poll_subtitle')?></span>
+    </h1>
+    <div class="poll" id="poll">
       <p><?=$poll['question']?></p>
-      <ol class="poll-options">
+      <ul class="poll-options" data-poll_id="<?=$poll['id']?>">
       <?php foreach($options AS $option):?>
-        <li class="<?=$option['option_id']?>"><?=$option['option']?> (<?=$votes[$option['option_id']]['percentage']?>%)</li>
+        <li data-id="<?=$option['option_id']?>" class="option"><?=$option['option']?></li>
+        <li class="chart-graph" id="graph_<?=$option['option_id']?>"></li>
       <?php endforeach;?>
         <li class="voting"></li>
-      </ol>
-    <?php endif; ?>
-
+      </ul>
+    </div>
   </div>
-</div>
-
-<?php 
-/*
-$this->poll
-Array
-(
-    [poll] => Array
-        (
-            [id] => 1
-            [question] => Crees que Jesucristo es el Dios ?
-            [lang] => 1
-            [created] => 2012-02-09 20:28:33
-            [status] => 1
-        )
-    [options] => Array
-        (
-            [0] => Array
-                (
-                    [option_id] => 1
-                    [option] => Si
-                )
-            [1] => Array
-                (
-                    [option_id] => 2
-                    [option] => No
-                )
-        )
-    [votes] => Array
-        (
-            [1] => Array
-                (
-                    [vote] => 3
-                    [percentage] => 75
-                )
-            [2] => Array
-                (
-                    [vote] => 1
-                    [percentage] => 25
-                )
-        )
-)
- */
-?>
+<?php endif; ?>

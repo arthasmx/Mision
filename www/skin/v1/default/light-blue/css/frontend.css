@@ -344,9 +344,24 @@ div.pagination .disabled_tnt_pagination {
   }
   form#book-selection option.testament{font-size:16px; margin:10px 0; font-weight: bold;  }
 
-  div.poll-options p{color:#55C3FF; font-weight: bold;}
-  ol.poll-options li{ margin-left:20px; cursor:pointer;}
+  div.poll p{color:#0054A0; font-weight: bold;}
+  ul.poll-options li{ cursor:pointer;}
     li.voting {list-style: none;}
+  ul.poll-options li.chart-graph{
+    height: 5px;
+    width: 1px;
+  }
+  ul.poll-options li.option{
+   background: transparent url(/skin/v1/default/light-blue/art/icons/radios.png) no-repeat left center;
+    padding-left: 15px;
+  }
+    ul.poll-options li.option:hover, ul.poll-options li.chosen{
+      background-position: 0 -47px !important;
+      background-color: #F9FAFA;
+    }
+     ul.poll-options li.chosen{
+      background-color: transparent !important;
+     }
 
   div#comments, div.comments{
     width:980px;

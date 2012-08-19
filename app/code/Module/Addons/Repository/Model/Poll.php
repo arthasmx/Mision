@@ -14,7 +14,6 @@ class Module_Addons_Repository_Model_Poll extends Module_Core_Repository_Model_A
     }
 
     $poll_votes = $this->votes( $poll['id'] );
-
     return array('poll' => $poll, 'options' => $poll_options, 'votes' => $poll_votes);
   }
 
@@ -28,11 +27,10 @@ class Module_Addons_Repository_Model_Poll extends Module_Core_Repository_Model_A
     }
 
     if( ! empty($enabled_only) ){
-      $select->where( 'p.status = 1');
+      $select->where( 'p.status = ?', 'enabled');
     }
 
     $poll = $this->_db->query( $select )->fetch();
-
     return empty($poll) ? null : $poll;
   }
 
@@ -77,7 +75,7 @@ class Module_Addons_Repository_Model_Poll extends Module_Core_Repository_Model_A
     return $percentage;
   }
 
-  function get_results_chart($id=0){
+  function get_results_chart($id=0, $was_vote_saved = true){
     $results = $this->get_poll($id);
     if ( empty($results) ){
       return 'false';
@@ -85,10 +83,17 @@ class Module_Addons_Repository_Model_Poll extends Module_Core_Repository_Model_A
 
     $chart_data = array();
     foreach($results['options'] AS $option){
-      $chart_data[] = array($option['option'], $results['votes'][ $option['option_id'] ]['vote'] );    
+      $chart_data[] = array( 'id'         => $option['option_id']
+                            ,'option'     => $option['option']
+                            ,'vote'       => $results['votes'][ $option['option_id'] ]['vote']
+                            ,'percentage' => $results['votes'][ $option['option_id'] ]['percentage']);    
     }
 
-    $result = array_merge(array("question" => $results['poll']['question']), array("options" => $chart_data) );
+    $error_duplicated_vote = 'false';
+    if( empty($was_vote_saved) ){
+      $error_duplicated_vote = App::xlat('POLL_on_dulpicated');
+    }
+    $result = array_merge(array("question" => $results['poll']['question'], "duplicated"=>$error_duplicated_vote), array("options" => $chart_data) );
     return App::module('Core')->getModel('Json')->encode($result);
   }
 

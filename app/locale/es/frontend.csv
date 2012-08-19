@@ -187,7 +187,8 @@
 ; POLL
   POLL_block_poll, "Participa en nuestra encuesta"
   POLL_block_poll_subtitle, "Tu opinión es muy importante; solo toma 1 click participar!"
-  POLL_on_error, "Ya hemos recibido tu voto anterior, gracias!"
+  POLL_on_dulpicated, "Ya hemos recibido tu voto anterior, gracias!"
+  POLL_on_error, "No se pudo guardar tu opinión<br />Podrías reportar este error ? Gracias!"
 
 ; CONTACT
 

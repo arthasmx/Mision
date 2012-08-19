@@ -84,4 +84,11 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
       </script>");
   }
 
+  function poll(){
+    App::header()->addCode("
+        <script>
+          var poll_on_error  = '". App::xlat('POLL_on_error') ."';
+        </script>");
+    App::header()->addScript( App::url()->get('/poll.js','js') );
+  }
 }

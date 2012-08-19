@@ -14,8 +14,8 @@ class Addons_AjaxController extends Module_Addons_Controller_Action_Frontend   {
   function pollVoteAction(){
     $id = $this->getRequest()->getParam('id');
 
-    $poll = $this->_module->getModel('Cud/Poll')->poll( $id, $this->getRequest()->getParam('vote'));
-    echo empty($poll)? 'false' : $this->_module->getModel('Poll')->get_results_chart($id);
+    $was_vote_saved = $this->_module->getModel('Cud/Poll')->poll( $id, $this->getRequest()->getParam('vote'));
+    echo $this->_module->getModel('Poll')->get_results_chart($id, $was_vote_saved);
     exit;
   }
 
