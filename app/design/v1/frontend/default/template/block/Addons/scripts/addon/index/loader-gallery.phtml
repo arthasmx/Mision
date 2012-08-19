@@ -3,8 +3,8 @@
   <ul>
   <?php foreach($this->gallery['thumbnails'] AS $image): ?>
     <li>
-      <a onclick="return hs.expand(this, config1)" class="highslide " href="<?=App::media( '/images/gallery/' . $this->gallery['path'] . '/' . $image );?>">
-	    <img width="144" height="90" title="Click to enlarge" alt="Highslide JS" src="<?=App::media( '/images/gallery/' . $this->gallery['path'] . '/thumbnails/' . $image );?>" />
+      <a class="cBox" href="<?=App::media( '/images/gallery/' . $this->gallery['path'] . '/' . $image );?>">
+	      <img width="144" height="90" title="" alt="" src="<?=App::media( '/images/gallery/'. $this->gallery['path'] .'/thumbnails/'. $image );?>" />
       </a>
     </li>
   <?php endforeach;?>
@@ -13,6 +13,9 @@
 
 <?php
 /*
+colorbox usage
+$("a.class").colorbox({rel:'class'});
+
 gallery
 Array
 (

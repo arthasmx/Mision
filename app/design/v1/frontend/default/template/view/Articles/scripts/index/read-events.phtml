@@ -9,9 +9,9 @@
   </p>
   <?php if( !empty($this->addons)):?>
     <?php foreach($this->addons AS $addon):?>
-      <?=App::module('Addons')->renderBlock("gallery/index","loadAddon", array("addon"    => $addon
-                                                                              , "id"      =>$this->article['article_id']
-                                                                              , "created" =>$this->article['created'] ));?>
+      <?=App::module('Addons')->renderBlock("addon/index","loader", array("addon"   => $addon
+                                                                        , "id"      => $this->article['article_id']
+                                                                        , "created" => $this->article['created'] ));?>
     <?php endforeach; ?>
   <?php endif;?>
 </div>

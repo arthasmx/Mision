@@ -91,4 +91,21 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
         </script>");
     App::header()->addScript( App::url()->get('/poll.js','js') );
   }
+
+  function colorbox(){
+    App::header()->addLink(App::skin('/css/colorbox.css'),array('rel'=>'stylesheet'));
+    App::header()->addScript(App::url()->get('/jquery.colorbox-min-'. App::locale()->getLang() .'.js','js'));
+  }
+
+  function gallery(){
+    $this->colorbox();
+    App::header()->addLink(App::skin('/css/gallery.css'),array('rel'=>'stylesheet'));
+    App::header()->addCode("
+        <script>
+          jQuery(document).ready(function(){
+            $('a.cBox').colorbox({rel:'cBox'});
+          });
+        </script>");
+  }
+
 }
