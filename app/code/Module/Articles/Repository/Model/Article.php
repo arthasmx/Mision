@@ -13,7 +13,6 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
   function get_article_list( $current_page = null, $type=null, $publicated=false, $next_events=false, $written_only=false, $status="all"){
     $select  = $this->core->_db->select()
                           ->from(array('va' => 'vista_articles' ) )
-                          ->join(array('a'  => 'articles_details' ), 'a.article_id = va.article_id', array('a.description'))
                           ->where( 'va.lang_status = ?', 'enabled' )
                           ->where( 'va.language = ?', App::locale()->getLang() )
                           ->order( 'va.publicated DESC');
@@ -43,7 +42,6 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
 
     $articles  = $this->core->_db->select()
                       ->from(array('va' => 'vista_articles' ) )
-                      ->join(array('a'  => 'articles_details' ), 'a.article_id = va.article_id', array('a.description'))
                       ->where( 'va.lang_status = ?', 'enabled' )
                       ->where( 'va.language = ?', App::locale()->getLang() )
                       ->where( 'va.status = "promote"' )
@@ -88,11 +86,15 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     return empty( $article ) ? false : $article;
   }
 
-  function get_article( $article_seo_OR_id = "not_given!" ){
+  function get_article( $article_seo_OR_id = "not_given!", $throw_exceptions = true ){
     $basic_data = $this->get_article_basic_data( $article_seo_OR_id );
 
     if( empty($basic_data) ){
-      App::module('Core')->exception( App::xlat('EXC_article_wasnt_found') . '<br />Launched at method get_article, file Repository/Model/Article' );
+      if($throw_exceptions===true){
+        App::module('Core')->exception( App::xlat('EXC_article_wasnt_found') . '<br />Launched at method get_article, file Repository/Model/Article' );
+      }else{
+        return null;
+      }
     }
 
     $select = $this->core->_db->select()

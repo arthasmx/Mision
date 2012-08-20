@@ -1,0 +1,42 @@
+
+<?php if( ! empty($this->article)): ?>
+  <div class="block radio">
+    <a href="<?=App::base( App::xlat('route_article') . $this->article['seo'])?>">
+      <?=$this->article['title']?>
+    </a>
+    <p><?=$this->article['description']?></p>
+  </div>
+<?php endif;?>
+
+<?php
+/*
+ $this->article
+Array
+(
+    [id] => 176
+    [article_id] => 189
+    [title] => Programa de Radio
+    [seo] => radio
+    [description] => El cometa Lovejoy , descubierto el pasado 2 de diciembre, se dirige hacia el Sol y se espera que se encuentre con su destino el 15 de diciembre. Su rbita lo acercar a slo 140.000 kilmetros por encima de la superficie solar. A esa distanciaasd as
+    [created] => 2012-08-20 13:23:52
+    [publicated] => 2012-08-20 13:23:52
+    [event_date] => 
+    [username] => robe@gmail.com
+    [autor] => Roberto
+    [written] => 1
+    [picture] => /images/radio.jpg
+    [article_type_id] => 5
+    [article_type_name] => Seccion de pagina
+    [article_type_seo] => seccion-de-pagina
+    [category_id] => 2
+    [category_name] => Articulos
+    [category_seo] => articulos
+    [status] => enabled
+    [status_name] => Active
+    [language] => es
+    [lang_namespace] => es_MX
+    [lang_status] => enabled
+    [addon] => 0
+)
+ */
+?>

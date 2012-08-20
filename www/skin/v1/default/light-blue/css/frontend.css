@@ -634,6 +634,22 @@ div.sitemap-block{
 
 /* END content */
 
+/* ASIDE */
+div.block.radio {
+  height: 374px; width: 300px;
+  background: url(/media/images/radio.jpg) no-repeat center transparent;
+}
+  div.block.radio a{
+    float: left;
+    font-size: 1.3em;
+    padding-top: 10px;
+  }
+  div.block.radio p{
+   text-align: justify;
+   padding: 10px;
+   float: left;
+  }
+
 /* FOOTER */
 .f_top { padding:0; margin:0; background:#373737; border-bottom:1px solid #333333;}
 .f_top_resize { width:910px; margin:0 auto; padding:20px 0;}

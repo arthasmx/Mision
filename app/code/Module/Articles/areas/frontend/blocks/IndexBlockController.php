@@ -67,6 +67,10 @@ class Articles_IndexBlockController extends Core_Controller_Block {
     $this->view->article = $this->_module->getModel('Article')->get_article( App::xlat('shepherd_welcome_article_details_id') );
   }
 
+  function radioAction(){
+    $this->view->article = $this->_module->getModel('Article')->get_article_basic_data( 'radio' );
+  }
+
 	/**
 	 * Bloque que muestra los últimos casos de éxito
 	 *

@@ -159,6 +159,7 @@
     route_multimedia, "/multimedia/"
   ; ARTICLES
     route_articles, "/articulos/"
+      route_article, "articulo/"
     route_announcement, "/anuncios/"
     route_events, "/eventos/"
   ; GUESTBOOK
