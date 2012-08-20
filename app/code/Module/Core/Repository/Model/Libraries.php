@@ -108,4 +108,14 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
         </script>");
   }
 
+  function youtube_video_player(){
+    $this->colorbox();
+    App::header()->addCode("
+        <script>
+          jQuery(document).ready(function(){
+            $('a.cBox_youtube').colorbox({iframe:true, innerWidth:640, innerHeight:480});
+          });
+        </script>");
+  }
+
 }

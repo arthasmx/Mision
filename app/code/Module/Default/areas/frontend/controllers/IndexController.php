@@ -16,6 +16,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
 
     $this->view->aboutus         = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_about' );
+    App::module('Core')->getModel('Libraries')->youtube_video_player();
   }
 
   function doctrineAction(){
