@@ -31,9 +31,9 @@
             <?php if( empty($preach['related_files']['video']) ):?>
               <span class="icon video-off"></span>
             <?php else:?>
-              <a href="http://www.youtube.com/embed/<?=$preach['related_files']['video']?>?rel=0&amp;wmode=transparent" class="highslide" onclick="return hs.htmlExpand(this, {objectType: 'iframe', width: 480, height: 385, allowSizeReduction: false, wrapperClassName: 'draggable-header no-footer', preserveContent: false, objectLoadTime: 'after'})">
+              <a href="http://www.youtube.com/v/<?=$preach['related_files']['video']?>?rel=0&wmode=transparent&autoplay=1" class="cBox_youtube">
                 <span class="icon video"></span>
-              </a>              
+              </a>
             <?php endif;?>
 
             <?php if( empty($preach['related_files']['article']) ):?>

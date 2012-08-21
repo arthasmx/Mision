@@ -121,7 +121,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   }
 
   function preachingAction(){
-    App::module('Core')->getModel('Libraries')->highslide_html();
+    App::module('Core')->getModel('Libraries')->youtube_video_player();
 
     $this->view->preaching        = App::module('Addons')->getModel('Audio')->get_preaching( $this->getRequest()->getParam( App::xlat('route_paginator_page') ) );
     $this->view->pageBreadcrumbs  = $this->get_breadcrumbs( 'LINK_preaching' );
