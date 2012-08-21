@@ -22,7 +22,6 @@ var bible = {
     opt_chapter    : "div.chapter",
     opt_summary    : "div.summary",
     opt_verse      : "div.verse",
-    search_url     : baseUrl + "/bible/ajax-search",
     search_result_container: "div.search-data"
  },
 

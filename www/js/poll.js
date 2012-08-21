@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
 });
 
   function poll(poll_id, vote){
-    var url    = baseUrl + "/poll/vote/" + poll_id + "/" + vote;
+    var url    = baseUrl + "poll/vote/" + poll_id + "/" + vote;
     var item   = 0;
     var colors = ['#0f0','#f00','#00f','#ff0','#0ff0'];
 

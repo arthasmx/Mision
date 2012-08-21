@@ -14,4 +14,6 @@
                                                                             , 'subtitle' => App::xlat('YOUTUBE_video_about_subtitle')
                                                                             , 'img'      => App::media('/images/iglesia-la-mision.jpg') ) );?>
     <?=App::module('Articles')->renderBlock("index","radio")?>
+    <?=App::module('Addons')->renderBlock("poll/index","get-poll");?>
+    <?=App::module('Addons')->renderBlock("site/index","social-networks");?>
   </div>

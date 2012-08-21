@@ -13,8 +13,8 @@ var comments = {
    main_container:    "div#comments div.comments div"
  },
 	url: {
-			comment: baseUrl + "/comments/comment",
-			reply:   baseUrl + "/comments/reply"
+			comment: baseUrl + "comments/comment",
+			reply:   baseUrl + "comments/reply"
 	},
 
 	comment:function(){

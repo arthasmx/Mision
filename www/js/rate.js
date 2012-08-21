@@ -15,7 +15,7 @@
   });
 
   function rate(rate){
-    var url = baseUrl + "/article/rate/"+ rate_id +"/" + rate;
+    var url = baseUrl + "article/rate/"+ rate_id +"/" + rate;
 
     $.ajax({
       url:  url,

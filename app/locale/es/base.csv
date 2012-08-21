@@ -151,19 +151,19 @@
 
 ;ROUTES
   ; DOCTRINE
-    route_doctrine, "/doctrina/"
+    route_doctrine, "doctrina/"
   ; BIBLE
-    route_bible, "/biblia/"
+    route_bible, "biblia/"
       route_search, "buscar/"
   ; MULTIMEDIA
-    route_multimedia, "/multimedia/"
+    route_multimedia, "multimedia/"
   ; ARTICLES
-    route_articles, "/articulos/"
+    route_articles, "articulos/"
       route_article, "articulo/"
-    route_announcement, "/anuncios/"
-    route_events, "/eventos/"
+    route_announcement, "anuncios/"
+    route_events, "eventos/"
   ; GUESTBOOK
-    route_guestbook, "/libro-de-visitas/"
+    route_guestbook, "libro-de-visitas/"
   ; PAGINATOR
     route_paginator_page, "pagina"
   ; DATASORTER
