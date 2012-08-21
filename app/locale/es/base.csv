@@ -157,6 +157,10 @@
       route_search, "buscar/"
   ; MULTIMEDIA
     route_multimedia, "multimedia/"
+    route_gallery, "images/gallery/"
+    route_image, "images/gallery/"
+    route_audio, "audio/"
+    route_video, "video/"
   ; ARTICLES
     route_articles, "articulos/"
       route_article, "articulo/"

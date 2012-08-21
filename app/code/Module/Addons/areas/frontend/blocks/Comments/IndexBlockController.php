@@ -18,4 +18,8 @@ class Addons_Comments_IndexBlockController extends Core_Controller_Block {
     $this->view->form = $this->_module->getModel('Forms/Comment')->get( $this->getParam('id'), $this->getParam('type') );
   }
 
+  function latestAction(){
+    $this->view->latest = $this->_module->getModel('Comments')->latest();
+  }
+
 }

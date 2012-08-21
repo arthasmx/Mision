@@ -46,13 +46,15 @@ var comments = {
    self.remove_previous_reply();
    var parent_id      = jQuery(button_clicked).attr('data-parent');
    var child_id       = jQuery(button_clicked).attr('data-child');
+   var reference_id   = jQuery("input#reference").val();
+   var type_id        = jQuery("input#type").val();
    self.current_reply = jQuery(button_clicked).nextAll(self.dom.reply_container);
 
    loading(self.current_reply);
 
    $.ajax({
      type: 'GET',
-     data:{ parent: parent_id, child: child_id},
+     data:{ parent: parent_id, child: child_id, reference: reference_id, type:type_id},
      url:  self.url.reply,
      success: function(response){
        jQuery(self.current_reply).html(response).show().parent().addClass(self.dom.data_reply);

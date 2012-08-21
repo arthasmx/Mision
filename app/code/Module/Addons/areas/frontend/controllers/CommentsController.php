@@ -19,7 +19,7 @@ class Addons_CommentsController extends Module_Addons_Controller_Action_Frontend
     $form    = ($action=='comment') ?
                  $this->_module->getModel('Forms/Comment')->get( $request->getParam('reference'),$request->getParam('type') )
                :
-                 $this->_module->getModel('Forms/Reply')->get( $request->getParam('parent'),$request->getParam('child'),$request->getParam('type') );
+                 $this->_module->getModel('Forms/Reply')->get( $request->getParam('parent'),$request->getParam('child'),$request->getParam('type'), $request->getParam('reference') );
 
     if ( $this->getRequest()->isPost() ){
 
@@ -35,7 +35,7 @@ class Addons_CommentsController extends Module_Addons_Controller_Action_Frontend
         $this->view->message_posted = ($action =='comment') ?
           $comment->comment( $request->getParam('name'),$request->getParam('email'),$request->getParam('comment'),$request->getParam('reference'),$request->getParam('type') )
         :
-          $comment->reply( $request->getParam('name'),$request->getParam('email'),$request->getParam('comment'),$request->getParam('type'),$request->getParam('parent'),$request->getParam('child') );
+          $comment->reply( $request->getParam('name'),$request->getParam('email'),$request->getParam('comment'),$request->getParam('reference'),$request->getParam('type'),$request->getParam('parent'),$request->getParam('child') );
 
         $core                       = App::module('Core');
         $recent_comment             = $this->_module->getModel('Comments')->get_comment( $this->view->message_posted );

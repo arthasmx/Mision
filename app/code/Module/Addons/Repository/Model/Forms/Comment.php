@@ -66,8 +66,8 @@ class Module_Addons_Repository_Model_Forms_Comment extends Core_Model_Repository
      $form->getDisplayGroup('text')->getDecorator('Group')->addClass('comments-right-group');
 
 
-    $form->addElement(  'hidden', 'reference', array('value' => (empty($reference) ? null:$reference)  ));
-    $form->addElement(  'hidden', 'type'     , array('value' => (empty($type) ? 'article':$type)  ));
+    $form->addElement(  'hidden', 'reference', array('value' => (empty($reference) ? null      : $reference)  ));
+    $form->addElement(  'hidden', 'type'     , array('value' => (empty($type)      ? 'events'  : $type)  ));
 
     App::module('Core')->getModel('Form')->remove_decorator_from_all_fields($form,'Errors');
     return $form;

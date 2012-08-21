@@ -6,7 +6,7 @@
 <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $this->article['publicated']) .DS. $this->article['article_id'] .DS. $this->article['seo']. "_slider.jpg" ) ?>" width="980" height="340" alt="<?=$this->article['title']?>" title="<?=$this->article['title']?>" />
 <?= eval('?>' . $this->article['article'] . '<?php ');?>
 
-<?=App::module('Addons')->renderBlock("comments/index","get-comments", array('id' => $this->article['article_id'], 'type' => 'article' ))?>
+<?=App::module('Addons')->renderBlock("comments/index","get-comments", array('id' => $this->article['article_id'], 'type' => 'announcement' ))?>
 
 <?php
 /*

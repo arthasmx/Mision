@@ -27,17 +27,17 @@ class Module_Addons_Repository_Model_Cud_Comments extends Module_Core_Repository
     return $id;
   }
 
-  function reply($name=null, $email=null, $comment=null, $type=null, $parent=null, $child=null){
+  function reply($name=null, $email=null, $comment=null, $reference=null, $type=null, $parent=null, $child=null){
     $vars_to_check = func_get_args();
-    unset($vars_to_check[5]);
+    unset($vars_to_check[6]);
     App::module('Core')->getModel('Parser')->check_function_params( $vars_to_check );
 
     $child = $this->_get_next_child($parent,$child);
 
     $this->_db->beginTransaction();
 
-      $comments_tbl = sprintf("INSERT INTO comments(parent_id, child_id, type, created) VALUES(%d,'%s','%s','%s');"
-                              , $parent, $child, $type, date('Y-m-d H:i:s') );
+      $comments_tbl = sprintf("INSERT INTO comments(reference, parent_id, child_id, type, created) VALUES('%s',%d,'%s','%s','%s');"
+                              , $reference, $parent, $child, $type, date('Y-m-d H:i:s') );
       $this->_db->query($comments_tbl);
       $id = $this->_db->lastInsertId();
 

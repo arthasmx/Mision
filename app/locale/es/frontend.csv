@@ -240,6 +240,8 @@
   COMMENTS_reply, "Responder"
   COMMENTS_no_comments_found, "No hay comentarios; sé el primero en dejarnos tu opinión."
   COMMENTS_pending, "* Tu comentario deberá ser revisado; en breve será publicado, gracias"
+  COMMENTS_latest_title, "Ultimos comentarios"
+  COMMENTS_latest_subtitle, "Comentarios recibidos en diversas secciones"
 
 ; MAP
     SITE_MAP_title, "Ubicación geográfica"

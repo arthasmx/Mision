@@ -1,7 +1,7 @@
 <?php
 class Module_Addons_Repository_Model_Forms_Reply extends Core_Model_Repository_Model {
 
-  public function get($parent=null, $child=null, $type=null) {
+  public function get($parent=null, $child=null, $type=null, $reference=null) {
     require_once "Local/Form.php";
     $form = new Local_Form;
     $form->setAttribs( array( 'autocomplete' => 'off',
@@ -66,10 +66,11 @@ class Module_Addons_Repository_Model_Forms_Reply extends Core_Model_Repository_M
      );
      $form->getDisplayGroup('text')->getDecorator('Group')->addClass('comments-right-group');
 
-    $form->addElement(  'hidden', 'type'  , array('value' => (empty($type) ? 'article':$type)  ));
+    $form->addElement(  'hidden', 'type'  , array('value' => (empty($type) ? 'events':$type)  ));
     $form->addElement(  'hidden', 'parent', array('value' => $parent ));
     $form->addElement(  'hidden', 'child' , array('value' => $child ));
-
+    $form->addElement(  'hidden', 'reference', array('value' => (empty($reference) ? null:$reference)  ));
+ 
     App::module('Core')->getModel('Form')->remove_decorator_from_all_fields($form,'Errors');
     return $form;
   }

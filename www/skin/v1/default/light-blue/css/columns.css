@@ -55,6 +55,33 @@
           padding-top:10px !important;
         }
 
+    .right-panel div.block article{
+      float: left;
+      width: 100%;
+      padding:5px 10px;
+      margin-bottom:10px;
+      background: url(/skin/v1/default/light-blue/art/icons/comment.png) no-repeat top left #f2f2f2;
+    }
+      .right-panel div.block article time, .right-panel div.block article cite{
+        float: right;
+        font-size: 0.8em;
+        color: black;
+      }
+      .right-panel div.block article p{
+        clear:both;
+        text-align: justify;
+      }
+        .right-panel div.block article p a{
+          text-decoration: none;
+          color: #777;
+        }
+        .right-panel div.block article p a:hover{ color: #444; }
+      .right-panel div.block article span{
+        background-image: url(/skin/v1/default/light-blue/art/icons/icons.png) !important; background-repeat:no-repeat; height:18px;
+      }
+        .right-panel div.block article span.like { background-position: 0 2px; padding-left: 20px !important; }
+        .right-panel div.block article span.dislikes{ background-position: 0 2px; padding-left: 20px !important; }
+
 .left-panel  { width:645px; margin:0 0 40px; padding:0 35px 0 0; float:left;}
     div#content .announcement h1 {padding:0;}
     div#content .left-panel p.description {padding:10px 0 30px;}
