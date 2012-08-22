@@ -243,6 +243,10 @@
   COMMENTS_latest_title, "Ultimos comentarios"
   COMMENTS_latest_subtitle, "Comentarios recibidos en diversas secciones"
 
+  GUESTBOOK_latest_title, "Libro de visitas"
+  GUESTBOOK_latest_subtitle, "Ultimas firmas del libro de visitas"
+
+
 ; MAP
     SITE_MAP_title, "Ubicación geográfica"
     SITE_MAP_subtitle, "Puedes interactuar con el mapa por medio de los iconos"

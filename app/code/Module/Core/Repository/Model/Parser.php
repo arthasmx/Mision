@@ -19,6 +19,21 @@ class Module_Core_Repository_Model_Parser extends Core_Model_Repository_Model{
     return substr($string,0,$tamano);
   }
 
+  function truncate_text($text=null, $max=150,$strip_tags=false, $symbol='...'){
+    if( empty($text) ){
+      return null;
+    }
+    if ( $strip_tags===true ){
+      $text = strip_tags($text);
+    }
+
+    $temp = substr($text, 0, $max);
+    $last = strrpos($temp, " ");
+    $temp = substr($temp, 0, $last);
+    $temp = preg_replace("/([^\w])$/", "", $temp);
+    return $temp . $symbol;
+  }
+
   public function check_function_params($params=array(), $throw_exception = true){
     foreach ($params AS $param){
       if( empty($param) ){
