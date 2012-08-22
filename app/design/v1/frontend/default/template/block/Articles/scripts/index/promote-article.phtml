@@ -1,0 +1,48 @@
+
+<?php if( ! empty($this->article)): ?>
+  <div class="block promote-<?=$this->article['seo']?>">
+  <?php if($this->type==='image'): ?>
+    <a href="<?=App::base( App::xlat('route_article') . $this->article['seo'])?>">
+      <img src="<?=App::media($this->article['picture'])?>" width="<?=$this->width?>" height="<?=$this->height?>" alt="<?=$this->article['title']?>" title="<?=$this->article['title']?>" />
+    </a>
+  <?php elseif($this->type==='image/text'): ?>
+    <a href="<?=App::base( App::xlat('route_article') . $this->article['seo'])?>">
+      <?=$this->article['title']?>
+    </a>
+    <p><?=$this->article['description']?></p>
+  <?php endif; ?>
+  </div>
+<?php endif;?>
+
+<?php
+/*
+ $this->article
+Array
+(
+    [id] => 176
+    [article_id] => 189
+    [title] => Raffa
+    [seo] => raffa
+    [description] => raffa asd asd asd asd as das das da das
+    [created] => 2012-08-22 10:17:11
+    [publicated] => 2012-08-22 10:17:11
+    [event_date] => 
+    [username] => robe@gmail.com
+    [autor] => Roberto
+    [written] => 1
+    [picture] => /images/raffa.jpg
+    [article_type_id] => 5
+    [article_type_name] => Seccion de pagina
+    [article_type_seo] => seccion-de-pagina
+    [category_id] => 2
+    [category_name] => Articulos
+    [category_seo] => articulos
+    [status] => enabled
+    [status_name] => Active
+    [language] => es
+    [lang_namespace] => es_MX
+    [lang_status] => enabled
+    [addon] => 0
+)
+ */
+?>

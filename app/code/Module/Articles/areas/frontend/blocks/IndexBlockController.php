@@ -71,6 +71,16 @@ class Articles_IndexBlockController extends Core_Controller_Block {
     $this->view->article = $this->_module->getModel('Article')->get_article_basic_data( 'radio' );
   }
 
+  function promoteArticleAction(){
+    $this->view->article = $this->_module->getModel('Article')->get_article_basic_data( $this->getParam('article') );
+    $this->view->type    = $this->getParam('type');
+
+    $width  = $this->getParam('width');
+    $height = $this->getParam('width');
+    $this->view->width   = empty($width)  ? '300' : $width;
+    $this->view->height  = empty($height) ? '250' : $height;
+  }
+
 	/**
 	 * Bloque que muestra los últimos casos de éxito
 	 *
