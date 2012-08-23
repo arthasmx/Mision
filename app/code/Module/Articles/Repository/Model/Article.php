@@ -106,7 +106,7 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     return array_merge($basic_data , $article);
   }
 
-  function get_article_addons($article_id = 0, $lang_id = 1){
+  function get_article_addons($article_id = 0){
     $select = $this->core->_db->select()
                          ->from(array('af'  => 'articles_files' ) )
                          ->where( 'af.status = "enabled"' )

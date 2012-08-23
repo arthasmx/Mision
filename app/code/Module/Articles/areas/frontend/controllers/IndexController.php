@@ -41,7 +41,7 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
   private function read_article() {
     $article_seo         = $this->getRequest()->getParam('seo');
     $this->view->article = $this->_module->getModel('Article')->get_article( $article_seo );
-    $this->view->addons  = $this->_module->getModel('Article')->get_article_addons( $this->view->article['article_id'], $this->view->article['lang_id'] );
+    $this->view->addons  = $this->_module->getModel('Article')->get_article_addons( $this->view->article['article_id'] );
 
     App::header()->addLink(App::skin('/css/rate.css'),array("rel"=>"stylesheet", "type"=>"text/css", "media"=>"all"));
     App::header()->addCode("
