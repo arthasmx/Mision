@@ -118,4 +118,33 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
         </script>");
   }
 
+  function import_easing(){
+    App::header()->addScript( App::url()->get('/jquery.easing.1.3.js','js') );
+  }
+
+  function vertical_tabs($tab=null,$content=null){
+    if( empty($tab) || empty($content) ){
+      return null;
+    }
+
+    $this->jquery_tools();
+    $this->import_easing();
+    App::header()->addLink(App::skin('/css/tabs-vertical.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->addCode("
+      <script>
+        jQuery(document).ready(function(){
+
+          jQuery('$tab').tabs('$content', {
+            effect: 'fade',
+            fadeOutSpeed: 0,
+            fadeInSpeed: 500,
+            onClick: function(event, index) {
+              jQuery('$tab li').removeClass('vtab-selected');
+              jQuery('a.current').parent().addClass('vtab-selected');
+            }
+          });
+
+        });
+      </script>");
+  }
 }

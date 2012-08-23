@@ -21,26 +21,10 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
 
   function doctrineAction(){
     $this->view->current_main_menu = 1;
+    App::module('Core')->getModel('Libraries')->vertical_tabs('ul#vtab','div.vtab div.pane');
+
     $this->view->doctrine_article  = App::module('Articles')->getModel('Article')->get_article( 'doctrina' );
-
-    App::header()->addLink(App::skin('/css/tabs-accordion.css'),array(
-        "rel"=>"stylesheet",
-        "type"=>"text/css",
-        "media"=>"all",
-    ));
-    App::header()->addScript( App::url()->get('/jquery.tools.min.js','js') );
-    App::header()->addCode("
-        <script>
-        jQuery(document).ready(function(){
-          $('#accordion').tabs(
-            '#accordion div.pane',
-            {tabs: 'h2', effect: 'slide', initialIndex: 0}
-          );
-        });
-        </script>
-        ");
-
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_doctrine' );
+    $this->view->pageBreadcrumbs   = $this->get_breadcrumbs( 'LINK_doctrine' );
   }
 
   function multimediaAction(){

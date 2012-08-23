@@ -1,0 +1,37 @@
+ul#vtab {
+  float: left;
+  overflow: hidden;
+}
+
+ul#vtab li {
+    border-bottom: 1px solid #D4D4D4;
+    border-right: 1px solid #D4D4D4;
+    font-size: 0.9em;
+    margin-right: 10px;
+    padding: 5px 10px 5px 0;
+}
+  ul#vtab li.doctrine-first{border-top: 1px solid #D4D4D4;}
+
+ul#vtab li a:hover, ul#vtab li a:focus, ul#vtab li a.current {
+  color: #000;
+}
+  ul#vtab li.vtab-selected{
+    border-right: none !important;
+    border-left: 3px solid #000;
+    padding-left: 5px;
+    padding-right: 5px !important;
+  }
+  
+/* Content */
+
+div.vtab div.pane {
+  display: none;
+  float: left;
+  width: 445px;
+}
+
+div.vtab p {
+  margin-bottom: 1em;
+  max-width: 50em;
+  line-height: 1.6;
+} 

@@ -92,7 +92,8 @@
         .right-panel div.block.latest-guestbook article p a span.female{ background-position: -57px 0px !important; }
 
 
-.left-panel  { width:645px; margin:0 0 40px; padding:0 35px 0 0; float:left;}
+.left-panel, .left-panel-special { width:645px; margin:0 0 40px; padding:0 35px 0 0; float:left;}
+    .left-panel-special{width:670px; padding:0 10px 0 0;}
     div#content .announcement h1 {padding:0;}
     div#content .left-panel p.description {padding:10px 0 30px;}
     div.left-panel img.head-image{height:150px; border:0; width:645px;}
