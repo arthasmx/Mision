@@ -97,6 +97,17 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     App::header()->addScript(App::url()->get('/jquery.colorbox-min-'. App::locale()->getLang() .'.js','js'));
   }
 
+  function cBox_google_maps(){
+    $this->colorbox();
+
+    App::header()->addCode("
+        <script>
+          jQuery(document).ready(function () {
+            $('.fMap').colorbox({width:'640',height:'480',iframe:true});
+          });
+        </script>");
+  }
+
   function gallery(){
     $this->colorbox();
     App::header()->addLink(App::skin('/css/gallery.css'),array('rel'=>'stylesheet'));

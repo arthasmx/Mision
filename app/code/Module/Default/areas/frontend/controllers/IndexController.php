@@ -39,10 +39,10 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
 
   function cellAction(){
     $this->view->current_main_menu = 3;
-    $this->view->cells             = App::module('Addons')->getModel('Cells')->get_cells(false);
+    $this->view->cells             = App::module('Addons')->getModel('Cells')->get(false);
     $libraries                     = App::module('Core')->getModel('Libraries');
     $libraries->jquery_tools_no_image_tabs();
-    $libraries->highslide_html();
+    $libraries->cBox_google_maps();
 
     $this->view->pageBreadcrumbs   = $this->get_breadcrumbs( 'LINK_cell' );
   }

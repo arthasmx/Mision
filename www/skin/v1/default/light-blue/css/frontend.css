@@ -617,18 +617,17 @@ div.sitemap-block{
 
       /* CELULAS */
         p.address{
-          float: left; width: 100%;
+          float: left; width: 315px;
           padding-bottom: 10px;
         }
-        p.address > strong, em{
+        p.address em{
           float:left;
           width: 425px;
+          line-height: 15px;
         }
-        p.address > img, a.map{
-          float: right;
-          width: 150px;
-          height: 150px;
-          border: 0;
+        p.address img{
+          margin-top:10px;
+          margin-bottom:10px;
         }
 
 

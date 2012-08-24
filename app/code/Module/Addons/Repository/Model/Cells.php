@@ -2,12 +2,10 @@
 require_once 'Module/Core/Repository/Model/Abstract.php';
 class Module_Addons_Repository_Model_Cells extends Module_Core_Repository_Model_Abstract {
 
-  function get_cells($current_page = 1, $enabled_only = true){
+  function get($current_page = 1, $enabled_only = true){
     $select = $this->_db->select()
-                   ->from( array('c'   => 'cells') )
-                   ->join( array('z'  => 'zone_sector_view'), 'z.sector_id = c.sector',  array('zone_id','zone','sector_id','sector') )
-                   ->where('c.lang = ?', App::locale()->getLang() )
-                   ->order('c.zone ASC');
+                   ->from( array('c' => 'zone_sector_view') )
+                   ->where('c.language = ?', App::locale()->getLang() );
 
     if( $enabled_only === true ){
       $select->where('c.status = ?', "enabled");

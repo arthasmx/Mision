@@ -218,8 +218,12 @@
   CELL_pharagraph_3, "Te invitamos a reunirte en alguna célula de nuestra congregación (Mazatlán, Sinaloa, México) o acercate a tu Iglesia más cercana, para que no te pierdas de esta bendición"
   CELL_map_adress_title, "Direcciones"
   CELL_map_adress_subtitle, "Dá click en el icono del mapa correspondiente para cargar la dirección de la célula"
+  CELL_landlord,"Casero: "
+  CELL_leader,"Líder: "
+  CELL_supervisor,"Supervisor: "
+  CELL_map_title,"Click para ver el mapa de esta célula"
 
-  
+
 ; MINISTERY
   shepherd_welcome_article_details_id, "188"
   shepherd_image_title, "Elías y Heidi Páez. Pastores Principales"
