@@ -8,27 +8,9 @@ class Articles_IndexBlockController extends Core_Controller_Block {
     $this->view->gallery_path    = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
     $this->view->coming_next     = App::module('Articles')->getModel('Article')->get_articles_for_content_slider( $this->getParam("category"), $this->getParam('past_next') );
 
-    App::header()->addLink(App::skin('/css/DDSlider.css'),array(
-        "rel"=>"stylesheet",
-        "type"=>"text/css",
-        "media"=>"all",
-    ));
-
-    App::header()->addScript( App::url()->get('/jquery.easing.1.3.js','js') );
-    App::header()->addScript( App::url()->get('/jquery.DDSlider.min.js','js') );
-
-    App::header()->addCode("
-        <script>
-          jQuery(document).ready(function(){
-            jQuery('#ddSlider').DDSlider({
-              trans:     'fading',
-              nextSlide : '.slider_arrow_right',
-              prevSlide : '.slider_arrow_left',
-              selector  : '.slider_selector'
-            });
-          });
-        </script>
-        ");
+    if( ! empty($this->view->coming_next) ){
+      App::module('Core')->getModel('Libraries')->content_slider_ddslider();
+    }
 
   }
 

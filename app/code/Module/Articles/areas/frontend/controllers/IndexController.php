@@ -5,7 +5,7 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
 
   function preDispatch() {
     $this->view->current_main_menu = 4;
-    $this->view->gallery_path    = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
+    $this->view->gallery_path      = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
   }
 
   function listAnnouncementAction(){

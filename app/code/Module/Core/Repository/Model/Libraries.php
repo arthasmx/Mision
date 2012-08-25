@@ -158,4 +158,24 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
         });
       </script>");
   }
+
+  function content_slider_ddslider(){
+    App::header()->addLink(App::skin('/css/DDSlider.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+
+    App::header()->addScript( App::url()->get('/jquery.easing.1.3.js','js') );
+    App::header()->addScript( App::url()->get('/jquery.DDSlider.min.js','js') );
+
+    App::header()->addCode("
+        <script>
+          jQuery(document).ready(function(){
+            jQuery('#ddSlider').DDSlider({
+              trans     : 'fading',
+              nextSlide : '.slider_arrow_right',
+              prevSlide : '.slider_arrow_left',
+              selector  : '.slider_selector'
+            });
+          });
+        </script>");
+  }
+
 }
