@@ -57,7 +57,12 @@
     th, td {text-align: left; font-weight: normal;}
 
     img, iframe {border: none; text-decoration:none;}
-
+    img.gradient-border{
+      border: 1px solid #DEDEDE;
+      -webkit-box-shadow: #777 0px 5px 5px;
+      -moz-box-shadow: #777 0px 5px 5px;
+      box-shadow: #777 0px 5px 5px;
+    }
     ol, ul {list-style: none;}
 
     input, textarea, select, button, dt.label,  dd.hint {font-size:12px; padding:2px; border:1px solid #bbb; }

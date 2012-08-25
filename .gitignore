@@ -1,4 +1,4 @@
-app/var/
+﻿app/var/
 app/code/Core/
 _documentacion_interna/
 files/
@@ -35,3 +35,5 @@ app/code/Module/Default/var/
 app/code/Module/Email/var/
 app/code/Module/User/var/
 www/media/images/Thumbs.db
+www/media/ministerios/
+app/var

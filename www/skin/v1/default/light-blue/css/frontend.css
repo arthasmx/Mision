@@ -596,23 +596,26 @@ div.sitemap-block{
         width: 100%; float: left;
         margin-bottom:20px;
       }
-        div.ministery{width:160px; text-align: center;}
+        div.ministery{width:195px; text-align: center;}
 
       div.shepherd img{
-        margin: 0 0 10px 10px;
+        margin: 10px 0 10px 10px;
         width: 240px; height: 240px;
       }
-      div.ministery img{margin:0; width: 140px; height: 140px;}
+      div.ministery img{
+        width: 159px;
+        height: 144px;
+        margin: 10px 0;
+      }
         img.pastor{float: right;}
 
       div.shepherd cite, div.shepherd em{
         float: left;
         width: 725px;
       }
-        div.shepherd cite{font-weight: bold;}
-        div.ministery cite{color:#4BC8F4; width: 160px; float: left;}
-        div.ministery em{width: 160px; float: left;}
-        div.shepherd.dotted{border-bottom:1px dotted #ccc; padding:15px 0;}
+        div.shepherd cite{font-size: 1.3em;}
+        div.ministery cite{color:#4BC8F4; width: 195px; float: left;}
+        div.ministery em{width: 195px; float: left;}
         h2.ministery{font-weight: bolder; margin:30px 0px 10px 0px !important;}
 
       /* CELULAS */
