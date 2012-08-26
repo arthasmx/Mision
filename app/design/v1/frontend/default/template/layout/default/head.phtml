@@ -15,6 +15,7 @@
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/menus.css');?>" rel="stylesheet" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/columns.css');?>" rel="stylesheet" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/forms.css');?>" rel="stylesheet" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/colorbox.css');?>" rel="stylesheet" />
 
 	<!-- ieHacks -->
 		<!--[if lt IE 7]>
@@ -35,6 +36,7 @@
   <![endif]-->
     <script src="<?=App::getDesign()->getRelativeJsPath('/jquery-1.8.0.min.js','js');?>" ></script>
     <script src="<?=App::getDesign()->getRelativeJsPath('/shared_methods.js','js');?>" ></script>
+    <script src="<?=App::getDesign()->getRelativeJsPath('/jquery.colorbox-min-'. App::locale()->getLang() .'.js','js');?>" ></script>
 
     <script>
         var baseUrl="<?=App::base();?>";
@@ -48,6 +50,12 @@
         var jsLibRelative = "<?=App::getDesign()->getRelativeJsPath("","jslib")?>";
 
         jQuery(document).ready(function(){
+
+          jQuery('a.flexar').colorbox({
+            iframe        : true
+            , innerWidth  : 640
+            , innerHeight : 480
+          });
 
           <?php if( isset($this->current_main_menu) ):?>
             jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").contents().unwrap().wrap("<span>").parent().addClass("icons active");

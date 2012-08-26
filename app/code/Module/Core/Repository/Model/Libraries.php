@@ -98,8 +98,6 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
   }
 
   function cBox_google_maps(){
-    $this->colorbox();
-
     App::header()->addCode("
         <script>
           jQuery(document).ready(function () {
@@ -109,7 +107,6 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
   }
 
   function gallery(){
-    $this->colorbox();
     App::header()->addLink(App::skin('/css/gallery.css'),array('rel'=>'stylesheet'));
     App::header()->addCode("
         <script>
@@ -120,7 +117,6 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
   }
 
   function youtube_video_player(){
-    $this->colorbox();
     App::header()->addCode("
         <script>
           jQuery(document).ready(function(){

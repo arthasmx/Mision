@@ -45,11 +45,7 @@ class Module_Addons_Repository_Model_Video extends Module_Core_Repository_Model_
       return null;
     }
 
-    $video = $this->video_data($video, $render_style);
-    if( ! empty($video) ){
-      App::module('Core')->getModel('Libraries')->colorbox();
-    }
-    return $video;
+    return $this->video_data($video, $render_style);
   }
 
   function get_user_videos($user=null){

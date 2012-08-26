@@ -548,19 +548,19 @@ div.sitemap-block{
   }
 
     /* FLEXAR SECTION */
-      body.flexar{background: transparent url(/skin/v1/default/light-blue/art/bks/flexar-bk-pattern.gif) repeat; }
-      div.flexar { padding:0; margin:0 auto; background:url(/skin/v1/default/light-blue/art/bks/flexar-bk-top.gif) top center repeat-x; height: 562px; width: 100%; }
+      body.flexar{background: transparent url(/skin/v1/default/light-blue/art/bks/flexar.png) repeat; }
+      div.flexar { padding:0; margin:0 auto; height: 562px; width: 100%; }
         div.flexar-form{
-          margin: 10px auto;
+          margin: 0 auto;
           width: 535px;
         }
           form#flexar input, form#flexar textarea {
-            background-color: #555 !important;
-            color:#bbb !important;
+            background-color: #fff !important;
+            color:#777 !important;
           }
-          form#flexar label{color:#bbb !important;}
+          form#flexar label{color:#000 !important;}
           form#flexar fieldset, form#flexar dl.field-comment{
-            padding: 10px 20px 0;
+            padding: 0 20px;
           }
           form#flexar fieldset#namemail dl.field-name{
             float: left;
@@ -570,17 +570,17 @@ div.sitemap-block{
         div.flexar p{
           margin: 0 auto;
           width: 500px;
-          color:#bbb; text-align: center;
+          color:#000; text-align: center;
         }
       h1.flexar-big {
         margin: 0 auto;
-        padding: 80px 0 40px;
+        padding: 30px 0 0;
         width: 140px;
       }
       h1.flexar-big span{
         height: 58px;
         display:block; text-indent: -4000px;
-        background: url(/skin/v1/default/light-blue/art/logos/flexar-big.png) no-repeat center;
+        background: url(/skin/v1/default/light-blue/art/logos/flexar-black.png) no-repeat center;
       }
 
       /* MINISTERIOS */

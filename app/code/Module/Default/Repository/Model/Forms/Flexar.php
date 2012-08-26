@@ -36,7 +36,7 @@ class Module_Default_Repository_Model_Forms_Flexar extends Core_Model_Repository
                         'required'    => true,
                         'validators'  => array( array( 'stringLength', true, array(10))),
                         'class'       => 'required',
-                        'cols'        => 64,
+                        'cols'        => 70,
                         'rows'        => 8
      ));
 
