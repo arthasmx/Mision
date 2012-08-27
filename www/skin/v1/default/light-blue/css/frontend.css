@@ -14,7 +14,7 @@
       font-size: 12px;
     }
       .intro_phrase{width: 975px;}
-      .default_phrase{width: 700px; height: 55px; margin-left:40px;}
+      .default_phrase{width: 700px; height: 55px;}
 
 
 #header, #content, #slider, #bible_phrase, #slogan, #logo_follow_container, span#separator, span#separator_bottom, span#separator_top{
@@ -48,16 +48,16 @@
     background: url(/skin/v1/default/light-blue/art/bks/separator_down.png) no-repeat top center;
   }
     h1.logo, h1.flexar {
-      width: 236px; 
-      font-size: 0; 
-      line-height: 0; 
-      float: left;     
+    float: left;
+    font-size: 0;
+    line-height: 0;
+    width: 280px;  
     }
     h1.logo a, h1.flexar a { 
-      display: block; 
-      height: 50px; 
-      text-indent: -4000px; 
-      background: url(/skin/v1/default/light-blue/art/logos/iglesia_la_mision_logo_small.png) no-repeat center;
+      display: block;
+      height: 50px;
+      text-indent: -4000px;
+      background: url(/skin/v1/default/light-blue/art/logos/iglesia_la_mision_logo_small.png) no-repeat left center;
     }
     h1.flexar {
       width: 90px;
@@ -68,7 +68,7 @@
     }
       h1.logo span{
         color:#164399;
-        letter-spacing:0.6px;
+        letter-spacing:0.1em;
       }
 
         /* LANGUAGE ICON-CHANGER MENUS */
@@ -97,7 +97,7 @@
    div.social_networks{
     float: left;
     padding-bottom: 10px;
-    width: 720px;
+    width: 695px;
    }
      div.right-panel div.social_networks{width: 100%;}
 

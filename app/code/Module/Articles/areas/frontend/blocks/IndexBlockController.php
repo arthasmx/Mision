@@ -58,7 +58,7 @@ class Articles_IndexBlockController extends Core_Controller_Block {
     $this->view->type    = $this->getParam('type');
 
     $width  = $this->getParam('width');
-    $height = $this->getParam('width');
+    $height = $this->getParam('height');
     $this->view->width   = empty($width)  ? '300' : $width;
     $this->view->height  = empty($height) ? '250' : $height;
   }

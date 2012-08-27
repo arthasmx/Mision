@@ -3,7 +3,7 @@
       <?=App::xlat('CONTENT_title_preaching')?>
       <span><?=str_replace('%url%', App::base( App::xlat('route_bible').App::xlat('BIBLE_seo_book_1_timothy').'/2/7' ), App::xlat('CONTENT_subtitle_preaching') )?></span>
     </h1>
-    <img class="head-image" title="<?=App::xlat('CONTENT_title_preaching')?>" alt="<?=App::xlat('CONTENT_title_preaching')?>" src="<?=App::media('/images/prayer-2.jpg')?>" />
+    <img class="head-image" title="<?=App::xlat('CONTENT_title_preaching')?>" alt="<?=App::xlat('CONTENT_title_preaching')?>" src="<?=App::media('/images/prayer.jpg')?>"  width="670" height="90"/>
     <p><?=App::xlat('CONTENT_preaching_instructions')?></p>
     <p class="right"><strong><?=App::xlat('CONTENT_preaching_instructions_blessing')?></strong></p>
 
@@ -21,10 +21,10 @@
           <div class="date"><?=$dates->toDate(7,$preach['event_date'])?></div>
           <div class="actions">
 
-            <a href="<?=App::base('/descargar/audio' .DS. $preach['category'] .DS. $dates->toDate(8,$preach['event_date']) .DS. $preach['reference'] .'.mp3') ?>">
+            <a href="<?=App::base('descargar/audio' .DS. $preach['category'] .DS. $dates->toDate(8,$preach['event_date']) .DS. $preach['reference']) ?>">
               <span class="icon download"></span>
             </a>
-            <a href="#" onclick="pop_up('<?=App::base('/predicacion')?>','<?=$preach['id']?>');return false;">
+            <a href="#" onclick="pop_up('<?=App::base('predicacion')?>','<?=$preach['id']?>');return false;">
               <span class="icon sound"></span>
             </a>
 
@@ -39,7 +39,7 @@
             <?php if( empty($preach['related_files']['article']) ):?>
               <span class="icon article-off"></span>
             <?php else:?>
-              <a href="<?=App::base('/articulo/' . $preach['related_files']['article'])?>">
+              <a href="<?=App::base('articulo/' . $preach['related_files']['article'])?>">
                 <span class="icon article"></span>
               </a>              
             <?php endif;?>
@@ -51,6 +51,7 @@
         </div>
         <?php endforeach;?>
 
+        <?= empty($this->preaching['pagination_html']) ? "<span class='no-pagination'></span>" : $this->preaching['pagination_html'] ?>
     <?php endif;?>
 
   </div>
@@ -77,7 +78,7 @@ $preaching
                     [event_date] => 2012-03-18
                     [privilege] => public
                     [doctype] => audio
-                    [reference] => la-familia-18-Mar-2012
+                    [reference] => la-familia-18-Mar-2012.mp3
                     [status] => enabled
                     [name] => Predicación: La Familia Parte 3
                     [description] => Tercero y último sermón de la trilogia La Familia, impartida por el pastor Elias Páez de la Cerda.
@@ -87,6 +88,7 @@ $preaching
                     [related_files] => Array
                         (
                             [id] => 1
+                            [file_id] => 2
                             [audio] => la-familia-18-Mar-2012
                             [video] => 
                             [image] => 

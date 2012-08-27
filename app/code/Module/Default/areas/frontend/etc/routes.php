@@ -41,7 +41,6 @@ foreach($bible_langs AS $lang=>$value){
             	'action'     => 'media'));
   $router->addRoute('multimedia-section', $route);
 
-// Detalle de doctrina
   $route = new Zend_Controller_Router_Route(
       'descargar/audio/:folder/:year/:month/:file',
       array( 'module'     => 'Default',

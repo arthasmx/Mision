@@ -17,14 +17,9 @@
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/forms.css');?>" rel="stylesheet" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/colorbox.css');?>" rel="stylesheet" />
 
-	<!-- ieHacks -->
-		<!--[if lt IE 7]>
-			<link href="<?=App::getDesign()->getRelativeSkinPath('/css/ie/ie.css');?>" rel="stylesheet" />
-		<![endif]-->
-
-		<!--[if lt IE 6]>  <![endif]-->
-		<!--[if lt IE 7]>  <![endif]-->
-		<!--[if lt IE 8]>  <![endif]-->
+    <!--[if lte IE 8]>
+    	<link href="<?=App::getDesign()->getRelativeSkinPath('/css/ie/ie.css');?>" rel="stylesheet" />
+    <![endif]-->
 
 	<?= App::header()->getLinks();?>
 

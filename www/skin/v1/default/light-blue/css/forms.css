@@ -5,22 +5,27 @@
   padding-left:10px;
 }
 
-#content_data dd input{ width: 48em; color:#555; }
+#content_data dd input{ width: 16.5em; color:#555; }
 #content_data button{ background-color: #ccc; cursor: pointer; }
 
 /* contact form */
 div.contact-form{
-  background-color: #EEE;
-  padding:25px;
   margin-top:30px;
 }
+fieldset.contact-left-group{
+  float:left;
+  width: 225px;
+}
+fieldset.contact-left-group dt{width: 200px;}
 fieldset dl.field-captcha{
   float:left;
-  width: 250px;
+  /*width: 250px;*/
 }
 fieldset dl.field-submit dt#submit-label{
   height: 15px;
 }
+form#form-contact textarea{ width: 35em; }
+form#form-contact label, form#form-contact span, form#form-contact submit{color: #000;}
 
 /* bible-search form */
   div.col form#bible-search input#search{

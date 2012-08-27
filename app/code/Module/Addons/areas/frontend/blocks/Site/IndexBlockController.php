@@ -7,22 +7,29 @@ class Addons_Site_IndexBlockController extends Core_Controller_Block {
   function getSiteEmailManagerAction(){}
 
   function mapAction(){
-    App::header()->addCode("
-        <script  src='http://maps.googleapis.com/maps/api/js?key=AIzaSyAIGddV3Qu8VuUNBJQ4oyjtU7SbR1On98Q&sensor=false'></script>
-        <script>
-        function initialize() {
-          var myOptions = {
-              zoom: 16,
-              center: new google.maps.LatLng(23.249065, -106.429474),
-              mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
-        }
+    $config = $this->_module->getConfig('core', 'map');
 
-        jQuery(document).ready(function(){
-          initialize();
-        });
-        </script>");
+    $cordinates = $this->getParam('cordinates');
+    $zoom       = $this->getParam('zoom');
+    $key        = $this->getParam('key');
+    $url        = $this->getParam('url');
+    $width      = $this->getParam('width');
+    $height     = $this->getParam('height');
+    $language   = $this->getParam('language');
+    $alt        = $this->getParam('alt');
+    $picture    = $this->getParam('picture');
+
+    $this->view->cordinates = empty($cordinates) ? $config['cordinates']    : $this->getParam('cordinates');
+    $this->view->zoom       = empty($zoom)       ? $config['zoom']          : $this->getParam('zoom');
+    $this->view->key        = empty($key)        ? $config['key']           : $this->getParam('key');
+    $this->view->url        = empty($url)        ? $config['url']           : $this->getParam('url');
+    $this->view->width      = empty($width)      ? $config['width']         : $this->getParam('width');
+    $this->view->height     = empty($height)     ? $config['height']        : $this->getParam('height');
+    $this->view->language   = empty($language)   ? App::locale()->getLang() : $this->getParam('language');
+    $this->view->picture    = empty($picture)    ? $config['picture']       : $this->getParam('picture');
+    $this->view->alt        = empty($alt)        ? App::xlat('MAP_description') : $this->getParam('alt');
+
+    App::module('Core')->getModel('Libraries')->cBox_google_maps();
   }
 
   function socialNetworksAction(){}

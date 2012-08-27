@@ -27,8 +27,8 @@
             MAINPAGE_column_guestbook_sign_subtitle, "Completa el formulario para dejar tu firma. Todos los campos son necesarios."
             MAINPAGE_column_guestbook_signed_up, "Tu firma ha sido recibida y será revisada para su aceptación.<br />Muchas gracias por tu tiempo!"
 
-        MAINPAGE_column_guestbook_subtitle, "Opinión de nuestros visitantes sobre nuestra página"
-        MAINPAGE_column_guestbook_description, "Tus visitantes podrán opinar, dejar sugerencias o peticiones de una manera rápida y sencilla. Hasta 500 firmas por libro de visitas"
+        MAINPAGE_column_guestbook_subtitle, "Saludos, comentarios, peticiones..."
+        MAINPAGE_column_guestbook_description, "Déjanos tu firma, comentarios, sugerencias sobre nuestra página. No requieres estar registrado, solo completa el formulario y listo!"
 
         MAINPAGE_column_sermon, "Predicación"
         MAINPAGE_column_sermon_span, "Niños, adolescentes, jóvenes, adultos"
@@ -252,8 +252,9 @@
 
 
 ; MAP
-    SITE_MAP_title, "Ubicación geográfica"
-    SITE_MAP_subtitle, "Puedes interactuar con el mapa por medio de los iconos"
+    MAP_title, "Ubicación geográfica"
+    MAP_subtitle, "Puedes interactuar con el mapa por medio de los iconos"
+    MAP_description, "Click para interactuar con el mapa"
 
 ; FORM MESSAGES
   ;ALL SITE FORM ELEMENT´S NAME, IDs or so on, required when rendering their errors

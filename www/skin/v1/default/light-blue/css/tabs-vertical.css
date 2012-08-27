@@ -27,11 +27,16 @@ ul#vtab li a:hover, ul#vtab li a:focus, ul#vtab li a.current {
 div.vtab div.pane {
   display: none;
   float: left;
-  width: 445px;
+  width: 510px;
 }
 
 div.vtab p {
   margin-bottom: 1em;
   max-width: 50em;
   line-height: 1.6;
-} 
+}
+
+div.vtab div.pane img{
+  width: 510px;
+  height: 90px;
+}

@@ -2,7 +2,7 @@
 
 /* COLUMNS */
 .all-panel   { width:980px; margin:0 0 40px; float:left;}
-.right-panel { width:300px; margin:0; padding:0; float:left;}
+.right-panel { width:290px; margin:0; padding:0; float:left;}
     .right-panel .block{
       margin-bottom: 20px;
     }
@@ -15,11 +15,14 @@
         margin-bottom:10px;
       }
 
-    .right-panel .social_networks h2{
+    body div.container div#content div#content_data div.right-panel .social_networks h2{
       font-size: 0;
       line-height: 0;
       float: left;
-      margin-right: 15px !important;
+      margin-right: 18px !important;
+    }
+    body div.container div#content div#content_data div.right-panel .social_networks h2.no-margin{
+      margin: 0 !important;
     }
       div.social_networks h2 a.facebook, div.social_networks h2 a.twitter,
       div.social_networks h2 a.youtube, div.social_networks h2 a.gplus {
@@ -55,11 +58,17 @@
           padding-top:10px !important;
         }
 
-    .right-panel div.block.latest-comments article, .right-panel div.block.latest-guestbook article{
+    .right-panel div.block.latest-guestbook article{
       float: left;
-      width: 100%;
-      padding:5px 10px;
-      margin-bottom:10px;
+      margin-bottom: 10px;
+      width: 290px;
+      background-color: #F2F2F2;
+    }
+    .right-panel div.block.latest-comments article{
+      float: left;
+      margin-bottom: 10px;
+      padding: 10px 0 10px 10px;
+      width: 280px;
     }
       .right-panel div.block.latest-comments article{
         background: url(/skin/v1/default/light-blue/art/icons/comment.png) no-repeat top left #f2f2f2;
@@ -92,11 +101,9 @@
         .right-panel div.block.latest-guestbook article p a span.female{ background-position: -57px 0px !important; }
 
 
-.left-panel, .left-panel-special { width:645px; margin:0 0 40px; padding:0 35px 0 0; float:left;}
-    .left-panel-special{width:670px; padding:0 10px 0 0;}
+.left-panel { width:670px; margin:0 0 40px; padding:0 20px 0 0; float:left;}
     div#content .announcement h1 {padding:0;}
     div#content .left-panel p.description {padding:10px 0 30px;}
-    div.left-panel img.head-image{height:150px; border:0; width:645px;}
 
 div.announcement .block, div.events .block{ width:295px; margin:0; padding:0 15px; float:left; text-align: justify;}
     div#content .announcement .block h3, div#content .events .block h3{padding:0;}

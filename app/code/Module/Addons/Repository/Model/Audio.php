@@ -37,7 +37,7 @@ class Module_Addons_Repository_Model_Audio extends Module_Core_Repository_Model_
       return $preach;
     }else{ // Make sure audio file is in disk
       $year_month          = App::module('Core')->getModel('Dates')->toDate(8, $preach['event_date'] );
-      $file                = $preach['reference'] . ".mp3";
+      $file                = $preach['reference'];
 
       // gets the Disk's file name
       eval("\$path_to_file = ".$this->cfg['path'].";");
@@ -78,12 +78,12 @@ class Module_Addons_Repository_Model_Audio extends Module_Core_Repository_Model_
 
     // gets related files
     foreach($audio_files['items'] AS $key=>$audio){
-      $audio_files['items'][$key]['related_files'] = $this->get_related_files($audio['reference']);
+      $audio_files['items'][$key]['related_files'] = $this->get_related_files($audio['id']);
     }
     return $audio_files;
   }
 
-  private function get_related_files($reference=null, $field = "audio"){
+  private function get_related_files($reference=null, $field = "file_id"){
     if( empty( $reference ) ){
       return null;
     }
