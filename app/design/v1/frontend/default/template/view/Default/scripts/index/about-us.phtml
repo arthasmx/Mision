@@ -3,9 +3,7 @@
       <?=$this->aboutus['title']?>
       <span><?=App::xlat('CONTENT_subtitle_aboutus')?></span>
     </h1>
-    <p>
-      <?= eval('?>' . $this->aboutus['article'] . '<?php ');?>
-    </p>
+    <?= eval('?>' . $this->aboutus['article'] . '<?php ');?>
   </div>
 
   <div class="right-panel">

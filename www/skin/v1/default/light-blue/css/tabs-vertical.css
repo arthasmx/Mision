@@ -21,13 +21,13 @@ ul#vtab li a:hover, ul#vtab li a:focus, ul#vtab li a.current {
     padding-left: 5px;
     padding-right: 5px !important;
   }
-  
+
 /* Content */
 
 div.vtab div.pane {
   display: none;
-  float: left;
   width: 510px;
+  float: left;
 }
 
 div.vtab p {
@@ -40,3 +40,9 @@ div.vtab div.pane img{
   width: 510px;
   height: 90px;
 }
+
+div.left-panel ul#vtab.doctrine{width: 170px;}
+  div.left-panel div.vtab.doctrine img{width: 500px !important;}
+  div.left-panel div.vtab.doctrine div.pane{width: 500px !important;}
+
+div.left-panel ul#vtab.about-us{width: 160px;}
