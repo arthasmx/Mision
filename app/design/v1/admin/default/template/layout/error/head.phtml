@@ -1,3 +1,7 @@
+<?php
+$design        = App::getDesign();
+$frontend_skin = App::www().'/skin/'.$design->getCurrentPackage().'/'.$design->getCurrentTheme().'/'.App::getConfig('design')->defaults->frontend->skin;  
+?>
 <head>
 <title><?=isset($this->pageTitle) ? $this->pageTitle:@$this->xd['pageTitle'];?></title>
 <meta charset="UTF-8" />
@@ -10,8 +14,8 @@
 <meta name="revisit-after" content="15 days" />
 
 <!--Links-->
-    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/reset.css');?>" rel="stylesheet" />
-    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/errors.css');?>" rel="stylesheet" />
+    <link href="<?=$frontend_skin.'/css/reset.css';?>" rel="stylesheet" />
+    <link href="<?=$frontend_skin.'/css/errors.css';?>" rel="stylesheet" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:100">
 
     <?= App::header()->getLinks();?>
@@ -22,10 +26,9 @@
     <script src="<?=App::getDesign()->getRelativeJsPath('/jquery-1.8.0.min.js','js');?>" ></script>
     <script src="<?=App::getDesign()->getRelativeJsPath('/swfobject.js','js');?>" ></script>
     <script>
-
       var baseUrl="<?=App::base();?>";
       var wwwUrl="<?=App::www();?>";
-      var skinUrl="<?=App::skin();?>";
+      var skinUrl="<?=$frontend_skin?>";
       var curLang="<?=App::locale()->getLang();?>";
       var flashvars = {
           'autostart':          'true'
