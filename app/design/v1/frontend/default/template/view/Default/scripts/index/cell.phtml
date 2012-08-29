@@ -19,21 +19,18 @@
         $landlord   = App::xlat('CELL_landlord');
         $leader     = App::xlat('CELL_leader');
         $supervisor = App::xlat('CELL_supervisor');
-        $map_title  = App::xlat('CELL_map_title');
-        $img        = App::media('/images/load-map.png');
+        $address    = App::xlat('CELL_address');
+        $time       = App::xlat('CELL_time');
 
         foreach($this->cells AS $cell){
           $tabs['tab'][ $cell['zone_id'] ]   = "<li><a href='#'>{$cell['zone']}</a></li>";
           $tabs['panes'][ $cell['zone_id'] ][] =
             "<p class='address'>
-               <em>$landlord {$cell['landlord']}</em>
-               <em>{$cell['address']}</em>
-               <em>{$cell['hours']}</em>
-               <em>$leader {$cell['leader']}</em>
-               <em>$supervisor {$cell['supervisor']}</em>
-               <a class='fMap' href='https://maps.google.com.mx/maps?key=AIzaSyAIGddV3Qu8VuUNBJQ4oyjtU7SbR1On98Q&q=loc:{$cell['map_cordinates']}&z=17&output=embed&sensor=false&hl=es&iwloc=' />
-                 <img src='$img' alt='$map_title' title='$map_title' />
-               </a>
+               <em><span title='$landlord' class='icons-cell home' /> {$cell['landlord']}</em>
+               <em><span title='$address' class='icons-cell address' /> {$cell['address']}</em>
+               <em><span title='$time' class='icons-cell time' /> {$cell['hours']}</em>
+               <em><span title='$leader' class='icons-cell leader' /> {$cell['leader']}</em>
+               <em><span title='$supervisor' class='icons-cell supervisor' /> {$cell['supervisor']}</em>
              </p>";
         }
       ?>

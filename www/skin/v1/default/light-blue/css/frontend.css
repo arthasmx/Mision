@@ -621,13 +621,18 @@ div.sitemap-block{
       /* CELULAS */
         p.address{
           float: left; width: 315px;
-          padding-bottom: 10px;
+          margin-bottom: 20px;
         }
         p.address em{
           float:left;
           width: 425px;
-          line-height: 15px;
+          height: 17px;
         }
+          div#content div#content_data .left-panel div.panes p.address em span{
+            font-size: 12px;
+             font-weight: lighter;
+             padding-left: 15px;
+          }
         p.address img{
           margin-top:10px;
           margin-bottom:10px;
@@ -679,3 +684,10 @@ div.block.promote-radio {
 .icons { background-image: url(/skin/v1/default/light-blue/art/icons/icons.png) !important; background-repeat:no-repeat; height:18px; }
 .breadcrums_home { background-position: 0 2px; padding-left: 20px !important; }
 .breadcrum { background-position: 0 -16px; }
+
+.icons-cell { background-image: url(/skin/v1/default/light-blue/art/icons/icons-cell.png) !important; background-repeat:no-repeat; height:10px; width: 10px; }
+.home{ background-position: 0 3px;}
+.leader{ background-position: 0 -12px; }
+.supervisor{ background-position: 0 -27px; }
+.time{ background-position: 0 -42px; }
+.address{ background-position: 0 -56px; }

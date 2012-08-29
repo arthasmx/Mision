@@ -1,0 +1,85 @@
+  <div class="left-panel">
+    <h1><?=App::xlat('CELL_title')?>
+      <span><?=App::xlat('CELL_subtitle')?></span>
+    </h1>
+    <img height="90" width="670" title="<?=App::xlat('CELL_subtitle')?>" alt="<?=App::xlat('CELL_subtitle')?>" src="<?=App::media('/images/cell.jpg') ?>" />
+    <p><?=App::xlat('CELL_pharagraph_1')?></p>
+    <br />
+    <p><?=App::xlat('CELL_pharagraph_2')?></p>
+    <br />
+    <p><?=App::xlat('CELL_pharagraph_3')?></p>
+
+    <?php if( ! empty($this->cells) ):?>
+      <br />
+      <h1 class="no-line"><?=App::xlat('CELL_map_adress_title')?>
+        <span><?=App::xlat('CELL_map_adress_subtitle')?></span>
+      </h1>
+
+      <?php
+        $landlord   = App::xlat('CELL_landlord');
+        $leader     = App::xlat('CELL_leader');
+        $supervisor = App::xlat('CELL_supervisor');
+        $map_title  = App::xlat('CELL_map_title');
+        $img        = App::media('/images/load-map.png');
+
+        foreach($this->cells AS $cell){
+          $tabs['tab'][ $cell['zone_id'] ]   = "<li><a href='#'>{$cell['zone']}</a></li>";
+          $tabs['panes'][ $cell['zone_id'] ][] =
+            "<p class='address'>
+               <em>$landlord {$cell['landlord']}</em>
+               <em>{$cell['address']}</em>
+               <em>{$cell['hours']}</em>
+               <em>$leader {$cell['leader']}</em>
+               <em>$supervisor {$cell['supervisor']}</em>
+               <a class='fMap' href='https://maps.google.com.mx/maps?key=AIzaSyAIGddV3Qu8VuUNBJQ4oyjtU7SbR1On98Q&q=loc:{$cell['map_cordinates']}&z=17&output=embed&sensor=false&hl=es&iwloc=' />
+                 <img src='$img' alt='$map_title' title='$map_title' />
+               </a>
+             </p>";
+        }
+      ?>
+
+      <ul class="tabs">
+        <?=implode('',$tabs['tab']);?>
+      </ul>
+
+      <div class="panes">
+        <?php foreach($tabs['tab'] AS $key=>$tab):?>
+          <div><?=implode('',$tabs['panes'][$key]);?></div>
+        <?php endforeach;?>
+      </div>
+
+    <?php endif;?>
+
+  </div>
+
+  <div class="right-panel">
+    <?=App::module('Addons')->renderBlock("site/index","social-networks");?>
+    <?=App::module('Articles')->renderBlock("index","promote", array('past_next'=>'next') );?>
+  </div>
+
+<?php
+/*
+$cells
+Array(
+  [id] => 1
+  [landlord] => Bertha De Escobedo
+  [address] => Del Valle #635 Casa Blanca
+  [phone] => 
+  [hours] => Martes 7:30 Pm
+  [sector_id] => 1
+  [sector] => Sector 1
+  [leader] => Hector Mejia
+  [supervisor] => Hector Mejia
+  [zone_id] => 1
+  [zone] => Zona 1
+  [shepherd] => Miguel Paez
+  [map_cordinates] => 
+  [map_image] => default_map.png
+  [created] => 2012-08-24 08:30:07
+  [updated] => 2012-08-24 08:30:07
+  [modified] => 
+  [language] => es
+  [status] => enabled
+ )
+ */
+?>
