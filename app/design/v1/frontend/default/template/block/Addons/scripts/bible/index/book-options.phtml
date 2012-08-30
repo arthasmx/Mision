@@ -59,7 +59,7 @@
         <option class="testament" value=""><?=App::xlat('BIBLE_testament_old')?></option>
         <?php foreach($this->books AS $book): ?>
           <?php if($book['testament'] <> $testament):?>
-            <option class="testament" value=""><?=App::xlat('BIBLE_testament_new')?></option>
+            <option class="testament" value="" ><?=App::xlat('BIBLE_testament_new')?></option>
             <?php $testament="new";?>
           <?php endif;?>
           <option value="<?=$book['seo']?>" <?=($this->current_book_id==$book['book_id']) ? "selected" : false;?> ><?=$book['book']?></option>

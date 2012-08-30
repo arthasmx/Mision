@@ -1,7 +1,7 @@
   <div class="left-panel">
     <h1>
       <?=$this->article['title']?>
-      <span><?=str_replace("%written-date%", App::locale()->toDate($this->article['publicated'],'long'), App::xlat('CONTENT_subtitle_article_written_by'))?> <?=$this->article['autor']?></span>
+      <span><?=str_replace("%written-date%", App::locale()->toDate($this->article['publicated'],'long'), App::xlat('CONTENT_subtitle_article_written_by'))?> <?=$this->article['author']?></span>
     </h1>
     <p>
       <?= eval('?>' . $this->article['article'] . '<?php ');?>
@@ -17,8 +17,7 @@
 
 <div class="right-panel">
   <?=App::module('Addons')->renderBlock("rating/index","get-rating", array('id' => $this->article['article_id']))?>
-  <?=App::module('Addons')->renderBlock("poll/index","get-poll");?>
-  <?=App::module('Addons')->renderBlock("site/index","social-networks");?>
+  <?=App::module('Addons')->renderBlock("poll/index","get-poll", array('id'=>'1') );?>
 </div>
 
   <?=App::module('Addons')->renderBlock("comments/index","get-comments", array('id' => $this->article['article_id'], 'type' => 'article' ))?>

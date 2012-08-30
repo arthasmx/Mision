@@ -7,8 +7,10 @@ class Addons_AjaxController extends Module_Addons_Controller_Action_Frontend   {
   }
 
   function articleRateAction(){
-    $this->_module->getModel('Cud/Rating')->rate_article( $this->getRequest()->getParam('id'), $this->getRequest()->getParam('rate') );
-    $this->view->rating = $this->_module->getModel('Rating')->get_rate( $this->getRequest()->getParam('id') );
+
+    // $this->view->rating = $this->_module->getModel('Rating')->get_rate( $this->getRequest()->getParam('id') );
+    echo $this->_module->getModel('Cud/Rating')->rate_article( $this->getRequest()->getParam('id'), $this->getRequest()->getParam('rate') );
+    exit;
   }
 
   function pollVoteAction(){

@@ -2,10 +2,10 @@
 
 // Rating
   $route = new Zend_Controller_Router_Route(
-           'article/rate/:id/:rate',
+           'rate/:id/:rate',
            array( 'module'     => 'Addons',
-                  'controller' => 'ajax',
-                  'action'     => 'article-rate'));
+                  'controller' => 'Rate',
+                  'action'     => 'rate'));
   $router->addRoute('rate', $route);
 
   // Poll

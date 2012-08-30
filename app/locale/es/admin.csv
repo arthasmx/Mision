@@ -1,3 +1,93 @@
 HEADER_admin_section, " :: Administración"
 HEADER_welcome, "Bienvenido, %user% [ %url% ]"
+HEADER_last_login, "Ultimo acceso: "
 HEADER_logout, "Cerrar sesión"
+
+; MENUS
+  MENU_dashboard,"Dashboard"
+  MENU_articles,"Artículos"
+    MENU_articles_list,"Listado"
+    MENU_articles_add,"Agregar"
+
+
+
+; TABLE
+
+  id,"clave"
+  name,"nombre"
+  section,"sección"
+  language,"idioma"
+  created,"creado"
+  created_by,"creado por "
+  updated,"modificado"
+  updated_by,"modificado por "
+  records," registro(s)"
+  title,"título"
+  type,"tipo"
+  category,"categoría"
+  event_date,"evento"
+  author,"autor"
+  status,"estado"
+  address,"dirección"
+  description,"descripción"
+  css_icon,"Asigna ícono"
+
+  list_column_sort,"Ordenar por este campo"
+
+; ARTICLES TABS
+
+  article_basic_data,"Información básica"
+  article_links,"Video & Links"
+  article_files,"Archivos"
+  article_audio,"Audio MP3"
+  article_images,"Imágenes"
+  article_preview,"Previsualización de artículo"
+
+  article_addon_gallery,"Galería de imágenes"
+  article_addon_video,"Video"
+  article_addon_audio,"Audio"
+  article_addon_files,"Archivos"
+
+
+
+
+; FORMS
+
+  FORM_title,"Título del artículo"
+  FORM_seo,"Nombre para los buscadores (SEO)"
+  FORM_language,"Idioma"
+  FORM_date_publication,"Selecciona la fecha de publicación"
+  FORM_event_date,"Selecciona la fecha del evento"
+  FORM_type,"Tipo de artículo"
+  FORM_description,"Descripción del artículo (500 caracteres máximo)"
+    FORM_description_justification,"<strong>*Muy importante</strong>, es utilizado en listados, mensajes y en content slider."
+  FORM_image_upload,"Selecciona una imágen que represente al artículo"
+  FORM_add_another_row, "Agregar otro link"
+  FORM_remove_row,"Eliminar último link"
+
+  FORM_FIELDSET_basic, "Información"
+  FORM_FIELDSET_dates, "Fechas"
+  FORM_FIELDSET_properties, "Propiedades"
+  FORM_FIELDSET_uploader, "Subir archivo(s)"
+  FORM_FIELDSET_article, "Artículo"
+  FORM_FIELDSET_links, "Ligas externas"
+  FORM_FIELDSET_youtube, "Ligas de video"
+
+
+
+  PREVIEW_event,"Previsualización de "Evento"
+
+  PREVIEW_title,"Título del artículo"
+  PREVIEW_date_author, "Escrito el <strong>fecha de creación</strong>, por <strong>autor del articulo</strong>"
+  PREVIEW_description,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed di"
+
+  ; ACTIONS
+    operations,"operaciones"
+    del_alt,"Eliminar"
+    edit_alt,"Modificar"
+    status_on_alt,"Activar"
+    status_off_alt,"Desactivar"
+
+; ERRORS
+
+NO_RECORDS_FOUND, "No se han encontrado registros"

@@ -12,8 +12,9 @@ class Module_Core_Repository_Model_Dates extends Core_Model_Repository_Model {
    * 5	= Viernes 15/Feb/2009
    * 6	= Viernes 15 Feb 2009
    * 7
-   * 8
+   * 8  = 2012/09
    * 9  = 11:19 PM
+   * 10 = 2012\09 | Utilizado para crear directorios con formato Año \ Mes
   */
   function toDate($formato,$date,$timezone=false){
     if(!$timezone){
@@ -51,6 +52,10 @@ class Module_Core_Repository_Model_Dates extends Core_Model_Repository_Model {
         break;
      case 9:
         $fecha=$datetime->format('h:i A');
+        break;
+     case 10:
+        $fecha  = $datetime->format('Y/m');
+        $fecha = str_replace('/', "\\", $fecha );
         break;
 
       default:

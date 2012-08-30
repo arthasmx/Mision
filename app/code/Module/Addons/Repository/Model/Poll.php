@@ -83,10 +83,12 @@ class Module_Addons_Repository_Model_Poll extends Module_Core_Repository_Model_A
 
     $chart_data = array();
     foreach($results['options'] AS $option){
-      $chart_data[] = array( 'id'         => $option['option_id']
-                            ,'option'     => $option['option']
-                            ,'vote'       => $results['votes'][ $option['option_id'] ]['vote']
-                            ,'percentage' => $results['votes'][ $option['option_id'] ]['percentage']);    
+      if( ! empty($results['votes'][$option['option_id'] ]['vote']) ){
+        $chart_data[] = array( 'id'         => $option['option_id']
+            ,'option'     => $option['option']
+            ,'vote'       => $results['votes'][ $option['option_id'] ]['vote']
+            ,'percentage' => $results['votes'][ $option['option_id'] ]['percentage']);
+      }
     }
 
     $error_duplicated_vote = 'false';

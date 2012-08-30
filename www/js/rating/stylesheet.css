@@ -1,0 +1,4 @@
+@CHARSET 'UTF-8'; 
+#rate{float: left; padding-top: 3px;}
+#rate-hint {float: left; margin-left: 5px; }
+#rate-answer{float: left; width: 290px; }

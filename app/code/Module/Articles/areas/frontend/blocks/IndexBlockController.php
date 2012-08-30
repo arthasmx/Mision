@@ -23,26 +23,11 @@ class Articles_IndexBlockController extends Core_Controller_Block {
     $limit              = empty($limit)  ? $this->_module->getConfig('core','promote_block_limit')  : $limit;
     $this->view->gallery_path = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
 
-    $this->view->events = App::module('Articles')->getModel('Article')->get_articles_for_content_slider( $this->getParam("category"), $this->getParam('past_next'), $limit );
+    $this->view->promotions = App::module('Articles')->getModel('Article')->get_articles_for_content_slider( $this->getParam("category"), $this->getParam('past_next'), $limit );
 
-    App::header()->addLink(App::skin('/css/tabs-slideshow.css'),array(
-        "rel"=>"stylesheet",
-        "type"=>"text/css",
-        "media"=>"all",
-    ));
-
-    App::header()->addScript( App::url()->get('/jquery.tools.min.js','js') );
-    App::header()->addCode("
-        <script>
-          jQuery(document).ready(function(){
-            jQuery('.slidetabs').tabs('.images > div', {
-              effect: 'fade',
-              fadeOutSpeed: 'slow',
-              rotate: true
-            }).slideshow({clickable:false, autoplay:true});
-          });
-        </script>
-    ");
+    if( ! empty($this->view->promotions) ){
+      App::module('Core')->getModel('Libraries')->articles_promotion();
+    }
   }
 
   function shepherdWelcomeAction(){
@@ -62,22 +47,5 @@ class Articles_IndexBlockController extends Core_Controller_Block {
     $this->view->width   = empty($width)  ? '300' : $width;
     $this->view->height  = empty($height) ? '250' : $height;
   }
-
-	/**
-	 * Bloque que muestra los últimos casos de éxito
-	 *
-	 */
-	function getlatestAction() {
-		// Cargamos el CSS para mostrar las estrellitas
-			App::header()->addLink(App::skin('/css/pages/rate.css'),array(
-				"rel"=>"stylesheet",
-				"type"=>"text/css",
-				"media"=>"all",
-			));
-
-		// Sacamos los articulos
-			$this->view->blog=$this->_module->getModelSingleton('blog')->getLatest();
-
-	}
 
 }

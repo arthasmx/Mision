@@ -72,6 +72,11 @@
 
 ;PAGINATION
   PAGINATOR_no_pagination_links, "Ninguna"
+  page_first, "Inicio"
+  page_previous, "Anterior"
+  page_next, "Siguiente"
+  page_last, "Última"
+
 
 ;MENUS
 
@@ -171,8 +176,8 @@
   ; PAGINATOR
     route_paginator_page, "pagina"
   ; DATASORTER
-    route_sort_field, "ordenar_por"
-    route_sort_direction, "orientacion"
+    route_sort_field, "sort"
+    route_sort_direction, "direction"
 
 ;ERRORS
   PUBLIC_ERROR_title,   "Perdido ?"

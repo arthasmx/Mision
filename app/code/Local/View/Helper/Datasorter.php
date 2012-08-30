@@ -6,7 +6,7 @@ class Local_View_Helper_Datasorter {
 
 	protected $sort				= false;
 
-	protected $title			= "LIST_COLUMN_SORTER";
+	protected $title			= "list_column_sort";
 
 	public $view;
 
@@ -15,16 +15,16 @@ class Local_View_Helper_Datasorter {
     }
 
     public function datasorter() {
-    	// CSS
-			App::header()->addLink(App::skin('/css/blocks/datasorter.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+	// CSS
+			App::header()->addLink(App::skin('/css/dataset.css'),array('rel'=>'stylesheet','type'=>'text/css'));
 		return $this;
     }
 
     protected function getSort() {
-    	if (false===$this->sort) {
+	if (false===$this->sort) {
 			$this->sort=$this->datasorter->getSort();
-    	}
-    	return $this->sort;
+	}
+	return $this->sort;
     }
 
     protected function getUrl() {

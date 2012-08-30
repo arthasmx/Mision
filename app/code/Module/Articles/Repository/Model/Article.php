@@ -10,12 +10,12 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     $this->core = App::module('Core')->getModel('Abstract');
   }
 
-  function get_article_list( $current_page = null, $type=null, $publicated=false, $next_events=false, $written_only=false, $status="all"){
+  function get_article_list( $current_page = null, $type=null, $publicated=false, $past_next=false, $written_only=false, $status="all"){
     $select  = $this->core->_db->select()
                           ->from(array('va' => 'vista_articles' ) )
                           ->where( 'va.lang_status = ?', 'enabled' )
                           ->where( 'va.language = ?', App::locale()->getLang() )
-                          ->order( 'va.publicated DESC');
+                          ->order( 'va.event_date DESC');
 
     if( ! empty($type) ){
       $select->where( 'va.article_type_id = ?', $type );
@@ -26,11 +26,13 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     if( $publicated===true ){
       $select->where( 'va.publicated <= ?', date("Y-m-d h:i:s") );
     }
-    if( $next_events===true ){
+
+    if( $past_next==="next" ){
       $select->where( 'va.event_date >= ?', date("Y-m-d h:i:s") );
-    }else{
-      $select->where( "ISNULL(va.event_date) OR va.event_date < ?", date("Y-m-d h:i:s"));
+    }elseif( $past_next==="past" ){
+      $select->where( 'va.event_date <= ?', date("Y-m-d") );
     }
+
     if( $written_only===true ){
       $select->where( 'va.written = 1' );
     }
@@ -45,13 +47,16 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
                       ->where( 'va.lang_status = ?', 'enabled' )
                       ->where( 'va.language = ?', App::locale()->getLang() )
                       ->where( 'va.status = "promote"' )
-                      ->where( 'va.publicated <= ?', date("Y-m-d h:i:s") )
+                      ->where( 'va.publicated <= ?', date("Y-m-d") )
                       ->where( 'va.written = 1' )
                       ->order( 'va.article_id DESC' );
 
     if( $past_next==="next" ){
-      $articles->where( 'va.event_date >= ?', date("Y-m-d h:i:s") );
+      $articles->where( 'va.event_date >= ?', date("Y-m-d") );
+    }else{
+      $articles->where( 'va.event_date <= ?', date("Y-m-d") );
     }
+
     if( ! empty($limit) ){
       $articles->limit( $limit );
     }
@@ -108,7 +113,7 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
 
   function get_article_addons($article_id = 0){
     $select = $this->core->_db->select()
-                         ->from(array('af'  => 'articles_files' ) )
+                         ->from(array('af'  => 'articles_addons' ) )
                          ->where( 'af.status = "enabled"' )
                          ->where( 'af.article_id = ?', $article_id );
 
@@ -126,4 +131,13 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
            :
              $route_by_type[$type_id];
   }
+
+
+  function admin_list( $core_abstract = null ){
+    $select  = $this->core->_db->select()->from(array('va' => 'vista_articles' ) );
+
+    return $core_abstract->setPaginator_page( @Core_Controller_Front::getInstance()->getRequest()->getParam( App::xlat('route_paginator_page') ) )
+                         ->query_for_listing($select);
+  }
+
 }

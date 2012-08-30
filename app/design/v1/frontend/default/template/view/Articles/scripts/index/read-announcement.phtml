@@ -1,9 +1,9 @@
 <?php $core = App::module('Core')->getModel('Dates');?>
 <h1>
   <?=$this->article['title']?>
-  <span><?=str_replace("%written-date%", App::locale()->toDate($this->article['publicated'],'long'), App::xlat('CONTENT_subtitle_article_written_by'))?> <?=$this->article['autor']?></span>
+  <span><?=str_replace("%written-date%", App::locale()->toDate($this->article['publicated'],'long'), App::xlat('CONTENT_subtitle_article_written_by'))?> <?=$this->article['author']?></span>
 </h1>
-<img src="<?=App::media( $this->gallery_path . $core->toDate(8, $this->article['publicated']) .DS. $this->article['article_id'] .DS. $this->article['seo']. "_slider.jpg" ) ?>" width="980" height="340" alt="<?=$this->article['title']?>" title="<?=$this->article['title']?>" />
+<img src="<?=App::media( $this->gallery_path . $core->toDate(8, $this->article['event_date']) .DS. $this->article['article_id'] .DS. $this->article['seo']. "_slider.jpg" ) ?>" width="980" height="340" alt="<?=$this->article['title']?>" title="<?=$this->article['title']?>" />
 <?= eval('?>' . $this->article['article'] . '<?php ');?>
 
 <?=App::module('Addons')->renderBlock("comments/index","get-comments", array('id' => $this->article['article_id'], 'type' => 'announcement' ))?>
@@ -19,7 +19,7 @@ Array
     [created] => 2010-02-01 09:39:31
     [publicated] => 2010-02-01 09:39:31
     [username] => robe@gmail.com
-    [autor] => Roberto Mejia
+    [author] => Roberto Mejia
     [written] => 1
     [picture] => big_img_1.jpg
     [article_type_id] => 4
@@ -40,5 +40,4 @@ Array
     el helado cometa no sobrevivirá al calor de la estrella. Es más, los cometas son masas de hielo y roca tan poco cohesionadas que Lovejoy podría desintegrarse en cualquier momento.
 */
 ?>
-
 

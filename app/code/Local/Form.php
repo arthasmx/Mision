@@ -148,23 +148,50 @@ class Local_Form extends Core_Form {
      */
     public function addDisplayGroup(array $elements, $name, $options = null) {
 
-    	// Creamos el elemento con el método addDisplayGroup de Zend_Form
-    		parent::addDisplayGroup($elements,$name,$options);
+	// Creamos el elemento con el método addDisplayGroup de Zend_Form
+		parent::addDisplayGroup($elements,$name,$options);
 
-    	// Opciones de decoradores que debe tener el grupo
-    		$displayGroup=$this->getDisplayGroup($name);
-    		if ($displayGroup) {
-    			$displayGroup->clearDecorators();
+	// Opciones de decoradores que debe tener el grupo
+		$displayGroup=$this->getDisplayGroup($name);
+		if ($displayGroup) {
+			$displayGroup->clearDecorators();
 				$displayGroup->addDecorator('FormElements')
-             			//->addDecorator('HtmlTag', array('tag' => 'ul','separator'=>PHP_EOL))
-             			->addDecorator('Description' , array('tag'=>'div', 'escape'=>false, 'placement'=>'PREPEND'))
-             			->addDecorator(array('Group'=>'Fieldset'), array('class' => 'group '.$displayGroup->getName(), 'separator'=>PHP_EOL) );
-             			//->addDecorator(array('Element'=>'HtmlTag'), array( 'tag' => 'li', 'class' => 'group '.$displayGroup->getName(), 'separator'=>PHP_EOL ) );
-    		}
+				//->addDecorator('HtmlTag', array('tag' => 'ul','separator'=>PHP_EOL))
+				->addDecorator('Description' , array('tag'=>'div', 'escape'=>false, 'placement'=>'PREPEND'))
+				->addDecorator(array('Group'=>'Fieldset'), array('class' => 'group '.$displayGroup->getName(), 'separator'=>PHP_EOL) );
+				//->addDecorator(array('Element'=>'HtmlTag'), array( 'tag' => 'li', 'class' => 'group '.$displayGroup->getName(), 'separator'=>PHP_EOL ) );
+		}
 
 
         return $this;
     }
+
+
+public function nested_fieldset($element, $name, $options = null) {
+
+  // Creamos el elemento con el método addDisplayGroup de Zend_Form
+  // parent::addDisplayGroup($elements,$name,$options);
+/*
+  // Opciones de decoradores que debe tener el grupo
+  $displayGroup=$this->getDisplayGroup($name);
+  if ($displayGroup) {
+    $displayGroup->clearDecorators();
+    $displayGroup->addDecorator('FormElements')
+    //->addDecorator('HtmlTag', array('tag' => 'ul','separator'=>PHP_EOL))
+    ->addDecorator('Description' , array('tag'=>'div', 'escape'=>false, 'placement'=>'PREPEND'))
+    ->addDecorator(array('Group'=>'Fieldset'), array('class' => 'group '.$displayGroup->getName(), 'separator'=>PHP_EOL) );
+    //->addDecorator(array('Element'=>'HtmlTag'), array( 'tag' => 'li', 'class' => 'group '.$displayGroup->getName(), 'separator'=>PHP_EOL ) );
+  }
+*/
+
+  $displayGroup = $this->getDisplayGroup($element);
+  if ($displayGroup) {
+    // $displayGroup->clearDecorators();
+    $displayGroup->addDecorator(array('Group'=>'Fieldset'), array('class' => 'group '.$element.'-nested', 'separator'=>PHP_EOL) );
+  }
+
+  return $this;
+}
 
     /**
      *
@@ -181,7 +208,7 @@ class Local_Form extends Core_Form {
      */
     public function isValid($data)
     {
-    	$valid=parent::isValid($data);
+	$valid=parent::isValid($data);
 
         foreach ($this->getElements() as $element) {
         	if ($decorator=$element->getDecorator('Element')) {

@@ -16,6 +16,7 @@
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/columns.css');?>" rel="stylesheet" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/forms.css');?>" rel="stylesheet" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/colorbox.css');?>" rel="stylesheet" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/font/stylesheet.css');?>" rel="stylesheet" />
 
 	<!-- ieHacks -->
 		<!--[if lt IE 7]>
@@ -50,9 +51,8 @@
         var jsRelative = "<?=App::getDesign()->getRelativeJsPath()?>";
         var jsLibRelative = "<?=App::getDesign()->getRelativeJsPath("","jslib")?>";
 
-
         jQuery(document).ready(function(){
-          jQuery('a.flexar').colorbox({iframe:true, innerWidth:640, innerHeight:480});
+          <?=App::header()->get_jquery_events();?>
         });
     </script>
 

@@ -50,8 +50,11 @@
   </div>
 
   <div class="right-panel">
-    <?=App::module('Addons')->renderBlock("site/index","social-networks");?>
-    <?=App::module('Articles')->renderBlock("index","promote", array('past_next'=>'next') );?>
+    <?=App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "simple", "location" => "frontend") )?>
+    <?=App::module('Addons')->renderBlock("bible/index","phrase")?>
+    <?=App::module('Addons')->renderBlock("poll/index","get-poll", array('id'=>'1'));?>
+    <?=App::module('Articles')->renderBlock("index","promote", array('past_next'=>'next', 'height'=>'445', 'width'=>'290', 'limit'=>"10", 'category'=>'4' ) );?>
+    <?=App::module('Addons')->renderBlock("guestbook/index","latest");?>
   </div>
 
 <?php

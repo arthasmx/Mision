@@ -1,15 +1,15 @@
-<?php if( ! empty($this->events)): ?>
+<?php if( ! empty($this->promotions)): ?>
   <?php
     $core       = App::module('Core')->getModel('Dates');
     $navigation = array();
   ?>
-  <div class="block article_promote">
-    <div class="images">
-      <?php foreach($this->events AS $event): ?>
-        <?php $route_by_type = App::module('Articles')->getModel('Article')->get_route_by_type($event['article_type_id']);?>
+  <div class="block article_promote" style="<?= empty($this->width) ? null : "width:{$this->width}px;";?><?= empty($this->height) ? null : "height:{$this->height}px;";?>">
+    <div class="images" style="<?= empty($this->width) ? null : "width:{$this->width}px;";?><?= empty($this->height) ? null : "height:{$this->height}px;";?>">
+      <?php foreach($this->promotions AS $promotion): ?>
+        <?php $route_by_type = App::module('Articles')->getModel('Article')->get_route_by_type($promotion['article_type_id']);?>
         <div>
-          <a href="<?=App::base($route_by_type.$event['seo'])?>">
-            <img src="<?=App::media( DS. $this->gallery_path . $core->toDate(8, $event['publicated']) .DS. $event['article_id'] .DS. $event['seo']. "_promote.jpg" ) ?>" width="<?=$this->width?>" height="<?=$this->height?>" alt="<?=$event['title']?>" title="<?=$event['title']?>" />
+          <a href="<?=App::base($route_by_type.$promotion['seo'])?>">
+            <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $promotion['event_date']) .DS. $promotion['article_id'] .DS. $promotion['seo']. "_promote.jpg" ) ?>" width="<?=$this->width?>" height="<?=$this->height?>" alt="<?=$promotion['title']?>" title="<?=$promotion['title']?>" />
           </a>
         </div>
       <?php $navigation[]='<a href="#"></a>'; ?>
@@ -23,7 +23,7 @@
 <?php endif;?>
 
 
-<?php 
+<?php
 /*
 Array
 (
@@ -37,7 +37,7 @@ Array
   [publicated] => 2011-04-28 09:39:31
   [event_date] => 2012-04-14 08:46:50
   [username] => robe@gmail.com
-  [autor] => Roberto Mejia
+  [author] => Roberto Mejia
   [written] => 1
   [picture] => congreso-celular-177
   [article_type_id] => 3

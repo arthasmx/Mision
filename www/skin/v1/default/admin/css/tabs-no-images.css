@@ -1,0 +1,68 @@
+
+/* root element for tabs  */
+ul.tabs {
+  margin:0 !important;
+  padding:0;
+  height:30px;
+  border-bottom: 1px solid #D4D4D4;
+  min-width: 132em;
+}
+
+/* single tab */
+ul.tabs li {
+  float:left;
+  padding:0;
+  margin:0;
+  list-style-type:none;
+}
+
+/* link inside the tab. uses a background image */
+ul.tabs a {
+  float:left;
+  display:block;
+  padding:5px 10px;
+  text-decoration:none;
+  border:1px solid #D4D4D4;
+  border-bottom:0px;
+  height:18px;
+  color:#777;
+  margin-right:2px;
+  position:relative;
+  top:1px;
+  outline:0;
+  border-radius: 4px 4px 0 0;
+}
+
+ul.tabs a:hover {
+  background-color:#F7F7F7;
+  color:#333;
+}
+
+/* selected tab */
+ul.tabs a.current {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  color: #00A8EC;
+  cursor: default;
+}
+
+
+/* tab pane */
+div.panes { /*float: left; width: 100%;*/}
+
+.panes div.pane {
+  display:none;
+  background:#fff;
+  /*padding: 15px 20px;*/
+  border-left: 1px solid #D4D4D4;
+  border-bottom: 1px solid #D4D4D4;
+  border-right: 1px solid #D4D4D4;
+  border-radius: 0 0 10px 10px;
+  width:100%;
+  min-width: 132em;
+  min-height: 70em;
+  float: left;
+}
+
+div#wizard_tabs{}
+div#wizard_tabs div.panes div.pane div.p_data{padding:20px;}

@@ -6,7 +6,7 @@ class Module_Articles_Repository_Model_Sorterfilter extends Module_Core_Reposito
     $this->init_datasorter();
 
     $this->datasorter->createField( "id", Xplora_Datasorter::SORT_DESC );
-    $this->datasorter->createField( "autor" );
+    $this->datasorter->createField( "author" );
     $this->datasorter->createField( "created" , Xplora_Datasorter::SORT_DESC );
 
     $this->datasorter->setDefault( "id" )->setSort($this->sort_f,$this->sort_t);
@@ -29,6 +29,26 @@ class Module_Articles_Repository_Model_Sorterfilter extends Module_Core_Reposito
     ->setFieldName( "va.seo" )
     ->setAttribute( "id" , "seo" )
     ->setAttribute( "size" , 10 );
+
+    return $this;
+  }
+
+
+  function admin_sort_rules(){
+    $this->init_datasorter();
+
+    $this->datasorter->createField( "id", Xplora_Datasorter::SORT_DESC );
+    $this->datasorter->createField( "author" );
+    $this->datasorter->createField( "article_type_name" );
+    $this->datasorter->createField( "category_name" );
+    $this->datasorter->createField( "created" , Xplora_Datasorter::SORT_DESC );
+    $this->datasorter->createField( "event_date" , Xplora_Datasorter::SORT_DESC );
+
+    $this->datasorter->setDefault( "id" )->setSort($this->sort_f,$this->sort_t);
+
+    if ( empty($this->datasorter) ){
+      App::module('Core')->exception( App::xlat('EXC_article_datasorter') . '<br />Launched at method admin_sort_rules, file Repository/Model/Sorterfilter' );
+    }
 
     return $this;
   }

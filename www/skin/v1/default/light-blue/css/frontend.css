@@ -11,7 +11,7 @@
     padding:10px 0;
   }
     #content div.bible_phrase h1, .default_phrase h1{
-      font-size: 12px;
+      font: 11px verdana, arial; ;
     }
       .intro_phrase{width: 975px;}
       .default_phrase{width: 700px; height: 55px;}
@@ -143,7 +143,7 @@
 /* CONTENT */
 
 div#content h1, div#content h2, div#content h3 { color:#777; margin:0 0 10px; border-bottom:1px solid #D4D4D4; padding-bottom:10px; }
-div#content h1 span, div#content h2 span, div#content h3 span, span.written { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
+div#content h1 span, div#content h2 span, div#content h3 span, span.written { display:block; color:#b7b7b7; padding:0; margin:0;}
 
 div#content .comment { float:right; width:44px; height:46px; background:url(images/comment_bg.gif) no-repeat; font:normal 22px Arial, Helvetica, sans-serif; color:#a4a4a4; line-height:38px; text-align:center;}
 div#content p.about { background:#e6e6e6; border-left:5px solid #cdcdcd; padding:20px; margin:15px 0; font: italic 12px Arial, Helvetica, sans-serif; color:#747474;}
@@ -151,7 +151,7 @@ div#content p span { font-size:18px; font-weight:bold; color:#888;}
 div#content ul, div#content ol {text-align:justify;}
   div#content ol{list-style: decimal;}
   div#content ol.verse li{ padding:2px 0; font: 12px/1.2em Georgia,Times,serif; color:#000; }
-    div#content ol.verse li a { font:12px/1.2em Arial,Helvetica,sans-serif; color:#777;}
+    div#content ol.verse li a { color:#777;}
     div#content ol.verse li a:hover { color:#B7B7B7;}
 
 div#content ul.list li { float:left; width:50%; padding:3px 0;}
@@ -268,7 +268,7 @@ div#content img.f_left { float:left;}
     }
       div.opened div.mid div.verse p{font: 16px/1.2em Georgia,Times,serif; margin:20px 0 50px; }
     div.opened div.mid div.search-data{ width: 765px; margin-left: 175px; }
-    div.search-data .data h1{ font-size: 12px; }
+    div.search-data .data h1{ font: 14px Georgia,Times,serif; }
 
   div#book-options, div#chapter-options, div#search-options, div#verse-options{
     width: 113px; height: 35px;
@@ -342,7 +342,7 @@ div.pagination .disabled_tnt_pagination {
       height: 1.5em;
       margin-bottom: 5px;
   }
-  form#book-selection option.testament{font-size:16px; margin:10px 0; font-weight: bold;  }
+  form#book-selection option.testament{ background-color: #000; color: #FFF;  }
 
   div.poll p{color:#0054A0; font-weight: bold;}
   ul.poll-options li{ cursor:pointer;}
@@ -491,6 +491,7 @@ div#guestbook-form{
       width: 100%;
       padding:10px 0;
       text-align: justify;
+      font: 15px Times New Roman;
     }
 
 /* PREACHING */
@@ -591,11 +592,15 @@ div.sitemap-block{
         div.shepherd-welcome img{
           padding-left:20px;
         }
-        div.shepherd-welcome p{ text-align: justify;}
+        div.shepherd-welcome p{ text-align: justify; font-size:14px;}
       div.shepherd, div.ministery{
         width: 100%; float: left;
         margin-bottom:20px;
       }
+        div.shepherd p, div.shepherd cite, div.shepherd em{
+          font-size: 14px;
+          margin-top:10px;
+        }
         div.ministery{width:195px; text-align: center;}
 
       div.shepherd img{
@@ -613,7 +618,6 @@ div.sitemap-block{
         float: left;
         width: 725px;
       }
-        div.shepherd cite{font-size: 1.3em;}
         div.ministery cite{color:#4BC8F4; width: 195px; float: left;}
         div.ministery em{width: 195px; float: left;}
         h2.ministery{font-weight: bolder; margin:30px 0px 10px 0px !important;}
@@ -629,7 +633,7 @@ div.sitemap-block{
           height: 17px;
         }
           div#content div#content_data .left-panel div.panes p.address em span{
-            font-size: 12px;
+            font-size: 11px;
              font-weight: lighter;
              padding-left: 15px;
           }
@@ -667,7 +671,7 @@ div.block.promote-radio {
 .f_top li { padding:5px 0; margin:0; }
 .f_top li a { font:normal 11px Arial, Helvetica, sans-serif; color:#757575 !important; padding:5px 0 5px 0; margin:0;text-decoration:none;}
 .f_top li a:hover { text-decoration:underline; color:#8C9EC3;}
-.f_top .blog { width:190px; height:255px; float:left; margin:0 25px 0 0; padding:0 25px 0 0; background:url(/skin/v1/default/light-blue/art/bks/column_separator.gif) repeat-y right;}
+.f_top .blog { width:190px; height:270px; float:left; margin:0 25px 0 0; padding:0 25px 0 0; background:url(/skin/v1/default/light-blue/art/bks/column_separator.gif) repeat-y right;}
   .f_top .operation-hours ul li{
     padding:0;
     font-size:11px;
@@ -681,6 +685,7 @@ div.block.promote-radio {
 .f_b_container p.right { text-align:right; width:350px; margin:0; padding:10px 0; float:right;} 
 .f_b_container p.leftt { text-align:left; width:815px; margin:0; padding:10px 0; float:left;}
 
+.social{ background-image: url(/skin/v1/default/light-blue/art/icons/social.png) !important; background-repeat:no-repeat; height:18px; }
 .icons { background-image: url(/skin/v1/default/light-blue/art/icons/icons.png) !important; background-repeat:no-repeat; height:18px; }
 .breadcrums_home { background-position: 0 2px; padding-left: 20px !important; }
 .breadcrum { background-position: 0 -16px; }

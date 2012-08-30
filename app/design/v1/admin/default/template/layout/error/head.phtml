@@ -1,6 +1,6 @@
 <?php
-$design        = App::getDesign();
-$frontend_skin = App::www().'/skin/'.$design->getCurrentPackage().'/'.$design->getCurrentTheme().'/'.App::getConfig('design')->defaults->frontend->skin;  
+  $design        = App::getDesign();
+  $frontend_skin = App::www().'/skin/'.$design->getCurrentPackage().'/'.$design->getCurrentTheme().'/'.App::getConfig('design')->defaults->frontend->skin;
 ?>
 <head>
 <title><?=isset($this->pageTitle) ? $this->pageTitle:@$this->xd['pageTitle'];?></title>

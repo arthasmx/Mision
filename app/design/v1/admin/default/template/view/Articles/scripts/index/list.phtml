@@ -1,0 +1,123 @@
+
+<?php if( empty($this->articles) ): ?>
+
+  No hay registros!
+
+<?php else:?>
+  <?php
+    $options = array('enabled'=>App::xlat('FORM_select_option_enabled'), 'disabled'=>App::xlat('FORM_select_option_disabled'), 'deleted'=>App::xlat('FORM_select_option_deleted'));
+    $date    = App::module('Core')->getModel('Dates');
+    $line    = 1;
+  ?>
+
+  <table class="admin parent-menus">
+    <thead>
+      <tr>
+
+        <th> # </th>
+        <th> <?=App::xlat('id')?> <?=$this->datasorter->renderField('id');?> </th>
+
+        <th> <?=App::xlat('title')?> </th>
+        <th> <?=$this->datasorter->renderField('article_type_name');?> <?=App::xlat('type')?> </th>
+        <th> <?=$this->datasorter->renderField('category_name');?> <?=App::xlat('category')?> </th>
+
+        <th> <?=$this->datasorter->renderField('created');?> <?=App::xlat('created')?> </th>
+        <th> <?=$this->datasorter->renderField('event_date');?> <?=App::xlat('event_date')?> </th>
+
+        <th> <?=$this->datasorter->renderField('author');?> <?=App::xlat('author')?> </th>
+        <th> <?=App::xlat('language')?> </th>
+
+        <th> <?=App::xlat('status')?> </th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <?php foreach($this->articles['items'] AS $article): ?>
+        <tr id="<?=$article['article_id']?>">
+
+          <td><?=$line?></td>
+          <td><?=$article['article_id']?></td>
+
+          <td><?=$article['title']?></td>
+          <td><?=$article['article_type_name']?></td>
+          <td><?=$article['category_name']?></td>
+
+          <td><?=$date->toDate(7, $article['created'])?></td>
+          <td><?=$date->toDate(7, $article['event_date'])?></td>
+
+          <td><?=$article['author']?></td>
+          <td><?=$article['language']?></td>
+
+          <td class="no_click">
+            <form id="status_<?=$article['article_id']?>" name="mnu_stat_<?=$article['article_id']?>" method="post" enctype="application/x-www-form-urlencoded">
+              <select name="status" class="status_change">
+                <?php foreach($options AS $key=>$option): ?>
+                  <option value="<?=$key?>" <?=($article['status']==$key)? 'selected':null;?>><?=$option?></option>
+                <?php endforeach; ?>
+              </select>
+              <input type="hidden" name="article_id" value="<?=$article['article_id']?>">
+            </form>
+          </td>
+
+        </tr>
+        <?php $line++;?>
+      <?php endforeach; ?>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td colspan="10">
+          <?=$this->articles['pagination_html']?>
+          <?=$this->articles['pagination']['items_total'] . App::xlat('records')?>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+<?php endif;?>
+
+<?php
+/*
+Array
+(
+[items] => Array (
+      [0] => Array
+        (
+          [id] => 176
+          [article_id] => 189
+          [title] => Raffa
+          [seo] => raffa
+          [description] => El cometa Lovejoy , descubierto el pasado 2 de diciembre de la superficie solar. A esa distanciaasd as
+          [created] => 2012-08-22 10:17:11
+          [publicated] => 2012-08-22 10:17:11
+          [event_date] =>
+          [username] => robe@gmail.com
+          [author] => Roberto
+          [written] => 1
+          [picture] => /images/raffa-logo.jpg
+          [article_type_id] => 5
+          [article_type_name] => Seccion de pagina
+          [article_type_seo] => seccion-de-pagina
+          [category_id] => 2
+          [category_name] => Articulos
+          [category_seo] => articulos
+          [status] => enabled
+          [status_name] => Active
+          [language] => es
+          [lang_namespace] => es_MX
+          [lang_status] => enabled
+          [addon] => 0
+        )
+
+    [pagination] => Array
+        (
+            [page_current] => 1
+            [items_per_page] => 20
+            [items_total] => 49
+            [page_total] => 3
+        )
+
+    [pagination_html] => <div class="pagination"><span class="numeric-pages"><span class="page numeric current"><a class="paginate-link" href="http://demo.iglesialamision.mx/admin/articles/list/route_paginator_page/1">1</a></span><span class="page numeric"><a class="paginate-link" href="http://demo.iglesialamision.mx/admin/articles/list/route_paginator_page/2">2</a></span><span class="page numeric"><a class="paginate-link" href="http://demo.iglesialamision.mx/admin/articles/list/route_paginator_page/3">3</a></span></span><span class="page text"><a class="paginate-link" href="http://demo.iglesialamision.mx/admin/articles/list/route_paginator_page/2">page_next</a></span><span class="page text"><a class="paginate-link" href="http://demo.iglesialamision.mx/admin/articles/list/route_paginator_page/3">page_last</a></span></div>
+ */
+?>

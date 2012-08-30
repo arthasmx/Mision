@@ -7,10 +7,10 @@
       <div class="block">
         <h2 class="no-line strong">
           <?=$announcement['title']?>
-          <span><?=App::locale()->toDate($announcement['publicated'],'long')?></span>
+          <span><?=App::locale()->toDate($announcement['event_date'],'long')?></span>
         </h2>
         <a href="<?=App::base( App::xlat('route_announcement').$announcement['seo'] )?>">
-          <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $announcement['publicated']) .DS. $announcement['article_id'] .DS. $announcement['seo']. "_listing.jpg" ) ?>" width="295" height="170" alt="<?=$announcement['title']?>" title="<?=$announcement['title']?>" />
+          <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $announcement['event_date']) .DS. $announcement['article_id'] .DS. $announcement['seo']. "_listing.jpg" ) ?>" width="295" height="170" alt="<?=$announcement['title']?>" title="<?=$announcement['title']?>" />
         </a>
       </div>
     <?php endforeach; ?>
@@ -36,7 +36,7 @@
                     [created] => 2010-02-01 09:39:31
                     [publicated] => 2010-02-01 09:39:31
                     [username] => robe@gmail.com
-                    [autor] => Roberto Mejia
+                    [author] => Roberto Mejia
                     [written] => 1
                     [picture] => d.jpg
                     [article_type_id] => 3

@@ -12,7 +12,7 @@
         CONTENT_subtitle_privacy, "Toda información proporcionada es celosamente protegida"
         CONTENT_subtitle_article_written_by, "Escrito el %written-date%, por "
         CONTENT_title_preaching, "Predicaciones"
-        CONTENT_subtitle_preaching,"Para esto yo fui constituido predicador y apóstol (verdad en Cristo), y maestro de los gentiles en fe y verdad. <a href='%url%'>1ra de Timoteo 2:7</a>"
+        CONTENT_subtitle_preaching,"Para esto yo fui constituido predicador y apóstol, y maestro de los gentiles en fe y verdad. <a href='%url%'>1ra de Timoteo 2:7</a>"
         CONTENT_preaching_instructions, "Tenemos para ustedes las predicaciones emitidas en nuestra congregación en formato MP3. Puedes reproducirlo en nuestra página o descargarlo a tu dispositivo electrónico. Deseamos de todo corazón que este audio sirva para edificar y fortalecer más nuestra fé en el Señor Jesucristo."
         CONTENT_preaching_instructions_blessing, "Dios les bendiga"
         CONTENT_preaching_empty, "No se han encontrado predicaciones"
@@ -21,8 +21,8 @@
             CONTENT_preaching_not_found, "<strong>No se ha encontrado el archivo de sonido</strong><br /><br />Ayúdanos a mantener funcionando este sitio; envía un mensaje indicando el archivo al cual diste click.<p class='right'>Gracias! Dios le pague!</p>"
 
         MAINPAGE_column_guestbook, "Libro de visitas"
-            MAINPAGE_column_guestbook_main_title, "Bienvenido a nuestro libro de visitas"
-            MAINPAGE_column_guestbook_main_subtitle, "Déjanos tu firma, comentarios, sugerencias sobre nuestra página. No requieres estar registrado, solo completa el formulario y listo!"
+            MAINPAGE_column_guestbook_main_title, "Libro de visitas"
+            MAINPAGE_column_guestbook_main_subtitle, "Déjanos tu firma, comentarios o sugerencias. No requieres estar registrado, solo completa el formulario y listo!"
             MAINPAGE_column_guestbook_sign_title, "Firma el libro de visitas"
             MAINPAGE_column_guestbook_sign_subtitle, "Completa el formulario para dejar tu firma. Todos los campos son necesarios."
             MAINPAGE_column_guestbook_signed_up, "Tu firma ha sido recibida y será revisada para su aceptación.<br />Muchas gracias por tu tiempo!"
@@ -33,11 +33,6 @@
         MAINPAGE_column_sermon, "Predicación"
         MAINPAGE_column_sermon_span, "Niños, adolescentes, jóvenes, adultos"
         MAINPAGE_column_sermon_description, "Tenemos para ti los sermones transmitidos de nuestra congregación; puedes descargarlos a cualquier dispositivo que reproduzca el formato mp3."
-
-        page_first, "Inicio"
-        page_previous, "Anterior"
-        page_next, "Siguiente"
-        page_last, "Última"
 
     ; FOOTER
         ADDRESS_street,"Batalla del paredón # 2010"
@@ -170,25 +165,29 @@
         LISTING_no_data_found, "No se han encontrado registros para esta sección"
 
 ; YOUTUBE
-  YOUTUBE_video_about_title, "Reseña de Iglesia la Misión en video"
+  YOUTUBE_video_about_title, "Iglesia la Misión"
   YOUTUBE_video_about_subtitle, "Pasado y presente de nuestra congregación"
   YOUTUBE_no_video_found, "No se encontró el video "
 
 ; RATING
-  RATING_block_rate, "Que te parece este articulo ?"
-  RATING_block_rating_subtitle, "Posiciona el mouse sobre el icono y haz click para calificar"
-  RATING_1, "Malo(a)"
+  RATING_block_rate, "Califica este "
+    RATING_block_rate_default_type, "artículo"
+    RATING_block_rate_type_announcement, "anuncio"
+    RATING_block_rate_type_event, "evento"
+  RATING_block_rating_subtitle, "haz click sobre el ícono para calificar"
+  RATING_1, "Malo"
   RATING_2, "Suficiente"
   RATING_3, "Regular"
-  RATING_4, "Bueno(a)"
+  RATING_4, "Bueno"
   RATING_5, "Excelente"
+  RATING_on_success, "Gracias por calificar!"
   RATING_on_error, "Ya hemos recibido tu calificación anterior, gracias!"
 
 ; POLL
-  POLL_block_poll, "Participa en nuestra encuesta"
-  POLL_block_poll_subtitle, "Tu opinión es muy importante; solo toma 1 click participar!"
+  POLL_block_poll, "Encuesta"
+  POLL_block_poll_subtitle, "Tu opinión es muy importante, participa!"
   POLL_on_dulpicated, "Ya hemos recibido tu voto anterior, gracias!"
-  POLL_on_error, "No se pudo guardar tu opinión<br />Podrías reportar este error ? Gracias!"
+  POLL_on_error, "No se pudo guardar tu opinión. Podrías reportar este error ? Gracias!"
 
 ; CONTACT
 
@@ -202,12 +201,12 @@
   CONTACT_EMAIL_SITE_admin, "Administrador del sitio"
 
   CONTACT_SOCIAL_NETWORKS_title, "Redes Sociales"
-  CONTACT_SOCIAL_NETWORKS_subtitle, "Conectate con nosotros en nuestras redes sociales"
+  CONTACT_SOCIAL_NETWORKS_subtitle, "Únete a nuestras redes sociales"
 
-  SITE_EMAIL_MANAGER_title, "Otros correos para comunicarse"
+  SITE_EMAIL_MANAGER_title, "Otros correos"
   SITE_EMAIL_MANAGER_subtitle, "Escribe al correo que se asemeje a tu necesidad"
 
-  CONTACT_OPERATION_HOURS_title, "Horarios de servicio"
+  CONTACT_OPERATION_HOURS_title, "Horarios"
   CONTACT_OPERATION_HOURS_subtitle, "Servicios realizados para la Honra y Gloria de Dios"
 
 ; CELL
@@ -255,7 +254,6 @@
 
 ; MAP
     MAP_title, "Ubicación geográfica"
-    MAP_subtitle, "Puedes interactuar con el mapa por medio de los iconos"
     MAP_description, "Click para interactuar con el mapa"
 
 ; FORM MESSAGES

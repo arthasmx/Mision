@@ -18,6 +18,11 @@ FORM_submit,"Enviar"
 FORM_search,"Buscar"
 FORM_cancel,"Cancelar"
 FORM_close,"Cerrar"
+
+FORM_select_option_enabled, "Activo"
+FORM_select_option_disabled, "Inactivo"
+FORM_select_option_deleted, "Eliminado"
+
 FORM_button_send_comment, "Enviar comentario"
 FORM_captcha,"Ingrese el código de la imagen"
 FORM_login_user, "Escriba su nombre de usuario"

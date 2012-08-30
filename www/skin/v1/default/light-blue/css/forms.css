@@ -32,6 +32,7 @@ form#form-contact label, form#form-contact span, form#form-contact submit{color:
     width: 20em;
     margin: 0 !important;
   }
+  div.block form#bible-search input#search{ width: 19em; }
   div.option.search form#bible-search input#search{
     width: 20em;
     margin-right:300px;

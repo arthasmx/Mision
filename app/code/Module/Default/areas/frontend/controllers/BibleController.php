@@ -11,6 +11,7 @@ class BibleController extends Module_Default_Controller_Action_Frontend {
   }
 
   function indexAction(){
+    App::module('Core')->getModel('Libraries')->bible_search();
     $this->view->books           = App::module('Addons')->getModel('Bible')->get_books();
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
   }

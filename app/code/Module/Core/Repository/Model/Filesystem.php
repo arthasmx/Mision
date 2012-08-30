@@ -4,8 +4,13 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
   private $file	 = null;
   private $mimes = null;
 
+  private $uploads_folder         = null;
+  private $uploaded_file_size     = null;
+  private $uploaded_file_max_size = 10485760;
+
   function init(){
-    $this->mimes = $this->_module->getConfig('core', 'mime');
+    $this->mimes         = $this->_module->getConfig('core', 'mime');
+    $this->uploads_folder = WP . DS . "media" .DS . $this->_module->getConfig('core', 'uploads_folder') . DS . $this->_module->getModel('Dates')->toDate("10", date('Y-m-d h:i:s')) . DS;
   }
 
   // File MUST exist, otherwise it'll throw an exception
@@ -133,5 +138,87 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
   }
 
 
+
+  function image_upload($file=null){
+    $checks     = $this->check_uploads_settings($file);
+    if( is_array($checks) ){
+      return json_encode($checks);
+    }
+
+    $was_uploaded = $this->upload();
+
+    return empty($was_uploaded) ?
+             json_encode(array('error'=> 'Could not save uploaded file.' . 'The upload was cancelled, or server error encountered'))
+           :
+             json_encode(array('success'=>true));
+  }
+
+  function article_images_upload(){
+
+  }
+
+  private function check_uploads_settings($file){
+    if( empty($file) ){
+      return array('error' => "No files were uploaded.");
+    }
+
+    if( $this->check_directory() === false ){
+      return array('error' => "Server error. Upload directory isn't writable.");
+    }
+
+    // Getting content length from server
+    if( ! empty($_SERVER["CONTENT_LENGTH"]) ){
+      $this->uploaded_file_size = $_SERVER["CONTENT_LENGTH"];
+
+      if ($this->uploaded_file_size == 0) {
+        return array('error' => 'File is empty');
+      }
+
+      if ($this->uploaded_file_size > $this->uploaded_file_max_size) {
+        return array('error' => 'File is too large');
+      }
+    }
+
+    $pathinfo  = pathinfo($file);
+    $filename  = $pathinfo['filename'];
+    $extension = @$pathinfo['extension'];		// hide notices if extension is empty
+
+    if( ! array_key_exists($extension, $this->mimes) ){
+      $these = implode(', ', array_keys($this->mimes));
+      return array('error' => 'File has an invalid extension, it should be one of '. $these . '.');
+    }
+
+    $this->file = $this->uploads_folder . $file;
+    return true;
+  }
+
+  private function check_directory() {
+    if ( ! file_exists($this->uploads_folder)) {
+      if ( ! mkdir($this->uploads_folder,0777,true)) {
+        return false;
+      }
+    }
+    if ( ! is_writable($this->uploads_folder)) {
+      return false;
+    }
+    return true;
+  }
+
+  private function upload(){
+    $input    = fopen("php://input", "r");
+    $temp     = tmpfile();
+    $realSize = stream_copy_to_stream($input, $temp);
+    fclose($input);
+
+    if ($realSize != $this->uploaded_file_size ){
+      return false;
+    }
+
+    $target = fopen($this->file, "w");
+    fseek($temp, 0, SEEK_SET);
+    stream_copy_to_stream($temp, $target);
+    fclose($target);
+    return true;
+  }
 
 }

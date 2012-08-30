@@ -79,7 +79,8 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
       }
     }
 
-    $select = $this->setPaginator_query( $select->__toString() )->paginate_query();
+    // $select = $this->setPaginator_query( $select->__toString() )->paginate_query();
+    $select = $this->paginate_query( $select );
     return $this->setPaginator_page_name(App::xlat('route_paginator_page'))
                 ->paginate_render( $select );
   }

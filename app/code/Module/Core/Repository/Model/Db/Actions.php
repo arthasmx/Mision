@@ -32,23 +32,4 @@ class Module_Core_Repository_Model_Db_Actions extends Zend_Db_Table_Abstract {
     return empty($result)? null : $result->toArray();  
   }
 
-  function is_multiple_database_modification_attempt($table=null, $field='created', $throw_exception = true){
-    $this->set_table($table);
-    $allow_table_modifications_if_no_records_were_changed_within_this_time = App::module('Core')->getModel('Dates')->rest_hours_to_date();
-
-    $select = $this->table->select()
-                          ->from($this->table, array('already_modified' => 'COUNT(*)'))
-                          ->where("$field BETWEEN '$allow_table_modifications_if_no_records_were_changed_within_this_time' AND '". date('Y-m-d H:i:s') . "'" );
-
-    if ( empty($this->table->fetchRow($select)->already_modified ) ){
-      return false;
-    }
-
-    if( $throw_exception ){
-      App::module('Core')->exception( App::xlat('EXC_multiple_database_modifications') );
-    }else{
-      return true;
-    }
-  }
-
 }

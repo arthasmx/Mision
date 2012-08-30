@@ -19,9 +19,7 @@
     </p>
   </div>
 
-  <div class="col">
-    <?=App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "simple") )?>
-  </div>
+  <?=App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "simple", "location" => "intro") )?>
 
   <div class="col last">
     <?php $show_live_sermon = App::module('Addons')->getModel('Video')->time_to_show_live_sermon(); ?>
@@ -40,12 +38,12 @@
         </a>
       </p>
     <?php else:?>
-      <?=App::module('Addons')->renderBlock("video/index","live")?>    
+      <?=App::module('Addons')->renderBlock("video/index","live")?>
     <?php endif;?>
   </div>
 </div>
 
-<?php 
+<?php
 /*
 $announcement
 Array
@@ -59,9 +57,9 @@ Array
             [created] => 2010-02-01 09:39:31
             [publicated] => 2010-02-01 09:39:31
             [username] => robe@gmail.com
-            [autor] => Roberto Mejia
+            [author] => Roberto Mejia
             [written] => 1
-            [picture] => 
+            [picture] =>
             [article_type_id] => 4
             [article_type_name] => Anuncios
             [article_type_seo] => anuncios

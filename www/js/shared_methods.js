@@ -80,3 +80,33 @@ function validate_param(param){
   }
   return ( param != false );
 }
+
+function saving_this_row(target,status){
+  if(status=="on") {
+    jQuery(target).addClass('saving');
+  }
+  if(status=="off") {
+    jQuery(target).removeClass('saving');
+  }
+}
+
+function string_to_seo(string){
+  var to_replace = {".": "-"," ": "-","_": "-",",": "-",":": "-","á": "a","é": "e","í": "i","ó": "o","ú": "u","à": "a","è": "e","ì": "i","ò": "o","ù": "u","ä": "a","ë": "e","ï": "i","ö": "o","ü": "u","ñ": "n","ç": "c"};
+  var allowed    = "abcdefghijklmnopqrstuvwxyz-1234567890";
+  var string     = string.toLowerCase();
+  var seo        = "";
+
+  for (var i in to_replace){
+    string = string.split(i).join(to_replace[i]);
+  }
+
+  for (var i in string){
+    char = string[i];
+    if (allowed.indexOf(string[i])!=-1) {
+      seo += string[i];
+    }
+  }
+
+  seo = seo.split("----").join("-").split("---").join("-").split("--").join("-");
+  return seo;
+}

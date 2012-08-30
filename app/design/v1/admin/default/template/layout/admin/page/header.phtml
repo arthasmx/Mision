@@ -1,30 +1,37 @@
 <?php
-  $name      = $this->user_data['name']." ".$this->user_data['last_name']. " ". $this->user_data['maiden_name'];
+  $user_data = App::module("Acl")->getModel('acl')->get_logged_user_data();
+  $name      = $user_data['name']." ".$user_data['last_name']. " ". $user_data['maiden_name'];
   $logout    = "<a href='".App::base('/logout')."'>".App::xlat('HEADER_logout')."</a>";
-  $top_menu  = App::module('Addons')->getModel('Menu')->get($this->user_data['username']);
+
+  if( empty($this->current_menu['menu']) ){
+    $this->current_menu['menu']=0;
+  }
+  if( empty($this->current_menu['sub']) ){
+    $this->current_menu['sub']=0;
+  }
+
 ?>
 
 <header>
   <hgroup>
     <h1> <?=App::getConfig('website_name') . App::xlat('HEADER_admin_section');?> </h1>
-    <h2> <?=App::module('Core')->getModel('Dates')->toDate(7, $this->user_data['lastlogin']);?> <br /> <?=str_replace(array('%user%','%url%'), array($name,$logout), App::xlat('HEADER_welcome'));?> </h2>
+    <h2> <?=str_replace(array('%user%','%url%'), array($name,$logout), App::xlat('HEADER_welcome'));?> <br /> <?=App::xlat('HEADER_last_login') . App::module('Core')->getModel('Dates')->toDate(7, $user_data['lastlogin']);?> </h2>
   </hgroup>
-</header>
 
-<nav>
-  <?php foreach($top_menu AS $menu): ?>
-    <ul <?=($this->current_menu['menu']==$menu['id']) ? "class='current'" : null; ?>>
-      <li>
-        <a href="#">
-          <?=$menu['name']?>
-          <!--[if IE 7]><!--></a><!--<![endif]-->
-          <!--[if lte IE 6]><table><tr><td><![endif]-->
+  <?php if( ! empty($user_data['menu']) ): ?>
+    <nav>
+      <?php foreach($user_data['menu'] AS $menu): ?>
+        <ul <?=($this->current_menu['menu']==$menu['id']) ? "class='current'" : null; ?>>
+          <li>
+            <a <?= empty($menu['url'])? '': "href='".App::base( $menu['url']."'" ) ?>>
+              <?=$menu['name']?>
+            </a>
 
             <ul class="submenu<?=($this->current_menu['menu']==$menu['id']) ? ' show' : null; ?>">
-              <?php if( ! empty($menu['submenu']) ): ?>
+              <?php if( ! empty($menu['submenu'])  ): ?>
                 <?php foreach((array)$menu['submenu'] AS $submenu): ?>
                   <li>
-                    <a href="#" <?=($this->current_menu['sub']==$submenu['id']) ? "class='current'" : null; ?> >
+                    <a href="<?= empty($submenu['url'])? '': App::base( $submenu['url'] ) ?>" <?=($this->current_menu['sub']==$submenu['id']) ? "class='current'" : null; ?> >
                       <?=$submenu['name']?>
                     </a>
                   </li>
@@ -32,9 +39,13 @@
               <?php endif;?>
             </ul>
 
-          <!--[if lte IE 6]></td></tr></table></a><![endif]-->
-      </li>
-    </ul>
-  <?php endforeach; ?>
+          </li>
+        </ul>
+      <?php endforeach; ?>
+    </nav>
+  <?php endif; ?>
 
-</nav>
+</header>
+
+<section>
+  <article>

@@ -1,21 +1,13 @@
+<?php $type = empty($this->type) ? App::xlat('RATING_block_rate_default_type') : $this->type; ?>
 
 <div class="block rating">
   <h1>
-    <?=App::xlat('RATING_block_rate')?>
+    <?=App::xlat('RATING_block_rate') . $type?>
     <span><?=App::xlat('RATING_block_rating_subtitle')?></span>
   </h1>
-  <div class="rate">
-    <ul class="star-rating">
-      <?php for($star = 1; $star <= 5; $star++): ?>
-        <li <?=($this->rating['rating']==$star)? 'class="stars-'.$star.'"' : ''?>>
-          <a href="#" class="star-<?=$star?>">
-            <?=App::xlat('RATING_' . $star)?>
-          </a>
-        </li>
-      <?php endfor;?>
-        <li class="rate-description"></li>
-    </ul>
-  </div>
+  <div id="rate"></div>
+  <div id="rate-hint"></div>
+  <div id="rate-answer"></div>    
 </div>
 
 <?php 

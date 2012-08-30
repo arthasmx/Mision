@@ -10,8 +10,8 @@
 
     <ul id="ddSlider">
       <?php foreach ($this->coming_next AS $key=>$next_event): ?>
-        <li>
-          <a href="<?=App::base( "/{$next_event['article_type_seo']}/{$next_event['seo']}" )?>">
+        <li class='square'>
+          <a href="<?=App::base( "{$next_event['article_type_seo']}/{$next_event['seo']}" )?>">
             <img src="<?=App::media( $this->gallery_path . $core->toDate(8, $next_event['publicated']) ."/". $next_event['article_id'] ."/". $next_event['picture']. "_slider.jpg" )?>" alt="" width="100%" height="340" />
           </a>
           <div class="description" ><?=$next_event['description']?></div>

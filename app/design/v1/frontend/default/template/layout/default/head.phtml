@@ -16,9 +16,10 @@
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/columns.css');?>" rel="stylesheet" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/forms.css');?>" rel="stylesheet" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/css/colorbox.css');?>" rel="stylesheet" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/font/stylesheet.css');?>" rel="stylesheet" />
 
     <!--[if lte IE 8]>
-    	<link href="<?=App::getDesign()->getRelativeSkinPath('/css/ie/ie.css');?>" rel="stylesheet" />
+	<link href="<?=App::getDesign()->getRelativeSkinPath('/css/ie/ie.css');?>" rel="stylesheet" />
     <![endif]-->
 
 	<?= App::header()->getLinks();?>
@@ -46,12 +47,6 @@
 
         jQuery(document).ready(function(){
 
-          jQuery('a.flexar').colorbox({
-            iframe        : true
-            , innerWidth  : 640
-            , innerHeight : 480
-          });
-
           <?php if( isset($this->current_main_menu) ):?>
             jQuery("ul#menu li:eq(<?=$this->current_main_menu?>) a").contents().unwrap().wrap("<span>").parent().addClass("icons active");
           <?php endif;?>
@@ -59,7 +54,10 @@
           <?php if( ! empty($this->set_bible_options_position) ):?>
             set_element_position('div.opened', bible.dom.opt_options,1);
           <?php endif;?>
-          });
+
+          <?=App::header()->get_jquery_events();?>
+
+        });
     </script>
 
 	<?=App::header()->getScripts();?>

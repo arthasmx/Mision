@@ -10,9 +10,9 @@ class Local_View_Helper_Ajaxdatasorter extends Local_View_Helper_Datasorter {
 		return $this;
 	}
 
- 	public function ajaxdatasorter() {
-    	// CSS
-			App::header()->addLink(App::skin('/css/blocks/datasorter.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+	public function ajaxdatasorter() {
+	// CSS
+			App::header()->addLink(App::skin('/css/dataset.css'),array('rel'=>'stylesheet','type'=>'text/css'));
 		return $this;
     }
 

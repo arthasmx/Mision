@@ -1,0 +1,88 @@
+@CHARSET "UTF-8";
+
+body{
+  background: #f3f3f3 url(/skin/v1/default/admin/art/bks/bk.jpg) repeat-x;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+}
+
+body header, body nav{
+  margin: auto;
+  height: 99px;
+}
+body nav{
+  height: 79px;
+}
+
+  body header hgroup{
+    width: 100%;
+  }
+  body header hgroup h1, body header hgroup h2{
+    color: #BEBEBE;
+    padding: 30px 25px;
+    float: left;
+  }
+  body header hgroup h2{
+    float: right;
+    font-size: 12px;
+    padding: 25px;
+    text-align: right;
+  }
+
+  body nav {
+    display: table;
+    float: left;
+    position: relative;
+    width: 100%;
+    z-index: 500;
+  }
+    body nav ul, body nav ul.current {
+      display: table-cell;
+      float: left;
+    }
+    body nav ul li a {
+        display: block;
+        float: left;
+        height: 40px;
+        line-height: 35px;
+        padding: 5px 20px 0;
+        white-space: nowrap;
+    }
+      body nav ul li ul.submenu a {
+        height: 35px;
+        padding: 0 20px;
+      }
+      body nav ul li a:hover, body nav ul li:hover a {
+        cursor: pointer;
+        z-index: 100;
+      }
+      body nav ul li a:hover, body nav ul li:hover a{
+        cursor: pointer;
+        display: block;
+        z-index: 200;
+      }
+      body nav ul.current li a, body nav ul.current li ul.submenu li a.current, body nav ul.current li ul.submenu li a:hover {color:#EEF9C1 !important;}
+      body nav ul.current li ul.submenu li a{color:#94B52C !important;}
+
+      body nav ul li ul.submenu { display: none; }
+        body nav ul.current li ul.show {
+            z-index: 1 !important;
+        }
+        body nav ul *:hover ul.submenu, body nav ul.current li ul.show {
+            display: block;
+            left: 0;
+            position: absolute;
+            text-align: left;
+            top: 43px;
+            width: 100%;
+            z-index: 100;
+            background: url("/skin/v1/default/admin/art/bks/submenu.jpg") repeat-x scroll 0 0 #F3F3F3;
+            height: 35px;
+        }
+        body nav ul.current li div.show ul.sub {
+            display: table;
+            list-style: none outside none;
+            padding: 0;
+        }
+          body nav ul.current li div.show ul.sub li.sub_show a {
+              cursor: default;
+          }

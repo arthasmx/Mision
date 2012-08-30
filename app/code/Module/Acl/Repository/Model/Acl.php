@@ -5,11 +5,9 @@ class Module_Acl_Repository_Model_Acl extends Core_Model_Repository_Model {
 
   private $user_data    = null;
   private $user         = null;
-  private $session_name = null;
 
   function init() {
-    $this->user         = empty($this->user) ? App::module('User')->getModel('User')  :  $this->user;
-    $this->session_name = App::module('User')->getConfig('core','session_name');
+    $this->user = empty($this->user) ? App::module('User')->getModel('User')  :  $this->user;
   }
 
   function login($user=null, $pwd=null) {
@@ -78,14 +76,14 @@ class Module_Acl_Repository_Model_Acl extends Core_Model_Repository_Model {
   }
 
   function is_user_logged() {
-    $this->user_data = App::module('Core')->getModel('Namespace')->get( $this->session_name );
+    $this->user_data = App::module('Core')->getModel('Namespace')->get( 'user' );
 
-    if ( empty( $this->user_data->{$this->session_name} )  ||  ($this->user_data->{$this->session_name}['session_life'] <= time() )  ){
+    if ( empty( $this->user_data->user )  ||  ($this->user_data->user['session_life'] <= time() )  ){
       App::module('Core')->getModel('Flashmsg')->error( App::xlat('ERROR_LOGIN_NOACTIVITY_NOPRIVILEGES') );
       $this->logout();
     }
 
-    $this->user_data->{$this->session_name}['session_life'] = $this->refresh_session_time();
+    $this->user_data->user['session_life'] = $this->refresh_session_time();
     return true;
   }
 
@@ -94,7 +92,7 @@ class Module_Acl_Repository_Model_Acl extends Core_Model_Repository_Model {
   }
 
   function get_user_privileges(){
-    if( empty($this->user_data->{$this->session_name}) ){
+    if( empty($this->user_data->user) ){
       App::module('Core')->getModel('Flashmsg')->error( App::xlat('ERROR_LOGIN_NOACTIVITY_NOPRIVILEGES') );
       $this->logout();
     }
@@ -103,7 +101,7 @@ class Module_Acl_Repository_Model_Acl extends Core_Model_Repository_Model {
     $select = $core->_db->select()
                    ->from( array('p'  => 'privileges'),  array('p.id', 'p.privilege', 'p.picture') )
                    ->join( array('up' => 'user_privileges'), 'up.privilege = p.privilege',  array() )
-                   ->where('up.username = ?', $this->user_data->{$this->session_name}['username']);
+                   ->where('up.username = ?', $this->user_data->user['username']);
 
     $privileges = $core->_db->query( $select )->fetchAll();
 
@@ -116,7 +114,7 @@ class Module_Acl_Repository_Model_Acl extends Core_Model_Repository_Model {
   }
 
   function get_logged_user_data(){
-    return empty($this->user_data->{$this->session_name}) ? null : $this->user_data->{$this->session_name};
+    return empty($this->user_data->user) ? null : $this->user_data->user;
   }
 
 }

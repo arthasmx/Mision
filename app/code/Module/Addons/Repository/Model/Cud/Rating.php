@@ -2,8 +2,12 @@
 require_once 'Module/Core/Repository/Model/Db/Actions.php';
 class Module_Addons_Repository_Model_Cud_Rating extends Module_Core_Repository_Model_Db_Actions{
 
-  function rate_article($id = 0, $rate = 0){
-    $this->is_multiple_database_modification_attempt('rate_votes');
+  function rate($id = 0, $rate = 0){
+    $check = $this->more_than_once_rating_attempt($id);
+    if ( $check == true ){
+      return json_encode(array('result'=>'error'));
+    }
+
 
     $valid_rate = $this->get_valid_rate($rate);
 
@@ -26,6 +30,21 @@ class Module_Addons_Repository_Model_Cud_Rating extends Module_Core_Repository_M
                   ,'rate'          => $valid_rate
                   ,'created'       => date("Y-m-d H:i:s") );
     $this->table->insert($data);
+
+    return json_encode(array('result'=>'success'));
+  }
+
+  function more_than_once_rating_attempt($id){
+    $this->set_table('rate_votes');
+    $allow_table_modifications_if_no_records_were_changed_within_this_time = App::module('Core')->getModel('Dates')->rest_hours_to_date();
+
+    $select = $this->table->select()
+                   ->from($this->table, array('already_rated' => 'COUNT(*)'))
+                   ->where("rate_reference = ?", $id)
+                   ->where("ip = ?", $_SERVER['REMOTE_ADDR'])
+                   ->where("created BETWEEN '$allow_table_modifications_if_no_records_were_changed_within_this_time' AND '". date('Y-m-d H:i:s') . "'" );
+
+    return ( $this->table->fetchRow($select)->already_rated == 0 ) ? false : true;
   }
 
   function get_valid_rate($rate = 1){

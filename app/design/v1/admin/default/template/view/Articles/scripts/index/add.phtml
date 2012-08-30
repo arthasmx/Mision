@@ -1,0 +1,197 @@
+
+<div id="wizard_tabs">
+  <!-- tabs -->
+  <ul class="tabs">
+    <li><a href="#" class="l"><?=App::xlat('article_basic_data')?></a></li>
+    <li><a href="#" class="l"><?=App::xlat('article_images')?></a></li>
+    <li><a href="#" class="l"><?=App::xlat('article_audio')?></a></li>
+    <li><a href="#" class="l"><?=App::xlat('article_files')?></a></li>
+    <li><a href="#" class="l"><?=App::xlat('article_links')?></a></li>
+    <li><a href="#" class="l"><?=App::xlat('article_preview')?></a></li>
+  </ul>
+
+  <!-- panes -->
+  <div class="panes">
+
+    <div class="pane">
+      <div id="p1" class="p_data">
+        <?=$this->basic_data?>
+        <?=$this->article_content?>
+      </div>
+    </div>
+
+
+
+    <div class="pane">
+      <div id="p2" class="p_data">
+        <form>
+        <fieldset class="group image" id="f_image"><legend><?=App::xlat('FORM_FIELDSET_uploader')?></legend>
+
+          <label for="file_image">Selecciona las imágenes relacionadas al articulo. (JPG)</label>
+          <div id="gallery"></div>
+
+        </fieldset>
+        </form>
+      </div>
+    </div>
+
+
+
+    <div class="pane">
+      <div id="p3" class="p_data">
+        <form>
+        <fieldset class="group audio" id="f_audio"><legend><?=App::xlat('FORM_FIELDSET_uploader')?></legend>
+
+          <label for="file_audio">Selecciona los archivos deseados. (MP3)</label>
+          <div id="audio"></div>
+
+        </fieldset>
+        </form>
+      </div>
+    </div>
+
+
+
+    <div class="pane">
+      <div id="p4" class="p_data">
+        <form>
+        <fieldset class="group files" id="f_files"><legend><?=App::xlat('FORM_FIELDSET_uploader')?></legend>
+
+          <label for="file_files">Selecciona los archivos deseados. (PDF, DOC, XLS, TXT)</label>
+          <div id="files"></div>
+
+        </fieldset>
+        </form>
+      </div>
+    </div>
+
+
+
+    <div class="pane">
+      <div id="p5" class="p_data">
+        <form id="links">
+
+          <fieldset class="group link_youtube" id="link_youtube"><legend><?=App::xlat('FORM_FIELDSET_youtube')?></legend>
+            <table id="youtube">
+              <tr>
+                <th><?=ucfirst(App::xlat('description'))?></th>
+                <th><?=ucfirst(App::xlat('address'))?></th>
+              </tr>
+              <tr>
+                <td width="310">
+                  <input type="text" name="youtube_desc[]" />
+                  Texto alternativo importante para buscadores
+                </td>
+                <td width="315">
+                  <input type="text" name="youtube_url[]" />
+                  <strong>ex:</strong>http://www.youtube.com/watch?v=WQtGMdKt-Wk
+               </td>
+              </tr>
+            </table>
+          </fieldset>
+
+          <fieldset class="group link_externals" id="link_externals"><legend><?=App::xlat('FORM_FIELDSET_links')?></legend>
+            <table id="links">
+              <tr>
+                <th><?=ucfirst(App::xlat('description'))?></th>
+                <th><?=ucfirst(App::xlat('address'))?></th>
+                <th><?=ucfirst(App::xlat('type'))?></th>
+              </tr>
+              <tr>
+                <td width="310">
+                  <input type="text" name="link_desc[]" />
+                  Texto alternativo importante para buscadores
+                </td>
+                <td width="310">
+                  <input type="text" name="links_url[]" />
+                  <strong>ex:</strong>http://www.domain.com/section/desired-link
+                </td>
+                <td width="105">
+                  <select name="links_ltype[]">
+                    <option value="">&mdash; Select &mdash;</option>
+                    <option value="Read">Read Only</option>
+                    <option value="Write">Write</option>
+                    <option value="Execute">Execute</option>
+                    <option value="Admin">Administrator</option>
+                  </select>
+                  <?=ucfirst(App::xlat('css_icon'))?>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+
+
+
+    <div class="pane">
+      <div id="p6" class="p_data">
+        <h1><?=App::xlat('PREVIEW_event')?></h1>
+        <div class="preview event">
+          <div class="prev-content">
+            <h2>
+              <em class="p_title"><?=App::xlat('PREVIEW_title')?></em>
+              <span class="p_date"><?=App::xlat('PREVIEW_date_author')?></span>
+            </h2>
+            <p class="p_description"><?=App::xlat('PREVIEW_description')?></p>
+          </div>
+        </div>
+        <button class="prev">&laquo; Prev</button>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+
+<!-- activate tabs with JavaScript -->
+<script>
+  $(function() {
+
+    // get container for the wizard and initialize its exposing
+    var wizard = $("#wizard_tabs"); // .expose({color: '#789', lazy: true});
+
+        // enable tabs that are contained within the wizard
+      $("ul.tabs", wizard).tabs("div.panes > div.pane", function(event, index) {
+
+      /* now we are inside the onBeforeClick event */
+/*
+      // ensure that the "terms" checkbox is checked.
+      var terms = $("#terms");
+      if (index > 0 && !terms.get(0).checked)  {
+      terms.parent().addClass("error");
+
+      // when false is returned, the user cannot advance to the next tab
+      return false;
+
+      }
+
+      // everything is ok. remove possible red highlight from the terms
+      terms.parent().removeClass("error");
+*/
+      });
+
+
+        // get handle to the tabs API
+      var api = $("ul.tabs", wizard).data("tabs");
+
+      // "next tab" button
+      $("button.next", wizard).click(function() {
+      api.next();
+      });
+
+      $("button.save_next", wizard).click(function() {
+        console.log('Enviar por ajax a que se graben los datos del articulo');
+        console.log('utilizar un EXPOSE o un SAVING para el PANE (ver en SHARED_METHODS)');
+      });
+
+      // "previous tab" button
+      $("button.prev", wizard).click(function() {
+      api.prev();
+      });
+    });
+</script>

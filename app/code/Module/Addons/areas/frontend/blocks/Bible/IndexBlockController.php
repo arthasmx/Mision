@@ -7,7 +7,8 @@ class Addons_Bible_IndexBlockController extends Core_Controller_Block {
   function searchAction(){
     App::module('Core')->getModel('Libraries')->bible_search();
 
-    $this->view->form = $this->_module->getModel('Forms/Bible')->get( $this->getParam("form_type"), $this->getParam("reset") );
+    $this->view->form     = $this->_module->getModel('Forms/Bible')->get( $this->getParam("form_type"), $this->getParam("reset") );
+    $this->view->location = $this->getParam("location");
     $this->setScriptAction( "search-intro" );
   }
 

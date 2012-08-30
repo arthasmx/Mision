@@ -1,13 +1,13 @@
 <?php
 require_once 'Module/Core/Repository/Model/Abstract.php';
 class Module_User_Repository_Model_User extends Module_Core_Repository_Model_Abstract {
+
   public $user 			     = null;
 
   protected $basic_data  = null;
 
   function init(){
-    $this->session     = App::module('User')->getConfig('core','session_name');
-    $this->_namespace  = App::module('Core')->getModel('Namespace')->get( $this->session );
+    $this->_namespace  = App::module('Core')->getModel('Namespace')->get( 'user' );
   }
 
   function login( $user=null, $pass=null){
@@ -29,6 +29,8 @@ class Module_User_Repository_Model_User extends Module_Core_Repository_Model_Abs
 
     if( ! empty($this->basic_data) ){
       $this->basic_data['session_life'] = App::module('Acl')->getModel('Acl')->refresh_session_time();
+      $this->basic_data['menu']         = App::module('Addons')->getModel('Menu')->get($user);
+
       return $this->basic_data;
     }
     return false;
@@ -40,19 +42,19 @@ class Module_User_Repository_Model_User extends Module_Core_Repository_Model_Abs
     }
 
     $fields = array();
-    $fields_to_store_in_session = array('username', 'name', 'last_name', 'maiden_name', 'avatar', 'folder', 'profession', 'mailing_list', 'lastlogin', 'session_life');
+    $fields_to_store_in_session = array('username', 'name', 'last_name', 'maiden_name', 'avatar', 'folder', 'profession', 'mailing_list', 'lastlogin', 'session_life', 'menu');
     foreach ($this->basic_data as $key=>$value) {
       if ( in_array($key, $fields_to_store_in_session) ) {
        $fields[$key] = $value;
       }
     }
-    $this->_namespace->{$this->session} = $fields;
+    $this->_namespace->user = $fields;
     return true;
   }
 
   function unload_user_data(){
    require_once('Zend/Session.php');
-   Zend_Session::namespaceUnset($this->session);
+   Zend_Session::namespaceUnset('user');
    return true;
   }
 

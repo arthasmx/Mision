@@ -14,6 +14,7 @@ class Module_Articles_Controller_Action_Admin extends Module_Articles_Controller
 	}
 
 	function init() {
+	  App::module("Acl")->getModel('acl')->is_user_logged();
 	}
 
 }
