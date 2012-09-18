@@ -1,0 +1,22 @@
+
+RewriteEngine on
+# -FrontPage-
+
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+AuthName iglesialamision.mx
+#AuthUserFile /home/public_html/_vti_pvt/service.pwd
+#AuthGroupFile /home/public_html/_vti_pvt/service.grp
+RewriteCond %{HTTP_HOST} ^iglesialamision.mx$ [OR]
+RewriteCond %{HTTP_HOST} ^www.iglesialamision.mx$
+RewriteRule ^www/?$ "http\:\/\/www\.iglesialamision\.mx" [R=301,L]
+

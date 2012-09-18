@@ -288,9 +288,15 @@ div#content img.f_left { float:left;}
 
 
 
-div.pagination { display:block; text-align:center; height:22px; clear:both; padding:20px; }
+div.pagination, div.f-pagination { display:block; text-align:center; height:22px; clear:both; padding:20px; }
+  div.f-pagination{ padding:10px; }
+  div.f-pagination-error{
+    padding:10px;
+    text-align: center;
+    color: red;
+  }
 
-div.pagination a:link, div.pagination a:visited{
+div.pagination a, div.f-pagination a{
     padding:7px;
     padding-top:2px;
     padding-bottom:2px;
@@ -303,14 +309,14 @@ div.pagination a:link, div.pagination a:visited{
     font-weight:normal;
 }
 
-div.pagination a:hover {
+div.pagination a:hover, div.f-pagination a:hover {
     background-color:#DDEEFF;
     border:1px solid #BBDDFF;
     color:#0072BC;
     text-decoration:none !important;  
 }
 
-div.pagination a.current, div.pagination .current a {
+div.pagination a.current, div.pagination .current a, div.f-pagination a.current, div.f-pagination .current a  {
     padding:7px;
     padding-top:2px;
     padding-bottom:2px;
@@ -322,7 +328,7 @@ div.pagination a.current, div.pagination .current a {
     cursor:default;
 }
 
-div.pagination .disabled_tnt_pagination {
+div.pagination .disabled_tnt_pagination, div.f-pagination .disabled_tnt_pagination {
     padding:7px;
     padding-top:2px;
     padding-bottom:2px;
@@ -505,8 +511,8 @@ div#guestbook-form{
     margin-right:15px;
   }
     div.preaching div.date{
-      text-align: right;
-      font-weight: bolder;
+      text-align: left;
+      color:#555;
     }
     div.preaching div.description{
       width: 435px;

@@ -1,14 +1,17 @@
 
 /* root element for tabs  */
-ul.tabs {
+ul.cell, ul.addons {
     margin:0 !important;
     padding:0;
     height:30px;
     border-bottom:1px solid #D4D4D4;
 }
+  ul.addons{
+    margin-top:30px !important;
+  }
 
 /* single tab */
-ul.tabs li {
+ul.cell li, ul.addons li {
     float:left;
     padding:0;
     margin:0;
@@ -16,7 +19,7 @@ ul.tabs li {
 }
 
 /* link inside the tab. uses a background image */
-ul.tabs a {
+ul.cell a, ul.addons a {
     float:left;
     display:block;
     padding:5px 10px;
@@ -32,13 +35,13 @@ ul.tabs a {
     border-radius: 4px 4px 0 0;
 }
 
-ul.tabs a:hover {
+ul.cell a:hover, ul.addons a:hover {
     background-color:#F7F7F7;
     color:#333;
 }
 
 /* selected tab */
-ul.tabs a.current {
+ul.cell a.current, ul.addons a.current {
     border-bottom:1px solid #F4F4F4;
     color:#00A8EC;
     cursor:default;
@@ -46,9 +49,10 @@ ul.tabs a.current {
 
 
 /* tab pane */
-.panes div {
+.panes div.cell, .panes div.addons {
     display:none;
     padding:15px 20px;
 }
+  .panes div.addons{padding: 0 !important;}
 
 

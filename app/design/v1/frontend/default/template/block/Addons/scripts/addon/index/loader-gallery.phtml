@@ -1,31 +1,41 @@
 
-<div class="gallery">
-  <ul>
-  <?php foreach($this->gallery['thumbnails'] AS $image): ?>
-    <li>
-      <a class="cBox" href="<?=App::media( '/images/gallery/' . $this->gallery['path'] . '/' . $image );?>">
-	      <img width="144" height="90" title="" alt="" src="<?=App::media( '/images/gallery/'. $this->gallery['path'] .'/thumbnails/'. $image );?>" />
-      </a>
-    </li>
-  <?php endforeach;?>
-  </ul>
-</div>
+<?php if( ! empty($this->gallery) ):
+  $paginator=null; ?>
+
+  <?php if( ! empty($this->gallery['html']) ): ?>
+    <?php $paginator = $this->gallery['html'];?>
+  <?php endif;?>
+
+  <div class="gallery">
+    <?=empty($paginator) ? '<br />':$paginator?>
+    <ul>
+    <?php foreach($this->gallery['files'] AS $image): ?>
+      <li>
+        <a class="cBox" href="<?=App::media( '/images/gallery/' . $this->gallery['path'] . '/' . $image );?>">
+  	      <img width="144" height="90" title="" alt="" src="<?=App::media( '/images/gallery/'. $this->gallery['path'] .'/thumbnails/'. $image );?>" />
+        </a>
+      </li>
+    <?php endforeach;?>
+    </ul>
+    <?=$paginator?>
+  </div>
+
+<?php endif;?>
 
 <?php
 /*
-colorbox usage
-$("a.class").colorbox({rel:'class'});
-
 gallery
 Array
 (
-    [thumbnails] => Array
+    [files] => Array
         (
-            [0] => evento-iglesia-la-mision-agosto-2010-150_003.jpg
-            [1] => evento-iglesia-la-mision-agosto-2010-150_015.jpg
-            [2] => evento-iglesia-la-mision-agosto-2010-150_004.jpg
-            [3] => evento-iglesia-la-mision-agosto-2010-150_008.jpg
+            [0] => bautizos-de-mayo-178_001.jpg
+            [1] => bautizos-de-mayo-178_002.jpg
+            [2] => bautizos-de-mayo-178_003.jpg
+            [3] => bautizos-de-mayo-178_004.jpg
+            [4] => bautizos-de-mayo-178_005.jpg
         )
-    [path] => 2010/08/150
+    [html] => 12345678 
+    [path] => 2011/05/178
  */
 ?>

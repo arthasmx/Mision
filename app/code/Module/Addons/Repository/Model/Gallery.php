@@ -43,16 +43,7 @@ class Module_Addons_Repository_Model_Gallery extends Core_Model_Repository_Model
     $filesys           = App::module('Core')->getModel('Filesystem');
     $allowed_regex_ext = $this->get_allowed_extensions_regex();
 
-    $images = $filesys->get_files_from_path($thumbs,array(
-	  "include"	=>	$allowed_regex_ext,
-    ));
-
-    if ( sizeof($images) < 1) {
-      return false;
-    } else {
-      return array('thumbnails' => $images, 'path' => $this->_article_path );
-    }
-
+    return $filesys->get_files_from_path($thumbs, $this->_article_path, array( "include" => $allowed_regex_ext, "paginate"=>true) );
   }
 
   function get_allowed_extensions() {

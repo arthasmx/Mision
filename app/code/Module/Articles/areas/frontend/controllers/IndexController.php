@@ -45,6 +45,10 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
     $this->view->article = $this->_module->getModel('Article')->get_article( $article_seo );
     $this->view->addons  = $this->_module->getModel('Article')->get_article_addons( $this->view->article['article_id'] );
 
+    if( ! empty($this->view->addons) ){
+      App::module('Core')->getModel('Libraries')->jquery_tools_no_image_tabs("addons");
+    }
+
     $this->view->pageBreadcrumbs = $this->get_breadcrumbs(  $this->getRequest()->getParam('action') , $this->view->article['title']  );
   }
 

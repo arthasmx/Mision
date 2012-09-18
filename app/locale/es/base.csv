@@ -13,6 +13,13 @@
   HEADER_follow_us_gplus, "Google Plus!"
   HEADER_follow_us_youtube, "Youtube"
 
+; ADDONS
+  ADDON_video,"Video"
+  ADDON_audio,"Sonido"
+  ADDON_gallery,"Galería"
+  ADDON_file,"Archivos"
+  ADDON_link,"Links"
+
 
 ;AJAX
   AJAX_loading, "cargando datos..."

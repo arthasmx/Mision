@@ -43,15 +43,14 @@
         ADDRESS_phone_1,"Tel: (52) 6691-332-199"
         ADDRESS_phone_2,"Tel: (52) 6699-869-475"
 
-        OPERATION_HOURS_MONDAY_pray, "07:30 PM, Horación"
+        OPERATION_HOURS_MONDAY_pray, "07:30 PM, Oración"
         OPERATION_HOURS_MONDAY_leader, "06:30 PM, Reunión de líderes"
-        OPERATION_HOURS_SATURDAY_youth_meeting, "07:00 PM, Reunión de Jóvenes"
         OPERATION_HOURS_SATURDAY_children_class, "09:00 AM, Clases de Juniors"
         OPERATION_HOURS_SATURDAY_teens_class, "11:00 AM, Clases de Principes"
         OPERATION_HOURS_SUNDAY_service, "Domingo"
         OPERATION_HOURS_SUNDAY_morning, "10:00 AM, Primer culto"
         OPERATION_HOURS_SUNDAY_afternoon, "04:00 PM, Segundo culto"
-        OPERATION_HOURS_SUNDAY_evening, "07:00 PM, Tercer culto"
+        OPERATION_HOURS_SUNDAY_evening, "06:30 PM, Tercer culto"
 
     ; BIBLE
         BIBLE_search_intro_subtitle, "Escribe la palabra o frase que necesitas"

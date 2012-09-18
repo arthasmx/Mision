@@ -19,7 +19,8 @@ class Addons_Addon_IndexBlockController extends Core_Controller_Block {
              break;
 
        case 'gallery':
-             $this->view->gallery = $this->get_gallery( $params );
+             $this->view->gallery = $this->_module->getModel('Gallery')->get_gallery_files( $params );
+
              App::module('Core')->getModel('Libraries')->gallery();
              $this->setScriptAction("loader-gallery");
              break;
@@ -32,10 +33,6 @@ class Addons_Addon_IndexBlockController extends Core_Controller_Block {
              break;
     }
 
-  }
-
-  private function get_gallery($article = null){
-    return $this->_module->getModel('Gallery')->get_gallery_files( $article );
   }
 
 }

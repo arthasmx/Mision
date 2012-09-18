@@ -23,3 +23,15 @@
 	    )
 	);
 	$router->addRoute('core', $route);
+
+
+	// Paginacion de archivos
+	$route = new Zend_Controller_Router_Route(
+	    'file-paginate/:page',
+	    array(
+	        'module'        => 'Core',
+	        'controller'    => 'Index',
+	        'action'        => 'file-paginate',
+	    )
+	);
+	$router->addRoute('paginator', $route);

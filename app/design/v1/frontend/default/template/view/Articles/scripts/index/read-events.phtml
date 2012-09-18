@@ -7,12 +7,23 @@
   <p>
     <?= eval('?>' . $this->article['article'] . '<?php ');?>
   </p>
-  <?php if( !empty($this->addons)):?>
-    <?php foreach($this->addons AS $addon):?>
-      <?=App::module('Addons')->renderBlock("addon/index","loader", array("addon"   => $addon
-                                                                        , "id"      => $this->article['article_id']
-                                                                        , "created" => $this->article['created'] ));?>
-    <?php endforeach; ?>
+  <?php if( ! empty($this->addons)): ?>
+    <ul class="addons">
+      <?php foreach($this->addons AS $addon): ?>
+        <li> <a href='#'><?=App::xlat('ADDON_' . $addon['type'])?> </a></li>
+      <?php endforeach; ?>
+    </ul>
+
+    <div class="panes">
+      <?php foreach($this->addons AS $addon):?>
+        <div class="addons">
+        <?=App::module('Addons')->renderBlock("addon/index","loader", array("addon"   => $addon
+                                                                          , "id"      => $this->article['article_id']
+                                                                          , "created" => $this->article['created'] ));?>
+        </div>
+      <?php endforeach; ?>
+    </div>
+
   <?php endif;?>
 </div>
 

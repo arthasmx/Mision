@@ -8,8 +8,10 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
   private $uploaded_file_size     = null;
   private $uploaded_file_max_size = 10485760;
 
+  private $session = null;
+
   function init(){
-    $this->mimes         = $this->_module->getConfig('core', 'mime');
+    $this->mimes          = $this->_module->getConfig('core', 'mime');
     $this->uploads_folder = WP . DS . "media" .DS . $this->_module->getConfig('core', 'uploads_folder') . DS . $this->_module->getModel('Dates')->toDate("10", date('Y-m-d h:i:s')) . DS;
   }
 
@@ -88,16 +90,16 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
     return empty($file)? false : pathinfo($file);
   }
 
-  function get_files_from_path($path,array $options=array()) {
-    $path = WP . $path;
+  function get_files_from_path($thumbs, $path, array $options=array()) {
+    $thumbs = WP . $thumbs;
     // Revisamos las opciones para determinar includes y excludes
     $includes=array("/^pdf$/");
     $excludes=array();
     if (isset($options['include'])) $includes=(array)$options['include'];
     if (isset($options['exclude'])) $excludes=(array)$options['exclude'];
     // Abrimos el directorio
-    if (!is_dir($path) || !is_readable($path) || !$dir_handle = opendir($path)) {
-      $this->_module->exception("No se ha podido leer la ruta ".$path);
+    if (!is_dir($thumbs) || !is_readable($thumbs) || !$dir_handle = opendir($thumbs)) {
+      $this->_module->exception("No se ha podido leer la ruta ".$thumbs);
     }
 
     // Comenzamos su lectura
@@ -129,15 +131,64 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
       // Revisamos la extension del archivo leido
       if ($en_includes && !$en_excludes) array_push($files, $file);
     }
-    // Devolvemos array con archivos en la ruta
-    if (sizeof($files)<1) {
-      return false;
+
+    if ( sizeof($files) < 1 ) {
+      return null;
     } else {
-      return $files;
+
+      $this->session = App::module('Core')->getModel('Namespace')->get( 'files' );
+      unset($this->session->files);
+      $this->session->files['files'] = $files;
+      $this->session->files['path']  = str_replace('\\','/',$path);
+
+      if ( isset($options['paginate']) ){
+        $this->_module->getModel('Libraries')->files_paginator();
+        return $this->paginate_files_in_folder();
+      }
+      return $this->session->files;
     }
+
   }
 
+  function paginate_files_in_folder($current = 1, $per_page = 28){
+    if( empty($this->session) ){
+      $this->session = App::module('Core')->getModel('Namespace')->get( 'files' );
+    }
 
+    if( empty($this->session->files['files']) ){
+      return null;
+    }
+
+    $length = count($this->session->files['files']);
+    $pages  = ceil($length / $per_page);
+    $start  = ceil( ($current - 1) * $per_page);
+    // $finish = ($start +  $per_page) - 1;
+    // $finish = ( $length > $finish )? $finish : $length;
+
+    $paginated = array_slice($this->session->files['files'], $start, $per_page);
+    if( empty($paginated) ){
+      return null;
+    }
+
+    $this->session->files['paginate'] = $paginated;
+    $this->session->files['html']     = $this->pagination_links($current, $pages);
+
+    return array('files' => $this->session->files['paginate']
+                ,'html'  => $this->session->files['html']
+                ,'path'  => $this->session->files['path']);
+  }
+
+  public function pagination_links($page, $pages){
+    if( $pages <= 1 ){ return null; }
+    $page_param_tpl = App::base("");
+    $pages_to_render = '<div class="f-pagination"> <span class="numeric-pages">';
+
+    for( $pagination = 1; $pagination <= $pages; $pagination++ ){
+      $pages_to_render .= "<span class='page numeric". (($pagination == $page)? ' current':null) ."'><a data-page='".$pagination."' class='paginate-link'>".$pagination."</a></span>";
+    }
+
+    return $pages_to_render . "</span> </div>";
+  }
 
   function image_upload($file=null){
     $checks     = $this->check_uploads_settings($file);

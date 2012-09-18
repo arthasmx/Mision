@@ -24,11 +24,17 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     App::header()->addScript( App::url()->get('/jquery.tools.min.js','js') );
   }
 
-  function jquery_tools_no_image_tabs(){
+  function jquery_tools_no_image_tabs($div_class=null){
     $this->jquery_tools();
     App::header()->addLink(App::skin('/css/tabs-no-images.css'),array( "rel" => "stylesheet", "type" => "text/css" ) );
 
-    App::header()->add_jquery_events("jQuery('ul.tabs').tabs('div.panes > div');");
+    $ul = 'tabs'; $div = '';
+    if( ! empty($div_class) ){
+      $ul  = $div_class;
+      $div = '.' . $div_class;
+    }
+
+    App::header()->add_jquery_events("jQuery('ul.$ul').tabs('div.panes > div$div');");
 
   }
 
@@ -253,6 +259,19 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
       ");
      }
 
+  }
+
+  function files_paginator(){
+    App::header()->addScript( App::url()->get('/files-paginator.js','js') );
+
+    App::header()->add_jquery_events("
+      jQuery(document).on('click', 'div.f-pagination a', function(){
+        if( jQuery(this).parent().hasClass('current') ){
+          return false;
+        }
+        fp.paginate(jQuery(this).attr('data-page'));
+      });
+    ");
   }
 
 }

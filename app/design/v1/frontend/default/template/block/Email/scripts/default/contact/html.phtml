@@ -1,7 +1,7 @@
 
 <p>
 	<?=App::xlat('MAIL_public_contact_paragraph_1');?>
-	  <?=$this->from_name?>
+	  <?=$this->from_name?> (<?=$this->from_email?>)
   <?=App::xlat('MAIL_public_contact_paragraph_2');?>
     <?=App::getConfig('website_name');?> <small> (<?=App::getConfig('website_url');?>) </small>
 </p>
