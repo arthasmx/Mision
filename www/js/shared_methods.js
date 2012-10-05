@@ -81,13 +81,47 @@ function validate_param(param){
   return ( param != false );
 }
 
-function saving_this_row(target,status){
+function saving(target,status,element_class){
+  element_class = (element_class) ? element_class : 'saving' ;
   if(status=="on") {
-    jQuery(target).addClass('saving');
+    jQuery(target).addClass(element_class);
   }
   if(status=="off") {
-    jQuery(target).removeClass('saving');
+    jQuery(target).removeClass(element_class);
   }
+}
+
+function ajax_saving(target,status,W,H){
+  if(status=="on") {
+    jQuery("<div class='ajax_saving'></div>").prependTo(target).css({ 'height':H,'width':W });
+  }else{
+    jQuery(target + " div.ajax_saving").remove();
+  }
+}
+
+function blockUI_ajax_saving(target,on_off,msg,delay){
+  go_top();
+  if( on_off=="off" ){
+    jQuery(target).unblock();
+    return true;
+  }
+
+  if( typeof(target) == "undefined" ){
+    return false;
+  }
+  if( typeof(msg) == "undefined" ){
+    msg = "<div class='ajax_saving'></div>";
+  }
+  if( typeof(delay) == "undefined" ){
+    delay = 0;
+  }
+
+  jQuery(target).block({
+    message: "<h1 style='padding:20px;'>" + msg + "</h1>",
+    timeout: delay,
+    css        : { border  : '3px solid #94B52C' },
+    overlayCSS : { opacity : 0.7, background:'#fff' }
+  });
 }
 
 function string_to_seo(string){
@@ -109,4 +143,28 @@ function string_to_seo(string){
 
   seo = seo.split("----").join("-").split("---").join("-").split("--").join("-");
   return seo;
+}
+
+function go_top(){
+  window.scrollTo(0,0);
+}
+
+function clear_form(container){
+  jQuery( container + ' input[type=text], ' + container + ' select, ' + container + ' input[type=hidden],' + container + ' textarea').each(function(index, value) {
+    jQuery(this).val('');
+  });
+}
+
+function ckeditor_clear(instance){
+  jQuery("span#cke_" + instance + " iframe").contents().find("body").empty();
+}
+
+function appendo_clear(instance){
+  jQuery("table#"+ instance +" tr:gt(1)").remove();
+  jQuery("fieldset#link_"+ instance +" div.appendoButtons").children().eq(1).hide();
+}
+
+function redirect(url){
+  window.location = url;
+  return false;
 }

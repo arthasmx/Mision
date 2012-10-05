@@ -4,15 +4,11 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
   private $file	 = null;
   private $mimes = null;
 
-  private $uploads_folder         = null;
-  private $uploaded_file_size     = null;
-  private $uploaded_file_max_size = 10485760;
 
   private $session = null;
 
   function init(){
     $this->mimes          = $this->_module->getConfig('core', 'mime');
-    $this->uploads_folder = WP . DS . "media" .DS . $this->_module->getConfig('core', 'uploads_folder') . DS . $this->_module->getModel('Dates')->toDate("10", date('Y-m-d h:i:s')) . DS;
   }
 
   // File MUST exist, otherwise it'll throw an exception
@@ -79,6 +75,11 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
 //*******************************************************
 // GENERIC METHODS: They can be used without setting file
 
+  function delete($file=null){
+    if ( empty($file) || !@unlink($file) ) return false;
+    return true;
+  }
+
   function get_mime($extension=null){
     return (empty($extension) || ! array_key_exists($extension, $this->mimes) ) ?
       "unknown/$extension"
@@ -90,22 +91,18 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
     return empty($file)? false : pathinfo($file);
   }
 
-  function get_files_from_path($thumbs, $path, array $options=array()) {
-    $thumbs = WP . $thumbs;
-    // Revisamos las opciones para determinar includes y excludes
-    $includes=array("/^pdf$/");
-    $excludes=array();
-    if (isset($options['include'])) $includes=(array)$options['include'];
-    if (isset($options['exclude'])) $excludes=(array)$options['exclude'];
-    // Abrimos el directorio
-    if (!is_dir($thumbs) || !is_readable($thumbs) || !$dir_handle = opendir($thumbs)) {
-      $this->_module->exception("No se ha podido leer la ruta ".$thumbs);
+  function get_files_from_path($full_path, array $options=array()) {
+    if (!is_dir($full_path) || !is_readable($full_path) || !$dir_handle = opendir($full_path)) {
+      $this->_module->exception("No se ha podido leer la ruta ".$full_path);
     }
 
-    // Comenzamos su lectura
+    $includes = array();
+    $excludes = array();
+    if (! empty($options['include'])) $includes = (array)$options['include'];
+    if (! empty($options['exclude'])) $excludes = (array)$options['exclude'];
+
     $files=array();
     while($file = readdir($dir_handle)){
-      // Son directorios, continuemos con otro loop
       if($file == "." || $file == ".."){
         continue;
       }
@@ -128,57 +125,44 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
         } catch (Exception $e) {
         };
       }
-      // Revisamos la extension del archivo leido
       if ($en_includes && !$en_excludes) array_push($files, $file);
     }
 
-    if ( sizeof($files) < 1 ) {
-      return null;
-    } else {
-
-      $this->session = App::module('Core')->getModel('Namespace')->get( 'files' );
-      unset($this->session->files);
-      $this->session->files['files'] = $files;
-      $this->session->files['path']  = str_replace('\\','/',$path);
-
-      if ( isset($options['paginate']) ){
-        $this->_module->getModel('Libraries')->files_paginator();
-        return $this->paginate_files_in_folder();
-      }
-      return $this->session->files;
-    }
-
+    return empty($files)?
+      null
+    :
+      $files;
   }
 
-  function paginate_files_in_folder($current = 1, $per_page = 28){
-    if( empty($this->session) ){
+  function paginate_files_in_folder($index=null, $current=1, $max_images = 28){
+    if( empty($this->session) || empty($index) ){
       $this->session = App::module('Core')->getModel('Namespace')->get( 'files' );
     }
 
-    if( empty($this->session->files['files']) ){
+    if( empty($this->session->files[$index]) ){
       return null;
     }
 
-    $length = count($this->session->files['files']);
-    $pages  = ceil($length / $per_page);
-    $start  = ceil( ($current - 1) * $per_page);
-    // $finish = ($start +  $per_page) - 1;
+    $length = count($this->session->files[$index]['files']);
+    $pages  = ceil($length / $max_images);
+    $start  = ceil( ($current - 1) * $max_images);
+    // $finish = ($start +  $max_images) - 1;
     // $finish = ( $length > $finish )? $finish : $length;
 
-    $paginated = array_slice($this->session->files['files'], $start, $per_page);
+    $paginated = array_slice($this->session->files[$index]['files'], $start, $max_images);
     if( empty($paginated) ){
       return null;
     }
 
-    $this->session->files['paginate'] = $paginated;
-    $this->session->files['html']     = $this->pagination_links($current, $pages);
+    $this->session->files[$index]['paginate'] = $paginated;
+    $this->session->files[$index]['html']     = $this->pagination_links($current, $pages);
 
-    return array('files' => $this->session->files['paginate']
-                ,'html'  => $this->session->files['html']
-                ,'path'  => $this->session->files['path']);
+    return array('files' => $this->session->files[$index]['paginate']
+                ,'html'  => $this->session->files[$index]['html']
+                ,'path'  => $this->session->files[$index]['path']);
   }
 
-  public function pagination_links($page, $pages){
+  function pagination_links($page, $pages){
     if( $pages <= 1 ){ return null; }
     $page_param_tpl = App::base("");
     $pages_to_render = '<div class="f-pagination"> <span class="numeric-pages">';
@@ -190,86 +174,112 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
     return $pages_to_render . "</span> </div>";
   }
 
-  function image_upload($file=null){
-    $checks     = $this->check_uploads_settings($file);
-    if( is_array($checks) ){
-      return json_encode($checks);
+  function create_folder($path=null, $folder=null) {
+    $error_msg = App::xlat('EXC_filesystem_folder_not_available') . '<br />Launched at method create_folder, file Repository/Model/Filesystem';
+
+    if ( empty($folder) || empty($path) || ! is_writable($path) ){
+      App::module('Core')->exception( $error_msg );
     }
 
-    $was_uploaded = $this->upload();
-
-    return empty($was_uploaded) ?
-             json_encode(array('error'=> 'Could not save uploaded file.' . 'The upload was cancelled, or server error encountered'))
-           :
-             json_encode(array('success'=>true));
-  }
-
-  function article_images_upload(){
-
-  }
-
-  private function check_uploads_settings($file){
-    if( empty($file) ){
-      return array('error' => "No files were uploaded.");
-    }
-
-    if( $this->check_directory() === false ){
-      return array('error' => "Server error. Upload directory isn't writable.");
-    }
-
-    // Getting content length from server
-    if( ! empty($_SERVER["CONTENT_LENGTH"]) ){
-      $this->uploaded_file_size = $_SERVER["CONTENT_LENGTH"];
-
-      if ($this->uploaded_file_size == 0) {
-        return array('error' => 'File is empty');
-      }
-
-      if ($this->uploaded_file_size > $this->uploaded_file_max_size) {
-        return array('error' => 'File is too large');
+    if( ! file_exists($path . $folder) ){
+      if( ! mkdir($path . DS . $folder, 0777, true) ){
+        App::module('Core')->exception( $error_msg );
       }
     }
 
-    $pathinfo  = pathinfo($file);
-    $filename  = $pathinfo['filename'];
-    $extension = @$pathinfo['extension'];		// hide notices if extension is empty
-
-    if( ! array_key_exists($extension, $this->mimes) ){
-      $these = implode(', ', array_keys($this->mimes));
-      return array('error' => 'File has an invalid extension, it should be one of '. $these . '.');
-    }
-
-    $this->file = $this->uploads_folder . $file;
     return true;
   }
 
-  private function check_directory() {
-    if ( ! file_exists($this->uploads_folder)) {
-      if ( ! mkdir($this->uploads_folder,0777,true)) {
-        return false;
-      }
-    }
-    if ( ! is_writable($this->uploads_folder)) {
-      return false;
-    }
-    return true;
+  function check_folder($path=null){
+    return ( empty($path) || ! file_exists($path) || ! is_writable($path) ) ? null : true;
   }
 
-  private function upload(){
-    $input    = fopen("php://input", "r");
-    $temp     = tmpfile();
-    $realSize = stream_copy_to_stream($input, $temp);
-    fclose($input);
 
-    if ($realSize != $this->uploaded_file_size ){
-      return false;
+
+//  function plUploader_upload($path=null,$folder=null,$file_name=null){
+  function plUploader_upload($path=null,$file_name=null){
+    $this->plUploader_headers();
+
+    $check_path = $this->check_folder($path);
+    if( empty($check_path)  ){
+      die('{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "Failed to open temp directory."}, "id" : "id"}');
     }
 
-    $target = fopen($this->file, "w");
-    fseek($temp, 0, SEEK_SET);
-    stream_copy_to_stream($temp, $target);
-    fclose($target);
-    return true;
+    // Get parameters
+    $chunk    = ! empty($_REQUEST["chunk"])  ? intval($_REQUEST["chunk"])  : 0;
+    $chunks   = ! empty($_REQUEST["chunks"]) ? intval($_REQUEST["chunks"]) : 0;
+
+    $filePath = $path . $file_name;
+
+    // Look for the content type header
+    if (! empty($_SERVER["HTTP_CONTENT_TYPE"])){
+      $contentType = $_SERVER["HTTP_CONTENT_TYPE"];
+    }
+    if (! empty($_SERVER["CONTENT_TYPE"])){
+      $contentType = $_SERVER["CONTENT_TYPE"];
+    }
+
+    // Handle non multipart uploads older WebKit versions didn't support multipart in HTML5
+    if (strpos($contentType, "multipart") !== false) {
+      if (! empty($_FILES['file']['tmp_name']) && is_uploaded_file($_FILES['file']['tmp_name'])) {
+        // Open temp file
+        $out = fopen("{$filePath}.part", $chunk == 0 ? "wb" : "ab");
+        if ($out) {
+          // Read binary input stream and append it to temp file
+          $in = fopen($_FILES['file']['tmp_name'], "rb");
+
+          if ($in) {
+            while ($buff = fread($in, 4096))
+              fwrite($out, $buff);
+          } else
+            die('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
+          fclose($in);
+          fclose($out);
+          @unlink($_FILES['file']['tmp_name']);
+        } else
+          die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
+      } else
+        die('{"jsonrpc" : "2.0", "error" : {"code": 103, "message": "Failed to move uploaded file."}, "id" : "id"}');
+    } else {
+      // Open temp file
+      $out = fopen("{$filePath}.part", $chunk == 0 ? "wb" : "ab");
+      if ($out) {
+        // Read binary input stream and append it to temp file
+        $in = fopen("php://input", "rb");
+
+        if ($in) {
+          while ($buff = fread($in, 4096))
+            fwrite($out, $buff);
+        } else
+          die('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
+
+        fclose($in);
+        fclose($out);
+      } else
+        die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
+    }
+
+    // Check if file has been uploaded
+    if (!$chunks || $chunk == $chunks - 1) {
+      // Strip the temp .part suffix off
+      rename("{$filePath}.part", $filePath);
+    }
+
+    // Return JSON-RPC response. File uploaded successfully
+    // die('{"jsonrpc" : "2.0", "result" : null, "id" : "id"}');
+
+    return $filePath;
+
+
+  }
+
+  // HTTP headers for no cache etc
+  function plUploader_headers(){
+    header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-store, no-cache, must-revalidate");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
   }
 
 }

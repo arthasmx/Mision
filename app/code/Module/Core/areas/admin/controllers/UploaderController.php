@@ -11,6 +11,11 @@ class Core_UploaderController extends Local_Controller_Action   {
     exit;
   }
 
+  function imagesUploadAction(){
+    echo $this->_module->getModel('Filesystem')->images_upload( $this->getRequest()->getParam('qqfile') );
+    exit;
+  }
+
   function upNcropAction(){
     exit;
   }

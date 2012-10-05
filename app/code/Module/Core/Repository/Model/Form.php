@@ -49,4 +49,28 @@ class Module_Core_Repository_Model_Form extends Core_Model_Repository_Model {
     return true;
   }
 
+  function get_error_fields($form=null){
+    if( !is_object($form) || empty($form) ){
+      return null;
+    }
+
+    $wrong_fields = array();
+    foreach($form->getMessages() AS $form_field => $form_value){
+      $wrong_fields[] = $form_field;
+    }
+    return $wrong_fields;
+  }
+
+  function get_json_error_fields($form=null){
+    if( !is_object($form) || empty($form) ){
+      die ("{'status':false}");
+    }
+
+    $wrong_fields = array();
+    foreach($form->getMessages() AS $form_field => $form_value){
+      $wrong_fields[] = array('field'=>$form_field);
+    }
+    die( json_encode($wrong_fields) );
+  }
+  
 }

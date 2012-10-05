@@ -4,33 +4,16 @@ class Addons_Addon_IndexBlockController extends Core_Controller_Block {
 
   function init() {}
 
-  function loaderAction(){
+  function googleMapAction(){
+    App::module('Core')->getModel('Libraries')->google_map_launcher($this->getParam('id'), $this->getParam('launcher'), $this->getParam('coordinates') );
+  }
 
-    $addon  = $this->getParam('addon');
-    $params = array( "id" => $this->getParam('id'), "created" => $this->getParam('created') );
+  function miniGalleryAction(){
+    $this->view->gallery = App::module('Articles')->getModel('Files')->get_gallery_thumbnails( $this->getParam('thumb') );
+    $this->view->path    = $this->getParam('path');
 
-    switch( $addon['type'] ){
-      case 'video':
-             $this->setScriptAction("loader-video");
-             break;
-
-       case 'audio':
-             $this->setScriptAction("loader-audio");
-             break;
-
-       case 'gallery':
-             $this->view->gallery = $this->_module->getModel('Gallery')->get_gallery_files( $params );
-
-             App::module('Core')->getModel('Libraries')->gallery();
-             $this->setScriptAction("loader-gallery");
-             break;
-
-       case 'file':
-             $this->setScriptAction("loader-file");
-             break;
-
-      default:
-             break;
+    if( ! empty($this->view->gallery) && ! empty($this->view->path) ){
+      App::header()->add_jquery_events("jQuery('a.cBox-mini-gallery').colorbox({rel:'cBox', width:'800',height:'533'}); ");
     }
 
   }

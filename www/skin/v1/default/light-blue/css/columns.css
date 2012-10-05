@@ -108,7 +108,7 @@
     div#content .announcement h1 {padding:0;}
     div#content .left-panel p.description {padding:10px 0 30px;}
 
-div.announcement .block, div.events .block{ width:295px; margin:0 0 15px; padding:0 15px; float:left; text-align: justify;}
+div.announcement .block, div.events .block{ width:295px; margin:0 0 15px; padding:0 15px; float:left; text-align: justify; height: 250px;}
     div#content .announcement .block h3, div#content .events .block h3{padding:0;}
 
 

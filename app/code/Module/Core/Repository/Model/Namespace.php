@@ -31,4 +31,14 @@ class Module_Core_Repository_Model_Namespace extends Core_Model_Repository_Model
 		return Zend_Session::setId($id);
 	}
 
+	public function clear($session_name=null){
+  if (empty($session_name) ){
+    return null;
+  }
+
+  require_once('Zend/Session.php');
+  Zend_Session::namespaceUnset($session_name);
+  return true;
+	}
+
 }

@@ -143,6 +143,21 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
 
 /* DOWNLOADS */
 
+  function downloadArticleAddonAction(){
+    $params  = $this->getRequest()->getParams();
+    $fileSys = App::module('Core')->getModel('Filesystem');
+    if( empty($params['date']) || empty($params['id']) || empty($params['type']) || empty($params['reference']) ){
+      App::module('Core')->exception( App::xlat('EXC_article_wasnt_found_') );
+    }
+
+    $folder = App::module('Articles')->getConfig('core','folders'); 
+    $file   = $folder['articles'] .DS . App::module('Core')->getModel('Dates')->toDate(10, date("Y-m-d", $params['date'])) .DS. $params['id'] .DS. $params['type'] .DS. $params['reference'];
+
+    // Download!
+    $fileSys->set_file($file)->force_to_download();
+    exit;
+  }
+
   function audioDownloadAction(){
     $file_path = $this->getRequest()->getParam('folder').DS.$this->getRequest()->getParam('year').DS.$this->getRequest()->getParam('month').DS.$this->getRequest()->getParam('file'); 
     App::module('Core')->getModel('Filesystem')->set_file($file_path)->force_to_download();

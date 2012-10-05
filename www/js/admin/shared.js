@@ -15,7 +15,7 @@ var shared= {
   },
 
   status:function(selected,form,tr,td,url){
-    saving_this_row( tr, 'on');
+    saving( tr, 'on');
     jQuery(selected).attr('disabled','true');
 
     $.ajax({
@@ -28,7 +28,7 @@ var shared= {
           jQuery(td).addClass('td_error');
         }
         jQuery(selected).removeAttr('disabled');
-        saving_this_row( tr, 'off');
+        saving( tr, 'off');
       },
 
       error: function(request, status, error){

@@ -34,14 +34,38 @@ class Module_Core_Repository_Model_Arrays extends Module_Core_Repository_Model_A
     return true;
   }
 
-  function multidimensional_array_to_mysql_IN($array=array(), $desired_key = null ){
+  function multidimensional_array_to_mysql_IN($array=array(), $desired_key = null,$is_number=false ){
     if ( empty($array) || empty($desired_key) ) return false;
 
-    $mysql_in_format = '';
+    $mysql_in_format = null;
     foreach($array as $value){
-      $mysql_in_format .= "'" . $value[$desired_key] . "',";
+      $mysql_in_format .= ($is_number===true) ?
+        $value[$desired_key] . ","
+      :
+        "'" . $value[$desired_key] . "',";
     }
     return rtrim($mysql_in_format , ',');
+  }
+  
+  function array_to_tree($array=array(),$level=null ,$tag='ol', $tag_id=null,$route=null){
+    if( ! is_array($array) || empty($tag_id) ){
+      return null;
+    }
+
+    $tree = null;
+    foreach ( $array as $node ) {
+      if ($node['parent'] == $level ) {
+        $tree = empty($route)?
+          $tree . "<li>" . $node['name'] . $this->array_to_tree( $array, $node['id'], $tag, $tag_id,$route  ) . "</li>"
+        :
+          $tree . "<li> <a href='".App::base($route . $node['id'] )."' data-id='". $node['id'] ."'>" . $node['name'] . $this->array_to_tree( $array, $node['id'], $tag, $tag_id,$route  ) . " </a> </li>";
+      }
+    }
+
+    return empty($tree) ?
+     ''
+    :
+      "<$tag class='$tag_id treeview-gray'>". $tree . "</$tag>";
   }
 
 }

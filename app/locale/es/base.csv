@@ -1,5 +1,17 @@
 ; SITE
 
+; MAIN CATEGORIES
+; Estas categorias deben estar en ingles tambien como (articulos,"articles" o articulos_singular,"article")
+anuncios,"anuncios"
+  anuncios_singular,"anuncio"
+articulos,"articulos"
+  articulos_singular,"articulo"
+eventos,"eventos"
+  eventos_singular,"evento"
+promociones,"promociones"
+  promociones_singular,"promocion"
+
+
 ;HEADER
   HEADER_LOGO_ALT,"Flexar | Diseño de aplicaciones para internet"
 
@@ -64,6 +76,11 @@
 ;ARTICLES
   ARTICLE_read_more, "Leer más..."
   ARTICLE_go_to_section, "Ir a la sección"
+
+  ARTICLE_PREVIEW_title,"Título del artículo asignado en formulario"
+  ARTICLE_PREVIEW_written_by_at,"Publicado por <span class='author'>%author%</span> el %written-date%"
+  ARTICLE_PREVIEW_author,"creado por %author%"
+
 
 ;BREADCRUMS
   BREADCRUM_home, "Inicio"

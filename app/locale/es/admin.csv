@@ -12,74 +12,184 @@ HEADER_logout, "Cerrar sesión"
 
 
 ; TABLE
+  jqGrid_article_listing_topic,"Listado de Artículos"
+  jqGrid_categories_listing_topic,"Listado de Categorías"
 
   id,"clave"
   name,"nombre"
   section,"sección"
   language,"idioma"
   created,"creado"
-  created_by,"creado por "
+  publicated,"publicado"
+  event_date,"evento"
+  stop_publication,"ocultar"
   updated,"modificado"
+  created_by,"creado por "
   updated_by,"modificado por "
   records," registro(s)"
   title,"título"
+  seo,"link"
   type,"tipo"
-  category,"categoría"
-  event_date,"evento"
   author,"autor"
   status,"estado"
   address,"dirección"
   description,"descripción"
   css_icon,"Asigna ícono"
+  yes,"Si"
+  no,"No"
+  all,"Todos"
+  disabled,"Inactivo"
+  enabled,"Activo"
+  image,"Imagen"
+  parent_id,"padre"
+  category,"categoría"
+  subcategory,"subcategoría"
+  children,"hijos"
+  izq,"Izq"
+  der,"Der"
 
   list_column_sort,"Ordenar por este campo"
 
+
+
+; CATEGORIES
+  section_page,"seccion-pagina"
+  section_type,"tipo"
+  section_common_categories,"categorias"
+  CATEGORY_edit,"Modificar categoría"
+  CATEGORY_subcategory,"Subcategorías"
+  CATEGORY_parent,"Categoría padre"
+  CATEGORY_create,"Crear Categoría"
+  CATEGORY_delete_warning,"<strong>ADVERTENCIA:</strong> Te dispones a eliminar una categoría la cual podría estar asignada a 1 o mas artículos de tu página<br />Si aceptas eliminarla, <strong>ya no será posible acceder a ellos</strong> <br/><br/><strong>Deseas continuar ?</strong>"
+  
+  CATEGORY_empty_listing_topic,"Tabla de categorías vacía"
+  CATEGORY_empty_listing_pharagraph_1,"No se han definido categorías para este sitio y es necesario que sean registradas en la sección de la categoría principal."
+  CATEGORY_empty_listing_pharagraph_2,"Es recomendable crear un arbol de categorías en papel, antes de comenzar a ingresarlas por este medio, ya que el procedimiento (por su naturaleza) es lento y laborioso"
+  CATEGORY_empty_listing_pharagraph_small,"En caso de error, contacta al administrador del sitio [ErMAINCAT]"
+
 ; ARTICLES TABS
 
-  article_basic_data,"Información básica"
-  article_links,"Video & Links"
-  article_files,"Archivos"
-  article_audio,"Audio MP3"
-  article_images,"Imágenes"
-  article_preview,"Previsualización de artículo"
+  article_tab_title_basic,"Información Básica"
 
-  article_addon_gallery,"Galería de imágenes"
-  article_addon_video,"Video"
-  article_addon_audio,"Audio"
-  article_addon_files,"Archivos"
+    article_tab_basic_FIELDSET_info,"Información"
+    article_tab_basic_FIELDSET_options,"Opciones"
+    article_tab_basic_FIELDSET_article,"Contenido de artículo"
 
+
+
+  article_tab_title_images,"Imágenes"
+  article_tab_title_files,"Archivos"
+  article_tab_title_addons,"Complementos"
+
+   ARTICLE_FIELDSET_main_picture_title,"Imágen Principal"
+     ARTICLE_FIELDSET_main_picture_desc,"Imágen que representará el artículo en listados, búsqueda, promociones, sliders, banners, etc."
+     ARTICLE_main_picture_btn_select,"Selecciona Imágen"
+     ARTICLE_main_picture_btn_upload,"Subir Imágen"
+     ARTICLE_main_picture_btn_preview,"Mostrar imagen"
+     ARTICLE_main_picture_empty,"No se ha establecido ninguna imagen como principal"
+   ARTICLE_FIELDSET_gallery_zipped_title,"Galería Comprimida"
+     ARTICLE_zipped_gallery_btn_select,"Seleccione Archivo"
+     ARTICLE_zipped_gallery_btn_upload,"Subir Archivo"
+     ARTICLE_FIELDSET_gallery_zipped_desc,"Carga el archivo <strong>.zip</strong> de imagenes procesadas para crear la galería."
+   ARTICLE_FIELDSET_gallery_title,"Crear Galería: Carga las imágenes que contendrá la galería"
+   ARTICLE_FIELDSET_gallery_uploaded_images,"Imágenes cargadas"
+   ARTICLE_FIELDSET_plupload_browser_not_supported,"Tu navegador no soporta Flash, Silverlight, Google Gears, BrowserPlus o HTML5; por lo tanto, no se pueden subir archivos.<br /><strong>Actualiza tu navegador o utiliza Chrome, Firefox, Opera, Safari o IE10</strong>"
+
+
+   ARTICLE_FIELDSET_files_audio_title,"Archivos <strong>MP3</strong>"
+     ARTICLE_FIELDSET_files_audio_uploaded_files,"Archivos de sonido cargados previamente"
+   ARTICLE_FIELDSET_files_docs_title,"Documentos: <strong>PDF, DOC, XLS, TXT, ZIP, RAR</strong>"
+     ARTICLE_FIELDSET_files_docs_uploaded_files,"Documentos cargados previamente"
+   ARTICLE_FIELDSET_addons_links_title,"Links de interés"
+     ARTICLE_FIELDSET_addons_links_desc,"Indica la descripción/dirección del link que deseas relacionar con este artículo.<br />Solamente puedes agregar 10 links externas"
+     ARTICLE_FIELDSET_addons_links_empty,"No hay links relacionados a este artículo"
+   ARTICLE_FIELDSET_addons_map_title,"Google Map"
+     ARTICLE_FIELDSET_addons_map_desc,"Ubica las coordenadas de mapa deseadas y dá click en el boton <i>Guardar</i>"
+
+    FORM_FIELDSET_ADDON_links_title,"Referencias"
+      FIELDSET_links_desc,"Texto alternativo importante para buscadores"
+      FIELDSET_links_pick,"Selecciona"
+      FIELDSET_links_ex,"Link externo"
+      FIELDSET_links_in,"Link local"
+      FIELDSET_links_video,"Video"
+      /*
+      FIELDSET_links_facebook,"Facebook"
+      FIELDSET_links_twitter,"Twitter"
+      FIELDSET_links_gplus,"Google +"
+      FIELDSET_links_youtube,"YouTube"
+      FIELDSET_links_other,"Otro"
+      */
+
+    
 
 
 
 ; FORMS
 
   FORM_title,"Título del artículo"
-  FORM_seo,"Nombre para los buscadores (SEO)"
+  FORM_seo,"Link del artículo (SEO)"
+    FORM_seo_description,"<strong>*Muy importante</strong> identificador utilizado por los buscadores."
+  FORM_event_day,"Día del evento"
+  FORM_date_publication,"Publicar"
+  FORM_date_stop_publication, "Finalizar"
+  FORM_tags_category_title,"Categoría(s): 10 maximo"
+  FORM_tags_category_desc,"Este elemento es de suma importancia para categorizar el artículo"
+    TAGS_default_text,"Selecciona la(s) categoría(s) requeridas"
+    TAGS_no_results,"No existe esta categoría"
   FORM_language,"Idioma"
-  FORM_date_publication,"Selecciona la fecha de publicación"
-  FORM_event_date,"Selecciona la fecha del evento"
+  FORM_mobile,"Mostrar artículo en dispositivos móviles ?"
+  FORM_promote,"Promocionar artículo en página principal ?"
+
+
+
+
+  FORM_seo_category,"Link de la categoría (SEO)"
+  
+
+
+
+
   FORM_type,"Tipo de artículo"
+  FORM_category,"Categoría de artículo"
   FORM_description,"Descripción del artículo (500 caracteres máximo)"
     FORM_description_justification,"<strong>*Muy importante</strong>, es utilizado en listados, mensajes y en content slider."
   FORM_image_upload,"Selecciona una imágen que represente al artículo"
   FORM_add_another_row, "Agregar otro link"
   FORM_remove_row,"Eliminar último link"
+  FORM_select_an_option,"Selecciona una opción"
+  FORM_article,"Escribe el contenido del artículo"
 
-  FORM_FIELDSET_basic, "Información"
-  FORM_FIELDSET_dates, "Fechas"
-  FORM_FIELDSET_properties, "Propiedades"
-  FORM_FIELDSET_uploader, "Subir archivo(s)"
-  FORM_FIELDSET_article, "Artículo"
-  FORM_FIELDSET_links, "Ligas externas"
-  FORM_FIELDSET_youtube, "Ligas de video"
+  FORM_full_address,"Dirección completa"
+  FORM_phone,"Teléfono"
+  FORM_email,"Correo electrónico"
+
+  FORM_really_important_for_mobile,"Este elemento es de suma importancia para dispositivos móviles"
 
 
 
-  PREVIEW_event,"Previsualización de "Evento"
 
-  PREVIEW_title,"Título del artículo"
-  PREVIEW_date_author, "Escrito el <strong>fecha de creación</strong>, por <strong>autor del articulo</strong>"
-  PREVIEW_description,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed di"
+  BUTTON_next,"Siguiente"
+  BUTTON_prev,"Anterior"
+  BUTTON_save_as,"Guardar como"
+   BUTTON_save,"Guardar"
+   BUTTON_save_update,"Guardar cambios"
+   BUTTON_save_close,"Guardar y Cerrar"
+   BUTTON_save_new,"Guardar / Agregar Otro"
+   BUTTON_save_publicate,"Publicar/Cerrar"
+   BUTTON_publicate,"Publicar Artículo"
+   
+   
+  BUTTON_add,"Agregar"
+  BUTTON_delete_all,"Quitar Todos"
+  BUTTON_update,"Actualizar"
+  BUTTON_preview,"Vista Previa"
+  BUTTON_close,"Cerrar"
+  BUTTON_cancel,"Cancelar"
+  BUTTON_delete_category,"Eliminar Categoría"
+  BUTTON_create_category,"Crear Categorías"
+  BUTTON_create_subcategory,"Agregar Subcategoría(s)"
+  BUTTON_del_coordinates,"Quitar Coordenadas"
+
 
   ; ACTIONS
     operations,"operaciones"
@@ -91,3 +201,41 @@ HEADER_logout, "Cerrar sesión"
 ; ERRORS
 
 NO_RECORDS_FOUND, "No se han encontrado registros"
+EXC_no_options_where_given,"Faltan parametros necesarios para el metodo OPTIONS del Modelo Grid"
+EXC_columns_missing,"Faltan los parametros necesarios para crear el contenido del Grid [Model/Grid]"
+EXC_jqGrid_where_condition_missing,"Falta el operador lógico en la sentensia WHERE"
+EXC_filesystem_folder_not_available,"El directorio deseado no puede ser utilizado"
+EXC_article_id_missing,"No se ha especificado el ID del artículo"
+EXC_error_type_was_not_provided,"Falta el tipo de render que deseas para el error [ Model_Error->render($type,$msg) ]"
+EXC_category_id_not_found,"No existe la categoría"
+
+; JS MESSAGES
+sheep_it_remove_all_cloned_element_confirmation,"Se dispone a eliminar todos los elementos, esta seguro ?\nSi es así, recuerda que debes de guardar tus cambios"
+
+; jSon Success
+jSon_success_coordinates_saved,"Coordenadas guardadas"
+jSon_success_addon_relation_saved,"Relación de artículo exitosa"
+jSon_success_links_related_with_article,"Los links han sido relacionados con el articulo"
+jSon_success_saving_changes,"Sus cambios han sido registrados"
+jSon_success_image_deleted,"Imágen eliminada"
+jSon_success_audio_deleted,"Archivo de audio eliminado"
+jSon_success_file_deleted,"Documento eliminado"
+jSon_error_category_updated,"Categoría actualizada correctamente"
+
+; jSon Errors
+jSon_error_all_fields_are_required,"Todos los campos son necesarios"
+jSon_error_saving_coordinates,"Error al guardar las coordenadas [art100]"
+jSon_error_cannot_relate_addon_to_article,"Imposible relacionar con el artículo [art101]"
+jSon_error_cannot_apply_changes_to_article_action_status,"Error al modificar el estado de los registros"
+jSon_error_cannot_apply_changes_to_article_action_language,"Error al modificar el idioma de los registros"
+jSon_error_cannot_apply_changes_to_article_action_promote,"Error al modificar el estado de promoción de los registros"
+jSon_error_cannot_apply_changes_to_article_action_mobile,"Error al modificar las opciones moviles de los registros"
+jSon_error_image_deleted,"Imposible eliminar la imágen. Favor de reportar este error lo mas pronto posible"
+jSon_error_audio_deleted,"Imposible eliminar el audio. Favor de reportar este error lo mas pronto posible"
+jSon_error_file_deleted,"Imposible eliminar el documento. Favor de reportar este error lo mas pronto posible"
+jSon_error_category_not_saved,"No se pudo crear la categoría"
+jSon_error_category_not_empty,"<h2>La categoría contiene 1 o más subcategorías y debe estar vacía para poder eliminarla</h2>"
+jSon_error_category_missing,"El parametro 'categoria' esta vacío [CATM]"
+jSon_error_category_deleting_db_error,"No se pudo eliminar la categoría [MYQ]"
+jSon_error_category_main_cannot_be_deleted,"Imposible eliminar categorías principales [MYQSCAT]"
+jSon_error_category_update_db_error,"No se pudo actualizar la(s) categoría(s)"

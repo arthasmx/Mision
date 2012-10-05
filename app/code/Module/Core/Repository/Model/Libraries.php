@@ -1,23 +1,37 @@
 <?php
 class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model {
 
-  function highslide(){
-    App::header()->addScript(App::url()->get('/highslide.js','js'));
+  function ajax_libs_required(){
+    App::header()->addLink(App::skin('/css/admin.css'),array( "rel" => "stylesheet", "type" => "text/css" ) );
+    App::header()->addLink(App::skin('/css/reset.css'),array( "rel" => "stylesheet", "type" => "text/css" ) );
+
+    App::header()->addScript( App::url()->get('/jquery-1.8.0.min.js','js') );
   }
 
-  function highslide_css(){
-    App::header()->addLink(App::skin('/css/highslide.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+  function rhino_slider($id='#slider',$options=null){
+    App::header()->addLink( App::www("/js/rhinoslider/css/rhinoslider-1.05.css"),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->addScript(App::url()->get('/rhinoslider/js/rhinoslider-1.05.min.js','js'));
+
+    if( !empty($options) && is_array($options) ){
+      $parsed_options = array();
+      foreach($options AS $key=>$value){
+        $parsed_options[] = "$key : '$value'";
+      }
+    }else{
+      $parsed_options = array( "effect      : 'slide'",
+                               "effectTime  : 200",
+                               "showTime    : 3000",
+                               "autoPlay    : true",
+                               "showBullets : 'always'",
+                               "controlsMousewheel : false",
+                               "controlsKeyboard : false");
+    }
+
+    App::header()->add_jquery_events("jQuery('$id').rhinoslider({". implode(",", $parsed_options)."});");
   }
 
-  function highslide_html(){
-    $this->highslide();
-    $this->highslide_css();
-    App::header()->addScript(App::url()->get('/highslide.with.html.config.js','js'));
-    App::header()->addCode("
-          hs.graphicsDir = '" . App::skin('/art/highslide/') . "';
-          hs.outlineType = 'rounded-white';
-          hs.outlineWhileAnimating = true;
-    ");
+  function addons_dropdown_menu(){
+    App::header()->addLink( App::www("/js/addons-list/addons.css"),array('rel'=>'stylesheet','type'=>'text/css'));
   }
 
   function jquery_tools(){
@@ -36,6 +50,10 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
 
     App::header()->add_jquery_events("jQuery('ul.$ul').tabs('div.panes > div$div');");
 
+  }
+
+  function json2(){
+    App::header()->addScript(App::url()->get('/json2.js','js'));
   }
 
   function bible(){
@@ -80,6 +98,86 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     App::header()->add_jquery_events("$('.fMap').colorbox({width:'640',height:'480',iframe:true});");
   }
 
+  function google_map_launcher($id=null, $launcher=null, $coordinates=null){
+    $addon_core = App::module('Addons')->getConfig('core','map');
+    if( empty($id) || empty($coordinates) || empty($launcher) ){
+      return null;
+    }
+
+    App::header()->addScript( "http://maps.googleapis.com/maps/api/js?key=".$addon_core['key']."&sensor=false" );
+
+    App::header()->addCode("
+      var myCenter = new google.maps.LatLng({$coordinates});
+      var marker;
+
+      function initialize() {
+        var options = {
+          center    : myCenter,
+          zoom      : 15,
+          mapTypeId : 'roadmap',
+          scrollwheel        : false,
+          draggableCursor    : 'default',
+          streetViewControl  : false,
+          disableDoubleClickZoom: true,
+          zoomControlOptions : { style: google.maps.ZoomControlStyle.SMALL }
+        };
+
+        map = new google.maps.Map(document.getElementById('$id'), options);
+
+        var marker = new google.maps.Marker({
+          position : myCenter,
+          map      : map
+        });
+      }
+    ");
+
+    App::header()->add_jquery_events("
+      jQuery('$launcher').hover(function(){
+        initialize();
+      });
+    ");
+  }
+
+  function google_map_to_pick_coordinates($id='googleMaps', $data=null){
+    $addon_core = App::module('Addons')->getConfig('core','map');
+    if( ! empty($data['reference']) ){
+      $addon_core['city_coors'] = $data['reference'];
+    }
+
+    App::header()->addScript( "http://maps.googleapis.com/maps/api/js?key=".$addon_core['key']."&sensor=false" );
+
+    App::header()->addCode("
+      var myCenter = new google.maps.LatLng({$addon_core['city_coors']});
+      var marker;
+
+      function initialize() {
+        var options = {
+          center    : myCenter,
+          zoom      : 15,
+          mapTypeId : 'roadmap',
+          draggableCursor    : 'default', 
+          streetViewControl  : false,
+          zoomControlOptions : { style: google.maps.ZoomControlStyle.SMALL }
+        };
+        map = new google.maps.Map(document.getElementById('$id'), options);
+
+        var marker = new google.maps.Marker({
+          position : myCenter,
+          map      : map,
+          draggable: true
+        });
+
+        google.maps.event.addListener(marker, 'dragend', function(a) {
+          jQuery(articles.dom.current_cors).html( marker.getPosition().toUrlValue() );
+        });
+
+        if( ! jQuery('#$id').is('[data-initialized]') ){
+          jQuery('#$id').attr('data-initialized','yes')
+        }
+      }
+    ");
+  }
+
   function gallery(){
     App::header()->addLink(App::skin('/css/gallery.css'),array('rel'=>'stylesheet'));
     App::header()->add_jquery_events("$('a.cBox').colorbox({rel:'cBox'});");
@@ -114,24 +212,100 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     ");
   }
 
-  function content_slider_ddslider(){
-    App::header()->addLink(App::skin('/css/DDSlider.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+  function tags($target=null){
+    App::header()->addScript( App::url()->get('/tags/chosen.jquery.min.js','js') );
+    App::header()->addLink( App::www("/js/tags/chosen.css"),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->add_jquery_events("
+      jQuery('.chzn-select').chosen({
+        max_selected_options  : 10,
+        no_results_text       : '".App::xlat('TAGS_no_results')."'
+      });");
+  }
 
-    App::header()->addScript( App::url()->get('/jquery.easing.1.3.js','js') );
-    App::header()->addScript( App::url()->get('/jquery.DDSlider.min.js','js') );
+
+
+  function jquery_ui($theme="humanity"){
+    App::header()->addLink( App::www("/js/jquery-ui/$theme/custom.css"),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->addScript(App::url()->get('/jquery-ui/jquery-ui-1.9.1.custom.min.js','js'));
+  }
+
+  function jquery_ui_tabs($id="tabs",$options=array()){
+    $parsed_options = null;
+    if( ! empty($options) && is_array($options) ){
+      foreach ($options AS $key=>$value){
+        $parsed_options .= "$key:$value,";
+      }
+    }
 
     App::header()->add_jquery_events("
-            jQuery('#ddSlider').DDSlider({
-              trans     : 'square',
-              nextSlide : '.slider_arrow_right',
-              prevSlide : '.slider_arrow_left',
-              selector  : '.slider_selector'
-            });");
+      jQuery('#".$id."').tabs({
+        ".trim($parsed_options,',')."
+      });
+
+
+    ");
+
+  }
+
+  function jquery_ui_icon_buttons($buttons=array(), $wrapper=null){
+    if( ! empty($buttons) && is_array($buttons) ){
+
+      $parsed_buttons = null;
+      $parsed_options = null;
+      foreach ($buttons AS $button){
+
+        $parsed_options = null;
+        if( ! empty($button['options']) ){
+          foreach ($button['options'] AS $key=>$value){
+            $parsed_options .= "$key:'$value',";
+          }
+        }
+
+        $parsed_buttons .= "jQuery('$wrapper {$button['name']}').button({icons : { ".trim($parsed_options,",")."} });" . PHP_EOL;
+      }
+
+      App::header()->add_jquery_events($parsed_buttons);
+    }
+
+  }
+
+  function jquery_ui_datepicker( $ids=array() ){
+    if( App::locale()->getLang() == 'es' ){
+      App::header()->addScript(App::url()->get('/jquery-ui/jquery.ui.datepicker-es.js','js'));
+    }
+
+    if( ! empty($ids) && is_array($ids) ){
+      App::header()->addCode("var datepicker_options  = {changeMonth : true, changeYear : true, dateFormat : 'yy-mm-dd'};");
+
+      $dates = null;
+      foreach ($ids AS $id){
+        $dates .= "jQuery( '".$id."' ).datepicker(datepicker_options);" . PHP_EOL;
+      }
+
+      App::header()->add_jquery_events($dates);
+    }
+
+  }
+
+  function jquery_ui_dialog($target=null,$json_options=null){
+    App::header()->add_jquery_events("jQuery('div#$target').dialog($json_options);");
+  }
+
+
+
+  function block_ui(){
+    App::header()->addScript(App::url()->get('/jquery.blockUI.js','js'));
   }
 
   function articles(){
     App::header()->addScript(App::url()->get('/admin/articles.js','js'));
   }
+
+  function categories(){
+    App::header()->addScript(App::url()->get('/admin/categories.js','js'));
+  }
+
+  
 
   function articles_promotion(){
     App::header()->addLink(App::skin('/css/tabs-slideshow.css'),array( "rel" => "stylesheet", "type" => "text/css" ));
@@ -146,23 +320,19 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     ");
   }
 
-  function jquery_tools_wizard_tabs(){
+  function jquery_tools_articles_tabs($tab_wraper=null){
     $this->jquery_tools();
     App::header()->addLink(App::skin('/css/tabs-no-images.css'),array( "rel" => "stylesheet", "type" => "text/css" ) );
-  }
 
-  function jquery_date_picker($picker_elements){
-    App::header()->addScript(App::url()->get('/datepicker/mobiscroll-2.0.2.custom.min.js','js'));
-    App::header()->addLink(App::www('/js/datepicker/mobiscroll-2.0.2.custom.min.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->add_jquery_events("
+      jQuery('".$tab_wraper."').tabs('div.panes > div.pane', function(event, index) {
+          var id = jQuery('input#article_id').attr('data-id');
+          if (index == 1 && !id)  {
+              return false;
+          }
+      });
+    ");
 
-    $js_open  = PHP_EOL ."var now = new Date(); var options = {preset:'date', minDate: new Date(now.getFullYear(), now.getMonth(), now.getDate()), theme:'sense-ui', display:'inline', mode:'mixed', dateFormat:'yy-mm-dd', dateOrder:'D dd M yy', monthNamesShort:['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'], dayNamesShort:['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'], monthText:'Mes', dayText:'Día', yearText:'Año', onShow:function(html,inst){ jQuery(this).val( inst.val ) }};";
-
-    $date_pickers = '';
-    foreach($picker_elements AS $picker){
-      $date_pickers .= PHP_EOL. "jQuery('#$picker').scroller(options);";
-    }
-
-    App::header()->add_jquery_events($js_open . $date_pickers);
   }
 
   function jquery_preview($previews=array()){
@@ -188,38 +358,58 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     App::header()->add_jquery_events("CKEDITOR.replace( '$id', {". implode(",", $parsed_options)."});");
   }
 
-  function image_uploader( $id='image-upload'){
-    App::header()->addScript(App::url()->get('/admin/uploader/uploader.js','js'));
-    App::header()->addLink(App::www('/js/admin/uploader/uploader.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+  function ckeditor_preview($id,$target){
+    App::header()->add_jquery_events("
+      CKEDITOR.instances['".$id."'].on('contentDom', function() {
+        CKEDITOR.instances['".$id."'].document.on('keyup', function(event) {
+          jQuery('".$target."').html( CKEDITOR.instances['".$id."'].getData() );
+        });
+      });
+    ");
+  }
+
+  function clone_elements($id=null, $data=null){
+    App::header()->addScript( App::url()->get('/jquery.sheepItPlugin-1.1.1.min.js','js') );
+
+    $previous_data = null;
+    if( ! empty($data) || is_array($data) ){
+      $previous_data = ',data:' . json_encode($data);
+    }
+
+    App::header()->addCode(" var sheepItForm  = null; ");
 
     App::header()->add_jquery_events("
-            var uploader = new qq.FileUploader({
-              element: document.getElementById('$id')
-              ,action: baseUrl + '/uploader/image-upload'
-            }); ");
-  }
+      sheepItForm = jQuery('$id').sheepIt({
+        separator: '',
+        allowRemoveLast: true,
+        allowRemoveCurrent: true,
+        allowRemoveAll: true,
+        allowAdd: true,
+        maxFormsCount: 10,
+        minFormsCount: 0,
+        iniFormsCount: 0,
+        removeAllConfirmationMsg: '". App::xlat('sheep_it_remove_all_cloned_element_confirmation') ."'
+        $previous_data
+      });
+    ");
 
-  function append_form_controls($ids=null){
-    App::header()->addScript(App::url()->get('/jquery.appendo.js','js'));
-
-    if( is_array($ids) ){
-      foreach($ids AS $id){
-        App::header()->add_jquery_evenst("jQuery('$id').appendo({labelAdd: '". App::xlat('FORM_add_another_row') ."', labelDel: '". App::xlat('FORM_remove_row') ."'});");
-      }
-    }
-  }
-
-  function uploader( $ids=array('image-upload'), $url=array('/uploader/image-upload')){
-    if( is_array($ids) && ( count($ids) == count($url) ) ){
-      App::header()->addScript(App::url()->get('/uploader/uploader.js','js'));
-      App::header()->addLink(App::www('/js/uploader/uploader.css'),array('rel'=>'stylesheet','type'=>'text/css'));
-      App::header()->addCode(PHP_EOL);
-
-      foreach($ids AS $key=>$id){
-        App::header()->add_jquery_events("var $id = new qq.FileUploader({ element: document.getElementById('$id'), action: baseUrl + '$url[$key]'});");
-      }
-    }
-
+/*
+ * @todo: multiple cloner
+    App::header()->add_jquery_events("
+      jQuery('".implode(",",$ids)."').sheepIt({
+        separator: '',
+        allowRemoveLast: true,
+        allowRemoveCurrent: true,
+        allowRemoveAll: true,
+        allowAdd: true,
+        maxFormsCount: 10,
+        minFormsCount: 0,
+        iniFormsCount: 0,
+        removeAllConfirmationMsg: '". App::xlat('sheep_it_remove_all_cloned_element_confirmation') ."'
+        $previous_data
+      });
+    ");
+    */
   }
 
   function rating($id=null){
@@ -260,8 +450,8 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
      }
 
   }
-
-  function files_paginator(){
+/*
+  function files_paginator($colorbox_container=null,$colorbox_rel=null){
     App::header()->addScript( App::url()->get('/files-paginator.js','js') );
 
     App::header()->add_jquery_events("
@@ -269,9 +459,71 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
         if( jQuery(this).parent().hasClass('current') ){
           return false;
         }
-        fp.paginate(jQuery(this).attr('data-page'));
+        fp.paginate(jQuery(this).attr('data-page'),'$colorbox_container','$colorbox_rel');
       });
     ");
+  }
+*/
+
+  function files_paginator(){
+    App::header()->addScript( App::url()->get('/files-paginator.js','js') );
+  }
+
+  function files_paginate_gallery($target=null, $url=null, $cBox_container=null, $Box_rel=null){
+    App::header()->add_jquery_events("
+      jQuery(document).on('click', '$target', function(){
+        if( jQuery(this).parent().hasClass('current') ){ return false; }
+          fp.gallery('$url',jQuery(this).attr('data-page'),'$cBox_container','$Box_rel');
+        });
+    ");
+  }
+
+  function plUpload(){
+    App::header()->addLink(App::www('/js/plupload/jquery.ui.plupload/css/jquery.ui.plupload.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->addScript(App::url()->get('/plupload/plupload.full.js','js'));
+
+    if( App::locale()->getLang()=='es' ){
+      App::header()->addScript(App::url()->get('/plupload/i18n/es.js','js'));
+    }
+    App::header()->addScript(App::url()->get('/plupload/jquery.ui.plupload/jquery.ui.plupload.js','js'));
+    App::header()->addScript(App::url()->get('/plupload/browserplus-min.js','js'));
+  }
+
+  function plUploadQueue(){
+    App::header()->addLink(App::www('/js/plupload/jquery.plupload.queue/css/jquery.plupload.queue.css'),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->addScript(App::url()->get('/plupload/plupload.full.js','js'));
+  
+    if( App::locale()->getLang()=='es' ){
+      App::header()->addScript(App::url()->get('/plupload/i18n/es.js','js'));
+    }
+    App::header()->addScript(App::url()->get('/plupload/jquery.plupload.queue/jquery.plupload.queue.js','js'));
+    App::header()->addScript(App::url()->get('/plupload/browserplus-min.js','js'));
+  }
+
+  function plUpload_article_upload_files(){
+    App::header()->addScript(App::url()->get("/admin/articles-upload-files.js",'js'));
+  }
+
+  function placeholder(){
+    App::header()->addScript(App::url()->get('/jquery.placeholder.min.js','js'));
+    App::header()->add_jquery_events("jQuery('input, textarea').placeholder();");
+  }
+
+  function jquery_treeview($id=null,$options=null){
+    App::header()->addLink( App::www("/js/treeview/jquery.treeview.css"),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->addScript(App::url()->get('/treeview/jquery.treeview.js','js'));
+
+    if( is_array($options) ){
+      $parsed_options = array();
+      foreach($options AS $key=>$value){
+        $parsed_options[] = "$key : '$value'";
+      }
+      $options = "{". implode(",", $parsed_options)."}";
+    }else{
+      $options=null;
+    }
+
+    App::header()->add_jquery_events("$('ul.$id').treeview($options);");
   }
 
 }

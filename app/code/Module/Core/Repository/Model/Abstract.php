@@ -19,8 +19,18 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
   public    $_db             = null;
   protected $_query          = null;
 
+  private $jqGrid_special_condition = array('bw'=>"begins-with",'ew'=>"ends-with",'cn'=>"contains",'da'=>"date");
+  private $jqGrid_filters    = array( 'eq'  => '='
+                                      ,'ne' => '!='
+                                      ,'lt' => '<'
+                                      ,'le' => '<='
+                                      ,'gt' => '>'
+                                      ,'ge' => '>=');
+
   public $_namespace      = false;
   public $session         = false;
+
+  public $grid_id_container = false;
 
   public function __construct($id) {
     $this->_db = App::module('Core')->getModel('Db')->get();
@@ -169,6 +179,97 @@ class Module_Core_Repository_Model_Abstract extends Core_Model_Repository_Model 
 
     return empty($grouped_where) ? null : implode( " " . $and_or . " ", $grouped_where);
   }
+
+
+  // jqGrid
+
+  /*
+   * @todo: falta agregar filtros mas personalizados
+  */
+  public function jqGrid_query_for_listing($select=null, $params=null){
+    if( empty($select) || ! is_object($select) ){
+      App::module('Core')->exception( App::xlat('EXC_db_instance_not_found') . '<br />Launched at method query, file Repository/Model/Abstract' );
+    }
+
+    // where
+    if( ! empty($params['_search']) && $params['_search']==='true' ){
+
+      $filters = json_decode($params['filters']);
+      foreach($filters->rules AS $filter){
+
+        if( array_key_exists($filter->op,$this->jqGrid_special_condition) ){
+          $select->where( $this->jqGrid_where_special_condition($filter->field, $filter->data, $filter->op) );
+        }else{
+          $select->where( "{$filter->field} {$this->jqGrid_where_get_condition($filter->op)} ?", $filter->data );
+        }
+
+      }
+    }
+
+    // order
+    if( ! empty($params['sidx']) ){
+      $select->order( $params['sidx'] ." ". @$params['sord'] );
+    }
+
+    return $this->jqGrid_paginate_query( $select );
+  }
+
+  public function jqGrid_where_special_condition($field=null,$data=null,$operator=null){
+    if( App::module('Core')->getModel('Parser')->check_function_params( func_get_args(), false ) ){
+      switch($this->jqGrid_special_condition[$operator]){
+        case 'begins-with':
+        case 'date':
+          return "$field LIKE '$data%'";
+          break;
+        case 'ends-with':
+          return "$field LIKE '%$data'";
+          break;
+        case 'contains':
+          return "`$field` LIKE '%$data%'";
+          break;
+        default:
+          App::module('Core')->exception( App::xlat('EXC_jqGrid_where_condition_missing') . '<br />Launched at method jqGrid_where_special_condition, file Repository/Model/Abstract' );
+          break;
+      }
+      return null;
+    }
+    return null;
+  }
+
+  public function jqGrid_where_get_condition($condition=null){
+    return array_key_exists($condition,$this->jqGrid_filters) ?
+      $this->jqGrid_filters[$condition]
+    :
+      App::module('Core')->exception( App::xlat('EXC_jqGrid_where_condition_missing') . '<br />Launched at method jqGrid_where_get_condition, file Repository/Model/Abstract' );
+  }
+
+  public function jqGrid_paginate_query(&$select = null, $ajax_paginate_style = null){
+    $sql = $select->__toString();
+    if( empty($sql) ){
+      App::module('Core')->exception( App::xlat('EXC_db_instance_not_found') . '<br />Launched at method query, file Repository/Model/Abstract' );
+    }
+
+    require_once('Xplora/Paginate/Sql.php');
+    $paginator = new Xplora_Paginate_Sql();
+    $results   = $paginator->setItems_per_page((int)$this->items_per_page)
+                           ->setPage_current((int)$this->paginator_page)
+                           ->setDb_adapter( $this->_db )
+                           ->setQuery( $sql )
+                           ->paginate();
+
+    if( empty($results['items']) || empty($results['pagination']) ){
+      return '{"page": "1","total": 0,"records": "0", "rows": []}';
+    }
+
+    $to_json = array( 'page' => $this->paginator_page,  'total' => $results['pagination']['page_total'],  'records' => $results['pagination']['items_total']);
+    foreach($results['items'] as $data){
+      $to_json['rows'][] = array( 'id' => $data[$this->grid_id_container], 'cell'=> array_values($data) );
+    }
+
+    return json_encode($to_json);
+  }
+
+
 
   // Datasorter
 

@@ -3,7 +3,8 @@ require_once 'Zend/Db/Table/Abstract.php';
 require_once 'Zend/Db/Table.php';
 class Module_Core_Repository_Model_Db_Actions extends Zend_Db_Table_Abstract {
 
-  public $table = null;
+  public $table  = null;
+  public $cud_db = null;
 
   public function __construct() {
     $config  = Core_Model_Config::getConfigIni("db");
@@ -29,7 +30,11 @@ class Module_Core_Repository_Model_Db_Actions extends Zend_Db_Table_Abstract {
     }
     $select = $this->table->select()->where("$field = ?", $id);
     $result = $this->table->fetchRow( $select );
-    return empty($result)? null : $result->toArray();  
+    return empty($result)? null : $result->toArray();
+  }
+
+  function get_db(){
+    return Zend_Db_Table::getDefaultAdapter();
   }
 
 }

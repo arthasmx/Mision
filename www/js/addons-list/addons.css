@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+#addon-list{ margin:0px; padding:0px; list-style:none; color:#fff; line-height:45px; display:inline-block; float:left; z-index:1000;
+    background-color: #172322;
+    height: 40px;
+    position: relative;
+    top: -6px;
+    width: 680px;
+}
+#addon-list a { color:#fff; text-decoration:none; font-size: 14px; }
+#addon-list > li { height: 20px; background:#172322 none repeat scroll 0 0; cursor:pointer; float:left; padding:10px;}
+#addon-list > li a:hover {color:#B0D730;}
+#addon-list .logo {background:transparent none repeat scroll 0% 0%; padding:0px; background-color:Transparent;}
+/* sub-menus*/
+#addon-list ul { padding:0px; margin:0px; display:block; display:inline;}
+#addon-list li ul { position:absolute; top:0px; margin-top:40px; line-height:16px; background-color:#172322; color:#0395CC; /* for IE */ display:none; }
+#addon-list li:hover ul { display:block;}
+#addon-list li ul li{ display:block; margin:5px 10px; padding: 5px 0px;  border-top: dotted 1px #606060; list-style-type:none; }
+#addon-list li ul li:first-child { border-top: none; }
+#addon-list li ul li a { display:block; color:#0395CC; }
+#addon-list li ul li a:hover { color:#7FCDFE; }
+/* main submenu */
+#addon-list #main { left:0px; top:-20px; padding-top:20px; background-color:#7cb7e3; color:#fff; z-index:999;}
+/* search */
+.searchContainer div { background-color:#fff; display:inline; padding:5px;}
+.searchContainer input[type="text"] {border:none;}
+.searchContainer img { vertical-align:middle;}
+/* corners*/
+#addon-list .corner_inset_left { position:absolute; top:0px; left:-12px;}
+#addon-list .corner_inset_right { position:absolute; top:0px; left:150px;}
+#addon-list .last { background:transparent none repeat scroll 0% 0%; margin:0px; padding:0px; border:none; position:relative; border:none; height:0px;}
+#addon-list .corner_left { position:absolute; left:0px; top:0px;}
+#addon-list .corner_right { position:absolute; left:132px; top:0px;}
+#addon-list .middle { position:absolute; left:18px; height: 20px; width: 115px; top:0px;}
+
+  #addon-list .rounder-bot a { font-size: 12px; }
+  #addon-list li.map-addon{width: 100px;}
+  #addon-list li ul.rounder-bot li #mini-gallery{width:543px; height:280px;}
+    #mini-gallery ul.mini-gallery{overflow-y:auto;overflow-x:hidden; height:272px; margin:0px;}
+    ul.mini-gallery li{float: left; border:none !important; margin:0 !important; padding:5px !important;}
+    ul.mini-gallery li a img{border:none;}

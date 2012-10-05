@@ -9,7 +9,7 @@ class Addons_Site_IndexBlockController extends Core_Controller_Block {
   function mapAction(){
     $config = $this->_module->getConfig('core', 'map');
 
-    $cordinates = $this->getParam('cordinates');
+    $coordinates = $this->getParam('coordinates');
     $zoom       = $this->getParam('zoom');
     $key        = $this->getParam('key');
     $url        = $this->getParam('url');
@@ -19,7 +19,7 @@ class Addons_Site_IndexBlockController extends Core_Controller_Block {
     $alt        = $this->getParam('alt');
     $picture    = $this->getParam('picture');
 
-    $this->view->cordinates = empty($cordinates) ? $config['cordinates']    : $this->getParam('cordinates');
+    $this->view->coordinates = empty($coordinates) ? $config['coordinates']    : $this->getParam('coordinates');
     $this->view->zoom       = empty($zoom)       ? $config['zoom']          : $this->getParam('zoom');
     $this->view->key        = empty($key)        ? $config['key']           : $this->getParam('key');
     $this->view->url        = empty($url)        ? $config['url']           : $this->getParam('url');

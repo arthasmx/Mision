@@ -6,13 +6,14 @@ class Articles_IndexBlockController extends Core_Controller_Block {
 
   function sliderAction(){
     $this->view->gallery_path    = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
-    $this->view->coming_next     = App::module('Articles')->getModel('Article')->get_articles_for_content_slider( $this->getParam("category"), $this->getParam('past_next') );
+    $this->view->coming_next     = App::module('Articles')->getModel('Article')->get_articles_for_content_slider();
 
     if( ! empty($this->view->coming_next) ){
-      App::module('Core')->getModel('Libraries')->content_slider_ddslider();
+      App::module('Core')->getModel('Libraries')->rhino_slider();
     }
 
   }
+
 
   function promoteAction(){
     $width              = $this->getParam('width');
@@ -23,7 +24,7 @@ class Articles_IndexBlockController extends Core_Controller_Block {
     $limit              = empty($limit)  ? $this->_module->getConfig('core','promote_block_limit')  : $limit;
     $this->view->gallery_path = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
 
-    $this->view->promotions = App::module('Articles')->getModel('Article')->get_articles_for_content_slider( $this->getParam("category"), $this->getParam('past_next'), $limit );
+    $this->view->promotions = App::module('Articles')->getModel('Article')->get_articles_for_content_slider(null, $limit );
 
     if( ! empty($this->view->promotions) ){
       App::module('Core')->getModel('Libraries')->articles_promotion();
@@ -31,7 +32,7 @@ class Articles_IndexBlockController extends Core_Controller_Block {
   }
 
   function shepherdWelcomeAction(){
-    $this->view->article = $this->_module->getModel('Article')->get_article( App::xlat('shepherd_welcome_article_details_id') );
+    $this->view->article = $this->_module->getModel('Article')->read_full_article( App::xlat('shepherd_welcome_article_details_id') );
   }
 
   function radioAction(){

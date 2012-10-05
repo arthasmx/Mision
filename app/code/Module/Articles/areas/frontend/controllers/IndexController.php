@@ -5,80 +5,27 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
 
   function preDispatch() {
     $this->view->current_main_menu = 4;
-    $this->view->gallery_path      = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
-  }
-
-  function listAnnouncementAction(){
-    $this->view->announcement    = $this->_module->getModel('Article')
-                                                 ->get_article_list(
-                                                   $this->getRequest()->getParam( App::xlat('route_paginator_page') ),
-                                                   $this->_module->getConfig('core','article_type_announcement_id')
-                                                 );
-
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
-  }
-
-  function listEventsAction(){
-    $this->view->events          = $this->_module->getModel('Article')
-                                                 ->get_article_list(
-                                                   $this->getRequest()->getParam( App::xlat('route_paginator_page') ),
-                                                   $this->_module->getConfig('core','article_type_event_id')
-                                                   ,true
-                                                 );
-
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( $this->getRequest()->getParam('action') );
-  }
-
-
-  function readAnnouncementAction(){
-    $this->view->type = App::xlat('RATING_block_rate_type_announcement');
-    $this->read_article();
-  }
-
-  function readEventsAction(){
-    $this->view->type = App::xlat('RATING_block_rate_type_event');
-    $this->read_article();
-  }
-
-  private function read_article() {
-    $article_seo         = $this->getRequest()->getParam('seo');
-    $this->view->article = $this->_module->getModel('Article')->get_article( $article_seo );
-    $this->view->addons  = $this->_module->getModel('Article')->get_article_addons( $this->view->article['article_id'] );
-
-    if( ! empty($this->view->addons) ){
-      App::module('Core')->getModel('Libraries')->jquery_tools_no_image_tabs("addons");
-    }
-
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs(  $this->getRequest()->getParam('action') , $this->view->article['title']  );
   }
 
   function readAction(){
     $this->read_article();
   }
 
+
+
+  private function read_article() {
+    $this->view->article = $this->_module->getModel('Article')->read_full_article( $this->getRequest()->getParam('seo'),true,true );
+    $this->view->addons  = $this->_module->getModel('Article')->get_article_addons( $this->view->article['article_id'], true );
+    $this->view->folders = $this->_module->getModel('Article')->set_article_folders($this->view->article['article_id'],$this->view->article['created'] );
+
+    App::module('Core')->getModel('Libraries')->addons_dropdown_menu();
+    App::module('Core')->getModel('Libraries')->youtube_video_player();
+    $this->view->pageBreadcrumbs = $this->get_breadcrumbs(  $this->getRequest()->getParam('action') , $this->view->article['title']  );
+  }
+
+
   protected function get_breadcrumbs($action=null, $title=null ){
     switch ( $action ){
-      case 'list-announcement':
-              return array(
-                array('title'=> App::xlat('BREADCRUM_announcement' ) )
-              );
-              break;
-      case 'read-announcement':
-              return array(
-                array('title'=> App::xlat('BREADCRUM_announcement' ) , 'url' => App::base( rtrim(App::xlat('route_announcement'), "/") ) ),
-                array('title'=> $title )
-              );
-      case 'list-events':
-              return array(
-                array('title'=> App::xlat('BREADCRUM_events' ) )
-              );
-              break;
-      case 'read-events':
-              return array(
-                array('title'=> App::xlat('BREADCRUM_events'), 'url' => App::base( rtrim(App::xlat('route_events'),"/") ) ),
-                array('title'=> $title )
-              );
-              break;
       case 'read':
         return array(
         array('title'=> $title )

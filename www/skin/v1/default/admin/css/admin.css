@@ -101,156 +101,165 @@ body header, body header nav{
       border-radius: 3px 3px 0 0;
     }
 
-  body section article, body footer{
-    width:95%;
-    float: left;
-    margin:50px;
-  }
-
-  body section table.admin{
-    border-spacing: 0;
-    width: 90%;
-    margin: 0 auto;
-    border: 1px solid #CCCCCC;
-    border-radius: 6px 6px 6px 6px;
-    box-shadow: 0 1px 1px #CCCCCC;
-    background-color: #fff;
-  }
-    body section table.submenu tbody tr.tr_drag td{
-      background-color: #777 !important;
-      color: #DCE9F9;
-    }
-    body section table.admin th {
-      background-color: #DCE9F9;
-      background-image: -moz-linear-gradient(center top , #EBF3FC, #DCE9F9);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-    }
-    body section table.admin tbody td, body section table.admin thead th {
-      border-left: 1px solid #CCCCCC;
-      padding: 10px;
-    }
-      body section table.admin tfoot td{
-        border-top: 1px solid #CCCCCC;
-      }
-      body section table.admin thead th{
-        border-bottom: 1px solid #CCCCCC;
-        padding: 0px;
-      }
-
-    body section table.admin thead th, body section table.admin tbody td {
-      text-align: center;
-    }
-      body section table.admin tbody td:first-child, body section table.admin thead th:first-child {
-        border-left: medium none;
-        background-color: #DCE9F9;
-      }
-        body section table.admin thead th:first-child {
-          border-radius: 6px 0 0 0;
-        }
-      body section table.admin thead th:last-child {
-        border-radius: 0 6px 0 0;
-      }
-    body section table.admin tbody td:nth-child(2), body section table.admin tbody td:nth-child(3){
-      text-align: left;
-    }
-
-
-body section table.admin tbody tr:hover {
-  background-color: #FaFaFa;
-  cursor: pointer;
-}
-  .saving{
-    filter : alpha(opacity=50);
-    opacity: 0.5;
-    background-color:#EEF9C1;
-  }
-  .td_error{
-    background-color:#D86060;
-  }
-  body section table.admin tbody tr.submenu.hide{
-    display:none;
-  }
-  body section table.submenu thead tr, body section table.submenu tfoot tr, body section table.admin tbody tr.submenu.show{
-    cursor: default !important;
-    display:table-row;
-  }
-    body section table.submenu tfoot button:disabled{ cursor:help; opacity:0.6; filter: alpha(opacity=60); }
-    body section table.submenu tfoot button:enabled{cursor: pointer !important;}
-
-    body section table.admin tfoot td{
-      text-align: right;
-      padding: 10px;
-    }
 
 
 
-  body section header h1{ margin:0 0 10px; border-bottom:1px solid #D4D4D4; padding-bottom:10px; }
-  body section header h1 em { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
+  /* content */
+  .missing-field{color: yellow; background-color: red; padding: 0 10px; }
+  .button-wrapper{ clear: both; padding: 20px 15px 10px; }
 
+  /* ARTICLES */
+  #article-listing tbody tr td:first-child{cursor:default !important;}
+  #article-listing tbody tr td{cursor:  pointer !important;}
 
-/* FORMS */
+  #add-art-tabs .ui-tabs-panel { height: 43em; }
+
+  form fieldset { padding:10px; border:1px solid #D4D4D4; background-color:#FAF8F7; border-radius:5px; float: left; }
+  fieldset legend { background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px 5px 5px 5px; padding: 5px 10px; color:#000;}
+  fieldset fieldset { background-color: #FAFAFA; margin-top:15px; }
+
   form input.required, form textarea.required{border-left:3px solid #880000;}
-  form input.date {width: 8em !important;}
-  form fieldset { padding:10px 10px 10px 16px; border:1px solid #D4D4D4; background-color:#F0F0F0; border-radius:5px; width: 39.8em;}
-  form fieldset legend { background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px 5px 5px 5px; padding: 5px 10px; color:#000;}
-
-    form#links fieldset { float:left; width: 52em;}
-      form#links fieldset#link_externals { width: 64em;}
-    form#links fieldset {margin-right: 20px;}
-    form#links fieldset dl { float: left; margin-right: 25px;}
-    form#links fieldset input { width: 25em;}
-    form#links fieldset textarea { height: 4.5em; margin-right: 20px; width: 25em;}
-
-    div.appendoButtons { float:left; margin-top: 20px;}
-    div.appendoButtons button{ float: left; padding: 10px; background-color: #555459; color: #fff;  }
+  form input.hasDatepicker { background: url(/skin/v1/default/admin/art/icons/calendar.png) no-repeat scroll right; }
 
 
+  /* creating article */
+  form#add-article dd.hint{ font-size: 0.9em; font-style: italic; line-height: 1; padding-bottom: 7px;}
+  form#add-article div.left-fieldset { float: left; width: 35em; }
+  form#add-article div.right-fieldset { float: left; width: 42em; margin-left: 10px; }
+  form#main-pix div.left-fieldset { float: left; width: 40em; }
+  form#main-pix div.right-fieldset { float: left; width: 54em; margin-left: 10px; }
+  form#audio_docs_up div.left-fieldset { float: left; width: 46.5em; }
+  form#audio_docs_up div.right-fieldset { float: left; width: 47em; margin-left: 10px; }
+  form#links_rel div.left-fieldset { float: left; width: 46.5em; }
+  form#links_rel div.right-fieldset { float: left; width: 47em; margin-left: 10px; }
+
+    /* info */
+        form#add-article fieldset#info{ width: 33em; height: 25em; }
+          form#add-article fieldset#info input[type="text"]{ width: 32em; }
+          form#add-article fieldset#info input#event_date, form#add-article fieldset#info input#publicate_at, form#add-article fieldset#info input#stop_publicate{ width: 7em; }
+
+            form#add-article fieldset#info dl.field-event_date, form#add-article fieldset#info dl.field-publicate_at, form#add-article fieldset#info dl.field-stop_publicate{float:left; width: 11em;}
+              form#add-article fieldset#info input#event_date, form#add-article fieldset#info input#publicate_at, form#add-article fieldset#info input#stop_publicate{ width: 10em; margin-right: 7px; }
+              form#add-article fieldset#info textarea#tags{ width: 32em; height: 4em;}
+            form#add-article fieldset#info dl.field-type{float:left; width: 15em;}
+    /* options */
+        form#add-article fieldset#options{ width: 33em; height: 14em; }
+          form#add-article fieldset#options dl.field-language{margin-bottom:10px;}
+
+    /* ckeditor */
+        form#add-article fieldset#ckeditor{ height: 40.9em; width: 690px; }
+
+    /* mainpix */
+      fieldset#f_gallery_zipped{ height:8em; width: 38em;}
+      fieldset#f_gallery{ height:31em; width:38em;}
+
+          fieldset#f_main_pix{ height:8em; width: 52em;}
+            div#main-pix-filelist > div, div#zip-filelist > div{ color:#DC8425; }
+            div#main-pix-filelist div > b, div#zip-filelist div > b {color:#000;}
+
+          fieldset#gallery_uploaded{height:31em; width: 52em;}
+            fieldset#gallery_uploaded div.uploaded_images{height: 27em; overflow: auto; width: 51em; }
+
+    /* mp3s */      
+      form#audio_docs_up fieldset#f_files_audio{ height:41em; width:44.5em;}
+        form#audio_docs_up fieldset#f_files_audio div.uploaded_audio{ height: 12em; overflow: auto; width: 43em; }
+          ul.uploaded_audio li.audio{ height: 28px; }
+          ul.uploaded_audio li.audio div{ float: left; padding-left: 5px; }
+          ul.uploaded_audio li.audio span.del_audio{color:#f00; cursor:pointer;}
+
+    /* files */
+      form#audio_docs_up fieldset#f_files_docs{ height:41em; width:44.5em; }
+        form#audio_docs_up fieldset#f_files_docs div.uploaded_files{ height: 12em; overflow: auto; width: 43em;}
+          ul.uploaded_files li.file span.del_file{color:#f00; cursor:pointer;}
+
+    /* links */
+        fieldset#f_addons_links{ height:41em; width:44.5em; }
+          div#links_ge{ margin-bottom: 10px; max-height: 43em; min-height:2em; }
+
+          div.grouped-elements{ float: left; max-height:5em; min-height: 3em; width: 44em; }
+            div.grouped-elements input{ width: 14.7em; }
+              span.links_response{clear: both; float: left; width: 100%;}
+
+    /* map */
+        fieldset#f_addons_map{ height:41em; width:44em;}
+          fieldset#f_addons_map p.coordinates{ padding:5px 0; font-weight: bold; }
+
+        
+        
+        
+        
+        
+        
 
 
-  div.pane div.article-preview{
+            
+
+
+
+  /* creating business */
+  form#add-article dd.hint{ font-size: 0.9em; font-style: italic; line-height: 1; padding-bottom: 7px;}
+  form#add-article div.left-fieldset{ float: left; width: 35em; }
+  form#add-article div.right-fieldset{ float: left; width: 42em; }
+
+        form#add-article fieldset#contact{ width: 33em; height: 25em; }
+          form#add-article fieldset#contact input[type="text"]{ width: 32em; }
+          form#add-article fieldset#contact textarea#address{ width: 32em; height: 4em;}
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+    
+
+
+
+  /* CATEGORIES */
+    fieldset#f_cat_parent{ margin-top:0px; }
+      fieldset#f_cat_parent table tr td:first-child{
+        padding-right: 10px;
+        text-align: right;
+        width: 52px;
+        font-weight: bold;
+      }
+        fieldset#f_cat_parent dl.field-language, fieldset#f_subcat dl.field-language{
+          float: left; width: 10em;
+        }
+
+    fieldset#f_category{
+      width: 86.5em !important;
+      padding:10px; border:1px solid #D4D4D4; background-color:#FAF8F7; border-radius:5px; float: left;
+    }
+    fieldset#f_cat_tree{
+      height: 25.2em;
+      margin: 0 0 0 10px;
+      width: 51.7em;
+    }
+      fieldset#f_cat_tree div.cat_tree{overflow: auto; height: 22.5em;}
+
+      fieldset#f_add_sub{
+        margin: 20px;
+      }
+
+
+
+
+  body section article, body footer{
     float: left;
-    width: 200px;
+    margin:15px;
+    min-width: 126em;
   }
-  div.preview h2 { font-size: 1.3em; margin:0 0 10px; border-bottom:1px solid #D4D4D4; padding-bottom:10px; }
-  div.preview h2 em {font-size: 1.1em;}
-  div.preview h2 span { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
-
-
-  /* ARTICLES ADD */
-  form#article-basic-data { float: left; width: 44em; }
-  form#article-content{ float: left; width: 77em; }
-    form#article-content fieldset#arti{width: 75.5em; }
-    div.panes div.pane div.preview { margin: 20px auto 0; padding: 20px; width: 90%;background-color: #F9F9F9;  border: 1px solid #DDDDDD; border-radius: 5px 5px 5px 5px; }
-    div.preview div.prev-content{ width: 670px; }
-
-  form#article-basic-data input, form#article-basic-data textarea{ width: 39em;}
-  form#article-basic-data dl{ margin-bottom: 10px; }
-  form#article-basic-data button{ margin-top:30px; }
-  form#article-basic-data label.error { color:red; }
-
-    form fieldset#info{}
-    form fieldset#arti{}
-    form fieldset#dates{ padding: 10px 0 10px 15px; width: 41em; }
-    form fieldset#imageUpload{}
-    form fieldset#categories{width: 40.8em;}
-
-
-  form fieldset#dates dl, form fieldset#properties dl{float:left;}
-  form fieldset#properties dl.field-type{padding-right:120px;}
-
-
-
 
 body footer{
   height: 50px;
   margin: 0 50px;
 }
 
-/* COLORBOX */
-div.colorbox-dialog h1 { color:#777; margin:0 0 10px; border-bottom:1px solid #D4D4D4; padding-bottom:10px; }
-div.colorbox-dialog h1 span { display:block; font: normal 11px Arial, Helvetica, sans-serif; color:#b7b7b7; padding:0; margin:0;}
-
-div.colorbox-dialog{
-  padding:10px;
-}

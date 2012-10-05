@@ -8,6 +8,8 @@
 <!--Links-->
   <link href="<?=App::getDesign()->getRelativeSkinPath('/css/reset.css');?>" rel="stylesheet" />
   <link href="<?=App::getDesign()->getRelativeSkinPath('/css/admin.css');?>" rel="stylesheet" />
+  <link href="<?=App::getDesign()->getRelativeJsPath('/jquery-ui/w8-green/custom.css')?>" rel="stylesheet" />
+  <link href="<?=App::getDesign()->getRelativeJsPath('/jquery-ui/w8-green/w8-green.css')?>" rel="stylesheet" />
 
 	<?= App::header()->getLinks();?>
 
@@ -19,6 +21,7 @@
   <![endif]-->
 
   <script src="<?=App::getDesign()->getRelativeJsPath('/jquery-1.8.0.min.js','js');?>" ></script>
+  <script src="<?=App::getDesign()->getRelativeJsPath('/jquery-ui/jquery-ui-1.9.1.custom.min.js','js');?>" ></script>
   <script src="<?=App::getDesign()->getRelativeJsPath('/shared_methods.js','js');?>" ></script>
   <script src="<?=App::getDesign()->getRelativeJsPath('/admin/shared.js','js');?>" ></script>
 
@@ -34,8 +37,7 @@
     var jsLibRelative = "<?=App::getDesign()->getRelativeJsPath("","jslib")?>";
 
     jQuery(document).ready(function(){
-
-
+      <?=App::header()->get_jquery_events();?>
     });
   </script>
 
