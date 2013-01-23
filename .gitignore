@@ -15,6 +15,7 @@ app.php
 app/etc/db.ini
 www/media/images/gallery/
 www/media/articles/
+www/media/events/
 www/media/predicacion/
 www/skin/v1/default/light-blue/art/Thumbs.db
 www/skin/v1/default/light-blue/art/bks/Thumbs.db

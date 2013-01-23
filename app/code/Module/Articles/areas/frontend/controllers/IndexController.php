@@ -11,8 +11,6 @@ class Articles_IndexController extends Module_Articles_Controller_Action_Fronten
     $this->read_article();
   }
 
-
-
   private function read_article() {
     $this->view->article = $this->_module->getModel('Article')->read_full_article( $this->getRequest()->getParam('seo'),true,true );
     $this->view->addons  = $this->_module->getModel('Article')->get_article_addons( $this->view->article['article_id'], true );

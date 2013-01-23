@@ -112,8 +112,6 @@ body header, body header nav{
   #article-listing tbody tr td:first-child{cursor:default !important;}
   #article-listing tbody tr td{cursor:  pointer !important;}
 
-  #add-art-tabs .ui-tabs-panel { height: 43em; }
-
   form fieldset { padding:10px; border:1px solid #D4D4D4; background-color:#FAF8F7; border-radius:5px; float: left; }
   fieldset legend { background: none repeat scroll 0 0 #FFFFFF; border-radius: 5px 5px 5px 5px; padding: 5px 10px; color:#000;}
   fieldset fieldset { background-color: #FAFAFA; margin-top:15px; }
@@ -121,11 +119,11 @@ body header, body header nav{
   form input.required, form textarea.required{border-left:3px solid #880000;}
   form input.hasDatepicker { background: url(/skin/v1/default/admin/art/icons/calendar.png) no-repeat scroll right; }
 
+  div.left-fieldset { float: left; width: 35em; }
+  div.right-fieldset { float: left; width: 42em; margin-left: 10px; }
 
   /* creating article */
-  form#add-article dd.hint{ font-size: 0.9em; font-style: italic; line-height: 1; padding-bottom: 7px;}
-  form#add-article div.left-fieldset { float: left; width: 35em; }
-  form#add-article div.right-fieldset { float: left; width: 42em; margin-left: 10px; }
+  dd.hint{ font-size: 0.9em; font-style: italic; line-height: 1; padding-bottom: 7px;}
   form#main-pix div.left-fieldset { float: left; width: 40em; }
   form#main-pix div.right-fieldset { float: left; width: 54em; margin-left: 10px; }
   form#audio_docs_up div.left-fieldset { float: left; width: 46.5em; }
@@ -134,20 +132,18 @@ body header, body header nav{
   form#links_rel div.right-fieldset { float: left; width: 47em; margin-left: 10px; }
 
     /* info */
-        form#add-article fieldset#info{ width: 33em; height: 25em; }
-          form#add-article fieldset#info input[type="text"]{ width: 32em; }
-          form#add-article fieldset#info input#event_date, form#add-article fieldset#info input#publicate_at, form#add-article fieldset#info input#stop_publicate{ width: 7em; }
+        fieldset#info{ width: 33em; height: 25em; }
+          form#add-article fieldset#info input[type="text"], form#add-event fieldset#info input[type="text"]{ width: 32em; }
+          input#event_date, input#publicate_at, input#stop_publicate{ width: 10em !important; margin-right: 7px; }
+          textarea#tags{ width: 32em; height: 4em;}
 
-            form#add-article fieldset#info dl.field-event_date, form#add-article fieldset#info dl.field-publicate_at, form#add-article fieldset#info dl.field-stop_publicate{float:left; width: 11em;}
-              form#add-article fieldset#info input#event_date, form#add-article fieldset#info input#publicate_at, form#add-article fieldset#info input#stop_publicate{ width: 10em; margin-right: 7px; }
-              form#add-article fieldset#info textarea#tags{ width: 32em; height: 4em;}
-            form#add-article fieldset#info dl.field-type{float:left; width: 15em;}
+          dl.field-event_date, dl.field-publicate_at, dl.field-stop_publicate{float:left; width: 11em;}
     /* options */
-        form#add-article fieldset#options{ width: 33em; height: 14em; }
-          form#add-article fieldset#options dl.field-language{margin-bottom:10px;}
+        fieldset#options{ width: 33em; height: 14em; }
+          dl.field-language{margin-bottom:10px;}
 
     /* ckeditor */
-        form#add-article fieldset#ckeditor{ height: 40.9em; width: 690px; }
+        fieldset#ckeditor{ height: 40.9em; width: 690px; }
 
     /* mainpix */
       fieldset#f_gallery_zipped{ height:8em; width: 38em;}
@@ -195,15 +191,6 @@ body header, body header nav{
             
 
 
-
-  /* creating business */
-  form#add-article dd.hint{ font-size: 0.9em; font-style: italic; line-height: 1; padding-bottom: 7px;}
-  form#add-article div.left-fieldset{ float: left; width: 35em; }
-  form#add-article div.right-fieldset{ float: left; width: 42em; }
-
-        form#add-article fieldset#contact{ width: 33em; height: 25em; }
-          form#add-article fieldset#contact input[type="text"]{ width: 32em; }
-          form#add-article fieldset#contact textarea#address{ width: 32em; height: 4em;}
 
               
               

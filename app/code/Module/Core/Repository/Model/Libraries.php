@@ -168,7 +168,7 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
         });
 
         google.maps.event.addListener(marker, 'dragend', function(a) {
-          jQuery(articles.dom.current_cors).html( marker.getPosition().toUrlValue() );
+          jQuery('span#current_cors').html( marker.getPosition().toUrlValue() );
         });
 
         if( ! jQuery('#$id').is('[data-initialized]') ){
@@ -524,6 +524,16 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     }
 
     App::header()->add_jquery_events("$('ul.$id').treeview($options);");
+  }
+
+// EVENTS
+
+  function events(){
+    App::header()->addScript(App::url()->get('/admin/events.js','js'));
+  }
+
+  function plUpload_events_upload_files(){
+    App::header()->addScript(App::url()->get("/admin/events-upload-files.js",'js'));
   }
 
 }

@@ -13,6 +13,7 @@ HEADER_logout, "Cerrar sesión"
 
 ; TABLE
   jqGrid_article_listing_topic,"Listado de Artículos"
+  jqGrid_event_listing_topic,"Listado de Eventos"
   jqGrid_categories_listing_topic,"Listado de Categorías"
 
   id,"clave"
@@ -55,6 +56,7 @@ HEADER_logout, "Cerrar sesión"
 ; CATEGORIES
   section_page,"seccion-pagina"
   section_type,"tipo"
+  type_events,"eventos"
   section_common_categories,"categorias"
   CATEGORY_edit,"Modificar categoría"
   CATEGORY_subcategory,"Subcategorías"
@@ -140,6 +142,10 @@ HEADER_logout, "Cerrar sesión"
   FORM_mobile,"Mostrar artículo en dispositivos móviles ?"
   FORM_promote,"Promocionar artículo en página principal ?"
 
+  FORM_event_title,"Título del evento"
+  FORM_event_seo,"Link del evento (SEO)"
+  FORM_event_mobile,"Mostrar evento en dispositivos móviles ?"
+  FORM_event_promote,"Promocionar evento en página principal ?"
 
 
 

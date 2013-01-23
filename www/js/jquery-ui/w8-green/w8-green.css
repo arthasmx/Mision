@@ -4,17 +4,17 @@ span.ui-button:hover, button.ui-button:hover{
   border:1px solid #abcf3a !important;background:#abcf3a;font-weight:normal;
 }
 
-#add-art-tabs {
+#add-art-tabs, #add-eve-tabs {
  background: transparent;
  border: none;
  width:89em; 
 }
-#add-art-tabs .ui-tabs-panel {
+#add-art-tabs .ui-tabs-panel, #add-eve-tabs .ui-tabs-panel {
  background-color: #FFFFFF;
  border-width: 0px 1px 1px 1px;
 }
 
-#add-art-tabs .ui-widget-header {
+#add-art-tabs .ui-widget-header, #add-eve-tabs .ui-widget-header {
  background: transparent;
  border: none;
  border-bottom: 1px solid #c0c0c0;
@@ -22,9 +22,11 @@ span.ui-button:hover, button.ui-button:hover{
  -webkit-border-radius: 0px;
  border-radius: 0px;
 }
-#add-art-tabs .ui-state-active {
+#add-art-tabs .ui-state-active, #add-eve-tabs .ui-state-active{
  background: #abcf3a url(/js/jquery-ui/uiTabsArrow.png) no-repeat bottom center !important;
 }
+
+#add-art-tabs .ui-tabs-panel, #add-eve-tabs .ui-tabs-panel  { height: 43em; }
 
 /* datepicker */
 div#ui-datepicker-div.ui-widget-content{

@@ -23,3 +23,11 @@ foreach($article_routes AS $section=>$routes){
 
 $basic_article = new Zend_Controller_Router_Route('articulo/:seo/*', array_push_assoc($article_params, "action", "read"));
 $router->addRoute('basic_article', $basic_article);
+
+
+$route = new Zend_Controller_Router_Route(
+    'evento/:seo/*',
+    array('module'   => 'Articles',
+        'controller' => 'events',
+        'action'     => 'read'));
+$router->addRoute('reading-event', $route);

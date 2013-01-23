@@ -27,4 +27,18 @@ class Articles_UploadsController extends Module_Articles_Controller_Action_Admin
     $this->_module->getModel('Uploads')->doc();
   }
 
+
+
+  function eventZipGalleryAction(){
+    $this->_module->getModel('Event/Uploads')->zip_gallery();
+  }
+
+  function eventGalleryAction(){
+    $this->_module->getModel('Event/Uploads')->gallery();
+  }
+
+  function eventMainPixAction(){
+    $this->_module->getModel('Event/Uploads')->main_pix();
+  }
+
 }

@@ -1,4 +1,7 @@
 <?php
+
+// articles
+
 $route = new Zend_Controller_Router_Route(
   'articles/:action/*',
   array('module'      => 'Articles',
@@ -26,3 +29,28 @@ $route = new Zend_Controller_Router_Route(
     array('module'    => 'Articles',
         'controller'  => 'files'));
 $router->addRoute('article-files', $route);
+
+
+// events
+
+$route = new Zend_Controller_Router_Route(
+  'events/:action/*',
+  array('module'      => 'Articles',
+        'controller'  => 'events',
+        'action'      => 'list'));
+$router->addRoute('events-section', $route);
+
+$route = new Zend_Controller_Router_Route( 'events/edit/:id', array('module'      => 'Articles', 'controller'  => 'events', 'action' => 'edit'));
+$router->addRoute('events-edit', $route);
+
+$route = new Zend_Controller_Router_Route(
+    'events-up/:action/*',
+    array('module'     => 'Articles',
+          'controller' => 'uploads'));
+$router->addRoute('events-uploads', $route);
+
+$route = new Zend_Controller_Router_Route(
+    'events-fi/:action',
+    array('module'     => 'Articles',
+          'controller' => 'files'));
+$router->addRoute('events-files', $route);

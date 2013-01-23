@@ -11,9 +11,6 @@ class Articles_FilesController extends Module_Articles_Controller_Action_Admin {
     $this->view->files = $this->_module->getModel('Files')->main_pix_preview();
   }
 
-
-
-
   function reloadGalleryAction(){
     $this->view->files = $this->_module->getModel('Files')->load_article_gallery();
   }
@@ -41,9 +38,27 @@ class Articles_FilesController extends Module_Articles_Controller_Action_Admin {
 
 
 
-
   function paginateGalleryAction(){
     $this->view->files = $this->_module->getModel('Files')->load_article_gallery( $this->getRequest()->getParam('page') );
+  }
+
+
+
+  // events
+  function eventMainPixPreviewAction(){
+    $this->view->files = $this->_module->getModel('Event/Files')->main_pix_preview();
+  }
+
+  function eventReloadGalleryAction(){
+    $this->view->files = $this->_module->getModel('Event/Files')->load_gallery();
+  }
+
+  function eventDeleteImageAction(){
+    $this->_module->getModel('Event/Files')->delete_image( $this->getRequest()->getParam('image') );
+  }
+
+  function eventPaginateGalleryAction(){
+    $this->view->files = $this->_module->getModel('Event/Files')->load_gallery( $this->getRequest()->getParam('page') );
   }
 
 }

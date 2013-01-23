@@ -34,8 +34,8 @@ class Module_Articles_Repository_Model_Uploads extends Core_Model_Repository_Mod
     $image->resize_image($uploaded_file, $this->image_config['thumbnails_width'], $this->image_config['thumbnails_height'],'crop');
     $image->saveImage( $this->session->article['folders']['thumbnails'] . DS . $current_image_name, 80 );
     // image
-    $image->resize_image($uploaded_file, $this->image_config['gallery_width'], $this->image_config['gallery_height']);
-    $image->saveImage( $uploaded_file, 80 );
+    $image->resize_image($uploaded_file, $this->image_config['gallery_width'], $this->image_config['gallery_height'],'exact');
+    $image->saveImage( $uploaded_file, 90 );
 
     $this->relate_addon_to_article('gallery');
 

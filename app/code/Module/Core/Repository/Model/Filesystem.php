@@ -162,6 +162,33 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
                 ,'path'  => $this->session->files[$index]['path']);
   }
 
+  function events_paginate_files_in_folder($index=null, $current=1, $max_images = 28){
+    if( empty($this->session) || empty($index) ){
+      $this->session = App::module('Core')->getModel('Namespace')->get( 'event_files' );
+    }
+
+    if( empty($this->session->event_files[$index]) ){
+      return null;
+    }
+
+    $length = count($this->session->event_files[$index]['files']);
+    $pages  = ceil($length / $max_images);
+    $start  = ceil( ($current - 1) * $max_images);
+
+    $paginated = array_slice($this->session->event_files[$index]['files'], $start, $max_images);
+    if( empty($paginated) ){
+      return null;
+    }
+
+    $this->session->event_files[$index]['paginate'] = $paginated;
+    $this->session->event_files[$index]['html']     = $this->pagination_links($current, $pages);
+
+    return array('files' => $this->session->event_files[$index]['paginate']
+                ,'html'  => $this->session->event_files[$index]['html']
+                ,'path'  => $this->session->event_files[$index]['path']);
+  }
+
+
   function pagination_links($page, $pages){
     if( $pages <= 1 ){ return null; }
     $page_param_tpl = App::base("");
