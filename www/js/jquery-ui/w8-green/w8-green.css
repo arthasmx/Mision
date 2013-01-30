@@ -4,17 +4,34 @@ span.ui-button:hover, button.ui-button:hover{
   border:1px solid #abcf3a !important;background:#abcf3a;font-weight:normal;
 }
 
-#add-art-tabs, #add-eve-tabs {
+#add-art-tabs, #add-eve-tabs, #ministeries-tab {
  background: transparent;
  border: none;
  width:89em; 
 }
-#add-art-tabs .ui-tabs-panel, #add-eve-tabs .ui-tabs-panel {
+  #ministeries-tab ul.min_tabs_title {
+    float:left;
+    min-width: 68.1em;
+    max-width: 95em;
+    width: auto;
+  }
+  #ministeries-tab div#min-1, #ministeries-tab div#min-2{
+    float:left;
+    min-height: 5em;
+    max-height: 95em;
+    height: auto;
+
+    min-width: 72.5em;
+    max-width: 95em;
+    width: auto;
+  }
+  
+#add-art-tabs .ui-tabs-panel, #add-eve-tabs .ui-tabs-panel, #ministeries-tab .ui-tabs-panel{
  background-color: #FFFFFF;
  border-width: 0px 1px 1px 1px;
 }
 
-#add-art-tabs .ui-widget-header, #add-eve-tabs .ui-widget-header {
+#add-art-tabs .ui-widget-header, #add-eve-tabs .ui-widget-header, #ministeries-tab .ui-widget-header {
  background: transparent;
  border: none;
  border-bottom: 1px solid #c0c0c0;
@@ -22,7 +39,7 @@ span.ui-button:hover, button.ui-button:hover{
  -webkit-border-radius: 0px;
  border-radius: 0px;
 }
-#add-art-tabs .ui-state-active, #add-eve-tabs .ui-state-active{
+#add-art-tabs .ui-state-active, #add-eve-tabs .ui-state-active, #ministeries-tab .ui-state-active{
  background: #abcf3a url(/js/jquery-ui/uiTabsArrow.png) no-repeat bottom center !important;
 }
 
@@ -44,7 +61,7 @@ div#ui-datepicker-div.ui-widget-content{
    div.custom-cbox-bar select{ margin-right:10px; }
 
  /* footer */
-   div#footerBar{ background: url("images/ui-bg_flat_25_c7db8a_40x100.png") repeat-x scroll 50% 50% #C7DB8A !important;}
+   div#footerBar, div#ministeriesFBar{ background: url("images/ui-bg_flat_25_c7db8a_40x100.png") repeat-x scroll 50% 50% #C7DB8A !important;}
 
 /* uploader */
   tr.plupload_file{ background-image: none !important; background-color: #f3f3f3 !important; }

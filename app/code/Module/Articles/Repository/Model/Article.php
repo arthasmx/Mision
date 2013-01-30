@@ -262,6 +262,7 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
                       array('width'=>60, 'type'=>'select', 'options'=>array(''=>App::xlat('all'),'enabled'=>App::xlat('enabled'),'disabled'=>App::xlat('disabled')), 'title'=>App::xlat('mobile'), 'name'=>'mobile') )
 
          )->setGrid_id('#article-listing')
+          ->set_foot_bar('#footerBar')
           ->setOn_cell_select(",onCellSelect:function(row,col){
                                  if( col > 0 ){
                                    redirect( baseUrl + '/articles/edit/' + row );

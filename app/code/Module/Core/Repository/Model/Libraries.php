@@ -305,7 +305,7 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     App::header()->addScript(App::url()->get('/admin/categories.js','js'));
   }
 
-  
+
 
   function articles_promotion(){
     App::header()->addLink(App::skin('/css/tabs-slideshow.css'),array( "rel" => "stylesheet", "type" => "text/css" ));
@@ -534,6 +534,17 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
 
   function plUpload_events_upload_files(){
     App::header()->addScript(App::url()->get("/admin/events-upload-files.js",'js'));
+  }
+
+// MINISTERIES
+
+  function ministeries(){
+    App::header()->addScript(App::url()->get('/admin/ministeries.js','js'));
+    App::header()->addScript(App::url()->get('/admin/ministery-image-up.js','js'));
+  }
+
+  function plUpload_ministeries_upload_files(){
+    App::header()->addScript(App::url()->get("/admin/ministeries-upload-files.js",'js'));
   }
 
 }

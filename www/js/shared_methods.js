@@ -99,7 +99,7 @@ function ajax_saving(target,status,W,H){
   }
 }
 
-function blockUI_ajax_saving(target,on_off,msg,delay){
+function blockUI_ajax_saving(target,on_off,msg,the_width,delay){
   go_top();
   if( on_off=="off" ){
     jQuery(target).unblock();
@@ -115,11 +115,14 @@ function blockUI_ajax_saving(target,on_off,msg,delay){
   if( typeof(delay) == "undefined" ){
     delay = 0;
   }
+  if( typeof(the_width) == "undefined" ){
+    the_width = '30%';
+  }
 
   jQuery(target).block({
     message: "<h1 style='padding:20px;'>" + msg + "</h1>",
     timeout: delay,
-    css        : { border  : '3px solid #94B52C' },
+    css        : { border  : '3px solid #94B52C', width: the_width },
     overlayCSS : { opacity : 0.7, background:'#fff' }
   });
 }

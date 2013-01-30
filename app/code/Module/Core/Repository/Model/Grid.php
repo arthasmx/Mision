@@ -63,7 +63,7 @@ class Module_Core_Repository_Model_Grid extends Core_Model_Repository_Model{
             'height'    => $this->height,
             'rowNum'    => $this->rows,
             'rowList'   => "[$this->row_list]",
-            'pager'     => $this->foot_bar,
+            //'pager'     => $this->foot_bar,
             'sortname'  => $this->sort_by,
             'sortorder' => $this->sort_orientation
           )
@@ -251,4 +251,15 @@ class Module_Core_Repository_Model_Grid extends Core_Model_Repository_Model{
     return $this->on_select_all;
   }
 
+  function set_foot_bar($id){
+    if( empty($id) ){
+      App::module('Core')->exception( App::xlat('EXC_no_options_where_given') );
+    }
+
+    $this->options['pager'] = "'$id'";
+    $this->foot_bar         = $id;
+    return $this;
+  }
+  
+  
 }

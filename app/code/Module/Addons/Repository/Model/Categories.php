@@ -217,7 +217,34 @@ class Module_Addons_Repository_Model_Categories extends Module_Core_Repository_M
     return $mo;
   }
 
+  function get_family_grouped_for_select_grouped($category_seo=null){
+    if( empty($category_seo) ){
+      return array();
+    }
+    $family        = $this->get_family_forward($category_seo);
+    $parsed_family = $this->children_parser( $family );
 
+    $html          = null;
+    $first         = '<optgroup label="'.App::xlat('ministery_main').'">';
+    foreach( $parsed_family[0]['children'] AS $family){
+
+      if( empty( $family['children'] ) ){
+        $first .= '<option value="'.$family['seo'].'">'. $family['name'] .'</option>';
+      }else{
+
+        $html .= '<optgroup label="'.$family['name'].'">';
+          foreach( $family['children'] AS $option ){
+            $html .= '<option value="'. $option['seo']. '">'. $option['name'] .'</option>';
+          }
+        $html .= '</optgroup>';
+
+      }
+
+    }
+
+    return $first.'</optgroup>'.$html;
+  }
+  
 
 
   function get_category_range( $category_id=null ){

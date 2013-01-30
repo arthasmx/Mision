@@ -15,9 +15,13 @@ HEADER_logout, "Cerrar sesión"
   jqGrid_article_listing_topic,"Listado de Artículos"
   jqGrid_event_listing_topic,"Listado de Eventos"
   jqGrid_categories_listing_topic,"Listado de Categorías"
+  jqGrid_ministeries_listing_topic,"Listado de usuarios"
 
   id,"clave"
+  username,"usuario"
   name,"nombre"
+  last_name,"apellido paterno"
+  maiden_name,"apellido materno"
   section,"sección"
   language,"idioma"
   created,"creado"
@@ -48,6 +52,7 @@ HEADER_logout, "Cerrar sesión"
   children,"hijos"
   izq,"Izq"
   der,"Der"
+  ministery_main,"Principales"
 
   list_column_sort,"Ordenar por este campo"
 
@@ -123,7 +128,11 @@ HEADER_logout, "Cerrar sesión"
       */
 
     
+; MINISTERY
 
+  ministeries_tab_title,"Asignar Ministerios a Usuarios"
+  FIELDSET_ministeries,"Ministerios"
+  FIELDSET_users_to_ministeries,"Listado de usuarios"
 
 
 ; FORMS
@@ -183,6 +192,7 @@ HEADER_logout, "Cerrar sesión"
    BUTTON_save_new,"Guardar / Agregar Otro"
    BUTTON_save_publicate,"Publicar/Cerrar"
    BUTTON_publicate,"Publicar Artículo"
+   BUTTON_clear_selection,"Limpiar Selección"
    
    
   BUTTON_add,"Agregar"
@@ -214,6 +224,7 @@ EXC_filesystem_folder_not_available,"El directorio deseado no puede ser utilizad
 EXC_article_id_missing,"No se ha especificado el ID del artículo"
 EXC_error_type_was_not_provided,"Falta el tipo de render que deseas para el error [ Model_Error->render($type,$msg) ]"
 EXC_category_id_not_found,"No existe la categoría"
+EXC_user_wasnt_found,"No existe el usuario"
 
 ; JS MESSAGES
 sheep_it_remove_all_cloned_element_confirmation,"Se dispone a eliminar todos los elementos, esta seguro ?\nSi es así, recuerda que debes de guardar tus cambios"

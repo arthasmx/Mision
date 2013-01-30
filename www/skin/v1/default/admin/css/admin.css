@@ -180,15 +180,84 @@ body header, body header nav{
         fieldset#f_addons_map{ height:41em; width:44em;}
           fieldset#f_addons_map p.coordinates{ padding:5px 0; font-weight: bold; }
 
-        
-        
-        
-        
-        
-        
 
 
-            
+/* MINISTERIES */
+
+  fieldset#um-details{
+    height: 156px;
+    margin-bottom: 10px;
+    width: 615px;
+  }
+    fieldset#um-details img{
+      border: 1px solid #CCCCCC;
+      float: left;
+      margin-right: 10px;
+      padding: 5px;
+    }
+    fieldset#um-details h1{
+      display: inline-block;
+      width: 415px;
+    }
+    fieldset#um-details ul{
+      display: inline-block;
+      height: 130px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      width: 433px;
+      list-style: square inside none;
+    }
+    fieldset#um-details ul li{}
+
+  fieldset#um-options{
+    width: 615px;
+    height: 200px;
+  }
+    fieldset#um-options select{
+      height: 200px;
+      width: 615px;
+    }
+      fieldset#um-options select optgroup[label="Principales"], fieldset#um-options select optgroup[label="Educacion"], fieldset#um-options select optgroup[label="Musica"], fieldset#um-options select optgroup[label="Arte"], fieldset#um-options select optgroup[label="Servicio Social"], fieldset#um-options select optgroup[label="Comunicacion / Consolidacion"], fieldset#um-options select optgroup[label="Directores"], fieldset#um-options select optgroup[label="Cordinadores"]{
+        background-color: #F2F7E0;
+        color: #000000;
+        font-size: 15px;
+        font-style: normal;
+      }        
+      fieldset#um-options select optgroup option{
+        background-color: #FFFFFF;
+        color: black;
+        font-size: 13px;
+        padding: 0 0 2px 15px;
+      }
+
+    /* UPLOADING */            
+    #FileUpload {
+      border: 1px solid #CCCCCC;
+      float: left;
+      height: 138px;
+      margin-right: 10px;
+      padding: 5px 5px 10px;
+      position: relative;
+      width: 160px;
+    }
+    #BrowserVisible {
+      height: 144px;
+      left: 0;
+      margin: 5px;
+      position: absolute;
+      top: 0;
+      width: 160px;
+      z-index: 1;
+    }
+    #user_min {
+     cursor: pointer;
+      height: 144px;
+      opacity: 0;
+      position: relative;
+      text-align: right;
+      width: 120px;
+      z-index: 5000;
+    }
 
 
 
