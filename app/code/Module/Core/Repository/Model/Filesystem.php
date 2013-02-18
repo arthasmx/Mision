@@ -92,6 +92,7 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
   }
 
   function get_files_from_path($full_path, array $options=array()) {
+    $full_path = str_replace('\\', DS , $full_path );
     if (!is_dir($full_path) || !is_readable($full_path) || !$dir_handle = opendir($full_path)) {
       $this->_module->exception("No se ha podido leer la ruta ".$full_path);
     }
@@ -307,6 +308,12 @@ class Module_Core_Repository_Model_Filesystem extends Core_Model_Repository_Mode
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Cache-Control: post-check=0, pre-check=0", false);
     header("Pragma: no-cache");
+  }
+
+  function captcha_folder(){
+    $week = date('W');
+    $this->create_folder(WP . DS .'media'. DS . 'captchas'.DS, $week);
+    return array('dir' => WP . DS .'media'. DS . 'captchas'.DS. $week, 'url'=> App::base("/media/captchas/$week/") );
   }
 
 }

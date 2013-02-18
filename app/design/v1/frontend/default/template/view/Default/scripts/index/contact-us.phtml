@@ -1,30 +1,61 @@
 
-<div class="left-panel">
-  <h1><?=App::xlat('CONTACT_title')?><span><?=App::xlat('CONTACT_subtitle')?></span></h1>
-  <img height="90" width="670" title="<?=App::xlat('CONTACT_subtitle')?>" alt="<?=App::xlat('CONTACT_subtitle')?>" src="<?=App::media('/images/contact-us.jpg') ?>" />
-  <p><?=App::xlat('CONTACT_pharagraph_1')?></p>
-  <p><?=App::xlat('CONTACT_pharagraph_2')?></p>
+<div role="main" class="container-fluid main contact">
 
-  <div class="contact-form">
-    <?php if( empty($this->message_sent) ):?>
+    <div class="row-fluid">
+      <div class="span12">
+        <div id="contact-map"></div>
+      </div>
+    </div>
 
-      <?php $errors = App::module('Core')->getModel('Form')->get_error_messages($this->form); ?>
-      <?php if( ! empty($errors) ):?>
-        <ul class='form-errors'>
-        <?php foreach($errors AS $error): ?>
-          <li><?=$error?></li>
-        <?php endforeach; ?>
-        </ul>
-      <?php endif;?>
+    <div class="row-fluid fit-to-design contact-area">
+      <div class="span8">
 
-      <?=$this->form?>
-    <?php else:?>
-      <?=App::xlat('CONTACT_message_sent')?>
-    <?php endif;?>
-  </div>
-</div>
+        <h1><?=App::xlat('form_leave_message')?></h1>
+        <form class="well" id="contact">
+          <div class="input-append pull-left">
+            <span class="add-on">
+              <i class="icon-user"></i>
+            </span>
+            <?=$this->form->name?>
+          </div>
+          <div class="input-append pull-right">
+            <span class="add-on">
+              <i class="icon-envelope-alt"></i>
+            </span>
+            <?=$this->form->email?>
+          </div>
+          <?=$this->form->comments?>
+          <?=$this->form->captcha?>
+          <span id="captcha-refresh" class="icon-refresh" title="<?=App::xlat('captcha_generate')?>"></span>
+          <?=$this->form->button?>
+        </form>
 
-<div class="right-panel">
-  <?=App::module('Addons')->renderBlock("site/index","get-site-email-manager");?>
-  <?=App::module('Addons')->renderBlock("site/index","map",array('zoom'=>15));?>
+      </div>
+      <div class="span4">
+        <aside>
+          <h1><?=App::xlat('contact_us')?></h1>
+
+          <h2><?=App::xlat('address')?></h2>
+          <p class="offset1"><i class="icon-road"></i> <?=App::xlat('address_full')?></p>
+
+          <h2><?=App::xlat('hours')?></h2>
+          <p class="offset1"><i class="icon-time"></i> <?=App::xlat('address_hours')?></p>
+
+          <h2><?=App::xlat('phones')?></h2>
+          <p class="offset1">
+            <i class="icon-phone"></i> <?=App::xlat('address_phone_1')?> <br />
+            <i class="icon-phone"></i> <?=App::xlat('address_phone_2')?>
+          </p>
+
+          <h2><?=App::xlat('contact_email')?></h2>
+          <p class="offset1">
+            <i class="icon-envelope"></i> oficina@iglesialamision.mx <br />
+            <i class="icon-envelope"></i> admin@iglesialamision.mx <br />
+            <i class="icon-envelope"></i> web@iglesialamision.mx
+          </p>
+
+        </aside>
+      </div>
+    </div>
+
 </div>

@@ -4,52 +4,71 @@ class Module_Addons_Repository_Model_Menu extends Module_Core_Repository_Model_A
 
   private $user_menus = array();
 
-  function get($username= null, $menu_section_to_load = "admin-top"){
+  function get_admin($username){
     if( empty($username) ){
       return null;
     }
+    return $this->get('admin-top','vum.izq ASC',$username);
+  }
+
+  function get($menu_section_to_load = "admin-top", $sort_by='vum.izq ASC', $username=null){
 
     $select = $this->_db->select()
                    ->from(     array('vum' => 'vista_user_menus') )
-                   ->join(     array('mp'  => 'menu_privileges') , 'mp.menu_id = vum.id', array() )
-                   ->join(     array('p'   => 'privileges')      , 'p.name = mp.privilege', array() )
-                   ->join(     array('up'  => 'user_privileges') , 'up.privilege = p.privilege', array() )
                    ->where('vum.section = ?', $menu_section_to_load)
-                   ->where('up.username = ?', $username)
                    ->where('vum.status= ?', 'enabled')
                    ->group('vum.id')
-                   ->order('vum.izq ASC');
+                   ->order($sort_by);
+
+    if( ! empty($username) ){
+      $select->join(     array('mp'  => 'menu_privileges') , 'mp.menu_id = vum.id', array() );
+      $select->join(     array('p'   => 'privileges')      , 'p.name = mp.privilege', array() );
+      $select->join(     array('up'  => 'user_privileges') , 'up.privilege = p.privilege', array() );
+      $select->where('up.username = ?', $username);
+    }
 
     $this->user_menus = $this->_db->query( $select )->fetchAll();
 
-    return empty($this->user_menus)? null : $this->parse_user_menu();
+    return empty($this->user_menus)? null : $this->children_parser();
   }
 
-  function parse_user_menu(){
-    $current_parent = 0;
-    $base_parent    = 0;
-    $iteration      = 0;
-    $user_menu      = array();
-
-    foreach((array)$this->user_menus AS $menu){
-
-      if( $current_parent != $menu['parent'] ){
-        $current_parent = $menu['parent'];
+  function children_parser() {
+    $nodes = array();
+    $tree  = array();
+    foreach ($this->user_menus as &$node) {
+      $node["children"] = array();
+      $id = $node["id"];
+      $parent_id = $node["parent"];
+      $nodes[$id] =& $node;
+      if (array_key_exists($parent_id, $nodes)) {
+        $nodes[$parent_id]["children"][] =& $node;
+      } else {
+        $tree[] =& $node;
       }
-      if( $base_parent != $menu['parent'] ){
-        $base_parent    = $menu['id'];
-      }
+    }
+    return $tree;
+  }
 
-      if( $current_parent == $base_parent ){ //sub-menu
-        $user_menu[$iteration]['submenu'][$menu['sort']] = $menu;
-      }else{ // root-menu
-        $iteration++;
-        $user_menu[$iteration] = $menu;
-      }
-
+  function parse_menu_to_ul($array,$ul_id=null,$current=null) {
+    if( empty($array) ){
+      return null;
     }
 
-    return $user_menu;
+    $base_url = rtrim(App::base(),"www");
+    $out="<ul $ul_id >";
+    foreach($array as $elem){
+
+      if( ! is_array($elem['children']) ){
+        $out = $out ."<li". (($current==$elem['seo'])?' class="current"':null) ."> <a href='". (empty($elem['url'])?$base_url:$base_url.$elem['url']) ."'>". $elem['name'] ."</a></li>";
+      }else{
+        if( App::getDesign()->getCurrentLayout()==='intro' && $elem['seo']=='inicio' ){
+        }else{
+          $out = $out."<li". (($current==$elem['seo'])?' class="current"':null) ."> <a href='". (empty($elem['url'])?$base_url:$base_url.$elem['url']) ."'>". $elem['name'] ."</a>". $this->parse_menu_to_ul($elem['children']) ."</li>";
+        }
+      }
+    }
+    $out=$out."</ul>";
+    return $out;
   }
 
 }

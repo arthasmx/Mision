@@ -17,6 +17,25 @@ class Acl_IndexController extends Module_Acl_Controller_Action_Frontend {
       $form->populate($_POST);
     }
     $this->view->form = $form;
+
+    $this->designManager()->setCurrentLayout('login');
+
+    App::header()->add_jquery_events("
+      jQuery('form#login span#captcha-refresh').click(function(){
+        jQuery.ajax({
+          url: baseUrl  + 'captcha-contact-refresh',
+          dataType:'json',
+          beforeSend:function(){
+            jQuery( '#login input#captcha-input' ).val('');
+          },
+          success: function(data) {
+            jQuery( 'form#login img').attr('src', data.src);
+            jQuery( 'form#login input#captcha-id' ).attr('value', data.id);
+          }
+        });
+
+      });
+    ");
   }
 
 

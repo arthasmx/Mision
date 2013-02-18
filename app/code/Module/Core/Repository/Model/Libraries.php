@@ -30,6 +30,68 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     App::header()->add_jquery_events("jQuery('$id').rhinoslider({". implode(",", $parsed_options)."});");
   }
 
+  function galleria_io($id='#galleria',$options=null){
+    App::header()->addLink( App::www("/js/galleria.io/galleria.classic.css"),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->addScript(App::url()->get('/galleria.io/galleria-1.2.9.min.js','js'));
+
+    if( !empty($options) && is_array($options) ){
+      $parsed_options = array();
+      foreach($options AS $key=>$value){
+        $parsed_options[] = "$key : '$value'";
+      }
+    }else{
+      // http://galleria.io/docs/options/
+      $parsed_options = array(
+          "imageCrop     : true",
+          "height        : 0.36",
+          "autoplay      : 7000",
+          "carouselSpeed : 1200",
+          "preload       : 2",
+          "responsive    : true"
+          );
+    }
+
+    App::header()->add_jquery_events("Galleria.loadTheme('/js/galleria.io/galleria.classic.min.js');
+                                      Galleria.run('$id', {". implode(",", $parsed_options)."});
+    ");
+  }
+
+  function responsive_gallery($id='#rg-gallery',$options=null){
+//    App::header()->addLink( App::www("/js//responsive-gallery/css/demo.css"),array('rel'=>'stylesheet','type'=>'text/css'));
+
+    App::header()->addLink( App::www("/js//responsive-gallery/css/style.css"),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->addLink( App::www("/js//responsive-gallery/css/elastislide.css"),array('rel'=>'stylesheet','type'=>'text/css'));
+
+    App::header()->addScript(App::url()->get('/responsive-gallery/js/jquery.tmpl.min.js','js'));
+    App::header()->addScript(App::url()->get('/responsive-gallery/js/jquery.elastislide.js','js'));
+    App::header()->addScript(App::url()->get('/responsive-gallery/js/gallery.js','js'));
+
+  }
+
+  function twitter_bootstrap_slider($target='div.carousel'){
+    App::header()->add_jquery_events("
+      jQuery('$target').carousel({
+        interval: false
+      })
+
+      jQuery('ul.navigator li a').click(function(){
+        jQuery('$target').carousel( parseInt(jQuery(this).attr('data-slide-to')) );
+        jQuery('ul.navigator li').removeClass('active');
+        jQuery(this).parent().addClass('active');
+      });
+
+    ");
+  }
+
+  function twitter_bootstrap_slider_autoplay($target=null, $interval=4000){
+    if( empty($target) ){
+      App::module('Core')->exception( App::xlat('EXC_twitter_bootstrap_slider_interval_value_missed') . '[DEVEL88]' );
+    }
+    App::header()->add_jquery_events("
+      jQuery('$target').carousel({ interval : $interval, pause : 'hover' });
+    ");
+  }
+
   function addons_dropdown_menu(){
     App::header()->addLink( App::www("/js/addons-list/addons.css"),array('rel'=>'stylesheet','type'=>'text/css'));
   }
@@ -90,12 +152,49 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
   }
 
   function colorbox(){
-    App::header()->addLink(App::skin('/css/colorbox.css'),array('rel'=>'stylesheet'));
-    App::header()->addScript(App::url()->get('/jquery.colorbox-min-'. App::locale()->getLang() .'.js','js'));
+    App::header()->addLink( App::www("/js/colorbox/colorbox.css"),array('rel'=>'stylesheet','type'=>'text/css'));
+    App::header()->addScript(App::url()->get('/colorbox/jquery.colorbox-min-'. App::locale()->getLang() .'.js','js'));
   }
 
   function cBox_google_maps(){
     App::header()->add_jquery_events("$('.fMap').colorbox({width:'640',height:'480',iframe:true});");
+  }
+
+  function google_map($id=null, $coordinates=null){
+    if( empty($id) ){
+      return null;
+    }
+
+    $addon_core = App::module('Addons')->getConfig('core','map');
+    if( empty($coordinates) ){
+      $coordinates = $addon_core['coordinates'];
+    }
+
+    App::header()->addScript( "http://maps.googleapis.com/maps/api/js?key=".$addon_core['key']."&sensor=false" );
+
+    App::header()->addCode("
+        var myCenter = new google.maps.LatLng({$coordinates});
+        var marker;
+
+        function initialize() {
+          var options = {
+            center      : myCenter,
+            zoom        : 15,
+            mapTypeId   : google.maps.MapTypeId.ROADMAP,
+            scrollwheel : false,
+            zoomControl: true,
+            zoomControlOptions : { style: google.maps.ZoomControlStyle.SMALL }
+        };
+
+        map = new google.maps.Map(document.getElementById('$id'), options);
+
+        var marker = new google.maps.Marker({
+            position : myCenter,
+            map      : map
+        });
+      }
+      ");
+      App::header()->add_jquery_events("initialize();");
   }
 
   function google_map_launcher($id=null, $launcher=null, $coordinates=null){
@@ -183,8 +282,48 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     App::header()->add_jquery_events("$('a.cBox').colorbox({rel:'cBox'});");
   }
 
-  function youtube_video_player(){
-    App::header()->add_jquery_events("$('a.cBox_youtube').colorbox({iframe:true, innerWidth:640, innerHeight:480});");
+  function twitter_bootstrap_video_player( $target=null, $options=null ){
+    App::header()->addCode("var twitter_bootstrap_video_id = false;");
+
+    App::header()->add_jquery_events("
+      jQuery('$target').click(function () {
+        twitter_bootstrap_video_id = jQuery(this).attr('rel');
+        jQuery('#myModal').modal({
+          keyboard: true
+        });
+      });
+
+      jQuery('#myModal').on('show', function () {
+        jQuery('div.modal-body').html('<iframe src=\"' + twitter_bootstrap_video_id +' \" width=\"530\" height=\"370\" frameborder=\"0\"></iframe>');
+      });
+
+      jQuery('#myModal').on('hide', function () {
+        jQuery('div.modal-body').empty();  
+      });
+
+    ");
+  }
+
+  function youtube_video_player( $target=null, $options=null ){
+    //App::header()->addScript( App::url()->get('/youtube/jquery.youtubepopup.min.js','js') );
+/*
+    if( ! empty($options) && is_array($options) ){
+      $parsed_options = array();
+      foreach($options AS $key=>$value){
+        $parsed_options[] = "$key : '$value'";
+      }
+    }else{
+      $parsed_options = array(
+          "idAttribute: 'youtube'",
+          "effectTime  : 200",
+          "showTime    : 3000",
+          "autoPlay    : true",
+          "showBullets : 'always'",
+          "controlsMousewheel : false",
+          "controlsKeyboard : false");
+    }
+*/
+    // App::header()->add_jquery_events("jQuery('$target').YouTubePopup({". implode(",", $parsed_options)."});");
   }
 
   function import_easing(){
@@ -547,4 +686,9 @@ class Module_Core_Repository_Model_Libraries extends Core_Model_Repository_Model
     App::header()->addScript(App::url()->get("/admin/ministeries-upload-files.js",'js'));
   }
 
+// CONTACT (frontend)
+
+  function contact(){
+    App::header()->addScript(App::url()->get('/contact.js','js'));
+  }
 }

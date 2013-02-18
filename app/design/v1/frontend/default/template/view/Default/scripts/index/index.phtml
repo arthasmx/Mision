@@ -1,78 +1,30 @@
-<?=App::module('Articles')->renderBlock("index","slider")?>
+<div role="main" class="container-fluid main">
 
-<?=App::module('Articles')->renderBlock("index","shepherd-welcome")?>
+  <?=App::module('Articles')->renderBlock("index","slider")?>
+  <?=App::module('Articles')->renderBlock("index","welcome")?>
 
-<div class="three-cols gradient">
-  <div class="col">
-    <h1 class="no-line">
-      <?=App::xlat('MAINPAGE_column_guestbook')?>
-      <span><?=App::xlat('MAINPAGE_column_guestbook_subtitle')?></span>
-    </h1>
-    <a href="<?=App::url_translate('LINK_guestbook')?>">
-      <img src="/media/images/guestbook.jpg" alt="picture" class="none" height="95" width="300" title="<?=App::xlat('MAINPAGE_column_guestbook')?>" alt="<?=App::xlat('MAINPAGE_column_guestbook')?>" />
-    </a>
-    <p class="col_description"><?=App::xlat('MAINPAGE_column_guestbook_description')?></p>
-    <p class="right">
-      <a href="<?=App::url_translate('LINK_guestbook')?>">
-        <?=App::xlat('ARTICLE_read_more')?>
-      </a>
-    </p>
-  </div>
+    <div class="row fit-to-design">
+      <div class="span3 intro-block">
+        <h1><a href="<?=App::base( App::xlat('LINK_strategies') )?>"><?=App::xlat('INTRO_strategies')?></a></h1>
+        <p><i class="icon-cogs icon-4x pull-left icon-border fa-intro"></i><?=App::xlat('INTRO_strategies_desc')?></p>
+      </div>
 
-  <?=App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "simple", "location" => "intro") )?>
+      <div class="span3 intro-block">
+        <h1><a href="<?=App::base( App::xlat('LINK_calendar') )?>"><?=App::xlat('INTRO_calendar')?></a></h1>
+        <p><i class="icon-calendar icon-4x pull-left icon-border fa-intro"></i><?=App::xlat('INTRO_calendar_desc')?></p>
+      </div>
 
-  <div class="col last">
-    <?php $show_live_sermon = App::module('Addons')->getModel('Video')->time_to_show_live_sermon(); ?>
-    <?php if( empty( $show_live_sermon ) ): ?>
-      <h1 class="no-line">
-        <?=App::xlat('MAINPAGE_column_sermon')?>
-        <span><?=App::xlat('MAINPAGE_column_sermon_span')?></span>
-      </h1>
-      <a href="<?=App::url_translate('LINK_preaching')?>">
-        <img src="/media/images/prayer.jpg" alt="picture" class="none" height="95" width="300" title="<?=App::xlat('MAINPAGE_column_sermon')?>" alt="<?=App::xlat('MAINPAGE_column_sermon')?>" />
-      </a>
-      <p class="col_description"><?=App::xlat('MAINPAGE_column_sermon_description')?></p>
-      <p class="right">
-        <a href="<?=App::url_translate('LINK_preaching')?>">
-          <?=App::xlat('ARTICLE_read_more')?>
-        </a>
-      </p>
-    <?php else:?>
-      <?=App::module('Addons')->renderBlock("video/index","live")?>
-    <?php endif;?>
-  </div>
+      <div class="span3 intro-block">
+        <h1><a href="<?=App::base( App::xlat('LINK_join') )?>"><?=App::xlat('INTRO_join')?></a></h1>
+        <p><i class="icon-fire icon-4x pull-left icon-border fa-intro"></i><?=App::xlat('INTRO_join_desc')?></p>
+      </div>
+
+      <div class="span3 intro-block">
+        <h1><a href="<?=App::base( App::xlat('LINK_preaching') )?>"><?=App::xlat('INTRO_sermons')?></a></h1>
+        <p><i class="icon-volume-up icon-4x pull-left icon-border fa-intro"></i><?=App::xlat('INTRO_sermons_desc')?></p>
+      </div>
+    </div>
+
+  <?=App::module('Addons')->renderBlock("bible/index","phrase-content")?>
+
 </div>
-
-<?php
-/*
-$announcement
-Array
-(
-    [0] => Array
-        (
-            [id] => 123
-            [article_id] => 135
-            [title] => Requisitos del sitio
-            [seo] => requisitos-del-sitio
-            [created] => 2010-02-01 09:39:31
-            [publicated] => 2010-02-01 09:39:31
-            [username] => robe@gmail.com
-            [author] => Roberto Mejia
-            [written] => 1
-            [picture] =>
-            [article_type_id] => 4
-            [article_type_name] => Anuncios
-            [article_type_seo] => anuncios
-            [category_id] => 2
-            [category_name] => Articulos
-            [category_seo] => articulos
-            [status] => 1
-            [status_name] => Active
-            [lang_id] => 1
-            [language] => es
-            [lang_namespace] => es_MX
-            [lang_status] => 1
-            [description] => El cometa Lovejoy , descubierto el pasado 2 de diciembre, se dirige hacia el Sol y se espera que se encuentre con su destino el 15 de diciembre. Su órbita lo acercará a sólo 140.000 kilómetros por encima de la superficie solar. A esa distanciaasd as
-        )
- */
-?>

@@ -152,7 +152,7 @@ class Module_Addons_Repository_Model_Categories extends Module_Core_Repository_M
 
   // gets nodes from ME until find the inner CHILDREN ( me > child > child )
   // this is an awesome method to get ALL TREE; I mean, ALL! with sub/sub/sub/sub categories (great to do updates)
-  function get_family_forward($me_seo=null,$fields=null,$error_type='exception') {
+  function get_family_forward($me_seo=null,$sort_by='vc.izq ASC',$error_type='exception') {
     $me = $this->get_category_by_seo($me_seo);
     if( empty($me) ){
       App::module('Core')->getModel('Error')->render( App::xlat('EXC_category_id_not_found') . '<br />Launched at method get_parents, file Repository/Model/Categories', $error_type );
@@ -162,7 +162,7 @@ class Module_Addons_Repository_Model_Categories extends Module_Core_Repository_M
                    ->from( array('vc' => 'vista_categories') )
                    ->where('vc.izq >= ?', $me['izq'] )
                    ->where('vc.der <= ?', $me['der'] )
-                   ->order('vc.izq ASC');
+                   ->order($sort_by);
 
     $children = $this->_db->query( $select )->fetchAll();
     return empty($children) ? null : $children;

@@ -1,102 +1,77 @@
-  <div class="left-panel">
-    <h1>
-      <?=App::xlat('CONTENT_title_preaching')?>
-      <span><?=str_replace('%url%', App::base( App::xlat('route_bible').App::xlat('BIBLE_seo_book_1_timothy').'/2/7' ), App::xlat('CONTENT_subtitle_preaching') )?></span>
-    </h1>
-    <img class="head-image" title="<?=App::xlat('CONTENT_title_preaching')?>" alt="<?=App::xlat('CONTENT_title_preaching')?>" src="<?=App::media('/images/prayer.jpg')?>"  width="670" height="90"/>
-    <p><?=App::xlat('CONTENT_preaching_instructions')?></p>
-    <p class="right"><strong><?=App::xlat('CONTENT_preaching_instructions_blessing')?></strong></p>
 
-    <?php if ( empty( $this->preaching ) ):  ?>
-      <p><?=App::xlat('CONTENT_preaching_empty')?></p>
-    <?php else:?>
-        <div class="note">
-          <span class="topic"><?=App::xlat('NOTE_topic')?></span>
-          <p><?=App::xlat('NOTE_popup_warning')?></p>
-        </div>      
-      <?= empty($this->preaching['pagination_html']) ? "<span class='no-pagination'></span>" : $this->preaching['pagination_html'] ?>
-        <?php $dates = App::module('Core')->getModel('Dates'); ?>
-        <?php foreach($this->preaching['items'] AS $preach): ?>
-        <div class="preaching">
-          <div class="date"><?=$dates->toDate(7,$preach['event_date'])?></div>
-          <div class="actions">
+<div role="main" class="container-fluid main">
 
-            <a href="<?=App::base('descargar/audio' .DS. $preach['category'] .DS. $dates->toDate(8,$preach['event_date']) .DS. $preach['reference']) ?>">
-              <span class="icon download"></span>
-            </a>
-            <a href="#" onclick="pop_up('<?=App::base('predicacion')?>','<?=$preach['id']?>');return false;">
-              <span class="icon sound"></span>
-            </a>
+    <div class="row-fluid fit-to-design">
+      <div class="span8">
+        <h1><?=ucwords(App::xlat('LINK_preaching'))?></h1>
+        <?php if ( empty( $this->preaching['items'] ) ):  ?>
+          <p><?=App::xlat('preaching_empty')?></p>
+        <?php else:?>
+          <table class="table table-striped">
+            <thead>
+              <tr> <th>Date</th>  <th>Name</th>  <th>Download</th> </tr>
+            </thead>
+            <tbody>
+              <?php $dates = App::module('Core')->getModel('Dates'); ?>
+              <?php foreach($this->preaching['items'] AS $preach): ?>
+              <tr>
+                <td><?=$dates->toDate(7,$preach['event_date'])?></td>
+                <td><?=$preach['description']?></td>
+                <td> 
+                  <a class="btn btn-small btn-info" href="<?=App::base('descargar/audio' .DS. $preach['category'] .DS. $dates->toDate(8,$preach['event_date']) .DS. $preach['reference']) ?>">
+                    <i class="icon-download-alt"></i> <?=App::xlat('download')?> 
+                  </a> 
+                </td>
+              </tr>
+              <?php endforeach;?>
+            </tbody>
+          </table>
+          <?= empty($this->preaching['pagination_html']) ? "<span class='no-pagination'></span>" : $this->preaching['pagination_html'] ?>
+        <?php endif;?>
+      </div>
 
-            <?php if( empty($preach['related_files']['video']) ):?>
-              <span class="icon video-off"></span>
-            <?php else:?>
-              <a href="http://www.youtube.com/v/<?=$preach['related_files']['video']?>?rel=0&wmode=transparent&autoplay=1" class="cBox_youtube">
-                <span class="icon video"></span>
-              </a>
-            <?php endif;?>
+      <div class="span4">
+        <aside>
+          <?=App::module('Addons')->renderBlock("site/index","social-networks", array("style" => "medium") )?>
+          <?=App::module('Addons')->renderBlock("facebook/index","i-like-this")?>
+          <?=App::module('Articles')->renderBlock("announcement/index","carousel-promote")?>
+          <?=App::module('Articles')->renderBlock("events/index","promote-described", array("seo" => "celebracion-3-de-febrero-2013") )?>
+        </aside>
+      </div>
 
-            <?php if( empty($preach['related_files']['article']) ):?>
-              <span class="icon article-off"></span>
-            <?php else:?>
-              <a href="<?=App::base('articulo/' . $preach['related_files']['article'])?>">
-                <span class="icon article"></span>
-              </a>              
-            <?php endif;?>
+    </div>
 
-          </div>
-          <div class="description">
-            <?=$preach['description']?>
-          </div>
-        </div>
-        <?php endforeach;?>
+</div>
 
-        <?= empty($this->preaching['pagination_html']) ? "<span class='no-pagination'></span>" : $this->preaching['pagination_html'] ?>
-    <?php endif;?>
-
-  </div>
-
-  <div class="right-panel">
-    <?=App::module('Addons')->renderBlock("poll/index","get-poll", array('id'=>'3') );?>
-    <?=App::module('Addons')->renderBlock("bible/index","search", array("form_type" => "simple", "location" => "frontend") )?>
-    <?=App::module('Addons')->renderBlock("bible/index","phrase")?>
-    <?=App::module('Articles')->renderBlock("index","promote", array('past_next'=>'next', 'height'=>'445', 'width'=>'290', 'limit'=>"10", 'category'=>'4' ) );?>
-  </div>
-
-  
 <?php 
 /*
-$preaching
-    [items] => Array
+[items] => Array
+(
+  [0] => Array
+  (
+    [id] => 32
+    [username] => robe@gmail.com
+    [created] => 2012-08-19 11:05:37
+    [event_date] => 2012-08-19
+    [privilege] => public
+    [doctype] => audio
+    [reference] => elias-paez_dones-de-oficio-m-19.mp3
+    [status] => enabled
+    [name] => Los dones de oficio
+    [description] => Predicación del pastor Elias Páez - Los dones de oficio
+    [category] => predicacion
+    [thumbnail] => 
+    [lang] => es
+    [related_files] => 
+  )
+   [pagination] => Array
         (
-            [0] => Array
-                (
-                    [id] => 4
-                    [username] => robe@gmail.com
-                    [created] => 2012-03-04 08:44:46
-                    [event_date] => 2012-03-18
-                    [privilege] => public
-                    [doctype] => audio
-                    [reference] => la-familia-18-Mar-2012.mp3
-                    [status] => enabled
-                    [name] => Predicación: La Familia Parte 3
-                    [description] => Tercero y último sermón de la trilogia La Familia, impartida por el pastor Elias Páez de la Cerda.
-                    [category] => predicacion
-                    [thumbnail] => 
-                    [lang] => es
-                    [related_files] => Array
-                        (
-                            [id] => 1
-                            [file_id] => 2
-                            [audio] => la-familia-18-Mar-2012
-                            [video] => 
-                            [image] => 
-                            [article] => quienes-somos
-                            [update] => 2012-04-03 13:52:33
-                            [username] => robe@gmail.com
-                        )
+            [page_current] => 1
+            [items_per_page] => 7
+            [items_total] => 31
+            [page_total] => 5
+        )
 
-                )
+    [pagination_html] => 
  */
-
 ?>

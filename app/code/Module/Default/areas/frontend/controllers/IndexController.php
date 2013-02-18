@@ -8,106 +8,117 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
   function indexAction(){
     $this->designManager()->setCurrentLayout('intro');
     $this->view->current_main_menu = null;
-    $this->view->gallery_path      = App::module('Addons')->getModel('Gallery')->get_gallery_base_path();
   }
 
   function aboutUsAction(){
-    $this->view->current_main_menu = 0;
-    App::module('Core')->getModel('Libraries')->vertical_tabs('ul#vtab','div.vtab div.pane');
-
-    $this->view->aboutus         = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_about' );
-    App::module('Core')->getModel('Libraries')->youtube_video_player();
+    $this->view->current_menu    = $this->getRequest()->getParam('action');
+    $this->view->article         = App::module('Articles')->getModel('Article')->read_full_article( $this->getRequest()->getParam('action'),true,true );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_about_us'), 'icon'=>'icon-group' );
   }
 
   function doctrineAction(){
-    $this->view->current_main_menu = 1;
-    App::module('Core')->getModel('Libraries')->vertical_tabs('ul#vtab','div.vtab div.pane');
+    $this->view->current_menu    = 'doctrina';
+    App::module('Core')->getModel('Libraries')->twitter_bootstrap_slider('#doctrine-carousel');
 
-    $this->view->doctrine_article  = App::module('Articles')->getModel('Article')->get_article( 'doctrina' );
-    $this->view->pageBreadcrumbs   = $this->get_breadcrumbs( 'LINK_doctrine' );
-  }
-
-  function multimediaAction(){
-		$this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_menu_topic_multimedia' );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_doctrine'), 'icon'=>'icon-briefcase' );
   }
 
   function ministeryAction(){
     $this->view->current_main_menu = 2;
     $this->view->article           = App::module('Articles')->getModel('Article')->get_article( 'ministerios' );
-    $this->view->pageBreadcrumbs   = $this->get_breadcrumbs( 'LINK_ministery' );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_ministeries'), 'icon'=>'icon-briefcase' );
   }
 
   function cellAction(){
-    $this->view->current_main_menu = 3;
-    $this->view->cells             = App::module('Addons')->getModel('Cells')->get(false);
-    App::module('Core')->getModel('Libraries')->jquery_tools_no_image_tabs("cell");
+    $this->view->current_menu = 'celulas';
+    $this->view->cells        = App::module('Addons')->getModel('Cells')->cells(true,true);
+    $this->view->sectors      = App::module('Addons')->getModel('Cells')->sectors(true,true);
+    $this->view->zones        = App::module('Addons')->getModel('Cells')->zones(true,true);
 
-    $this->view->pageBreadcrumbs   = $this->get_breadcrumbs( 'LINK_cell' );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_cell'), 'icon'=>'icon-group' );
   }
 
   function contactUsAction(){
-    $this->view->current_main_menu = 5;
-    $request = $this->getRequest();
+    $libraries = App::module('Core')->getModel('Libraries');
+    $libraries->google_map("contact-map");
+    $libraries->contact();
+    $libraries->block_ui();
 
-    $form = $this->_module->getModel('Forms/Contact')->get();
+    $this->view->current_menu    = $this->getRequest()->getParam('action');
+    $this->view->form            = $this->_module->getModel('Forms/Contact')->get();
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_contact'), 'icon'=>'icon-envelope' );
+  }
+
+  function captchaContactRefreshAction(){
+    $this->designManager()->setCurrentLayout('ajax');
+    $form    = $this->_module->getModel('Forms/Contact')->get();
+    $captcha = $form->getElement('captcha')->getCaptcha();
+    $data    = array();
+
+    $data['id']  = $captcha->generate();
+    $data['src'] = $captcha->getImgUrl() .
+    $captcha->getId() .
+    $captcha->getSuffix();
+
+    $this->_helper->json($data);
+    exit;
+  }
+
+  function contactAction(){
+    $this->designManager()->setCurrentLayout('ajax');
+    $request = $this->getRequest();
+    $form    = $this->_module->getModel('Forms/Contact')->get();
+
     if ( $request->isPost() ){
 
-      require_once('Xplora/Captcha.php');
-      $captcha = new Xplora_Captcha();
-      if ( ! $captcha->validate(@$_POST['captcha']) ) {
-        $form->getElement('captcha')->getValidator('Custom')->addError("captchaWrongCode",App::xlat("ERROR_bad_captcha"));
-      }
-
-      if($form->isValid($_POST) ) {
-        App::events()->dispatch('module_default_contacto',array("to"=>App::module('Email')->getConfig('core','frontend_contact'), "comment"=>$request->getParam('comment'), "name"=>$request->getParam('name'), "email"=>$request->getParam('email')));
-        $this->view->message_sent = true;
-        $form->reset();
+      if( $form->isValid($_POST) ){
+        App::events()->dispatch('module_default_contacto',array("to"=>App::module('Email')->getConfig('core','frontend_contact'), "comment"=>$request->getParam('comments'), "name"=>$request->getParam('name'), "email"=>$request->getParam('email')));
+        $answer = date('Y');
       }else{
-        $form->populate($_POST);
+        $answer = App::module('Core')->getModel('Form')->get_json_error_fields($form);
       }
-
     }
-    $this->view->form = $form;
+    echo $answer;
+    exit;
+  }
 
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'BREADCRUM_contact_us' );
+
+
+  function siteMapAction(){
+    $this->view->article         = App::module('Articles')->getModel('Article')->read_full_article( $this->getRequest()->getParam('action'),true,true );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_map'), 'icon'=>'icon-sitemap' );
   }
 
   function siteRequirementsAction(){
-    $this->view->requirements    = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( App::xlat('FOOTER_link_site_requirements') );
-  }
-
-  function siteMapAction(){
-    $this->view->sitemap         = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_sitemap' );
-  }
-
-  function privacyPolicyAction(){
-    $this->view->privacy         = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_privacy_policy' );
+    $this->view->article         = App::module('Articles')->getModel('Article')->read_full_article( $this->getRequest()->getParam('action'),true,true );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_requirements'), 'icon'=>'icon-cog' );
   }
 
   function termsConditionsAction(){
-    $this->view->conditions      = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'FOOTER_link_terms_conditions' );
+    $this->view->article         = App::module('Articles')->getModel('Article')->read_full_article( $this->getRequest()->getParam('action'),true,true );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_terms'), 'icon'=>'icon-edit' );
+  }
+
+
+
+  function strategiesAction(){
+//    $this->view->article         = App::module('Articles')->getModel('Article')->read_full_article( $this->getRequest()->getParam('action'),true,true );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_strategies'), 'icon'=>'icon-cogs' );
+  }
+
+  function calendarAction(){
+//    $this->view->article         = App::module('Articles')->getModel('Article')->read_full_article( $this->getRequest()->getParam('action'),true,true );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_activities'), 'icon'=>'icon-calendar' );
   }
 
   function joinUsAction(){
-    $this->view->joinus          = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_join_us' );
-  }
-
-  function projectsAction(){
-    $this->view->projects        = App::module('Articles')->getModel('Article')->get_article( $this->getRequest()->getParam('action') );
-    $this->view->pageBreadcrumbs = $this->get_breadcrumbs( 'LINK_projects' );
+//    $this->view->article         = App::module('Articles')->getModel('Article')->read_full_article( $this->getRequest()->getParam('action'),true,true );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_join'), 'icon'=>'icon-fire' );
   }
 
   function preachingAction(){
-    App::module('Core')->getModel('Libraries')->youtube_video_player();
-
-    $this->view->preaching        = App::module('Addons')->getModel('Audio')->get_preaching( $this->getRequest()->getParam( App::xlat('route_paginator_page') ) );
-    $this->view->pageBreadcrumbs  = $this->get_breadcrumbs( 'LINK_preaching' );
+    $this->view->preaching       = App::module('Addons')->getModel('Audio')->get_preaching( $this->getRequest()->getParam( App::xlat('route_paginator_page') ) );
+    $this->view->pageBreadcrumbs = array('title'=> App::xlat('breadcrumb_preaching'), 'icon'=>'icon-volume-up' );
   }
 
   function preachAction(){
@@ -139,6 +150,7 @@ class IndexController extends Module_Default_Controller_Action_Frontend {
     }
     $this->view->form = $form;
   }
+
 
 
 /* DOWNLOADS */

@@ -25,7 +25,7 @@ $_CONFIG = array(
 
     'theme' => "dark",
 
-    'uploadURL' => "http://local.iglesialamision.mx/media/shared_files",
+    'uploadURL' => "http://www.iglesialamision.mx/media/shared_files",
     'uploadDir' => "",
 
     'dirPerms' => 0755,

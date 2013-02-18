@@ -1,0 +1,30 @@
+
+html body{
+  background: url("/media/images/big-gradient.jpg") no-repeat center center fixed #4483A4;
+  margin: 70px auto;
+  padding: 0;
+  width: 100%;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div.login{
+    background-clip: padding-box;
+    background-color: white;
+    border: 15px solid rgba(0, 0, 0, 0.3);
+    border-radius: 30px 30px 30px 30px;
+    height: 223px;
+    left: 50%;
+    margin: -130px 0 0 -250px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    width: 310px;
+}
+div.login img{margin-bottom: 20px; margin-left: 35px; }
+div.login input#captcha-input{ margin:0; }
+div.login button#button{ display: block; }
+
+form#login span#captcha-refresh{cursor: pointer;}

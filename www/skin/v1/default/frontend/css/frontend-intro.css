@@ -1,0 +1,155 @@
+/* BODY */
+html,body{height: 100%;}
+body{  background:url("/media/images/bk.jpg") repeat scroll 0 0 transparent !important; }
+.fit-to-design{ margin: 0 auto; width: 100%; max-width: 1080px; }
+.neon{ text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;}
+
+/* header */
+
+html body header{
+  background-color: #F9F9F9;
+  border-bottom: 1px solid #b7b7b7;
+  border-top: 1px solid #00B1EB;
+  width: 100%;
+  z-index: 100;
+}
+
+    html body header div{ max-width: 1024px; width: 100%; margin: 0 auto; }
+      html body header h1{ width: 240px; height:50px; display: inline-block; text-indent: -4000px; background: url(/media/images/iglesia-la-mision.png) no-repeat left center; margin: 8px 0 10px; }
+      html body header nav{ float: right; }
+        #menu { list-style:none; height:40px; position:relative; z-index:500; float: right; margin: 0px; padding: 0px;}
+        #menu li {float:left;}
+        #menu li a { display: block; font-weight: lighter; padding: 22px 20px 0; height:46px; font: 1em 'l_comfortaa',Arial,sans-serif; }
+
+        #menu table {border-collapse:collapse; width:0; height:0; position:absolute; top:0; left:0;}
+    
+        /* Default link styling */
+        /* Style the list OR link hover. Depends on which browser is used */
+    
+        #menu li a:hover {z-index:200; position:relative; background-color:#696a6a; color: #fff;}
+        #menu li:hover {position:relative; z-index:200;}
+
+        #menu li:hover > a, #menu li.current a { background: #696A6A !important; color: #fff !important; }
+        #menu li:hover > a.sub {}
+       
+/*    
+        #menu li a.sub {}
+*/
+        #menu li.current a.sub {color:#164399; background:transparent url(/media/images/menu-bk.png) repeat-x center center;;}
+
+        #menu :hover ul {left:0; top:68px; width:125px;}
+
+        /* keep the 'next' level invisible by placing it off screen. */
+        #menu ul, 
+        #menu :hover ul ul {position:absolute; left:-9999px; top:-9999px; width:0; height:0; margin:0; padding:0; list-style:none;}
+
+        #menu :hover ul :hover ul{left:125px; top:-1px; white-space:nowrap; width:100px; z-index:200; height:auto;}
+
+        #menu :hover ul li {margin:0; border-top:1px solid #EEEEEE;}
+        #menu :hover ul li a { background: none repeat scroll 0 0 #F9F9F9;
+          color: #00B1EB;
+          height: 40px;
+          line-height: 40px;
+          padding: 0;
+          text-indent: 10px;
+          width: 155px;
+        }
+        #menu :hover ul li a.fly {}
+
+        #menu :hover ul :hover {background-color:#696A6A; color:#fff;}
+        #menu :hover ul :hover a.fly {background-color:#696A6A; color:#fff;}
+
+        #menu :hover ul :hover ul li a {width:120px; padding:0; text-indent:10px; }
+        #menu :hover ul :hover ul :hover {background-color:#696A6A; color:#fff;}
+
+        #menu :hover ul li.currentsub a.fly, #menu :hover ul :hover ul li.currentfly a, #menu :hover ul :hover ul li.currentfly a:hover {background:#e9e9e9; color:#000; cursor: default;}
+
+      html body header div.bottom-shadow:after{ content:"";
+        background: url("/media/images/shadow-top.png") no-repeat scroll center bottom transparent;
+        height: 13px;
+        position: absolute;
+        width:100%;
+        max-width: 1024px;
+        z-index: 10;
+      }
+
+/* CONTENT */
+
+html body div.container-fluid{ padding:0 !important; }
+
+    #galleria-bk, #rg-gallery {background: #00B1EB url("/media/images/slider-gradient.png") no-repeat center; position: relative; padding:50px; }
+    #galleria-container{ height:100%; max-height: 400px; }
+    #galleria-container:after, div.rg-thumbs:after{
+      content:"";
+      background: url("/media/images/shadow-slider.png") no-repeat scroll center bottom transparent;
+      height: 36px;
+      position: absolute;
+      width:100%;
+      max-width: 1080px;
+    }
+    #welcome{ text-align: center; padding:40px 0 20px; }
+      #welcome h1{color: #696A6A;}
+      #welcome p{line-height: 1.8; margin-top: 50px;}
+
+    html body div.row{ margin-bottom: 70px; margin-top: 20px;}
+    html body div.main, html body div.article, html body div.event, html body div.announcement, html body div.business{min-height: 100%;}
+    html body div.main div.span3{width: 230px; border-bottom:4px solid #ccc;}
+      html body div.main div.span3 h1{ font-size:1.8em; border-bottom:1px solid #ccc; }
+        html body div.main div.span3 h1 a{ color:#787878; text-decoration: none;}
+      html body div.main div.span3 p {text-align: justify;}
+      i.fa-intro{color: #00B1EB;}
+      div.intro-block{
+        padding:10px;
+        -webkit-transition: all .35s ease-in-out;
+        -moz-transition: all .35s ease-in-out;
+        -o-transition: all .35s ease-in-out;
+        -ms-transition: all .35s ease-in-out;
+        transition: all .35s ease-in-out;
+      }
+        div.intro-block:hover {
+          background: #37383A !important;
+          color: #EFF4FF !important;
+          outline: none;
+          -webkit-box-shadow: 0px 6px 12px -2px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 6px 12px -2px rgba(0, 0, 0, 0.5);
+        }
+
+    html body div.container-fluid blockquote{ max-width: 900px; float: none; background-color: #F9F9F9; border-right: 5px solid #00b1eb; }
+      html body div.container-fluid blockquote p{font-style: italic; font-size: 13px; }
+
+
+
+
+/* FOOTER */
+html body footer{ margin-top: 70px; background: transparent url(/media/images/footer.jpg) repeat-x center; height: 305px; }
+  html body footer i, html body footer em{ color:#999; font-style: normal; }
+  html body footer a, footer li, footer p{ color:#777; }
+    footer p.address{ border-bottom: 1px solid #777; padding-bottom: 15px; text-align: justify; }
+  html body footer a:hover{ color:#bbb; }
+  html body footer h1{
+    font: 21px 'l_comfortaa',Arial,sans-serif;
+    color: #BBBBBB;
+    font-size: 1.2em;
+  }
+  html body footer div.site-links{
+    height: 255px;
+  }
+  html body footer div.rights{
+    color: #777;
+    font-size: 12px;
+    padding-top: 15px;
+  }
+
+  html body footer div.logo{
+    text-align: right;
+    padding-top: 10px;
+  }
+
+
+/* MEDIA QUERIES */
+/* max-width */
+@media screen and (max-width: 1080px) {
+ html body div.container-fluid blockquote {
+  float: right;
+ }
+}

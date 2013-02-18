@@ -1,7 +1,10 @@
 
 
 
-<?=App::xlat('MAIL_public_contact_paragraph_1');?> <?=$this->from_name?>  (<?=$this->from_email?>) <?=App::xlat('MAIL_public_contact_paragraph_2');?> <?=App::getConfig('website_name');?> <small> (<?=App::getConfig('website_url');?>) </small>
+<?=App::xlat('name')?> : <?=$this->from_name?>
 
-    <?=strip_tags($this->msg)?>
+<?=App::xlat('email')?> : <?=$this->from_email?>
+
+
+<?=$this->msg?>
 

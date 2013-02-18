@@ -10,6 +10,7 @@
     $this->current_menu['sub']=0;
   }
 
+  
 ?>
 
 <header>
@@ -18,9 +19,9 @@
     <h2> <?=str_replace(array('%user%','%url%'), array($name,$logout), App::xlat('HEADER_welcome'));?> <br /> <?=App::xlat('HEADER_last_login') . App::module('Core')->getModel('Dates')->toDate(7, $user_data['lastlogin']);?> </h2>
   </hgroup>
 
-  <?php if( ! empty($user_data['menu']) ): ?>
+  <?php if( ! empty($user_data['menu']['0']['children']) ): ?>
     <nav>
-      <?php foreach($user_data['menu'] AS $menu): ?>
+      <?php foreach($user_data['menu']['0']['children'] AS $menu): ?>
         <ul <?=($this->current_menu['menu']==$menu['id']) ? "class='current'" : null; ?>>
           <li>
             <a <?= empty($menu['url'])? '': "href='".App::base( $menu['url']."'" ) ?>>
@@ -28,8 +29,8 @@
             </a>
 
             <ul class="submenu<?=($this->current_menu['menu']==$menu['id']) ? ' show' : null; ?>">
-              <?php if( ! empty($menu['submenu'])  ): ?>
-                <?php foreach((array)$menu['submenu'] AS $submenu): ?>
+              <?php if( ! empty($menu['children'])  ): ?>
+                <?php foreach((array)$menu['children'] AS $submenu): ?>
                   <li>
                     <a href="<?= empty($submenu['url'])? '': App::base( $submenu['url'] ) ?>" <?=($this->current_menu['sub']==$submenu['id']) ? "class='current'" : null; ?> >
                       <?=$submenu['name']?>

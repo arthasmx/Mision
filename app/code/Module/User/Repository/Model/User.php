@@ -29,7 +29,7 @@ class Module_User_Repository_Model_User extends Module_Core_Repository_Model_Abs
 
     if( ! empty($this->basic_data) ){
       $this->basic_data['session_life'] = App::module('Acl')->getModel('Acl')->refresh_session_time();
-      $this->basic_data['menu']         = App::module('Addons')->getModel('Menu')->get($user);
+      $this->basic_data['menu']         = App::module('Addons')->getModel('Menu')->get_admin($user);
 
       return $this->basic_data;
     }

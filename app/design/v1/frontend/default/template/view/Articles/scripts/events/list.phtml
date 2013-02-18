@@ -1,0 +1,98 @@
+
+<div role="main" class="container-fluid article">
+
+    <div class="row-fluid fit-to-design">
+      <div class="span8">
+
+       <?php if( ! empty($this->events['items']) ): ?>
+         <?php foreach($this->events['items'] AS $event): ?>
+
+            <article class="list">
+              <?php if( file_exists( WP.DS.'media'.DS.$event['folder'].DS.'gallery'.DS.'article.jpg' ) ): ?>
+                <a href="<?=App::base( App::xlat( $event['type'].'_singular' ) ."/". $event['seo']  )?>">
+                  <img src="<?=App::media( $event['folder']."/gallery/article.jpg" )?>" alt="<?=$event['title']?>" title="<?=$event['title']?>" />
+                </a>
+              <?php else: ?>
+                <a href="<?=App::base( App::xlat( $event['type'].'_singular' ) ."/". $event['seo']  )?>">
+                  <img src="<?=App::media( '/images/article-preview.jpg' )?>" alt="<?=$event['title']?>" title="<?=$event['title']?>" />
+                </a>
+              <?php endif;?>
+
+              <p class="span pull-right info">
+                <span class="icon-calendar"></span> <?=App::locale()->toDate( $this->event['publicated'] ,'long')?> |
+                <span class="icon-user"></span> <?=$event['author']?> 
+                <?php if( App::getEnvironment()!=='devel' ):?>
+                  | <span class="icon-comments"></span> <fb:comments-count href="<?=App::base( App::xlat('eventos_singular').'/'. $event['seo'] )?>"></fb:comments-count> <?=App::xlat('comments')?>
+                <?php endif;?>
+              </p>
+              <h2><a href="<?=App::base( App::xlat( $event['type'].'_singular' ) ."/". $event['seo']  )?>"><?=$event['title']?></a></h2>
+              <p><?=strip_tags($event['article'])?></p>
+              <p><a class="btn-info btn-mini pull-right" href="<?=App::base( App::xlat('eventos_singular').'/'. $event['seo'] )?>"><?=App::xlat('read_more')?></a></p>
+            </article>
+
+         <?php endforeach; ?>
+         <?= empty($this->events['pagination_html']) ? '' : $this->events['pagination_html'];?>
+
+       <?php else:?>
+         <div class="well"> <?=App::xlat('no_data_found')?> [list#37] </div>
+       <?php endif;?>
+
+      </div>
+
+      <div class="span4">
+        <aside>
+          <?=App::module('Addons')->renderBlock("site/index","social-networks", array("style" => "medium") )?>
+          <?=App::module('Addons')->renderBlock("facebook/index","i-like-this")?>
+          <?=App::module('Articles')->renderBlock("announcement/index","carousel-promote")?>
+        </aside>
+      </div>
+
+    </div>
+
+</div>
+
+<?php 
+/*
+[items] => Array
+(
+  [0] => Array
+    (
+      [id] => 374
+      [article_id] => 233
+      [title] => Ojala que ganen los yaquis
+      [seo] => ojala-que-ganen-los-yaquis
+      [article] => Casting Crowns is a contemporary Christian and Christian rock band started in 1999 by youth pastor Mark Hall, 
+      [email] => 
+      [phone] => 
+      [address] => 
+      [type_id] => 70
+      [type] => eventos
+      [type_name] => Eventos
+      [created] => 2013-01-23 00:38:29
+      [publicated] => 2013-01-23
+      [event_date] => 
+      [stop_publication] => 
+      [username] => robe@gmail.com
+      [author] => Roberto Mejia Bañuelos
+      [language] => es
+      [written] => 1
+      [folder] => /events/2013/01/233/
+      [promote] => enabled
+      [mobile] => enabled
+      [addon] => enabled
+      [status] => enabled
+    )
+  
+  ....
+  
+  [pagination] => Array
+  (
+      [page_current] => 1
+      [items_per_page] => 20
+      [items_total] => 26
+      [page_total] => 2
+  )
+  
+  [pagination_html] => HTML 2 RENDER with ECHO
+*/
+?>

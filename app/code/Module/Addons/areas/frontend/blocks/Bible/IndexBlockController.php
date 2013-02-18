@@ -15,6 +15,9 @@ class Addons_Bible_IndexBlockController extends Core_Controller_Block {
   function phraseAction(){
     $this->view->phrase = $this->_module->getModel("Bible")->get_phrase();
   }
+  function phraseContentAction(){
+    $this->view->phrase = $this->_module->getModel("Bible")->get_phrase();
+  }
 
   function chaptersPaginatorAction(){
     $this->view->chapters        = $this->_module->getModel('Bible')->get_chapters_for_pagination( $this->getParam('seo'), $this->getParam('chapter') );

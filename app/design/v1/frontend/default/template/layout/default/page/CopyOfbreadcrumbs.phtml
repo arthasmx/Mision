@@ -1,0 +1,7 @@
+<?php if ( ! empty($this->pageBreadcrumbs['title']) ):?>
+  <div class="breadcrumbs">
+    <div class="container fit-to-design">
+      <h1> <?=empty($this->pageBreadcrumbs['icon'])?null:'<i class="'. $this->pageBreadcrumbs['icon'] .'"></i>'?>  <?=ucfirst($this->pageBreadcrumbs['title'])?> </h1>
+    </div>
+  </div>
+<?php endif;?>

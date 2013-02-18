@@ -1,32 +1,47 @@
 ﻿<?php $logo_alternate_text = App::getConfig('website_name') .' | '. ucfirst(App::xlat('HEADER_site_logo_slogan')); ?>
 
-<div id="error_image">
-  <div id="error_top">
-    <div id="replace_with_swfobject"></div>
+<div class="container-fluid">
+
+  <div class="row-fluid fit-to-design">
+
+    <div class="span4">
+      <div id="error_image">
+        <div id="error_top">
+          <div id="replace_with_swfobject"></div>
+        </div>
+        <div id="error_bottom"></div>
+      </div>
+    </div>
+
+    <div class="span8">
+      <div id="message">
+      	 <h1><?=App::xlat('PUBLIC_ERROR_title')?></h1>
+      	 <p><?=App::xlat('PUBLIC_ERROR_advice')?></p>
+
+        <h3><?=App::xlat('social_networks')?></h3>
+        <ul class="unstyled error_menu">
+          <li> <a href="<?=App::url_translate( "LINK_home" )?>"> <?=App::xlat("home")?> </a> <span class="icon-globe"></span></li>
+          <li> <a href="<?=App::url_translate( "LINK_about" )?>"> <?=App::xlat("about")?> </a> <span class="icon-group"></span></li>
+          <li> <a href="<?=App::url_translate( "LINK_contact" )?>"> <?=App::xlat("contact_us")?> </a> <span class="icon-envelope"></span></li>
+        </ul>
+        <h3><?=App::xlat('about_site')?></h3>
+        <ul class="unstyled error_menu">
+          <li> <a href="<?=App::url_translate('requirements_link')?>"><?=App::xlat('requirements')?></a> <span class="icon-cog"></span></li>
+          <li> <a href="<?=App::url_translate('terms_conditions_link')?>"><?=App::xlat('terms_conditions')?></a> <span class="icon-file-alt"></span></li>
+        </ul>
+        <h3><?=App::xlat('social_networks')?></h3>
+        <ul class="unstyled error_menu">
+          <li> <a href="<?=App::getConfig('url_facebook')?>">Facebook</a> <span class="icon-facebook"></span></li>
+          <li> <a href="<?=App::getConfig('url_twitter')?>">Twitter</a> <span class="icon-twitter"></span></li>
+          <li> <a href="<?=App::getConfig('url_google')?>">Google Plus!</a> <span class="icon-google-plus"></span></li>
+          <li> <a href="<?=App::getConfig('url_youtube')?>">Youtube</a> <span class="icon-facetime-video"></span></li>
+        </ul>
+        <a href="<?=App::base()?>">
+          <img src="<?=App::skin('/art/logos/mision-white.png')?>" width="234" height="43" alt="<?=$logo_alternate_text?>" title="<?=$logo_alternate_text?>" />
+        </a>
+      </div>
+    </div>
+
   </div>
-  <div id="error_bottom"></div>
-</div>
-<div id="message">
-	<h1><?=App::xlat('PUBLIC_ERROR_title')?></h1>
-	<p>
-	  <?=App::xlat('PUBLIC_ERROR_message')?>
-	  <?=App::xlat('PUBLIC_ERROR_advice')?>
-	</p>
 
-  <?php $menus = explode(",", App::getConfig('main_menu')); $iterator=1; ?>
-  <ul id="error_menu">
-	<?php foreach($menus AS $menu): ?>
-    <li <?= (sizeof($menus)==$iterator) ? 'class="last_link"':''; ?>>
-      <a href="<?=App::url_translate( "LINK_$menu" )?>">
-				<?=App::xlat("MENU_$menu")?>
-      </a>
-    </li>
-	<?php
-		$iterator+=1;
-		endforeach; ?>
-
-  </ul>
-  <a href="<?=App::base()?>">
-    <img src="<?=App::skin('/art/logos/mision-white.png')?>" width="234" height="43" alt="<?=$logo_alternate_text?>" title="<?=$logo_alternate_text?>" />
-  </a>
 </div>

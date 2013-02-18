@@ -1,23 +1,41 @@
-<div class="block social_networks">
-  <h1>
-    <?=App::xlat('CONTACT_SOCIAL_NETWORKS_title')?>
-    <span><?=App::xlat('CONTACT_SOCIAL_NETWORKS_subtitle')?></span>
-  </h1>
 
-  <h2>
-    <a class="facebook" href="<?=App::getConfig('url_facebook')?>"> <?=App::xlat('HEADER_follow_us_facebook')?> </a>
-  </h2>
- 
-  <h2>
-    <a class="twitter" href="<?=App::getConfig('url_twitter')?>"> <?=App::xlat('HEADER_follow_us_twitter')?> </a>
-  </h2>
+<h1><?=App::xlat('social_networks')?></h1>
+<div class="social-networks-<?=$this->style?>">
 
-  <h2>
-    <a class="youtube" href="<?=App::getConfig('url_youtube')?>"> <?=App::xlat('HEADER_follow_us_youtube')?> </a>
-  </h2>
+  <div class="facebook to-blur">
+    <a href="<?=App::getConfig('url_facebook')?>">
+      <span class="icon-facebook"></span>
+      <?php if( $this->style!='icon' ): ?>
+        <p><?=App::xlat('facebook')?></p>
+      <?php endif; ?>
+    </a>
+  </div>
 
-  <h2 class="no-margin">
-    <a class="gplus" href="<?=App::getConfig('url_google')?>"> <?=App::xlat('HEADER_follow_us_gplus')?> </a>
-  </h2>
+  <div class="twitter to-blur">
+    <a href="<?=App::getConfig('url_twitter')?>">
+      <span class="icon-twitter"></span>
+      <?php if( $this->style!='icon' ): ?>
+        <p><?=App::xlat('twitter')?></p>
+      <?php endif; ?>
+    </a>
+  </div>
+
+  <div class="youtube to-blur">
+    <a href="<?=App::getConfig('url_youtube')?>">
+      <span class="icon-facetime-video"></span>
+      <?php if( $this->style!='icon' ): ?>
+        <p><?=App::xlat('youtube')?></p>
+      <?php endif; ?>
+    </a>
+  </div>
+
+  <div class="gplus to-blur">
+    <a href="<?=App::getConfig('url_google')?>">
+      <span class="icon-google-plus"></span>
+      <?php if( $this->style!='icon' ): ?>
+        <p><?=App::xlat('gplus')?></p>
+      <?php endif; ?>
+    </a>
+  </div>
 
 </div>

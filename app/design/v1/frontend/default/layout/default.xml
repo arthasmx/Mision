@@ -6,13 +6,13 @@
 	<include as='head' template='default/head.phtml' />
 	<include as='page' template='default/page.phtml'>
 
-    <include as='breadcrumbs' template='default/page/breadcrumbs.phtml'/>
-		<include as='header' template='default/page/header.phtml' />
+  <include as='breadcrumbs' template='default/page/breadcrumbs.phtml'/>
+		<include as='header' template='intro/page/header.phtml' />
 		<include as='flashmsg' template='default/page/flashmsg.phtml'/>
-		
-		<segment name='content' as='content'/>
 
-		<include as='footer' template='default/page/footer.phtml'/>
+		  <segment name='content' as='content'/>
+
+		<include as='footer' template='intro/page/footer.phtml'/>
 
 	</include>
 

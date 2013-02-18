@@ -77,34 +77,28 @@ class Local_View_Helper_Paginate {
 
     $this->page_param_tpl = $this->paginator_page_name . "/:page";
     $pages=$this->getPages();
-    $pages_to_render = '<div class="pagination">';
+    $pages_to_render = '<div class="pagination pagination-centered"><ul>';
 
     foreach ($pages as $key=>$page) {
       if ('pages'===$key) {
-        $pages_to_render .= "<span class='numeric-pages'>";
         foreach ($page as $numeric_page) {
           if (!$numeric_page['current']) {
             $pages_to_render .=  sprintf(
-              "<span class='page numeric'><a href='%s' class='paginate-link'>%s</a></span>",
+              "<li><a href='%s' class='paginate-link'>%s</a></li>",
               $this->getUrl()."/".str_replace(":page",$numeric_page['page'],$this->page_param_tpl),
               $numeric_page['title']
             );
           } else {
-            $pages_to_render .= sprintf(
-              "<span class='page numeric current'><a href='%s' class='paginate-link'>%s</a></span>",
-              $this->getUrl()."/".str_replace(":page",$numeric_page['page'],$this->page_param_tpl),
-              $numeric_page['title']
-            );
+            $pages_to_render .= sprintf( "<li class='active'><a>%s</a></li>", $numeric_page['title'] );
           }
         }
-        $pages_to_render .= "</span>";
       } else {
       	// Procesamos página de texto
-      	$pages_to_render .= sprintf( "<span class='page text'><a href='%s' class='paginate-link'>%s</a></span>" , $this->getUrl()."/".str_replace(":page",$page['page'],$this->page_param_tpl) , $page['title'] );
+      	$pages_to_render .= sprintf( "<li><a href='%s'>%s</a></li>" , $this->getUrl()."/".str_replace(":page",$page['page'],$this->page_param_tpl) , $page['title'] );
       }
     }
 
-    return $pages_to_render . "</div>";
+    return $pages_to_render . "</ul></div>";
   }
 
     /**

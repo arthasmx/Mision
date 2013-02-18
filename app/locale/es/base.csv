@@ -12,31 +12,68 @@ promociones,"promociones"
   promociones_singular,"promocion"
 
 
-;HEADER
-  HEADER_LOGO_ALT,"Flexar | Diseño de aplicaciones para internet"
 
-;CONTENT
+;ROUTES
+  ; DOCTRINE
+    route_doctrine, "doctrina/"
+  ; BIBLE
+    route_bible, "biblia/"
+      route_search, "buscar/"
+  ; MULTIMEDIA
+    route_multimedia, "multimedia/"
+    route_gallery, "images/gallery/"
+    route_image, "images/gallery/"
+    route_audio, "audio/"
+    route_video, "video/"
+  ; ARTICLES
+    route_articles, "articulos/"
+      route_article, "articulo/"
+    route_announcement, "anuncios/"
+    route_events, "eventos/"
+  ; GUESTBOOK
+    route_guestbook, "libro-de-visitas/"
+  ; PAGINATOR
+    route_paginator_page, "pagina"
+  ; DATASORTER
+    route_sort_field, "sort"
+    route_sort_direction, "direction"
 
-;SITE GENERAL
-  HEADER_site_logo_slogan, "una iglesia para gente con propósito"
-  HEADER_follow_us, "siguenos en:"
-  HEADER_follow_us_facebook, "Facebook"
-  HEADER_follow_us_twitter, "Twitter"
-  HEADER_follow_us_gplus, "Google Plus!"
-  HEADER_follow_us_youtube, "Youtube"
+  home,"Inicio"
+  about,"Quienes Somos ?"
 
-; ADDONS
-  ADDON_video,"Video"
-  ADDON_audio,"Sonido"
-  ADDON_gallery,"Galería"
-  ADDON_file,"Archivos"
-  ADDON_link,"Links"
+  LINK_home, ""
+  LINK_about, "quienes-somos"
+  LINK_contact, "contactenos"
+  LINK_strategies,"estrategias-de-jesus"
+  LINK_calendar,"calendario-eventos"
+  LINK_join,"unete-al-movimiento"
+  LINK_preaching,"predicaciones"
 
 
-;AJAX
-  AJAX_loading, "cargando datos..."
-  AJAX_empty_search, "El campo de búsqueda esta vacio!"
-  AJAX_choose_an_option, "Elije una opción"
+; FORM
+  name,"Nombre"
+  email,"Email"
+  comment,"Comentario"
+  comments,"Comentarios"
+  form_leave_message,"Escribenos un mensaje"
+  form_placeholder_name,"Nombre completo…"
+  form_placeholder_email,"Correo electrónico…"
+  form_placeholder_msg,"Dudas, comentarios, propuestas…"
+  form_placeholder_user,"Nombre de usuario…"
+  form_placeholder_password,"Contraseña…"
+
+  
+  captcha_generate,"Generar otra imagen"
+  BUTTON_send_message,"Enviar Mensaje"
+  BUTTON_login,"Ingresar"
+
+
+;PAGINATION
+  PAGINATOR_no_pagination_links, "Ninguna"
+  page_first, "Inicio"
+  page_previous, "Anterior"
+  page_next, "Siguiente"
+  page_last, "Última"
 
 ;DATES
   dates_short_day_1, "Lun"
@@ -73,155 +110,6 @@ promociones,"promociones"
   dates_long_month_11, "Noviembre"
   dates_long_month_12, "Diciembre"
 
-;ARTICLES
-  ARTICLE_read_more, "Leer más..."
-  ARTICLE_go_to_section, "Ir a la sección"
-
-  ARTICLE_PREVIEW_title,"Título del artículo asignado en formulario"
-  ARTICLE_PREVIEW_written_by_at,"Publicado por <span class='author'>%author%</span> el %written-date%"
-  ARTICLE_PREVIEW_author,"creado por %author%"
-
-
-;BREADCRUMS
-  BREADCRUM_home, "Inicio"
-  BREADCRUM_contact_us, "Contáctenos"
-  BREADCRUM_bible, "Santa Biblia"
-  BREADCRUM_about_us, "Quiénes somos ?"
-
-  BREADCRUM_announcement, "Listado de anuncios"
-  BREADCRUM_events, "Listado de eventos"
-  BREADCRUM_guestbook, "Libro de visitas"
-
-  BREADCRUMBS_site_map, "Mapa del sitio"
-
-;PAGINATION
-  PAGINATOR_no_pagination_links, "Ninguna"
-  page_first, "Inicio"
-  page_previous, "Anterior"
-  page_next, "Siguiente"
-  page_last, "Última"
-
-
-;MENUS
-
-; MAIN MENU
-  MENU_home,"INICIO"
-  MENU_doctrine, "DOCTRINA"
-  MENU_events, "EVENTOS"
-  MENU_bible, "SANTA BIBLIA"
-  MENU_ministery, "MINISTERIOS"
-  MENU_cell, "CELULAS"
-  MENU_about,"QUIENES SOMOS ?"
-  MENU_contact,"CONTACTENOS"
-
-; LINKS TAG a href
-  LINK_home, ""
-  LINK_doctrine, "doctrina"
-    LINK_doctrine_god, "dios",
-    LINK_doctrine_jesuschrist, "jesucristo",
-    LINK_doctrine_holy_spirit, "espiritu-santo",
-    LINK_doctrine_resurrection, "resurrecion-de-jesucristo",
-    LINK_doctrine_church, "iglesia",
-    LINK_doctrine_church_state, "la-iglesia-y-el-estado",
-    LINK_doctrine_marine, "servicio-militar",
-    LINK_doctrine_economy_system, "sistema-economico-de-la-iglesia",
-    LINK_doctrine_ministerial_body, "cuerpo-ministerial",
-    LINK_doctrine_baptism, "bautismo",
-    LINK_doctrine_communion, "comunion",
-    LINK_doctrine_marriage, "matrimonio",
-    LINK_doctrine_divine_healing, "sanidad-divina",
-    LINK_doctrine_holiness, "santidad",
-    LINK_doctrine_death_sin, "pecado-de-muerte",
-    LINK_doctrine_just_and_unjust_resurrection, "resurrecion-de-justos-e-injustos",
-    LINK_doctrine_recollection, "recogimiento-de-la-iglesia-y-el-milenio",
-    LINK_doctrine_judgement, "juicio-final"
-
-  LINK_events, "eventos"
-  LINK_bible, "biblia"
-  LINK_cell, "celulas"
-  LINK_ministery, "ministerios"  
-  LINK_about, "quienes-somos"
-  LINK_contact, "contactenos"
-  LINK_join_us, "participa"
-  LINK_projects, "proyectos"
-  LINK_preaching, "predicaciones"
-  LINK_guestbook, "libro-de-visitas"
-    form_element_gender, "Género: "
-  LINK_flexar, "flexar"
-
-  ; FOOTER MENU
-    FOOTER_menu_topic_important_links, "Acerca del sitio"
-      FOOTER_link_terms_conditions,"Términos y condiciones"
-      FOOTER_link_sitemap,"Mapa del sitio"
-      FOOTER_link_site_requirements,"Requisitos del sitio"
-
-    FOOTER_menu_topic_multimedia, "Multimedia"
-        LINK_multimedia, "multimedia"
-      FOOTER_link_multimedia_music, "Musica"
-        LINK_multimedia_music, "multimedia/musica-cristiana"
-      FOOTER_link_multimedia_wallpaper, "Fondos de pantalla"
-        LINK_multimedia_wallpaper, "multimedia/fondos-de-pantalla-cristianos"
-      FOOTER_link_multimedia_video, "Videos"
-        LINK_multimedia_video, "multimedia/videos-cristianos"
-      FOOTER_link_multimedia_testimony, "Testimonios"
-        LINK_multimedia_testimony, "multimedia/testimonios-cristianos"
-      FOOTER_link_multimedia_templates, "Formatos a imprimir"
-        LINK_multimedia_templates, "multimedia/formatos-imprimir"
-
-    FOOTER_menu_topic_fast_contact, "Dirección"
-
-    FOOTER_menu_topic_fast_recomend, "Recomendaciones"
-
-
-;LINKS TAG a href
-  LINK_terms_conditions, "terminos-y-condiciones"
-  LINK_sitemap, "mapa-del-sitio"
-  LINK_site_requirements, "requisitos-del-sitio"
-
-;ROUTES
-  ; DOCTRINE
-    route_doctrine, "doctrina/"
-  ; BIBLE
-    route_bible, "biblia/"
-      route_search, "buscar/"
-  ; MULTIMEDIA
-    route_multimedia, "multimedia/"
-    route_gallery, "images/gallery/"
-    route_image, "images/gallery/"
-    route_audio, "audio/"
-    route_video, "video/"
-  ; ARTICLES
-    route_articles, "articulos/"
-      route_article, "articulo/"
-    route_announcement, "anuncios/"
-    route_events, "eventos/"
-  ; GUESTBOOK
-    route_guestbook, "libro-de-visitas/"
-  ; PAGINATOR
-    route_paginator_page, "pagina"
-  ; DATASORTER
-    route_sort_field, "sort"
-    route_sort_direction, "direction"
-
-;ERRORS
-  PUBLIC_ERROR_title,   "Perdido ?"
-  PUBLIC_ERROR_message, "La página que buscas no existe!"
-  PUBLIC_ERROR_advice,  "Utiliza los links que tenemos en nuestro sitio, por favor."
-  ERROR_bad_captcha, "El código de verificación es incorrecto"
-  ADDON_GALLERY_no_files_found_to_show_image_gallery, "No existen imagenes para mostrar en esta galeria"
-  LOGIN_bad_credentials, "Su nombre de usuario/contraseña son incorrectos; inténtelo de nuevo por favor."
-
-  ERROR_LOGIN_NOACTIVITY_NOPRIVILEGES, "No ha iniciado sesión o su sesión ha expirado por inactividad"
-  ERROR_REPORTED,"El usuario <b>%email%</b> esta bloqueado. Contacta a nuestro administrador para más detalles"
-  ERROR_BANNED,"Tu cuenta <b>%email%</b> ha sido suspendida. Contacta a nuestro administrador para más detalles"
-  ERROR_DISABLED,"El usuario <b>%email%</b> ha sido cancelado. Contacta a nuestro administrador para más detalles"
-  ERROR_MUSTVALIDATE,"Es necesario que confirmes tu cuenta desde el correo electronico que proporcionaste al momento de tu registro >> <b>%email%</b>; por favor, vaya a su cuenta de correo y dé click sobre el link que le enviamos."
-
-  ERROR_ACTIVE,"El usuario <b>%user%</b> no puede acceder al sitio porque necesita ser activado por nuestro administrador, por favor espere o comuniquese con nosotros para resolver este problema de inmediato"
-  WARNING_TIMEOUT,"Su sesión ha expirado por inactividad en el panel de usuario"
-
-// LOGOUT
-  "PUBLIC_LOGOUT_MSG_logout","Ha salido correctamente de su sesión!"
 
 ;MAIL
   ;CONTACT
@@ -231,26 +119,77 @@ promociones,"promociones"
     MAIL_FLEXAR_contact_paragraph_1,"Mensaje Urgente:<br /><br /><br />Se ha recibido una solicitud de soporte, enviado por <strong>"
     MAIL_FLEXAR_contact_paragraph_2,"</strong> en la página: "
 
-; NOTES
-  NOTE_topic, "Nota"
-  NOTE_popup_warning, "Para reproducir las predicaciones en audio, se requiere tener habilitado los Pop-ups"
+; BIBLE SEO
 
-;MANUAL EXCEPTIONS
-  EXC_NO_ACTION_TO_PARSE, "Se requiere una acción para ejecutar el método <strong>convert_seo_url_to_action</strong>"
-  EXC_article_wasnt_found, "El articulo que buscas no ha sido encontrado"
-  EXC_file_wasnt_found, "El archivo que has solicitado no ha sido encontrado"
-  EXC_file_is_not_set, "No se ha establecido el archivo"
-  EXC_books_werent_found, "No se encontraron los libros de la Biblia"
-  EXC_chapters_werent_found, "No se encontraron los capítulos del libro "
-  EXC_book_wasnt_found, "El libro no existe"
-  EXC_verse_wasnt_found, "El versículo no existe"
-  EXC_article_wrong_type, "El tipo de busqueda a realizar en los articulos no es correcto!"
-  EXC_article_datasorter, "No se ha instanciado el método de ordenamiento"
-  EXC_db_instance_not_found, "No existe una instancia de BD y se intenta ejecutar un query"
-  EXC_you_are_not_allowed_to_access_this_section, "No se puede tener acceso a esta parte del sitio"
-  EXC_table_name_missing, "No se ha especificado el nombre de la tabla a la cual se le van a aplicar las acciones pertinentes.(insert, update, delete)"
-  EXC_table_field_name_missing, "No se ha especificado el campo por el cual se ejecutara el filtro en la condicion WHERE"
-  EXC_multiple_database_modifications, "Usuario intentando modificar la BD aleatoriamente: EXC_multiple_database_modifications"
-  EXC_missing_arguments_at_adding_comments, "Error: No fué posible registrar tu comentario; ayudanos a mejorar la página reportando este error.<br />Por tu ayuda, muchas gracias."
-  EXC_bad_request, "Su petición no ha sido procesada correctamente por nuestro servidor, inténtelo de nuevo"
-  EXC_ajax_callback_method_is_missing, "No se ha espeficicado un metodo AJAX a ejecutar en la paginación."
+  BIBLE_seo_book_genesis,"genesis"
+  BIBLE_seo_book_exodus,"exodo"
+  BIBLE_seo_book_leviticus,"levitico"
+  BIBLE_seo_book_numbers,"numeros"
+  BIBLE_seo_book_deuteronomy,"deuteronomio"
+  BIBLE_seo_book_joshua,"josue"
+  BIBLE_seo_book_judges,"jueces"
+  BIBLE_seo_book_ruth,"rut"
+  BIBLE_seo_book_1_samuel,"1ra_de_samuel"
+  BIBLE_seo_book_2_samuel,"2da_de_samuel"
+  BIBLE_seo_book_1_kings,"1ra_de_reyes"
+  BIBLE_seo_book_2_kings,"2da_de_reyes"
+  BIBLE_seo_book_1_chronicles,"1ra_de_cronicas"
+  BIBLE_seo_book_2_chronicles,"2da_de_cronicas"
+  BIBLE_seo_book_ezra,"esdras"
+  BIBLE_seo_book_nehemiah,"nehemias"
+  BIBLE_seo_book_esther,"ester"
+  BIBLE_seo_book_job,"job"
+  BIBLE_seo_book_psalms,"salmos"
+  BIBLE_seo_book_proverbs,"proverbios"
+  BIBLE_seo_book_ecclesiastes,"eclesiastes"
+  BIBLE_seo_book_song_of_songs,"cantares"
+  BIBLE_seo_book_isaiah,"isaias"
+  BIBLE_seo_book_jeremiah,"jeremias"
+  BIBLE_seo_book_lamentation,"lamentaciones"
+  BIBLE_seo_book_ezekiel,"ezequiel"
+  BIBLE_seo_book_daniel,"daniel"
+  BIBLE_seo_book_hosea,"oseas"
+  BIBLE_seo_book_joel,"joel"
+  BIBLE_seo_book_amos,"amos"
+  BIBLE_seo_book_obadiah,"abdias"
+  BIBLE_seo_book_jonah,"jonas"
+  BIBLE_seo_book_micah,"miqueas"
+  BIBLE_seo_book_nahum,"nahum"
+  BIBLE_seo_book_habakkuk,"habacuc"
+  BIBLE_seo_book_zephaniah,"sofonias"
+  BIBLE_seo_book_haggai,"hageo"
+  BIBLE_seo_book_zechariah,"zacarias"
+  BIBLE_seo_book_malachi,"malaquias"
+  BIBLE_seo_book_matthew,"mateo"
+  BIBLE_seo_book_mark,"marcos"
+  BIBLE_seo_book_luke,"lucas"
+  BIBLE_seo_book_john,"juan"
+  BIBLE_seo_book_acts,"hechos"
+  BIBLE_seo_book_romans,"romanos"
+  BIBLE_seo_book_1_corinthians,"1ra_de_corintios"
+  BIBLE_seo_book_2_corinthians,"2da_de_corintios"
+  BIBLE_seo_book_galatians,"galatas"
+  BIBLE_seo_book_ephesians,"efesios"
+  BIBLE_seo_book_philippians,"filipenses"
+  BIBLE_seo_book_colossians,"colosenses"
+  BIBLE_seo_book_1_thessalonians,"1ra_de_tesalonicenses"
+  BIBLE_seo_book_2_thessalonians,"2da_de_tesalonicenses"
+  BIBLE_seo_book_1_timothy,"1ra_de_timoteo"
+  BIBLE_seo_book_2_timothy,"2da_de_timoteo"
+  BIBLE_seo_book_titus,"tito"
+  BIBLE_seo_book_philemon,"filemon"
+  BIBLE_seo_book_hebrews,"hebreos"
+  BIBLE_seo_book_james,"santiago"
+  BIBLE_seo_book_1_peter,"1ra_de_pedro"
+  BIBLE_seo_book_2_peter,"2da_de_pedro"
+  BIBLE_seo_book_1_john,"1ra_de_juan"
+  BIBLE_seo_book_2_john,"2da_de_juan"
+  BIBLE_seo_book_3_john,"3ra_de_juan"
+  BIBLE_seo_book_jude,"judas"
+  BIBLE_seo_book_revelation,"apocalipsis"
+
+
+// ERRORES
+ //404
+  "PUBLIC_ERROR_title","La página que buscas no existe!"
+  "PUBLIC_ERROR_advice","Utiliza nuestros links por favor"

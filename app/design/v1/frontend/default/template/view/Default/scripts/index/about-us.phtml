@@ -1,18 +1,20 @@
-<div class="left-panel">
-  <h1>
-    <?=$this->aboutus['title']?>
-    <span><?=App::xlat('CONTENT_subtitle_aboutus')?></span>
-  </h1>
-  <?= eval('?>' . $this->aboutus['article'] . '<?php ');?>
-</div>
 
-<div class="right-panel">
-  <?=App::module('Addons')->renderBlock("video/index","show-video", array(  'id'       => '7nDSrHcAzS4'
-                                                                          , 'title'    => App::xlat('YOUTUBE_video_about_title')
-                                                                          , 'subtitle' => App::xlat('YOUTUBE_video_about_subtitle')
-                                                                          , 'img'      => App::media('/images/iglesia-la-mision.jpg') ) );?>
+<div role="main" class="container-fluid main">
 
-  <?=App::module('Addons')->renderBlock("site/index","map",array('zoom'=>15));?>
-  <?=App::module('Addons')->renderBlock("site/index","get-site-email-manager");?>
-  <?=App::module('Addons')->renderBlock("bible/index","phrase")?>
+  <div class="row-fluid fit-to-design">
+    <div class="span8">
+      <?=$this->article['article']?>
+    </div>
+
+    <div class="span4">
+      <aside>
+        <?=App::module('Addons')->renderBlock("site/index","social-networks", array("style" => "medium") )?>
+        <?=App::module('Addons')->renderBlock("facebook/index","i-like-this")?>
+        <?=App::module('Articles')->renderBlock("index","carousel-promote-described")?>
+        <?=App::module('Articles')->renderBlock("announcement/index","carousel-promote")?>
+      </aside>
+    </div>
+
+  </div>
+
 </div>

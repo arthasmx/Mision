@@ -1,0 +1,69 @@
+
+<?php if( ! empty($this->latest) ): ?>
+  <?php $date = App::module('Core')->getModel('Dates'); ?>
+
+  <div class="latest-blue-topic"> <?=App::xlat('latest_events')?> </div>
+  <div class="well well-shadow latest-blue">
+    <div class="carousel carousel-fade slide latest-blue-carousel" id="latest-events-carousel">
+      <div class="carousel-inner">
+      <?php $first=true; ?>
+      <?php foreach($this->latest AS $latest):?>
+        <div class="item<?=($first===true)? ' active':null ?>">
+          <img src="<?=App::media( $latest['folder'].'gallery/aside-big.jpg' )?>" alt="<?=$latest['title']?>" title="<?=$latest['title']?>" />
+          <div class="latest-blue-date pull-right"><span class="icon-calendar"></span> <?=$date->toDate(7, $latest['publicated'])?></div>
+          <p><?=substr(strip_tags($latest['article']),0,170).'...'?></p>
+          <a href="<?=App::base( App::xlat( $latest['type'].'_singular' ) ."/". $latest['seo']  )?>" class="btn btn-info pull-right">
+            <span class="icon-file-alt"></span> <?=App::xlat('read_more')?>
+          </a>
+        </div>
+        <?php $first=false;?>
+      <?php endforeach;?>
+      </div>
+    </div>
+
+    <div class="pull-right latest-blue-nav">
+      <a data-slide="prev" href="#latest-events-carousel">
+        <i class="icon-chevron-left"></i>
+      </a>
+      <a data-slide="next" href="#latest-events-carousel">
+        <i class="icon-chevron-right"></i>
+      </a>
+    </div>
+  </div>
+  <div class="aside-block-shadow"></div>
+
+<?php endif; ?>
+
+<?php
+/*
+Array
+(
+  [0] => Array
+  (
+    [id] => 374
+    [article_id] => 233
+    [title] => Ojala que ganen los yaquis
+    [seo] => ojala-que-ganen-los-yaquis
+    [article] => Casting Crowns is a contemporary Christian and Christian rock band started in 1999 by youth pastor Mark Hall, who serves as the band's lead..
+    [email] => 
+    [phone] => 
+    [address] => 
+    [type_id] => 70
+    [type] => eventos
+    [type_name] => Eventos
+    [created] => 2013-01-23 00:38:29
+    [publicated] => 2013-01-23
+    [event_date] => 2013-01-23 00:00:00
+    [stop_publication] => 
+    [username] => robe@gmail.com
+    [author] => Roberto Mejia Bañuelos
+    [language] => es
+    [written] => 1
+    [folder] => /events/2013/01/233/
+    [promote] => enabled
+    [mobile] => enabled
+    [addon] => enabled
+    [status] => enabled
+)
+ */
+?>

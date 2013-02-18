@@ -99,8 +99,11 @@ function ajax_saving(target,status,W,H){
   }
 }
 
-function blockUI_ajax_saving(target,on_off,msg,the_width,delay){
-  go_top();
+function blockUI_ajax_saving(target,on_off,msg,the_width,delay,go_up){
+  if( typeof(go_top)=='undefined' || go_up==true){
+    go_top();
+  }
+
   if( on_off=="off" ){
     jQuery(target).unblock();
     return true;
@@ -120,7 +123,7 @@ function blockUI_ajax_saving(target,on_off,msg,the_width,delay){
   }
 
   jQuery(target).block({
-    message: "<h1 style='padding:20px;'>" + msg + "</h1>",
+    message: "<h1 style='padding:20px;' class='blockUI'>" + msg + "</h1>",
     timeout: delay,
     css        : { border  : '3px solid #94B52C', width: the_width },
     overlayCSS : { opacity : 0.7, background:'#fff' }

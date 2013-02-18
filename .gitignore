@@ -16,6 +16,11 @@ app/etc/db.ini
 www/media/images/gallery/
 www/media/articles/
 www/media/events/
+www/media/captchas/
+www/media/test/
+www/media/announcement/
+www/media/promotions/
+www/media/business/
 www/media/predicacion/
 www/skin/v1/default/light-blue/art/Thumbs.db
 www/skin/v1/default/light-blue/art/bks/Thumbs.db

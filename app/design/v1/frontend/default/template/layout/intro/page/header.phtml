@@ -1,0 +1,40 @@
+<?php
+  $layout         = App::getDesign()->getCurrentLayout();
+  $config_session = App::module('Core')->getModel('Namespace')->get( 'config' );
+
+  if( App::getConfig('unset_menus_in_session') == 0 ){
+    unset($config_session->config['main_menu']);
+    unset($config_session->config['intro_menu']);
+    unset($config_session->config['frontend_menu']);
+  }
+
+  if( empty($config_session->config['main_menu']) ){
+    $config_session->config['main_menu'] = App::module('Addons')->getModel('Menu')->get('frontend-main','vum.sort ASC');
+  }
+  if( $layout == 'intro' && empty($config_session->config['intro_menu']) ){
+    $config_session->config['intro_menu'] = App::module('Addons')->getModel('Menu')->parse_menu_to_ul( $config_session->config['main_menu'][0]['children'],'id="menu"',$this->current_menu );
+  }
+  if( $layout == 'default' && empty($config_session->config['frontend_menu']) ){
+    $config_session->config['frontend_menu'] = App::module('Addons')->getModel('Menu')->parse_menu_to_ul( $config_session->config['main_menu'][0]['children'],'id="menu"',$this->current_menu );
+  }
+
+?>
+
+<header>
+  <div class="fit-to-design">
+    <h1>
+      <a href="<?=App::base()?>"><?=App::xlat('HEADER_LOGO_ALT')?></a>
+      <span><?=App::xlat('HEADER_site_logo_slogan')?></span>
+    </h1>
+    <nav>
+      <?php if ( App::getDesign()->getCurrentLayout() === "default" ) :?>
+        <?=$config_session->config['frontend_menu']?>
+      <?php else:?>
+        <?=$config_session->config['intro_menu']?>
+      <?php endif; ?>
+      
+    </nav>
+  </div>
+  <div class="bottom-shadow"> </div>
+
+</header>

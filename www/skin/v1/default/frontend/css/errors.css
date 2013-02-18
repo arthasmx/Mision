@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+body{
+  background-color:#000;
+  color:#FFF;
+}
+.fit-to-design{ margin: 0 auto; width: 100%; max-width: 1080px; }
+ol, ul {list-style: none;}
+
+#message{
+	width: 100%;
+	margin-top:80px;
+	float:right;
+	text-align:right;
+}
+  #message h1{color:#fff;}
+  #message h3{color:#ccc; font-size:1.3em; margin:0;}
+
+#error_image{
+	float:left;
+	max-width: 100%;
+}
+  #error_image.no_flash_error{
+  	background: #000 url(/skin/v1/default/frontend/art/error/candle.jpg) left top no-repeat;
+  }
+  #error_image #error_top{
+  	float:left;
+  	height:290px;
+  }
+
+  #error_image #error_bottom{
+  	 float:left;
+    height:390px;
+		  width:300px;
+		  background: #000 url(/skin/v1/default/frontend/art/error/candle_flash.jpg) left top no-repeat;
+  }
+
+  .error_menu a{color:#00B1EB;}
+  .error_menu a:hover{color:#8CDCF6;}

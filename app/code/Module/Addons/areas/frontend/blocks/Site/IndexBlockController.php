@@ -32,6 +32,9 @@ class Addons_Site_IndexBlockController extends Core_Controller_Block {
     App::module('Core')->getModel('Libraries')->cBox_google_maps();
   }
 
-  function socialNetworksAction(){}
+  function socialNetworksAction(){
+    $style = $this->getParam('style');
+    $this->view->style = empty($style)?'big':$style;
+  }
 
 }

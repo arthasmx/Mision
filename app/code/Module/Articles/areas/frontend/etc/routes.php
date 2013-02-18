@@ -1,33 +1,28 @@
 <?php
 
-$article_params = array( 'module'     => 'Articles',
-                         'controller' => 'index');
+if ( App::locale()->getLang() ==='es' ){
+  $all_routes = array(
+    array('route'=>'eventos/*', 'route_name'=>'list-events', 'controller'=>'events', 'action'=>'list'),
+    array('route'=>'eventos/proximos-eventos/*', 'route_name'=>'next-event', 'controller'=>'events', 'action'=>'next'),
+    array('route'=>'eventos/eventos-anteriores/*', 'route_name'=>'previous-event', 'controller'=>'events', 'action'=>'previous'),
+    array('route'=>'evento/:seo', 'route_name'=>'read-event', 'controller'=>'events', 'action'=>'read'),
 
-$article_routes = array(
-  'announcement' => array('en'=> "announcements", 'es'=> 'anuncios'),
-  'events'       => array('en'=> "events", 'es'=> 'eventos')
-);
+    array('route'=>'articulos/*', 'route_name'=>'list-articles', 'controller'=>'index', 'action'=>'list'),
+    array('route'=>'articulo/:seo', 'route_name'=>'read-article', 'controller'=>'index', 'action'=>'read'),
+    array('route'=>'negocios/*', 'route_name'=>'list-business', 'controller'=>'business', 'action'=>'list'),
+    array('route'=>'negocio/:seo', 'route_name'=>'read-business', 'controller'=>'business', 'action'=>'read'),
+    array('route'=>'anuncios/*', 'route_name'=>'list-anuncios', 'controller'=>'announcement', 'action'=>'list'),
+    array('route'=>'anuncio/:seo', 'route_name'=>'read-anuncio', 'controller'=>'announcement', 'action'=>'read')
+  );
 
-foreach($article_routes AS $section=>$routes){
+  foreach($all_routes AS $route){
 
-  foreach($routes AS $lang=>$value){
-    $article_params["section"] = $section;
-    $base = new Zend_Controller_Router_Route($value . '/*', array_push_assoc($article_params, "action", "list-" . $section  ));
-    $read = new Zend_Controller_Router_Route($value . '/:seo/*', array_push_assoc($article_params, "action", "read-" . $section  ));
-
-    $router->addRoute($section . '_article_listing_'.$lang, $base);
-    $router->addRoute($section . '_article_read_'.$lang, $read);
+    $parsed_route = new Zend_Controller_Router_Route(
+        $route['route'],
+        array('module'     => 'Articles',
+              'controller' => $route['controller'],
+              'action'     => $route['action']));
+    $router->addRoute($route['route_name'], $parsed_route);
   }
 
 }
-
-$basic_article = new Zend_Controller_Router_Route('articulo/:seo/*', array_push_assoc($article_params, "action", "read"));
-$router->addRoute('basic_article', $basic_article);
-
-
-$route = new Zend_Controller_Router_Route(
-    'evento/:seo/*',
-    array('module'   => 'Articles',
-        'controller' => 'events',
-        'action'     => 'read'));
-$router->addRoute('reading-event', $route);

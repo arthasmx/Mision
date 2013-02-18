@@ -2,8 +2,6 @@
 require_once 'Core/Controller/Block.php';
 class User_Login_IndexBlockController extends Core_Controller_Block {
 
-    function init() {}
-
     /**
      * Efectuamos el login principal del sitio.
      * Esto es un bloque para asi poderlo poner en cualquier parte del diseño

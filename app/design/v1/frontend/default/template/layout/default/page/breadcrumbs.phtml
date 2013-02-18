@@ -1,22 +1,15 @@
-<span class="separator_up"> </span>
-<?php if( empty($this->login) ):?>
-  <div id='breadcrumbs' class="gradient">
-    <ul>
-      <?php if (count((array)$this->pageBreadcrumbs) ):?>
-        <li class='icons breadcrums_home'><a href='<?=App::base()?>'><?=App::xlat('BREADCRUM_home');?></a></li>
-  
-        <?php foreach ((array)$this->pageBreadcrumbs as $breadcrumb):?>
-          <li class='icons breadcrum'>
-            <?php if ( empty($breadcrumb['url']) ): ?>
-              <?=ucfirst($breadcrumb['title'])?>
-            <?php else:?>
-              <a href='<?=$breadcrumb['url']?>' ><?=ucfirst($breadcrumb['title'])?></a>
-            <?php endif;?>
-          </li>
+<?php if ( ! empty($this->pageBreadcrumbs['title']) ):?>
+  <div class="breadcrumbs<?=empty($this->pageBreadcrumbs['crumbs']) ? null : ' has-crumbs'?><?=empty($this->small_bread) ? null : ' small-crumbs'?>">
+    <div class="container fit-to-design">
+
+      <?php if( ! empty($this->pageBreadcrumbs['crumbs']) ): ?>
+        <?php foreach($this->pageBreadcrumbs['crumbs'] AS $crumb): ?>
+          <h1> <span class="<?=$crumb['ico']?>"></span> <a href="<?=App::base($crumb['url'])?>"> <?=$crumb['txt']?> </a> </h1> <span class="icon-chevron-right"></span>
         <?php endforeach;?>
       <?php endif;?>
-    </ul>
+
+      <h1> <?=empty($this->pageBreadcrumbs['icon'])?null:'<i class="'. $this->pageBreadcrumbs['icon'] .'"></i>'?>  <?=ucfirst($this->pageBreadcrumbs['title'])?> </h1>
+
+    </div>
   </div>
-  <span class="separator"> </span>
-<?php endif; ?>
-<div id="content_data" class="gradient">
+<?php endif;?>

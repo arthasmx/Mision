@@ -48,22 +48,28 @@ class Module_Articles_Repository_Model_Uploads extends Core_Model_Repository_Mod
     $uploaded_file      = App::module('Core')->getModel('Filesystem')->plUploader_upload( $path_to_save , "main.jpg" );
 
     $image = App::module('Core')->getModel('Image');
-    // listing
+// listing
     $image->resize_image($uploaded_file, $this->image_config['list_width'], $this->image_config['list_height'],'crop');
     $image->saveImage( $path_to_save . 'listing.jpg', 80 );
-    // promote
+// promote
     $image->resize_image($uploaded_file, $this->image_config['promote_width'], $this->image_config['promote_height'],'crop');
     $image->saveImage( $path_to_save . 'promote.jpg', 80 );
-    // aside
+// aside SMALL
     $image->resize_image($uploaded_file, $this->image_config['aside_width'], $this->image_config['aside_height'],'crop');
     $image->saveImage( $path_to_save . 'aside.jpg', 80 );
-    // mobile
+// aside BIG
+    $image->resize_image($uploaded_file, $this->image_config['aside_big_width'], $this->image_config['aside_big_height'],'crop');
+    $image->saveImage( $path_to_save . 'aside-big.jpg', 80 );
+// mobile
     $image->resize_image($uploaded_file, $this->image_config['mobile_width'], $this->image_config['mobile_height'],'crop');
     $image->saveImage( $path_to_save . 'mobile.jpg', 100 );
-    // slider
+// slider
     $image->resize_image($uploaded_file, $this->image_config['slider_width'], $this->image_config['slider_height'],'crop');
     $image->saveImage( $path_to_save . 'slider.jpg', 100 );
-    // article
+// slider-thumb (content slider preview)
+    $image->resize_image($uploaded_file, $this->image_config['slider_thumb_width'], $this->image_config['slider_thumb_height'],'exact');
+    $image->saveImage( $path_to_save . $this->folder_config['thumbnails'] . DS . 'slider.jpg', 100 );
+// article
     $image->resize_image($uploaded_file, $this->image_config['article_width'], $this->image_config['article_height'],'exact');
     $image->saveImage( $path_to_save . 'article.jpg', 90 );
 

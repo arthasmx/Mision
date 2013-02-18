@@ -1,11 +1,7 @@
 
-<p>
-	<?=App::xlat('MAIL_public_contact_paragraph_1');?>
-	  <?=$this->from_name?> (<?=$this->from_email?>)
-  <?=App::xlat('MAIL_public_contact_paragraph_2');?>
-    <?=App::getConfig('website_name');?> <small> (<?=App::getConfig('website_url');?>) </small>
+<p style="font-family: Verdana, Tahoma, Arial; font-size:13px;">
+  <strong><?=App::xlat('name')?></strong> : <?=$this->from_name?><br />
+  <strong><?=App::xlat('email')?></strong> : <?=$this->from_email?>
 </p>
+<p style="font-family: Verdana, Tahoma, Arial; font-size:12px;"><?=$this->msg?></p>
 
-<blockquote style="text-align:justify;">
-  <?=$this->msg?>
-</blockquote>

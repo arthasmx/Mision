@@ -8,8 +8,6 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
   private   $image_config   = null;
   private   $folder_config  = null;
 
-  protected $_totalLatest   = 3;
-
   function init(){
     $this->core          = App::module('Core')->getModel('Abstract');
     $this->session       = App::module('Core')->getModel('Namespace')->get( 'article' );
@@ -23,7 +21,7 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
                           ->order( 'va.created DESC');
 
     if( ! empty($type) ){
-      $select->where( 'va.type_id = ?', $type );
+      $select->where( 'va.type = ?', $type );
     }
     if( $status!=="all" ){
       $select->where( 'va.status = ?', $status );
@@ -35,7 +33,7 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     if( $past_next==="next" ){
       $select->where( 'va.event_date >= ?', date("Y-m-d h:i:s") );
     }elseif( $past_next==="past" ){
-      $select->where( 'va.event_date <= ?', date("Y-m-d") );
+      $select->where( 'va.event_date <= ?', date("Y-m-d h:i:s") );
     }
 
     if( $written_only===true ){
@@ -125,6 +123,22 @@ class Module_Articles_Repository_Model_Article extends Core_Model_Repository_Mod
     }
 
     return $article;
+  }
+
+  function latest( $type='articulos' , $enabled_only = true){
+    $select  = $this->core->_db->select()
+                          ->from(array('va' => 'vista_articles' ) )
+                          ->where( 'va.type = ?', $type )
+                          ->where( 'va.language = ?', App::locale()->getLang() )
+                          ->order( 'va.publicated DESC')
+                          ->limit( App::getConfig('aside_comments_limit') );
+
+    if( $enabled_only === true){
+      $select->where('va.status = ?', 'enabled');
+    }
+
+    $events = $this->core->_db->query( $select )->fetchAll();
+    return empty($events)? null : $events;
   }
 
   function get_article_addons($article_id = 0, $parse=null){

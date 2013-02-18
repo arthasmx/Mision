@@ -10,22 +10,17 @@
 <meta name="revisit-after" content="7 days" />
 
 <!--Links-->
-    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/reset.css');?>" rel="stylesheet" />
-    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/frontend.css');?>" rel="stylesheet" />
-    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/menus.css');?>" rel="stylesheet" />
-    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/columns.css');?>" rel="stylesheet" />
-    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/forms.css');?>" rel="stylesheet" />
-    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/colorbox.css');?>" rel="stylesheet" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/bootstrap/bootstrap-w8.css');?>" rel="stylesheet" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet" />
+    <link href="<?=App::getDesign()->getRelativeSkinPath('/css/frontend-intro.css');?>" rel="stylesheet" />
+    <link href="<?=App::getDesign()->getRelativeJsPath('/nicescroll/jquery.mCustomScrollbar.css')?>" rel="stylesheet" />
     <link href="<?=App::getDesign()->getRelativeSkinPath('/font/stylesheet.css');?>" rel="stylesheet" />
 
-	<!-- ieHacks -->
-		<!--[if lt IE 7]>
-			<link href="<?=App::getDesign()->getRelativeSkinPath('/css/ie/ie.css');?>" rel="stylesheet" />
-		<![endif]-->
+    <!--[if IE 7]
+      <link href="<?=App::getDesign()->getRelativeSkinPath('/css/font-awesome/css/font-awesome-ie7.min.css');?>" rel="stylesheet" />
+    [endif]-->
 
-		<!--[if lt IE 6]>  <![endif]-->
-		<!--[if lt IE 7]>  <![endif]-->
-		<!--[if lt IE 8]>  <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600' rel='stylesheet' type='text/css'>
 
 	<?= App::header()->getLinks();?>
 
@@ -36,7 +31,10 @@
     <script src="<?=App::getDesign()->getRelativeJsPath('/html5.js','js');?>"></script>
   <![endif]-->
     <script src="<?=App::getDesign()->getRelativeJsPath('/jquery-1.8.0.min.js','js');?>" ></script>
-    <script src="<?=App::getDesign()->getRelativeJsPath('/jquery.colorbox-min-'. App::locale()->getLang() .'.js','js');?>" ></script>    
+    <script src="<?=App::getDesign()->getRelativeJsPath('/jquery-ui/jquery-ui-1.9.1.custom.min.js','js');?>" ></script>
+    <script src="<?=App::getDesign()->getRelativeJsPath('/bootstrap/bootstrap.min.js','js');?>" ></script>
+    <script src="<?=App::getDesign()->getRelativeJsPath('/jquery.mousewheel.min.js','js');?>" ></script>
+    <script src="<?=App::getDesign()->getRelativeJsPath('/nicescroll/jquery.mCustomScrollbar.min.js','js');?>" ></script>
 
     <script>
         var baseUrl="<?=App::base();?>";
@@ -51,8 +49,45 @@
 
         jQuery(document).ready(function(){
           <?=App::header()->get_jquery_events();?>
+
+          jQuery('.main div.span3').mouseenter(function(){
+            $(this).css({'border-bottom':'4px solid #00B1EB','cursor':'pointer'});
+            $(this).find("i").css({color:'#75D5F4'});
+            $(this).find("h1").css({'border-bottom':'1px solid #00B1EB'});
+            $(this).find("a").css({'color':'#fff'});
+          }).mouseleave(function() {
+            $(this).css({'border-bottom':'4px solid #ccc'});
+            $(this).find("i").css({color:'#00B1EB'});
+            $(this).find("h1").css({'border-bottom':'1px solid #ccc'});
+            $(this).find("a").css({'color':'#787878'});
+          });
+
+          jQuery('.main div.span3,.main div.span3 p,.main div.span3 h1').click(function(){
+            window.location = $(this).find("h1 a").attr('href');
+          });
+
+          jQuery('footer .scroll-this').mCustomScrollbar({set_height:'100%'});
+          
         });
     </script>
+
+		<script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">	
+			<div class="rg-image-wrapper fit-to-design">
+				<div class="rg-caption-wrapper">
+					<div class="rg-caption" style="display:none;">
+						<p></p>
+					</div>
+				</div>
+				{{if itemsCount > 1}}
+					<div class="rg-image-nav">
+						<a href="#" class="rg-image-nav-prev">Previous Image</a>
+						<a href="#" class="rg-image-nav-next">Next Image</a>
+					</div>
+				{{/if}}
+				<div class="rg-image"></div>
+				<div class="rg-loading"></div>
+			</div>
+		</script>
 
 	<?=App::header()->getScripts();?>
 
