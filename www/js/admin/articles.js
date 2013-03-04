@@ -130,7 +130,6 @@ var articles = {
     var self = this;
 
     if( is_number(response) ){
-console.log(button)
       switch(button){
       case 'next':
         blockUI_ajax_saving(self.tabs.id,"off");
